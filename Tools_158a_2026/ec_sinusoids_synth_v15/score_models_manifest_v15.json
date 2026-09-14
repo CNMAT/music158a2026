@@ -1,0 +1,529 @@
+{
+  "source_zip_sha256": "49700c3955f372de55e1ca45c5e73fe57f77536c6dddb2bc6e39609c25b9bf05",
+  "controls": [
+    {
+      "name": "Partial_Count_v15",
+      "type": "int",
+      "example": "32",
+      "group": "Core"
+    },
+    {
+      "name": "Source_Base_Hz_v15",
+      "type": "float",
+      "example": "110. 500.",
+      "group": "Core"
+    },
+    {
+      "name": "Max_Drift_v15",
+      "type": "float",
+      "example": "0.5 500.",
+      "group": "Core"
+    },
+    {
+      "name": "Output_Gain_dB_v15",
+      "type": "float",
+      "example": "-30. 250.",
+      "group": "Core"
+    },
+    {
+      "name": "Audio_On_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Core"
+    },
+    {
+      "name": "Envelope_Loop_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Core"
+    },
+    {
+      "name": "Envelope_Trigger_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Core"
+    },
+    {
+      "name": "Drift_Shape_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Shapes"
+    },
+    {
+      "name": "Drift_Morph_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "Shapes"
+    },
+    {
+      "name": "Amplitude_Shape_v15",
+      "type": "int",
+      "example": "3",
+      "group": "Shapes"
+    },
+    {
+      "name": "Amplitude_Morph_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "Shapes"
+    },
+    {
+      "name": "Anchor_Shape_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Shapes"
+    },
+    {
+      "name": "Anchor_Morph_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "Shapes"
+    },
+    {
+      "name": "Retuning_Mode_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Retuning"
+    },
+    {
+      "name": "Target_Base_Hz_v15",
+      "type": "float",
+      "example": "220. 1000.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Retune_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Semitones_v15",
+      "type": "float",
+      "example": "0.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Cents_v15",
+      "type": "float",
+      "example": "0.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Offset_Hz_v15",
+      "type": "float",
+      "example": "0.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Model_Gain_v15",
+      "type": "float",
+      "example": "1.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Minimum_Hz_v15",
+      "type": "float",
+      "example": "20.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Maximum_Hz_v15",
+      "type": "float",
+      "example": "12000.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Cluster_Hz_v15",
+      "type": "float",
+      "example": "0.0 500.",
+      "group": "Retuning"
+    },
+    {
+      "name": "Post_Bypass_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Retuning"
+    },
+    {
+      "name": "ADSR_Breakpoints_v15",
+      "type": "int",
+      "example": "48",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Duration_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Shape_v15",
+      "type": "int",
+      "example": "0",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Store_Index_v15",
+      "type": "int",
+      "example": "1",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Store_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Emit_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "ADSR_Points_v15",
+      "type": "list",
+      "example": "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0",
+      "group": "ADSR shaper"
+    },
+    {
+      "name": "Library_Breakpoints_v15",
+      "type": "int",
+      "example": "48",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Duration_ms_v15",
+      "type": "float",
+      "example": "1000.0 500.",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Shape_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Store_Index_v15",
+      "type": "int",
+      "example": "1",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Store_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Emit_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Library_Points_v15",
+      "type": "list",
+      "example": "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0",
+      "group": "Library shaper"
+    },
+    {
+      "name": "Direction_Seed_v15",
+      "type": "int",
+      "example": "12345",
+      "group": "Micro-drift"
+    },
+    {
+      "name": "Micro_On_v15",
+      "type": "int",
+      "example": "1",
+      "group": "Micro-drift"
+    },
+    {
+      "name": "Micro_Depth_Hz_v15",
+      "type": "float",
+      "example": "0.1 500.",
+      "group": "Micro-drift"
+    },
+    {
+      "name": "Micro_Segment_ms_v15",
+      "type": "float",
+      "example": "2000.0 500.",
+      "group": "Micro-drift"
+    },
+    {
+      "name": "Removal_Shape_v15",
+      "type": "int",
+      "example": "3",
+      "group": "Removal"
+    },
+    {
+      "name": "Removal_Count_v15",
+      "type": "int",
+      "example": "10",
+      "group": "Removal"
+    },
+    {
+      "name": "Remove_Partials_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Removal"
+    },
+    {
+      "name": "All_Off_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Copy_Amplitude_to_Anchor_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Copy_Amplitude_to_Drift_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Random_Drift_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Random_Amplitude_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Random_Anchor_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Actions"
+    },
+    {
+      "name": "Stop_0_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_1_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_2_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_3_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_4_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_5_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_6_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_7_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_8_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_9_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_10_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_11_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_12_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_13_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_Beat_Hz_v15",
+      "type": "float",
+      "example": "0.2 500.",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stop_Tail_v15",
+      "type": "int",
+      "example": "24",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stops_Apply_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Stops_Clear_v15",
+      "type": "bang",
+      "example": "bang",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Registration_v15",
+      "type": "int",
+      "example": "0",
+      "group": "Organ stops"
+    },
+    {
+      "name": "Partial_Drift_v15",
+      "type": "indexed",
+      "example": "3 0.5 250.",
+      "group": "Individual partials"
+    },
+    {
+      "name": "Partial_Amplitude_v15",
+      "type": "indexed",
+      "example": "3 0.5 250.",
+      "group": "Individual partials"
+    },
+    {
+      "name": "Partial_Anchor_v15",
+      "type": "indexed",
+      "example": "3 0.5 250.",
+      "group": "Individual partials"
+    },
+    {
+      "name": "Octave_Family_v15",
+      "type": "family",
+      "example": "3 1",
+      "group": "Octave families"
+    },
+    {
+      "name": "Drift_Values_v15",
+      "type": "list",
+      "example": "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0",
+      "group": "Individual partials"
+    },
+    {
+      "name": "Amplitude_Values_v15",
+      "type": "list",
+      "example": "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0",
+      "group": "Individual partials"
+    },
+    {
+      "name": "Anchor_Values_v15",
+      "type": "list",
+      "example": "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0",
+      "group": "Individual partials"
+    }
+  ],
+  "events": [
+    {
+      "offset_ms": 0,
+      "name": "All_Off_v15",
+      "message": "bang"
+    },
+    {
+      "offset_ms": 0,
+      "name": "Source_Base_Hz_v15",
+      "message": "55. 0."
+    },
+    {
+      "offset_ms": 0,
+      "name": "Retune_ms_v15",
+      "message": "0. 0."
+    },
+    {
+      "offset_ms": 50,
+      "name": "Amplitude_Morph_ms_v15",
+      "message": "20. 0."
+    },
+    {
+      "offset_ms": 100,
+      "name": "Amplitude_Shape_v15",
+      "message": "7"
+    },
+    {
+      "offset_ms": 150,
+      "name": "ADSR_Shape_v15",
+      "message": "5"
+    },
+    {
+      "offset_ms": 200,
+      "name": "ADSR_Duration_ms_v15",
+      "message": "1500. 0."
+    },
+    {
+      "offset_ms": 300,
+      "name": "Envelope_Trigger_v15",
+      "message": "bang"
+    },
+    {
+      "offset_ms": 2000,
+      "name": "Target_Base_Hz_v15",
+      "message": "110. 750."
+    },
+    {
+      "offset_ms": 2200,
+      "name": "Envelope_Trigger_v15",
+      "message": "bang"
+    },
+    {
+      "offset_ms": 4500,
+      "name": "All_Off_v15",
+      "message": "bang"
+    },
+    {
+      "offset_ms": 0,
+      "name": "Envelope_Loop_v15",
+      "message": "0"
+    }
+  ]
+}
