@@ -223,7 +223,7 @@ Both works invite attention to process rather than only surface events. Compare 
 <td><strong>Week 4</strong><br>Sep. 14-18</td>
 <td>
 <!-- Lesson Plan Week 4 (New Module: 2 MSP) -->
-<strong>Lesson Plan Week 4 (New Module 2 MSP, Signal, Synthesis)</strong>
+<strong>Lesson Plan Week 4 (New Module 2: MSP, Signal, Synthesis)</strong>
 <br><br>
 <!-- wk.4 lesson -->
 <strong>(tu)</strong> 09/15 — Signal, Synthesis and Tone, CNMAT Spectral Objects PT. 1 <br>
