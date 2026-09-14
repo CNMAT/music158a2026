@@ -287,6 +287,11 @@ Compare two contrasting electronic compositions: one by Brian Eno, based on simp
 <!-- Lesson Plan Week 6 -->
 <strong>Lesson Plan Week 6</strong>
   <strong>Lesson Plan Week 6 (Module 2 (cont.) More synthesis and control, with demos)</strong>
+  <br><br>
+<!-- wk.6 lesson -->
+<strong>(tu)</strong> 09/29 — More study and practice with Homework 2 materials <br> 
+<!-- wk.6 lesson -->
+<strong>(th)</strong> 10/08 — More practice with messaging and control of synthesis
 <br><br>
   <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_2 due today by start of classtime. </em>
