@@ -235,6 +235,9 @@ Students can present results from Homework 01 in class today.
 <!-- wk.4 lesson -->
 <strong>(th)</strong> 09/17 — Signal, Synthesis and Tone, CNMAT Spectral Objects PT. 2
 <br><br>
+<!-- homework assignment 2 -->
+<em>Assignment: Homework_2. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
+<br><br>
 <!-- contextual listening -->
 <strong>Contextual Listening: Subotnick ↔ Squarepusher — New Sounds Generate New Forms</strong>
 <br><br>
@@ -261,9 +264,6 @@ Compare two highly contrasting electronic works in which synthesis moves beyond 
 <!-- class demonstration -->
 <strong>(th)</strong> 09/24 — Signal, Synthesis and Tone, Mixing, CNMAT Spectral Objects — CLASS DEMONSTRATIONS
 <br><br>
-  <br><br>
-<!-- homework assignment 2 -->
-<em>Assignment: Homework_2. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <!-- CONTEXTUAL LISTENING -->
 <strong>Contextual Listening: Brian Eno ↔ Aphex Twin — Tone and Noise and Note to Noise Continuum</strong>
 <br><br>
