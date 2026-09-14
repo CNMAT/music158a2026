@@ -285,7 +285,6 @@ Compare two contrasting electronic compositions: one by Brian Eno, based on simp
 <td><strong>Week 6</strong><br>Sep. 28-Oct. 2</td>
 <td>
 <!-- Lesson Plan Week 6 -->
-<strong>Lesson Plan Week 6</strong>
   <strong>Lesson Plan Week 6 (Module 2 (cont.) More synthesis and control, with demos)</strong>
   <br><br>
 <!-- wk.6 lesson -->
