@@ -31,3 +31,9 @@ All eight Node suites passed; full output is in `checks_performed.txt`.
 
 ## Files
 Open `_ec_sinusoids_synth_stage_14.maxpat` for the updated synth. `Envelope-Shaper_01.maxpat` is the standalone. Keep existing v14 JavaScript and support patches beside the synth. The standalone is self-contained and can be copied alone.
+
+## Standalone hundredths update
+The standalone now truncates every outgoing float toward zero at the hundredths place using an embedded `p hundredths` with `vexpr int($f1 * 100.) / 100.`. Examples: 0.129 → 0.12; 0.999 → 0.99; 21.276595 → 21.27. The transformation precedes the message display, coll storage, outlet and gain-envelope send, so all receive the same truncated list. Both amplitude values and segment times are affected. For example, 47 segments of 21.27 ms total 999.69 ms rather than 1000 ms. The stage 14 embedded shaper retains its previous full precision, as this request applies to the standalone. All patching and presentation coordinates remain unchanged. Numeric messages may display 0. or 0.5 rather than padded 0.00 or 0.50; values remain numeric. Max runtime confirmation is still required.
+
+## Stage 14 hundredths update
+The embedded stage 14 shaper now uses the same hundredths truncation as the standalone. This supersedes the previous standalone-only precision distinction. All resulting amplitude values and segment times truncate toward zero to two decimal places before display, storage and output. The updated embedded shaper matches the standalone except for omission of the standalone global send. Existing patching and presentation coordinates and wire endpoints remain unchanged. Actual Max playback/display still requires verification.

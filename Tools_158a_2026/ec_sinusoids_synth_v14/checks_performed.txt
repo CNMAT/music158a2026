@@ -22,3 +22,9 @@ PASS: both full-bank named copies, single model transactions, alloff zero banks 
 tests_workspace_stage_14.cjs — exit 0
 PASS: ten pairs per row, ON above OFF, complete presentation layout, direct ALL OFF routing, visible/full-bank zeroing, all hidden slots cleared, stopped morphs, one transaction, renamed dependencies.
 
+
+Standalone hundredths update:
+PASS: recursive graph/port validation; all 24 exact stage-14 templates, including zero; normalized ranges; standalone hundredths truncation path; embedded routing without duplicate broadcast; standalone/embedded equivalence except output precision; no top-level object rectangle overlaps.
+Verified unchanged presentation/patching coordinates and wire endpoints. Max execution remains unverified.
+
+Stage 14 hundredths update: PASS tests_envelope_shaper01.cjs; embedded/standalone match except global send; recursive graph, template, bounds and overlap checks passed. Existing geometry and wires preserved. Max runtime pending.
