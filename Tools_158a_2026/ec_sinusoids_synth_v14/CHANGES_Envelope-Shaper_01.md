@@ -37,3 +37,6 @@ The standalone now truncates every outgoing float toward zero at the hundredths 
 
 ## Stage 14 hundredths update
 The embedded stage 14 shaper now uses the same hundredths truncation as the standalone. This supersedes the previous standalone-only precision distinction. All resulting amplitude values and segment times truncate toward zero to two decimal places before display, storage and output. The updated embedded shaper matches the standalone except for omission of the standalone global send. Existing patching and presentation coordinates and wire endpoints remain unchanged. Actual Max playback/display still requires verification.
+
+## Explicit 48-breakpoint startup
+Both standalone and embedded shapers now defer startup to the low-priority queue, explicitly send 45 to the count slider (existing +3 gives 48), then initialize duration and Flat zero. Count initialization no longer depends on successful menu/coll output. Saved multislider size is 48. Existing object positions and presentation coordinates are preserved. Verify opening/reopening in Max shows 48 before interacting with SHAPE.

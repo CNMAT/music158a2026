@@ -28,3 +28,8 @@ PASS: recursive graph/port validation; all 24 exact stage-14 templates, includin
 Verified unchanged presentation/patching coordinates and wire endpoints. Max execution remains unverified.
 
 Stage 14 hundredths update: PASS tests_envelope_shaper01.cjs; embedded/standalone match except global send; recursive graph, template, bounds and overlap checks passed. Existing geometry and wires preserved. Max runtime pending.
+
+48-breakpoint initialization fix:
+PASS: recursive graph/port validation; all 24 exact stage-14 templates, including zero; normalized ranges; standalone and embedded hundredths truncation paths; embedded routing without duplicate broadcast; standalone/embedded equivalence; no top-level object rectangle overlaps.
+PASS: standalone and embedded explicitly initialize 48 breakpoints before duration and shape.
+Max opening/reopening verification pending.

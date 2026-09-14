@@ -24467,8 +24467,9 @@
                   "id": "obj-load-trigger",
                   "maxclass": "newobj",
                   "numinlets": 1,
-                  "numoutlets": 2,
+                  "numoutlets": 3,
                   "outlettype": [
+                    "bang",
                     "bang",
                     "bang"
                   ],
@@ -24478,7 +24479,7 @@
                     62.0,
                     22.0
                   ],
-                  "text": "t b b"
+                  "text": "t b b b"
                 }
               },
               {
@@ -24512,6 +24513,24 @@
                     22.0
                   ],
                   "text": "0"
+                }
+              },
+              {
+                "box": {
+                  "id": "env-init-defer",
+                  "maxclass": "newobj",
+                  "text": "deferlow",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "patching_rect": [
+                    847.0,
+                    153.0,
+                    55.0,
+                    22.0
+                  ]
                 }
               }
             ],
@@ -24735,18 +24754,6 @@
               {
                 "patchline": {
                   "destination": [
-                    "obj-load-trigger",
-                    0
-                  ],
-                  "source": [
-                    "obj-loadbang",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "destination": [
                     "obj-3",
                     0
                   ],
@@ -24911,6 +24918,42 @@
                   ],
                   "destination": [
                     "obj-shape-menu-norm",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "obj-loadbang",
+                    0
+                  ],
+                  "destination": [
+                    "env-init-defer",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "env-init-defer",
+                    0
+                  ],
+                  "destination": [
+                    "obj-load-trigger",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "obj-load-trigger",
+                    2
+                  ],
+                  "destination": [
+                    "obj-shape-count-48",
                     0
                   ]
                 }

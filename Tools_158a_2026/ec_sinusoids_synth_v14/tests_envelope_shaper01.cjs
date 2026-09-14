@@ -18,3 +18,11 @@ const expected=JSON.parse(JSON.stringify(env));expected.boxes=expected.boxes.fil
 function overlap(p){const b=Object.values(boxes(p)).filter(b=>b.patching_rect&&b.maxclass!=='panel');for(let i=0;i<b.length;i++)for(let j=i+1;j<b.length;j++){const [x,y,w,h]=b[i].patching_rect,[X,Y,W,H]=b[j].patching_rect;assert(!(Math.min(x+w,X+W)-Math.max(x,X)>.01&&Math.min(y+h,Y+H)-Math.max(y,Y)>.01),b[i].id+' overlaps '+b[j].id);}}
 overlap(stage);overlap(env);
 console.log('PASS: recursive graph/port validation; all 24 exact stage-14 templates, including zero; normalized ranges; standalone and embedded hundredths truncation paths; embedded routing without duplicate broadcast; standalone/embedded equivalence; no top-level object rectangle overlaps.');
+for(const p of [env,embedded]){
+ const b=boxes(p),wired=(s,o,d)=>p.lines.some(({patchline:l})=>l.source[0]===s&&l.source[1]===o&&l.destination[0]===d);
+ assert.equal(b['obj-load-trigger'].text,'t b b b');
+ assert(wired('obj-loadbang',0,'env-init-defer'));assert(wired('env-init-defer',0,'obj-load-trigger'));
+ assert(wired('obj-load-trigger',2,'obj-shape-count-48'));assert(wired('obj-shape-count-48',0,'obj-count-slider'));
+ assert.equal(Number(b['obj-shape-count-48'].text)+3,48);assert.equal(b['obj-multislider'].size,48);
+}
+console.log('PASS: standalone and embedded explicitly initialize 48 breakpoints before duration and shape.');
