@@ -473,8 +473,10 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <strong>Lesson Plan Week 14</strong>
 <br><br>
 <!-- wk.14 lesson -->
-<strong>(tu)</strong> 11/24 — TBD
-  SPECIAL GUEST:  Joseph Bohigian, Other Minds Bay Area Festival of New Music
+<strong>(tu)</strong> 11/24 —
+  <br><br>
+  SPECIAL GUEST:  Joseph Bohigian,
+<a href="https://www.otherminds.org/festivals/">Other Minds Bay Area Festival of New Music</a>
 <br><br>
 <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
