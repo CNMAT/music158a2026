@@ -474,6 +474,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <br><br>
 <!-- wk.14 lesson -->
 <strong>(tu)</strong> 11/24 — TBD
+  SPECIAL GUEST:  Joseph Bohigian, Other Minds Bay Area Festival of New Music
 <br><br>
 <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
