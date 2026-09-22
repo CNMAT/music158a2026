@@ -259,11 +259,12 @@ Compare two highly contrasting electronic works in which synthesis moves beyond 
 <strong>(tu)</strong> 09/22 — Signal, Synthesis and Tone, CNMAT Spectral Objects, and the Note to Noise Continuum PT. 3
 <br><br>
 <!-- class demonstration -->
-<strong>(th)</strong> 09/24 — Signal, Synthesis and Tone, Mixing, CNMAT Spectral Objects — CLASS DEMONSTRATIONS
-<br><br>
-  <!-- homework assignment 2 -->
+   <!-- homework assignment 2 -->
 <em>Assignment: Homework_2. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
+<strong>(th)</strong> 09/24 — Signal, Synthesis and Tone, Mixing, CNMAT Spectral Objects — CLASS DEMONSTRATIONS
+<br><br>
+
 <!-- CONTEXTUAL LISTENING -->
 <strong>Contextual Listening: Brian Eno ↔ Aphex Twin — Tone and Noise and Note to Noise Continuum</strong>
 <br><br>
