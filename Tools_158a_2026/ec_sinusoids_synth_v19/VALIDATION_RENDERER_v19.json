@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "architecture_checks_passed": 14667,
+  "architecture_errors": 0,
+  "top_level_files": 66,
+  "maxpat_files": 19,
+  "nested_patchers": 254,
+  "objects": 9310,
+  "patch_cords": 7681,
+  "javascript_files": 14,
+  "javascript_syntax_checks_passed": 14,
+  "sinusoids_render_lanes": 12,
+  "rendering_outputs": 12,
+  "routing_outputs": 13,
+  "lane_adsr_editors": 12,
+  "lane_user_memory_colls": 12,
+  "presentation_rects_preserved": {
+    "root": 114,
+    "master_adsr": 31
+  },
+  "checks": [
+    "all Max patchers parse as JSON",
+    "all object ids are unique within each patcher",
+    "all patch-cord endpoints exist",
+    "all source outlet and destination inlet indices are in range",
+    "no duplicate patch cords",
+    "no previous-version filename/content references",
+    "all local bpatcher and JavaScript dependencies exist",
+    "exterior Trigger ADSR enters the Master",
+    "Master trigger broadcasts to the root monitor and all twelve lanes",
+    "trigger broadcast has no feedback path into the exterior trigger",
+    "exterior Loop ADSR controls only the Master loop inlet",
+    "Master completion is gated, deferred, and retriggers the Master",
+    "each lane has an independent loop gate and address",
+    "each lane has an independent embedded user-function coll address",
+    "twelve sinusoids~ lanes feed twelve ADSR multipliers",
+    "no sinusoids~ lane bypasses its ADSR multiplier",
+    "twelve enveloped lanes enter matrix~",
+    "matrix~ outputs feed the separate routing patcher",
+    "routing exposes twelve DAC feeds and one mono sum",
+    "changed patchers have no patching-mode object overlaps",
+    "all existing root and Master Presentation rectangles are unchanged"
+  ],
+  "regression_scripts": {
+    "total": 13,
+    "passing": 5,
+    "inherited_failures": 8,
+    "note": "The same eight legacy scripts fail against the supplied previous-version baseline; they encode earlier graph/layout assumptions and are not counted as v19 regressions."
+  },
+  "runtime_note": "Structural and JavaScript tests ran outside Max. Final audio/UI audition requires Max 9 with CNMAT sinusoids~ installed."
+}

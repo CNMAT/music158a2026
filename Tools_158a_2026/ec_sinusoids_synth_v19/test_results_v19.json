@@ -1,0 +1,52 @@
+[
+  {
+    "file": "tests_copy_amplitudes_v19.cjs",
+    "status": 0,
+    "output": "PASS: full-bank independent copy, visible-count preservation, unchanged inharmonicity, morph snapshot/stop, one transaction and main-page routing.\n"
+  },
+  {
+    "file": "tests_envelope_shaper01_v19.cjs",
+    "status": 0,
+    "output": "PASS: standalone and active ADSR retain all 24 shapes at every 3–48 count; reference shaper retains its 24 exact 48-point templates; normalized ranges, truncation and startup are intact.\n"
+  },
+  {
+    "file": "tests_octave_families_stage_v19.cjs",
+    "status": 0,
+    "output": "PASS: 128 disjoint families cover 2–256; reciprocal amplitudes, anchor silence, preserved inharmonicity/unrelated/hidden slots, morph behavior, single model transaction, 256-slot generation and workspace routing.\n"
+  },
+  {
+    "file": "tests_retuning_accuracy_v19.cjs",
+    "status": 0,
+    "output": "PASS: decimal 27.5 Hz through actual filter routing, three retuning modes, source resets, glide/re-targeting, bypass, semitones/cents/offset/gain, frequency rejection/silence, clustering, sample-rate limit, all numeric filter outlets and graph bounds.\n"
+  },
+  {
+    "file": "tests_score_execution_v19.cjs",
+    "status": 0,
+    "output": "PASS: graph-executed scalar default/explicit ramps, readback starts, stop cancellation, independent copied partial cues, query isolation, discrete/action protocols, silent score loading, timed dispatch, restart and cancellation.\n"
+  },
+  {
+    "file": "tests_seeded_micro_drift_v19.cjs",
+    "status": 0,
+    "output": "PASS: reproducible seeded directions and walks, no rerolls on rebuild/resize, independent smooth bounded excursions, fixed fundamental/anchors, untouched sliders, timing continuity, motion with zero inharmonicity/Max Drift, live readout, post-transform movement/audio-path wiring, parameter bounds and held model transaction.\n"
+  },
+  {
+    "file": "tests_stage_v19.cjs",
+    "status": 0,
+    "output": "PASS: weighted bias means 8.29 / 16.59, Gaussian peaks, unique draws, fallbacks, silent exclusion, atomic memory removal/restoration, hidden slots, independent library, routing/names/layout/colors.\n"
+  },
+  {
+    "file": "tests_student_controls_v19.cjs",
+    "status": 0,
+    "output": "PASS: 84 named receivers; complete sender chains; 20ms/5ms ramps; discrete integer control; preserved revised baseline nodes/wires; no presentation overlaps; silent sender initialization; v19 dependencies; indexed edits, hidden memory, input validation, current-value queries, interrupted morphs and octave-family dispatch.\n"
+  },
+  {
+    "file": "tests_v19_changes_and_stops_v19.cjs",
+    "status": 0,
+    "output": "PASS: both full-bank named copies, single model transactions, alloff zero banks + silent shape/menu reset, rank algebra/Cornet/mutations/odd spectra, independent proposed selections, exact-anchor beating, 256-slot apply, clear, malformed input rejection, all patch graphs/dependencies.\n"
+  },
+  {
+    "file": "tests_workspace_stage_v19.cjs",
+    "status": 0,
+    "output": "PASS: ten pairs per row, ON above OFF, complete presentation layout, direct ALL OFF routing, visible/full-bank zeroing, all hidden slots cleared, stopped morphs, one transaction, renamed dependencies.\n"
+  }
+]

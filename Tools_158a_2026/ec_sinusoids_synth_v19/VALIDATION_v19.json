@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "shapeCountBaseCases": 94860,
+  "frequencyCountBaseDetuneCases": 80,
+  "otherChecks": [
+    "ERB base recalculation",
+    "signed morph crossing zero",
+    "hidden-slot preservation",
+    "amplitude/anchor nonnegative clipping",
+    "positive full-bank amplitude transfer",
+    "signed stop-layer restore",
+    "signed random detune",
+    "organ-stop Hz beating conversion",
+    "harmonic anchors",
+    "F0 lock",
+    "micro-walk additive offset",
+    "all patch graphs and JS dependencies",
+    "new object placement",
+    "150 ms completion comparison preservation"
+  ],
+  "master": {
+    "patchers": 102,
+    "objects": 4076,
+    "patchCords": 3269,
+    "completionGates": 23
+  },
+  "allSuppliedPatchers": {
+    "patchers": 211,
+    "objects": 7332,
+    "patchCords": 5863,
+    "completionGates": 23
+  },
+  "jsDependencies": [
+    "cnmat_sinusoid_model_generator_v19.js",
+    "detune_shape_library_v19.js",
+    "dynamic_shape_library_weights_v19.js",
+    "ec_sinusoid_synth_stops_v19.js",
+    "global_retuning_controller_v19.js",
+    "multislider_interpolation_engine_v19.js",
+    "random_multislider_values_v19.js",
+    "sinusoid_model_transform_v19.js",
+    "weighted_partial_removal_v19.js"
+  ],
+  "runtime": "Node VM with Max message and Task stubs; not tested in Max audio runtime"
+}

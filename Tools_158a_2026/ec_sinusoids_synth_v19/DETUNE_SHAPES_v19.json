@@ -1,0 +1,378 @@
+[
+  {
+    "index": 0,
+    "name": "Flat Zero"
+  },
+  {
+    "index": 1,
+    "name": "All on full"
+  },
+  {
+    "index": 2,
+    "name": "Linear: low to high — Up"
+  },
+  {
+    "index": 3,
+    "name": "Linear: low to high — Down"
+  },
+  {
+    "index": 4,
+    "name": "Linear: low to high — Critical Band Up"
+  },
+  {
+    "index": 5,
+    "name": "Linear: low to high — Critical Band Down"
+  },
+  {
+    "index": 6,
+    "name": "Exponential: low to high — Up"
+  },
+  {
+    "index": 7,
+    "name": "Exponential: low to high — Down"
+  },
+  {
+    "index": 8,
+    "name": "Exponential: low to high — Critical Band Up"
+  },
+  {
+    "index": 9,
+    "name": "Exponential: low to high — Critical Band Down"
+  },
+  {
+    "index": 10,
+    "name": "Linear: high to low — Up"
+  },
+  {
+    "index": 11,
+    "name": "Linear: high to low — Down"
+  },
+  {
+    "index": 12,
+    "name": "Linear: high to low — Critical Band Up"
+  },
+  {
+    "index": 13,
+    "name": "Linear: high to low — Critical Band Down"
+  },
+  {
+    "index": 14,
+    "name": "Exponential: high to low — Up"
+  },
+  {
+    "index": 15,
+    "name": "Exponential: high to low — Down"
+  },
+  {
+    "index": 16,
+    "name": "Exponential: high to low — Critical Band Up"
+  },
+  {
+    "index": 17,
+    "name": "Exponential: high to low — Critical Band Down"
+  },
+  {
+    "index": 18,
+    "name": "Triangle: center peak — Up"
+  },
+  {
+    "index": 19,
+    "name": "Triangle: center peak — Down"
+  },
+  {
+    "index": 20,
+    "name": "Triangle: center peak — Critical Band Up"
+  },
+  {
+    "index": 21,
+    "name": "Triangle: center peak — Critical Band Down"
+  },
+  {
+    "index": 22,
+    "name": "Exponential triangle: center peak — Up"
+  },
+  {
+    "index": 23,
+    "name": "Exponential triangle: center peak — Down"
+  },
+  {
+    "index": 24,
+    "name": "Exponential triangle: center peak — Critical Band Up"
+  },
+  {
+    "index": 25,
+    "name": "Exponential triangle: center peak — Critical Band Down"
+  },
+  {
+    "index": 26,
+    "name": "Gaussian — Up"
+  },
+  {
+    "index": 27,
+    "name": "Gaussian — Down"
+  },
+  {
+    "index": 28,
+    "name": "Gaussian — Critical Band Up"
+  },
+  {
+    "index": 29,
+    "name": "Gaussian — Critical Band Down"
+  },
+  {
+    "index": 30,
+    "name": "Steep Gaussian — Up"
+  },
+  {
+    "index": 31,
+    "name": "Steep Gaussian — Down"
+  },
+  {
+    "index": 32,
+    "name": "Steep Gaussian — Critical Band Up"
+  },
+  {
+    "index": 33,
+    "name": "Steep Gaussian — Critical Band Down"
+  },
+  {
+    "index": 34,
+    "name": "Inverted Gaussian — Up"
+  },
+  {
+    "index": 35,
+    "name": "Inverted Gaussian — Down"
+  },
+  {
+    "index": 36,
+    "name": "Inverted Gaussian — Critical Band Up"
+  },
+  {
+    "index": 37,
+    "name": "Inverted Gaussian — Critical Band Down"
+  },
+  {
+    "index": 38,
+    "name": "Steep Inverted Gaussian — Up"
+  },
+  {
+    "index": 39,
+    "name": "Steep Inverted Gaussian — Down"
+  },
+  {
+    "index": 40,
+    "name": "Steep Inverted Gaussian — Critical Band Up"
+  },
+  {
+    "index": 41,
+    "name": "Steep Inverted Gaussian — Critical Band Down"
+  },
+  {
+    "index": 42,
+    "name": "Double Gaussian — Up"
+  },
+  {
+    "index": 43,
+    "name": "Double Gaussian — Down"
+  },
+  {
+    "index": 44,
+    "name": "Double Gaussian — Critical Band Up"
+  },
+  {
+    "index": 45,
+    "name": "Double Gaussian — Critical Band Down"
+  },
+  {
+    "index": 46,
+    "name": "Steep Double Gaussian — Up"
+  },
+  {
+    "index": 47,
+    "name": "Steep Double Gaussian — Down"
+  },
+  {
+    "index": 48,
+    "name": "Steep Double Gaussian — Critical Band Up"
+  },
+  {
+    "index": 49,
+    "name": "Steep Double Gaussian — Critical Band Down"
+  },
+  {
+    "index": 50,
+    "name": "Inverted Double Gaussian — Up"
+  },
+  {
+    "index": 51,
+    "name": "Inverted Double Gaussian — Down"
+  },
+  {
+    "index": 52,
+    "name": "Inverted Double Gaussian — Critical Band Up"
+  },
+  {
+    "index": 53,
+    "name": "Inverted Double Gaussian — Critical Band Down"
+  },
+  {
+    "index": 54,
+    "name": "Steep Inverted Double Gaussian — Up"
+  },
+  {
+    "index": 55,
+    "name": "Steep Inverted Double Gaussian — Down"
+  },
+  {
+    "index": 56,
+    "name": "Steep Inverted Double Gaussian — Critical Band Up"
+  },
+  {
+    "index": 57,
+    "name": "Steep Inverted Double Gaussian — Critical Band Down"
+  },
+  {
+    "index": 58,
+    "name": "Triple Gaussian — Up"
+  },
+  {
+    "index": 59,
+    "name": "Triple Gaussian — Down"
+  },
+  {
+    "index": 60,
+    "name": "Triple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 61,
+    "name": "Triple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 62,
+    "name": "Steep Triple Gaussian — Up"
+  },
+  {
+    "index": 63,
+    "name": "Steep Triple Gaussian — Down"
+  },
+  {
+    "index": 64,
+    "name": "Steep Triple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 65,
+    "name": "Steep Triple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 66,
+    "name": "Inverted Triple Gaussian — Up"
+  },
+  {
+    "index": 67,
+    "name": "Inverted Triple Gaussian — Down"
+  },
+  {
+    "index": 68,
+    "name": "Inverted Triple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 69,
+    "name": "Inverted Triple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 70,
+    "name": "Steep Inverted Triple Gaussian — Up"
+  },
+  {
+    "index": 71,
+    "name": "Steep Inverted Triple Gaussian — Down"
+  },
+  {
+    "index": 72,
+    "name": "Steep Inverted Triple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 73,
+    "name": "Steep Inverted Triple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 74,
+    "name": "Quadruple Gaussian — Up"
+  },
+  {
+    "index": 75,
+    "name": "Quadruple Gaussian — Down"
+  },
+  {
+    "index": 76,
+    "name": "Quadruple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 77,
+    "name": "Quadruple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 78,
+    "name": "Steep Quadruple Gaussian — Up"
+  },
+  {
+    "index": 79,
+    "name": "Steep Quadruple Gaussian — Down"
+  },
+  {
+    "index": 80,
+    "name": "Steep Quadruple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 81,
+    "name": "Steep Quadruple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 82,
+    "name": "Inverted Quadruple Gaussian — Up"
+  },
+  {
+    "index": 83,
+    "name": "Inverted Quadruple Gaussian — Down"
+  },
+  {
+    "index": 84,
+    "name": "Inverted Quadruple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 85,
+    "name": "Inverted Quadruple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 86,
+    "name": "Steep Inverted Quadruple Gaussian — Up"
+  },
+  {
+    "index": 87,
+    "name": "Steep Inverted Quadruple Gaussian — Down"
+  },
+  {
+    "index": 88,
+    "name": "Steep Inverted Quadruple Gaussian — Critical Band Up"
+  },
+  {
+    "index": 89,
+    "name": "Steep Inverted Quadruple Gaussian — Critical Band Down"
+  },
+  {
+    "index": 90,
+    "name": "Random (fixed) — Up"
+  },
+  {
+    "index": 91,
+    "name": "Random (fixed) — Down"
+  },
+  {
+    "index": 92,
+    "name": "Random (fixed) — Critical Band Up"
+  },
+  {
+    "index": 93,
+    "name": "Random (fixed) — Critical Band Down"
+  }
+]
