@@ -291,7 +291,7 @@ Compare two contrasting electronic compositions: one by Brian Eno, based on simp
 <!-- wk.6 lesson -->
 <strong>(tu)</strong> 09/29 — More study and practice with Homework 2 materials <br> 
 <!-- wk.6 lesson -->
-<strong>(th)</strong> 10/08 — More practice with messaging and control of synthesis
+<strong>(th)</strong> 10/01 — More practice with messaging and control of synthesis
 <br><br>
   <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_2 due today by start of classtime. </em>
