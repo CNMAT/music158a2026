@@ -5,7 +5,7 @@ Sound and Music Computing with CNMAT Technologies <br />
 ###### **[(Jump to Weekly Schedule)](#schedule)**
 
 [classschedule]: https://classes.berkeley.edu/search/class?search=music+158a&f%5B0%5D=term%3A8588
-Music 158A, Spring 2026 <br />
+Music 158A, Fall 2026 <br />
 
 ![gif](images/rhythmic_activity_4X4_2.gif)
 
@@ -46,7 +46,7 @@ ADOBE Creative Cloud AUDITION (free for students) https://software.berkeley.edu/
 ###### **[(Jump to Schedule)](#schedule)**
 
 [classschedule]: https://classes.berkeley.edu/search/class?search=music+158a&f%5B0%5D=term%3A8588
-Music 158A, Spring 2026 <br />
+Music 158A, Fall 2026 <br />
 
 Course Goals
 -----------------
@@ -517,7 +517,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <strong>12/14</strong> — FINAL PROJECT DUE TODAY!!!
 </td>
 </tr>
-Music 158A, Spring 2026 <br />
+Music 158A, Fall 2026 <br />
   <tr>
 <td><strong>Google Chrome extension for folders with Gemini</strong></td>
 <td>
