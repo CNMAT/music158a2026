@@ -2,18 +2,19 @@
     automatic_lines_v5.js
 
     Max usage:
-        [js automatic_lines_v5.js 8 500 1000 2000]
+        [js automatic_lines_v5.js 8 500 2000 1000 1]
 
     Arguments:
         1. number of voices/outlets (1-20)
         2. minimum ramp time in milliseconds
-        3. wait time at 0.0 before the next ramp in milliseconds
-        4. maximum ramp time in milliseconds
+        3. maximum ramp time in milliseconds
+        4. wait time at 0.0 before the next ramp in milliseconds
+        5. fixed_peak (optional): 0 = random peaks (default); 1 = peak at 1.0
 
     Each voice outlet sends the interpolated float values directly. The final
     rightmost outlet sends an updating list of all current voice values.
     External [line] objects are not required. Every voice starts at 0.0 and ramps to a random
-    destination from 0.0 to 1.0, and returns to 0.0. Both legs use the same
+    destination from 0.0 to 1.0 (or exactly 1.0 with fixed_peak 1), and returns to 0.0. Both legs use the same
     randomly selected ramp time. After returning to 0.0, the voice holds there
     for the global wait time before choosing a new destination and ramp time.
     A wait time of 0 produces a continuous loop.
@@ -25,6 +26,7 @@
         restart             stop, reset, and start new cycles
         range <min> <max>   set time boundaries for future cycles
         waittime <ms>       set the global wait for future cycles
+        fixedpeak <0|1>     select random or full-scale peaks for future cycles
         grain <ms>          set float update interval (default 20 ms)
 */
 
@@ -33,17 +35,10 @@ inlets = 1;
 
 var voiceCount = clampInteger(argumentOrDefault(1, 4), 1, 20);
 var minimumMs = positiveNumber(argumentOrDefault(2, 500), 500);
-var globalWaitTimeMs = 0;
-var maximumMs = 2000;
-
-// New syntax: voices, minimum, wait, maximum. For compatibility, the former
-// three-argument syntax (voices, minimum, maximum) still means a zero wait.
-if (jsarguments.length >= 5) {
-    globalWaitTimeMs = nonNegativeNumber(argumentOrDefault(3, 0), 0);
-    maximumMs = positiveNumber(argumentOrDefault(4, 2000), 2000);
-} else {
-    maximumMs = positiveNumber(argumentOrDefault(3, 2000), 2000);
-}
+var maximumMs = positiveNumber(argumentOrDefault(3, 2000), 2000);
+// Three-argument calls (voices, minimum, maximum) still use zero wait.
+var globalWaitTimeMs = nonNegativeNumber(argumentOrDefault(4, 0), 0);
+var useFixedPeak = Number(argumentOrDefault(5, 0)) === 1;
 
 if (minimumMs > maximumMs) {
     var initialSwap = minimumMs;
@@ -114,7 +109,7 @@ function initializeRisingLeg(voice, startTime) {
     legStartTimes[voice] = startTime;
     legDurations[voice] = randomRampTime();
     startValues[voice] = 0.0;
-    voiceTargets[voice] = Math.random();
+    voiceTargets[voice] = useFixedPeak ? 1.0 : Math.random();
     endValues[voice] = voiceTargets[voice];
 }
 
@@ -235,6 +230,10 @@ function range(low, high) {
 
 function waittime(milliseconds) {
     globalWaitTimeMs = nonNegativeNumber(milliseconds, globalWaitTimeMs);
+}
+
+function fixedpeak(enabled) {
+    useFixedPeak = Number(enabled) === 1;
 }
 
 function grain(milliseconds) {
