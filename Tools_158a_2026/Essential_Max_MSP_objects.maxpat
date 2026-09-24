@@ -9,8 +9,29 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 263.0, 100.0, 1100.0, 780.0 ],
+        "rect": [ 34.0, 62.0, 1372.0, 804.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-13",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 390.0, 507.0, 150.0, 20.0 ],
+                    "text": "Multiply number by"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "int" ],
+                    "patching_rect": [ 435.0, 537.0, 29.5, 22.0 ],
+                    "text": "*"
+                }
+            },
             {
                 "box": {
                     "fontsize": 18.0,
@@ -584,7 +605,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 537.0, 464.0, 185.0, 20.0 ],
+                    "patching_rect": [ 568.5, 438.0, 185.0, 20.0 ],
                     "text": "comment window -- does nothing"
                 }
             }
