@@ -103,7 +103,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 61.0, 83.0, 67.0, 47.0 ],
-                    "presentation_linecount": 3,
                     "text": "digital to\naudio\nconverter"
                 }
             },
@@ -115,7 +114,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 72.0, 431.0, 67.0, 47.0 ],
-                    "presentation_linecount": 3,
                     "text": "digital to\naudio\nconverter"
                 }
             },
@@ -303,8 +301,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 453.0, 419.0, 112.0, 22.0 ],
-                    "text": "0, 0.1 1500 0. 1000"
+                    "patching_rect": [ 453.0, 419.0, 119.0, 22.0 ],
+                    "text": "0, 0.05 1500 0. 1000"
                 }
             },
             {
