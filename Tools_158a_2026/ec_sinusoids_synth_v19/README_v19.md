@@ -8,7 +8,7 @@ The final transformed model now carries stable IDs into `Partial_Group_Manager_v
 
 Open `p Render_v19` from Presentation Mode for:
 
-* **Render Distribution**: Interleaved, Spectral Bands, Seeded Random, or Octave Families.
+* **Render Distribution**: Interleaved, Spectral Bands, Seeded Random, Octave Families, or Perfect Fifth Bands.
 * **Spatial Group Count**: 2–12 output groups. This changes only the ramped `matrix~` routing and does not relocate oscillator ownership.
 * **Distribution Seed**: repeatable assignments for Seeded Random and Octave Families.
 * **Routing Ramp ms**: click-reduction time when the output grouping changes.
@@ -16,6 +16,8 @@ Open `p Render_v19` from Presentation Mode for:
 The existing mono output is the sum of the active spatial groups and continues through the original gain/DAC path. Independently enveloped group signals are available as `receive~ sinusoids_group_01_v19` through `receive~ sinusoids_group_12_v19`. Outputs above the selected Spatial Group Count are silent.
 
 Changing the distribution plan intentionally rebuilds partial ownership and can change phase relationships. Changing only Spatial Group Count is the phase-safer performance operation because the twelve oscillator lanes remain unchanged.
+
+**Perfect Fifth Bands (mode 4)** uses the lowest current primary frequency as its starting point. Lanes 1–11 each cover one successive perfect fifth, a frequency ratio of 3:2: lane 1 is `[f, 1.5f)`, lane 2 is `[1.5f, 2.25f)`, and so on. Lane 12 takes every frequency at or above `f × 1.5^11` (about `86.5f`). At a 110 Hz lowest partial, the lane 12 threshold is approximately 9.51 kHz. Every primary and its exact-harmonic anchor occupy the same lane, determined by the primary's actual frequency. Retuning, detuning, or a change in the lowest frequency can move pairs across bands and change their oscillator slots; the other four modes keep their original fixed assignments. A band can be empty when no current partial falls within it.
 
 ## Master and lane ADSRs
 
@@ -32,7 +34,7 @@ Audio is divided into two explicit modules in patching mode:
 
 Public messages:
 
-* `Render_Distribution_v19 0` — 0 Interleaved, 1 Spectral Bands, 2 Seeded Random, 3 Octave Families.
+* `Render_Distribution_v19 0` — 0 Interleaved, 1 Spectral Bands, 2 Seeded Random, 3 Octave Families, 4 Perfect Fifth Bands.
 * `Spatial_Group_Count_v19 6`
 * `Render_Seed_v19 12345`
 * `Render_Ramp_ms_v19 100.`

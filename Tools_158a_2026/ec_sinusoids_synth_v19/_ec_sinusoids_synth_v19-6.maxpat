@@ -449,7 +449,7 @@
                     "bgfillcolor_proportion": 0.5,
                     "bgfillcolor_type": "gradient",
                     "id": "obj-76",
-                    "items": [ "Interleaved", ",", "Spectral Bands", ",", "Seeded Random", ",", "Octave Families" ],
+                    "items": [ "Interleaved", ",", "Spectral Bands", ",", "Seeded Random", ",", "Octave Families", ",", "Perfect Fifth Bands" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -482,24 +482,24 @@
                             {
                                 "box": {
                                     "id": "obj-2",
-                                    "linecount": 27,
+                                    "linecount": 30,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 29.0, 245.0, 823.0, 382.0 ],
-                                    "text": "| Distribution    | Active lanes | Why                                                                                                                               |\n| --------------- | -----------: | --------------------------------------------------------------------------------------------------------------------------------- |\n| Interleaved     |           12 | Partials rotate sequentially through lanes 1–12.                                                                                  |\n| Spectral Bands  |            8 | Bands are calculated across the full 256-partial range; 30 partials occupy only the lower eight bands.                            |\n| Seeded Random   |            8 | Each partial is independently hashed to a lane; collisions occur and four lanes receive no active partials.                       |\n| Octave Families |            4 | Octave-related partials stay together, and the relatively small number of active families collide onto four lanes with this seed. \n\nFor the default settings, the assignments are:\n\nSpectral Bands: lanes 1–8\nSeeded Random: lanes 1, 2, 3, 5, 8, 10, 11, 12\nOctave Families: lanes 1, 8, 10, 11\n\nIncreasing HARMONIC PARTIALS gradually activates more lanes. At 256 partials, all four methods reach all 12 lanes.\n\nThe important distinction is:\n\nRENDER DISTRIBUTION decides which synthesis lane owns each partial.\nSPATIAL GROUP COUNT routes those existing lanes to the outputs.\nSpatial Group Count cannot create sound in a lane that received no active partials.\n\nThis behavior preserves stable ownership as the partial count changes, but it does not guarantee that all 12 lanes are populated. If your intended behavior is “always use all 12 channels whenever there are at least 12 partials,” then the three alternative algorithms need adjustment:\n\nSpectral Bands should scale its boundaries to the current partial count.\nSeeded Random should use a balanced seeded shuffle.\nOctave Families should distribute distinct families cyclically or by load balancing.\n"
+                                    "text": "| Distribution    | Active lanes | Why                                                                                                                               |\n| --------------- | -----------: | --------------------------------------------------------------------------------------------------------------------------------- |\n| Interleaved     |           12 | Partials rotate sequentially through lanes 1–12.                                                                                  |\n| Spectral Bands  |            8 | Bands are calculated across the full 256-partial range; 30 partials occupy only the lower eight bands.                            |\n| Seeded Random   |            8 | Each partial is independently hashed to a lane; collisions occur and four lanes receive no active partials.                       |\n| Octave Families |            4 | Octave-related partials stay together, and the relatively small number of active families collide onto four lanes with this seed. \n\nFor the default settings, the assignments are:\n\nSpectral Bands: lanes 1–8\nSeeded Random: lanes 1, 2, 3, 5, 8, 10, 11, 12\nOctave Families: lanes 1, 8, 10, 11\n\nIncreasing HARMONIC PARTIALS gradually activates more lanes. At 256 partials, all four methods reach all 12 lanes.\n\nThe important distinction is:\n\nRENDER DISTRIBUTION decides which synthesis lane owns each partial.\nSPATIAL GROUP COUNT routes those existing lanes to the outputs.\nSpatial Group Count cannot create sound in a lane that received no active partials.\n\nThis behavior preserves stable ownership as the partial count changes, but it does not guarantee that all 12 lanes are populated. If your intended behavior is “always use all 12 channels whenever there are at least 12 partials,” then the three alternative algorithms need adjustment:\n\nSpectral Bands should scale its boundaries to the current partial count.\nSeeded Random should use a balanced seeded shuffle.\nOctave Families should distribute distinct families cyclically or by load balancing.\n\nPerfect Fifth Bands: lanes 1–11 span successive perfect fifths (3:2), starting with the lowest current primary frequency. Lane 12 receives all higher frequencies. These are frequency bands, so retuning or changing the lowest frequency can move paired partials between lanes.\n"
                                 }
                             },
                             {
                                 "box": {
                                     "fontsize": 20.0,
                                     "id": "help0",
-                                    "linecount": 9,
+                                    "linecount": 15,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 20.0, 30.0, 825.0, 208.0 ],
-                                    "text": "PARTIAL DISTRIBUTIONS GOVERN THE WAY THAT INDIVIDUAL PARTIALS in a \"model\" and separated out and sent to the bank of 12 sinusoid~ (additive synthesis)\n\nThe partials are separated amongst the output channels using four algorithmic methods:\n1) Interleaved, 2)Spectral Bands, 3)Seeded Random, 4) Octave Families.\n\nIMPORTANT: each distribution pattern has varying assignments to channels depending on the number of partials in the synthesis model.  It means not all channels have signal all the time.",
+                                    "text": "PARTIAL DISTRIBUTIONS GOVERN THE WAY THAT INDIVIDUAL PARTIALS in a \"model\" and separated out and sent to the bank of 12 sinusoid~ (additive synthesis)\n\nThe partials are separated amongst the output channels using five algorithmic methods:\n1) Interleaved, 2)Spectral Bands, 3)Seeded Random, 4) Octave Families, 5) Perfect Fifth Bands.\n\nPerfect Fifth Bands: from the lowest primary partial frequency, lanes 1–11 each cover [f, 1.5f), then [1.5f, 2.25f), and so on. Lane 12 contains all higher frequencies. A primary and its harmonic anchor always share a lane. Frequency changes across a boundary can move that pair.\n\nIMPORTANT: each distribution pattern has varying assignments to channels depending on the number of partials in the synthesis model.  It means not all channels have signal all the time.",
                                     "textcolor": [ 0.1, 0.1, 0.1, 1.0 ]
                                 }
                             }
@@ -548,7 +548,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 91.0, 137.0, 985.0, 555.0 ],
+                        "rect": [ 91.0, 137.0, 985.0, 600.0 ],
                         "openinpresentation": 1,
                         "boxes": [
                             {
@@ -887,9 +887,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 5.0, 57.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 5.0, 92.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 5.0, 57.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 5.0, 92.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -920,9 +920,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 252.0, 57.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 252.0, 92.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 252.0, 57.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 252.0, 92.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -953,9 +953,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 499.0, 57.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 499.0, 92.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 499.0, 57.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 499.0, 92.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -986,9 +986,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 746.0, 57.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 746.0, 92.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 746.0, 57.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 746.0, 92.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1019,9 +1019,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 5.0, 227.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 5.0, 262.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 5.0, 227.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 5.0, 262.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1052,9 +1052,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 252.0, 227.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 252.0, 262.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 252.0, 227.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 252.0, 262.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1085,9 +1085,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 499.0, 227.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 499.0, 262.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 499.0, 227.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 499.0, 262.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1118,9 +1118,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 746.0, 227.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 746.0, 262.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 746.0, 227.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 746.0, 262.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1151,9 +1151,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 5.0, 397.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 5.0, 432.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 5.0, 397.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 5.0, 432.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1184,9 +1184,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 252.0, 397.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 252.0, 432.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 252.0, 397.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 252.0, 432.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1217,9 +1217,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 499.0, 397.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 499.0, 432.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 499.0, 397.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 499.0, 432.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1250,9 +1250,9 @@
                                     "numoutlets": 1,
                                     "offset": [ 0.0, 0.0 ],
                                     "outlettype": [ "signal" ],
-                                    "patching_rect": [ 746.0, 397.0, 240.0, 160.0 ],
+                                    "patching_rect": [ 746.0, 432.0, 240.0, 160.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 746.0, 397.0, 240.0, 160.0 ],
+                                    "presentation_rect": [ 746.0, 432.0, 240.0, 160.0 ],
                                     "viewvisibility": 1
                                 }
                             },
@@ -1276,9 +1276,8 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 15.0, 31.0, 150.0, 33.0 ],
                                     "presentation": 1,
-                                    "presentation_linecount": 2,
-                                    "presentation_rect": [ 15.0, 31.0, 150.0, 33.0 ],
-                                    "text": "SHAPE SMOOTHING (ms)"
+                                    "presentation_rect": [ 15.0, 31.0, 230.0, 20.0 ],
+                                    "text": "SHAPE TRANSITION SMOOTHING (ms)"
                                 }
                             },
                             {
@@ -1294,7 +1293,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 170.0, 29.0, 90.0, 22.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 170.0, 29.0, 90.0, 22.0 ]
+                                    "presentation_rect": [ 252.0, 30.0, 90.0, 22.0 ]
                                 }
                             },
                             {
@@ -1317,9 +1316,691 @@
                                     "patching_rect": [ 1125.0, 215.0, 250.0, 22.0 ],
                                     "text": "send ADSR_Lane_Smoothing_ms_v19"
                                 }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-global-trigger-receive",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 1020.0, 270.0, 285.0, 22.0 ],
+                                    "text": "receive ADSR_12_Lanes_Global_Trigger_v19"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.25882352941176473, 0.8705882352941177, 0.2901960784313726, 1.0 ],
+                                    "id": "all-lane-global-trigger-button",
+                                    "maxclass": "button",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "bang" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 1020.0, 310.0, 24.0, 24.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 358.0, 29.0, 24.0, 24.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontface": 1,
+                                    "id": "all-lane-global-trigger-label",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 1310.0, 270.0, 235.0, 20.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 386.0, 31.0, 205.0, 20.0 ],
+                                    "text": "TRIGGER ALL 12 ADSR LANES"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.945, 0.431, 0.157, 1.0 ],
+                                    "id": "all-lane-global-trigger-fanout",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 1,
+                                            "revision": 5,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 84.0, 144.0, 401.0, 506.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-3",
+                                                    "maxclass": "button",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "bang" ],
+                                                    "parameter_enable": 0,
+                                                    "patching_rect": [ 46.0, 74.0, 24.0, 24.0 ]
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-01",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 288.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_01_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-02",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 319.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_02_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-03",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 350.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_03_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-04",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 381.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_04_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-05",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 412.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_05_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-06",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 443.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_06_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-07",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 90.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_07_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-08",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 121.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_08_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-09",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 152.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_09_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-10",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 183.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_10_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-11",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 214.0, 193.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_11_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-12",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 245.0, 194.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_12_Trigger_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "bang" ],
+                                                    "patching_rect": [ 46.0, 9.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "obj-3", 0 ],
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-01", 0 ],
+                                                    "order": 11,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-02", 0 ],
+                                                    "order": 10,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-03", 0 ],
+                                                    "order": 9,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-04", 0 ],
+                                                    "order": 8,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-05", 0 ],
+                                                    "order": 7,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-06", 0 ],
+                                                    "order": 6,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-07", 0 ],
+                                                    "order": 5,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-08", 0 ],
+                                                    "order": 4,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-09", 0 ],
+                                                    "order": 3,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-10", 0 ],
+                                                    "order": 2,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-11", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-12", 0 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-3", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 1060.0, 310.0, 233.0, 22.0 ],
+                                    "text": "p ADSR_12_LANES_GLOBAL_TRIGGER"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "fontface": 1,
+                                    "id": "all-lane-duration-label",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 15.0, 61.0, 230.0, 20.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 15.0, 61.0, 230.0, 20.0 ],
+                                    "text": "GLOBAL TOTAL DURATION (ms)",
+                                    "textcolor": [ 0.95, 0.76, 0.18, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "bgcolor": [ 0.22, 0.22, 0.22, 1.0 ],
+                                    "format": 6,
+                                    "id": "all-lane-duration-ms",
+                                    "maxclass": "flonum",
+                                    "maximum": 3600000.0,
+                                    "minimum": 1.0,
+                                    "numinlets": 1,
+                                    "numoutlets": 2,
+                                    "outlettype": [ "", "bang" ],
+                                    "parameter_enable": 0,
+                                    "patching_rect": [ 252.0, 59.0, 110.0, 22.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 252.0, 59.0, 110.0, 22.0 ],
+                                    "textcolor": [ 1.0, 0.84, 0.28, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-receive",
+                                    "maxclass": "newobj",
+                                    "numinlets": 0,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 1350.0, 270.0, 275.0, 22.0 ],
+                                    "text": "receive ADSR_12_Lanes_Duration_ms_v19"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-clip",
+                                    "maxclass": "newobj",
+                                    "numinlets": 3,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 1350.0, 300.0, 110.0, 22.0 ],
+                                    "text": "clip 1. 3600000."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-init",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 1,
+                                    "outlettype": [ "" ],
+                                    "patching_rect": [ 1635.0, 270.0, 105.0, 22.0 ],
+                                    "text": "loadmess 1000."
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-state",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 1350.0, 370.0, 285.0, 22.0 ],
+                                    "text": "send ADSR_12_Lanes_Duration_ms_state_v19"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-fanout",
+                                    "maxclass": "newobj",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patcher": {
+                                        "fileversion": 1,
+                                        "appversion": {
+                                            "major": 9,
+                                            "minor": 1,
+                                            "revision": 5,
+                                            "architecture": "x64",
+                                            "modernui": 1
+                                        },
+                                        "classnamespace": "box",
+                                        "rect": [ 84.0, 144.0, 737.0, 537.0 ],
+                                        "boxes": [
+                                            {
+                                                "box": {
+                                                    "id": "obj-6",
+                                                    "maxclass": "comment",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 199.0, 29.0, 200.0, 20.0 ],
+                                                    "text": "ADSR_Lane_NN_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-01",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 288.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_01_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-02",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 319.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_02_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-03",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 350.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_03_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-04",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 381.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_04_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-05",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 412.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_05_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-06",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 46.0, 443.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_06_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-07",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 90.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_07_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-08",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 121.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_08_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-09",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 152.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_09_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-10",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 183.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_10_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-11",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 214.0, 224.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_11_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "id": "global-loop-send-12",
+                                                    "maxclass": "newobj",
+                                                    "numinlets": 1,
+                                                    "numoutlets": 0,
+                                                    "patching_rect": [ 124.0, 245.0, 225.0, 22.0 ],
+                                                    "text": "send ADSR_Lane_12_Duration_ms_v19"
+                                                }
+                                            },
+                                            {
+                                                "box": {
+                                                    "comment": "",
+                                                    "id": "obj-1",
+                                                    "index": 1,
+                                                    "maxclass": "inlet",
+                                                    "numinlets": 0,
+                                                    "numoutlets": 1,
+                                                    "outlettype": [ "" ],
+                                                    "patching_rect": [ 46.0, 9.0, 30.0, 30.0 ]
+                                                }
+                                            }
+                                        ],
+                                        "lines": [
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-01", 0 ],
+                                                    "order": 11,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-02", 0 ],
+                                                    "order": 10,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-03", 0 ],
+                                                    "order": 9,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-04", 0 ],
+                                                    "order": 8,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-05", 0 ],
+                                                    "order": 7,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-06", 0 ],
+                                                    "order": 6,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-07", 0 ],
+                                                    "order": 5,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-08", 0 ],
+                                                    "order": 4,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-09", 0 ],
+                                                    "order": 3,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-10", 0 ],
+                                                    "order": 2,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-11", 0 ],
+                                                    "order": 1,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            },
+                                            {
+                                                "patchline": {
+                                                    "destination": [ "global-loop-send-12", 0 ],
+                                                    "order": 0,
+                                                    "source": [ "obj-1", 0 ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "patching_rect": [ 1460.0, 330.0, 240.0, 22.0 ],
+                                    "text": "p ADSR_12_LANES_GLOBAL_DURATION"
+                                }
+                            },
+                            {
+                                "box": {
+                                    "id": "all-lane-duration-help",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 375.0, 61.0, 500.0, 20.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 375.0, 61.0, 500.0, 20.0 ],
+                                    "text": "Sets the total duration of every lane envelope (1-12).",
+                                    "textcolor": [ 0.72, 0.72, 0.72, 1.0 ]
+                                }
                             }
                         ],
                         "lines": [
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-duration-ms", 0 ],
+                                    "source": [ "all-lane-duration-clip", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-duration-clip", 0 ],
+                                    "source": [ "all-lane-duration-init", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-duration-fanout", 0 ],
+                                    "order": 0,
+                                    "source": [ "all-lane-duration-ms", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-duration-state", 0 ],
+                                    "order": 1,
+                                    "source": [ "all-lane-duration-ms", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-duration-clip", 0 ],
+                                    "source": [ "all-lane-duration-receive", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-global-trigger-fanout", 0 ],
+                                    "source": [ "all-lane-global-trigger-button", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
+                                    "destination": [ "all-lane-global-trigger-button", 0 ],
+                                    "source": [ "all-lane-global-trigger-receive", 0 ]
+                                }
+                            },
                             {
                                 "patchline": {
                                     "destination": [ "all-lane-loop-send-01", 0 ],
@@ -2948,7 +3629,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 850.0, 365.0, 50.0, 22.0 ],
-                                    "text": "6"
+                                    "text": "21"
                                 }
                             },
                             {
@@ -3710,7 +4391,7 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 0, 21.27659574468085, 0.042553, 0, 42.5531914893617, 0.085106, 0, 63.829787234042556, 0.12766, 0, 85.1063829787234, 0.170213, 0, 106.38297872340425, 0.212766, 0, 127.65957446808511, 0.255319, 0, 148.93617021276594, 0.297872, 0, 170.2127659574468, 0.340426, 0, 191.48936170212767, 0.382979, 0, 212.7659574468085, 0.425532, 0, 234.04255319148936, 0.468085, 0, 255.31914893617022, 0.510638, 0, 276.59574468085106, 0.553191, 0, 297.8723404255319, 0.595745, 0, 319.1489361702128, 0.638298, 0, 340.4255319148936, 0.680851, 0, 361.70212765957444, 0.723404, 0, 382.97872340425533, 0.765957, 0, 404.25531914893617, 0.808511, 0, 425.531914893617, 0.851064, 0, 446.8085106382979, 0.893617, 0, 468.0851063829787, 0.93617, 0, 489.36170212765956, 0.978723, 0, 510.63829787234044, 0.978723, 0, 531.9148936170212, 0.93617, 0, 553.1914893617021, 0.893617, 0, 574.468085106383, 0.851064, 0, 595.7446808510638, 0.808511, 0, 617.0212765957447, 0.765957, 0, 638.2978723404256, 0.723404, 0, 659.5744680851063, 0.680851, 0, 680.8510638297872, 0.638298, 0, 702.1276595744681, 0.595745, 0, 723.4042553191489, 0.553191, 0, 744.6808510638298, 0.510638, 0, 765.9574468085107, 0.468085, 0, 787.2340425531914, 0.425532, 0, 808.5106382978723, 0.382979, 0, 829.7872340425532, 0.340426, 0, 851.063829787234, 0.297872, 0, 872.3404255319149, 0.255319, 0, 893.6170212765958, 0.212766, 0, 914.8936170212766, 0.170213, 0, 936.1702127659574, 0.12766, 0, 957.4468085106383, 0.085106, 0, 978.7234042553191, 0.042553, 0, 1000.0, 0.0, 0 ],
+                                    "addpoints": [ 0.0, 0.98, 0, 21.27659574468085, 0.57, 0, 42.5531914893617, 0.25, 0, 63.829787234042556, 0.0, 0, 85.1063829787234, 0.0, 0, 106.38297872340425, 0.0, 0, 127.65957446808511, 0.0, 0, 148.93617021276594, 0.0, 0, 170.2127659574468, 0.0, 0, 191.48936170212767, 0.0, 0, 212.7659574468085, 0.0, 0, 234.04255319148936, 0.0, 0, 255.31914893617022, 0.0, 0, 276.59574468085106, 0.0, 0, 297.8723404255319, 0.0, 0, 319.1489361702128, 0.0, 0, 340.4255319148936, 0.94, 0, 361.70212765957444, 0.45, 0, 382.97872340425533, 0.18, 0, 404.25531914893617, 0.1, 0, 425.531914893617, 0.08, 0, 446.8085106382979, 0.06, 0, 468.0851063829787, 0.0, 0, 489.36170212765956, 0.0, 0, 510.63829787234044, 0.0, 0, 531.9148936170212, 0.0, 0, 553.1914893617021, 0.0, 0, 574.468085106383, 0.94, 0, 595.7446808510638, 0.87, 0, 617.0212765957447, 0.77, 0, 638.2978723404256, 0.7, 0, 659.5744680851063, 0.64, 0, 680.8510638297872, 0.56, 0, 702.1276595744681, 0.5, 0, 723.4042553191489, 0.38, 0, 744.6808510638298, 0.12, 0, 765.9574468085107, 0.0, 0, 787.2340425531914, 0.0, 0, 808.5106382978723, 0.0, 0, 829.7872340425532, 0.0, 0, 851.063829787234, 0.0, 0, 872.3404255319149, 0.0, 0, 893.6170212765958, 0.0, 0, 914.8936170212766, 0.0, 0, 936.1702127659574, 0.0, 0, 957.4468085106383, 0.0, 0, 978.7234042553191, 0.0, 0, 1000.0, 0.0, 0 ],
                                     "bgcolor": [ 0.6388385052447552, 0.5481945727244106, 0.13014206719178864, 1.0 ],
                                     "classic_curve": 1,
                                     "grid": 3,
@@ -3843,7 +4524,7 @@
                                     "presentation": 1,
                                     "presentation_linecount": 4,
                                     "presentation_rect": [ 60.0, 452.0, 722.0, 62.0 ],
-                                    "text": "0. 0. 0.04 21.27 0.08 21.27 0.12 21.27 0.17 21.27 0.21 21.27 0.25 21.27 0.29 21.27 0.34 21.27 0.38 21.27 0.42 21.27 0.46 21.27 0.51 21.27 0.55 21.27 0.59 21.27 0.63 21.27 0.68 21.27 0.72 21.27 0.76 21.27 0.8 21.27 0.85 21.27 0.89 21.27 0.93 21.27 0.97 21.27 0.97 21.27 0.93 21.27 0.89 21.27 0.85 21.27 0.8 21.27 0.76 21.27 0.72 21.27 0.68 21.27 0.63 21.27 0.59 21.27 0.55 21.27 0.51 21.27 0.46 21.27 0.42 21.27 0.38 21.27 0.34 21.27 0.29 21.27 0.25 21.27 0.21 21.27 0.17 21.27 0.12 21.27 0.08 21.27 0.04 21.27 0. 21.27"
+                                    "text": "0.98 0. 0.56 21.27 0.25 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0.94 21.27 0.45 21.27 0.18 21.27 0.1 21.27 0.08 21.27 0.06 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0.94 21.27 0.87 21.27 0.77 21.27 0.7 21.27 0.64 21.27 0.56 21.27 0.5 21.27 0.38 21.27 0.12 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27"
                                 }
                             },
                             {
@@ -3966,7 +4647,7 @@
                                         "data": [
                                             {
                                                 "key": 1,
-                                                "value": [ 0.0, 0.0, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.01, 21.27, 0.03, 21.27, 0.05, 21.27, 0.05, 21.27, 0.1, 21.27, 0.24, 21.27, 0.42, 21.27, 0.59, 21.27, 0.84, 21.27, 0.98, 21.27, 1.0, 21.27, 0.97, 21.27, 0.78, 21.27, 0.57, 21.27, 0.37, 21.27, 0.19, 21.27, 0.07, 21.27, 0.02, 21.27, 0.01, 21.27, 0.01, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27, 0.0, 21.27 ]
+                                                "value": [ 0.0, 0.0, 0.04, 8.51, 0.2, 8.51, 0.54, 8.51, 0.91, 8.51, 0.99, 8.51, 0.7, 8.51, 0.32, 8.51, 0.08, 8.51, 0.01, 8.51, 0.0, 8.51, 0.0, 8.51, 0.0, 8.51, 0.01, 8.51, 0.09, 8.51, 0.34, 8.51, 0.73, 8.51, 1.0, 8.51, 0.89, 8.51, 0.52, 8.51, 0.19, 8.51, 0.03, 8.51, 0.0, 8.51, 0.0, 8.51, 0.0, 8.51, 0.0, 8.51, 0.03, 8.51, 0.19, 8.51, 0.52, 8.51, 0.89, 8.51, 1.0, 8.51, 0.73, 8.51, 0.34, 8.51, 0.09, 8.51, 0.01, 8.51, 0.0, 8.51, 0.0, 8.51, 0.0, 8.51, 0.01, 8.51, 0.08, 8.51, 0.32, 8.51, 0.7, 8.51, 0.99, 8.51, 0.91, 8.51, 0.54, 8.51, 0.2, 8.51, 0.04, 8.51, 0.0, 8.51 ]
                                             },
                                             {
                                                 "key": 2,
@@ -9318,7 +9999,7 @@
                                     "maxclass": "inlet",
                                     "numinlets": 0,
                                     "numoutlets": 1,
-                                    "outlettype": [ "bang" ],
+                                    "outlettype": [ "" ],
                                     "patching_rect": [ 10.0, 10.0, 30.0, 30.0 ]
                                 }
                             },
@@ -11049,13 +11730,12 @@
                                     "fontsize": 14.0,
                                     "gradient": 1,
                                     "id": "syn-filtered-message",
-                                    "linecount": 118,
                                     "maxclass": "message",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 21.0, 90.0, 91.0, 24.0 ],
-                                    "text": "415 12032.035188 417 12177.664022 425 12240.941546 433 12201.171265 437 12963.628927 438 12045 439 12473.483883 440 12100 441 12086.949634 442 12155 443 12127.225777 444 12210 445 12567.134991 446 12265 448 12320 449 12606.268647 450 12375 451 12162.76827 452 12430 454 12485 455 12958.838029 456 12540 457 12853.96515 458 12595 459 12246.730834 460 12650 461 13440.252299 462 12705 463 13302.247594 464 12760 465 13106.360634 466 12815 467 13105.169173 468 12870 469 13260.713085 470 12925 471 12359.327704 472 12980 473 13396.675953 474 13035 475 12749.357215 476 13090 477 12925.601343 478 13145 479 13339.643304 480 13200 481 13298.088578 482 13255 483 13389.049587 484 13310 485 13504.191672 486 13365 487 13378.612693 488 13420 489 13588.354434 490 13475 491 13775.071199 492 13530 493 13894.201916 494 13585 495 14086.894211 496 13640 497 13099.882394 498 13695 499 13184.392161 500 13750 501 13575.595542 502 13805 503 13064.689416 504 13860 505 13627.249616 506 13915 507 13577.772645 508 13970 509 14531.318872 510 14025 511 14812.225815 512 14080",
+                                    "text": "none",
                                     "textcolor": [ 1.0, 0.0, 0.08235294117647059, 1.0 ]
                                 }
                             },
@@ -11219,13 +11899,13 @@
                                     "bgfillcolor_type": "gradient",
                                     "gradient": 1,
                                     "id": "syn-model-message",
-                                    "linecount": 807,
+                                    "linecount": 72,
                                     "maxclass": "message",
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 195.0, 102.0, 88.0, 1322.0 ],
-                                    "text": "55 1 110 0.549175 165 0.563189 167.472853 0.639486 177.487882 0.853066 186.372314 0.412536 220 0.401058 260.190658 0.984431 275 0.098759 312.537596 0.599292 330 0.891407 385 0.754336 428.688991 0.949066 440 0.709959 482.207714 0.231823 483.384893 0.609842 495 0.873167 510.652603 0.3575 532.946969 0.455423 550 0.866673 578.247234 0.051013 605 0.861619 625.675243 0.155101 660 0.311296 660.326121 0.292062 692.841935 0.48251 713.429124 0.323539 715 0.699007 770 0.955578 825 0.845184 880 0.862654 892.968177 0.660859 935 0.494076 939.774327 0.819567 990 0.935835 1039.010851 0.522778 1045 0.101272 1088.305575 0.902633 1100 0.097167 1117.403576 0.70067 1118.048945 0.321911 1155 0.991345 1197.09607 0.445892 1210 0.500299 1265 0.720272 1292.245005 0.389024 1320 0.218693 1375 0.090737 1377.11362 0.847513 1408.6 0.263297 1430 0.426015 1460.35633 0.401871 1482.71232 0.440052 1485 0.168983 1489.796444 0.847989 1500.850842 0.552507 1540 0.818115 1595 0.973016 1638.003779 0.878499 1650 0.783542 1673.192184 0.047622 1694.543408 0.247432 1705 0.350483 1760 0.120834 1765.442547 0.660175 1796.613986 0.386893 1815 0.863278 1869.373591 0.234619 1870 0.325289 1925 0.683494 1955.114214 0.735041 1980 0.165592 2035 0.785621 2090 0.372194 2095.892973 0.893082 2145 0.312824 2160.019279 0.639912 2200 0.336047 2255 0.385936 2259.451659 0.665924 2310 0.230063 2365 0.81349 2398.525412 0.848847 2420 0.519042 2425.174191 0.891465 2475 0.916344 2476.152986 0.346126 2482.717857 0.809335 2499.241092 0.957904 2530 0.409974 2563.024817 0.656971 2585 0.783303 2599.406875 0.457852 2640 0.047326 2664.896383 0.705469 2695 0.772678 2708.303739 0.07043 2730.262785 0.365706 2750 0.701646 2752.669102 0.070401 2758.39461 0.679189 2760.666136 0.886281 2805 0.532217 2860 0.499508 2862.378662 0.036131 2915 0.555494 2970 0.454256 2995.333551 0.057617 3025 0.671447 3026.583588 0.941101 3044.688968 0.658436 3062.741462 0.250077 3080 0.376314 3135 0.48545 3145.24417 0.206413 3190 0.256176 3245 0.781331 3252.172672 0.046372 3300 0.649763 3333.987292 0.705567 3355 0.145504 3410 0.573205 3465 0.494162 3480.8 0.09578 3484.723773 0.154516 3520 0.190664 3528.327967 0.233734 3557.403916 0.1271 3560.698866 0.227353 3575 0.945218 3614.734646 0.057626 3630 0.804322 3630.372428 0.138793 3685 0.266664 3721.38721 0.712994 3740 0.11987 3795 0.406562 3850 0.644641 3879.352402 0.879805 3905 0.83655 3925.279713 0.601192 3938.531555 0.056092 3960 0.200031 3960.860861 0.01785 3998.531457 0.81755 4015 0.355975 4032.970383 0.974734 4041.630128 0.220147 4070 0.607153 4125 0.858522 4180 0.487089 4201.937704 0.556901 4223.672852 0.267267 4235 0.37402 4275.934726 0.339217 4290 0.048023 4297.545986 0.448764 4330.67 0.295587 4345 0.497367 4354.243905 0.8167 4386.107978 0.133664 4400 0.594611 4455 0.401844 4510 0.064596 4565 0.819208 4620 0.089017 4675 0.232735 4675.042959 0.711553 4715.302157 0.630805 4730 0.19097 4754.461417 0.049147 4777.576625 0.746793 4785 0.666765 4840 0.730121 4894.003471 0.692016 4895 0.727444 4950 0.902869 4967.175866 0.483819 5005 0.3304 5039.635341 0.708477 5060 0.498889 5062.73608 0.841273 5066.872419 0.539965 5115 0.983506 5124.544514 0.252946 5145.630694 0.513391 5170 0.561724 5217.222417 0.177084 5222.81013 0.233531 5225 0.733981 5280 0.613138 5325.958293 0.371263 5335 0.361689 5390 0.577319 5439.764652 0.550896 5445 0.043063 5485.838489 0.959834 5499.910557 0.63375 5500 0.021931 5502.805325 0.448393 5522.5 0.193671 5555 0.226761 5610 0.248953 5665 0.572621 5717.605466 0.57892 5720 0.190697 5775 0.495149 5785.069251 0.492565 5806.068563 0.769783 5830 0.957056 5885 0.622524 5910.514708 0.567799 5914.61 0.826853 5934.064399 0.748797 5940 0.341677 5970.1192 0.44751 5995 0.598642 6012.123601 0.763469 6050 0.120312 6072.558088 0.034431 6072.908686 0.591551 6092.533374 0.569235 6095.2 0.782655 6105 0.401204 6160 0.698051 6197.802102 0.19701 6215 0.271155 6249.554625 0.519492 6253.113314 0.582761 6270 0.607783 6325 0.511396 6331.517308 0.897402 6380 0.695158 6435 0.644663 6490 0.101164 6522.02916 0.429112 6545 0.566619 6587.555111 0.232808 6600 0.568514 6650.778778 0.002632 6655 0.500784 6710 0.239254 6765 0.38298 6805.689775 0.174503 6820 0.205862 6820.74885 0.522032 6863.483644 0.812874 6875 0.166067 6892.65971 0.134342 6930 0.244856 6943.284353 0.91182 6985 0.84815 7040 0.659272 7052.903036 0.432268 7095 0.461901 7150 0.133739 7204.045282 0.099842 7205 0.007827 7260 0.25338 7315 0.32408 7335.367967 0.945248 7342.103749 0.259855 7370 0.535982 7388.87 0.433545 7398.02753 0.759363 7425 0.129723 7462.437475 0.020605 7480 0.797086 7482.986346 0.848947 7524.185369 0.165024 7535 0.192387 7590 0.621911 7599.112953 0.216878 7640.135461 0.302332 7645 0.506091 7686.269208 0.851131 7690.63158 0.955037 7700 0.008643 7713.803575 0.231507 7719.150391 0.089852 7755 0.03717 7759.434363 0.503037 7810 0.618006 7812.265935 0.29736 7865 0.53804 7889.671271 0.915528 7920 0.897784 7975 0.93774 8014.702819 0.050168 8030 0.922579 8085 0.20835 8103.574103 0.284016 8110.026477 0.703619 8116.776527 0.016494 8118.833678 0.950712 8140 0.513644 8143.150438 0.986174 8171.288669 0.120152 8195 0.456514 8250 0.886685 8305 0.394246 8355.769326 0.373923 8360 0.163451 8397.845264 0.653606 8401.673698 0.014825 8415 0.663183 8442.306909 0.049595 8451.402218 0.193949 8470 0.912637 8481.426571 0.437361 8525 0.597539 8558.623738 0.114374 8580 0.934572 8586.28671 0.598738 8592.654131 0.37605 8635 0.554791 8690 0.640666 8745 0.576794 8800 0.111225 8855 0.790441 8874.962215 0.594713 8879.869031 0.653203 8883.063713 0.876451 8910 0.643673 8918.976118 0.718827 8964.723717 0.020769 8965 0.054654 8971.657219 0.767947 9020 0.867248 9027.098919 0.578669 9075 0.113484 9125.521588 0.252647 9127.191208 0.559624 9130 0.230696 9142.246315 0.205281 9185 0.143155 9240 0.437597 9271.462154 0.333466 9295 0.569349 9350 0.671618 9405 0.380888 9406.7 0.408467 9460 0.823768 9515 0.643829 9540.40827 0.49475 9542.326333 0.281694 9570 0.398818 9603.803882 0.723516 9625 0.308037 9680 0.97214 9735 0.744438 9747.551673 0.541563 9790 0.515856 9809.586909 0.479316 9840.8038 0.2911 9845 0.318848 9872.357562 0.1432 9900 0.279283 9944.041248 0.498251 9955 0.026584 10010 0.24899 10027.763762 0.750738 10065 0.125769 10110.801645 0.367038 10120 0.224545 10124.442802 0.854801 10162.430467 0.053274 10169.32703 0.230274 10175 0.426666 10188.697938 0.274105 10230 0.81419 10280.642415 0.453214 10285 0.545514 10313.405093 0.682042 10340 0.907784 10366.46 0.844994 10375.965597 0.815747 10395 0.905755 10445.811909 0.805743 10449.477413 0.597817 10450 0.540509 10475.907035 0.09584 10505 0.4745 10560 0.278897 10570.4124 0.923596 10615 0.33044 10670 0.99008 10725 0.859597 10780 0.885834 10820.258872 0.240452 10835 0.121453 10855.545536 0.71509 10890 0.245658 10906.016386 0.54436 10909.884332 0.10788 10945 0.189873 10981.735205 0.878511 10991.447394 0.513451 10993.489144 0.533994 11000 0.039083 11010.838093 0.625767 11033.123399 0.098215 11035.225574 0.739706 11053.718291 0.581919 11055 0.786092 11110 0.498557 11133.977197 0.42717 11165 0.535945 11220 0.393135 11230.195906 0.543016 11275 0.717029 11330 0.562988 11385 0.445836 11440 0.079244 11495 0.187959 11550 0.967214 11605 0.069663 11611.181131 0.622995 11637.517494 0.038963 11648.797714 0.65314 11657.001795 0.478844 11660 0.688832 11661.646604 0.830265 11665.754963 0.322661 11715 0.305642 11770 0.827621 11825 0.730234 11880 0.603165 11884.012694 0.656176 11935 0.788234 11939.74183 0.243103 11971.225613 0.218867 11990 0.798683",
+                                    "text": "55 0 110 0.021277 165 0.042553 220 0.06383 275 0.085106 330 0.106383 385 0.12766 440 0.148936 495 0.170213 550 0.191489 605 0.212766 660 0.234043 715 0.255319 770 0.276596 825 0.297872 880 0.319149 935 0.340426 990 0.361702 1045 0.382979 1100 0.404255 1155 0.425532 1210 0.446809 1265 0.468085 1320 0.489362 1375 0.510638 1430 0.531915 1485 0.553191 1540 0.574468 1595 0.595745 1650 0.617021 1705 0.638298 1760 0.659574 1815 0.680851 1870 0.702128 1925 0.723404 1980 0.744681 2035 0.765957 2090 0.787234 2145 0.808511 2200 0.829787 2255 0.851064 2310 0.87234 2365 0.893617 2420 0.914894 2475 0.93617 2530 0.957447 2585 0.978723 2640 1",
                                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                                 }
                             },
@@ -11512,7 +12192,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 35.0, 331.0, 875.0, 100.0 ],
                     "signed": 1,
-                    "size": 256,
+                    "size": 48,
                     "slidercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "spacing": 2
                 }
@@ -11534,7 +12214,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 35.0, 157.0, 875.0, 100.0 ],
                     "setminmax": [ 0.0, 1.0 ],
-                    "size": 256,
+                    "size": 48,
                     "slidercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "spacing": 2
                 }
@@ -11594,7 +12274,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 41.0, 1171.0, 335.0, 22.0 ],
-                    "text": "512 433 1 78 0 12000",
+                    "text": "96 48 48 0 0 12000",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
@@ -12333,7 +13013,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 158.5, 243.0, 762.0, 62.0 ],
-                    "text": "0. 0. 0.04 21.27 0.08 21.27 0.12 21.27 0.17 21.27 0.21 21.27 0.25 21.27 0.29 21.27 0.34 21.27 0.38 21.27 0.42 21.27 0.46 21.27 0.51 21.27 0.55 21.27 0.59 21.27 0.63 21.27 0.68 21.27 0.72 21.27 0.76 21.27 0.8 21.27 0.85 21.27 0.89 21.27 0.93 21.27 0.97 21.27 0.97 21.27 0.93 21.27 0.89 21.27 0.85 21.27 0.8 21.27 0.76 21.27 0.72 21.27 0.68 21.27 0.63 21.27 0.59 21.27 0.55 21.27 0.51 21.27 0.46 21.27 0.42 21.27 0.38 21.27 0.34 21.27 0.29 21.27 0.25 21.27 0.21 21.27 0.17 21.27 0.12 21.27 0.08 21.27 0.04 21.27 0. 21.27",
+                    "text": "0.98 0. 0.56 21.27 0.25 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0.94 21.27 0.45 21.27 0.18 21.27 0.1 21.27 0.08 21.27 0.06 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0.94 21.27 0.87 21.27 0.77 21.27 0.7 21.27 0.64 21.27 0.56 21.27 0.5 21.27 0.38 21.27 0.12 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27 0. 21.27",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
@@ -12360,10 +13040,10 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 128.0, 170.0, 185.0, 20.0 ],
+                    "patching_rect": [ 128.0, 170.0, 187.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 668.0, 46.0, 139.0, 20.0 ],
-                    "text": "TRIGGER ADSR global",
+                    "presentation_rect": [ 668.0, 46.0, 187.0, 20.0 ],
+                    "text": "TRIGGER ALL 12 ADSR LANES",
                     "textcolor": [ 0.16, 0.29, 0.45, 1.0 ]
                 }
             },
@@ -12507,7 +13187,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 35.0, 491.0, 875.0, 100.0 ],
                     "setminmax": [ 0.0, 1.0 ],
-                    "size": 256,
+                    "size": 48,
                     "slidercolor": [ 0.0, 0.0, 0.0, 1.0 ],
                     "spacing": 2
                 }
@@ -13660,13 +14340,13 @@
                     "bgfillcolor_type": "gradient",
                     "gradient": 1,
                     "id": "rt14-source-message",
-                    "linecount": 155,
+                    "linecount": 16,
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 982.0, 1591.0, 380.0, 2086.0 ],
-                    "text": "55 0.379019 55 0.968871 482.207714 0.231823 110 0.549175 186.372314 0.412536 165 0.563189 483.384893 0.609842 220 0.401058 177.487882 0.853066 275 0.098759 532.946969 0.455423 330 0.891407 167.472853 0.639486 385 0.754336 312.537596 0.599292 440 0.709959 625.675243 0.155101 495 0.873167 260.190658 0.984431 550 0.866673 510.652603 0.3575 605 0.861619 692.841935 0.48251 660 0.311296 428.688991 0.949066 715 0.699007 892.968177 0.660859 770 0.955578 578.247234 0.051013 825 0.845184 1039.010851 0.522778 880 0.862654 1117.403576 0.70067 935 0.494076 939.774327 0.819567 990 0.935835 660.326121 0.292062 1045 0.101272 713.429124 0.323539 1100 0.097167 1088.305575 0.902633 1155 0.991345 1408.6 0.263297 1210 0.500299 1292.245005 0.389024 1265 0.720272 1460.35633 0.401871 1320 0.218693 1500.850842 0.552507 1375 0.090737 1118.048945 0.321911 1430 0.426015 1197.09607 0.445892 1485 0.168983 1377.11362 0.847513 1540 0.818115 1765.442547 0.660175 1595 0.973016 1673.192184 0.047622 1650 0.783542 1489.796444 0.847989 1705 0.350483 1482.71232 0.440052 1760 0.120834 1955.114214 0.735041 1815 0.863278 1694.543408 0.247432 1870 0.325289 1638.003779 0.878499 1925 0.683494 1796.613986 0.386893 1980 0.165592 2563.024817 0.656971 2035 0.785621 1869.373591 0.234619 2090 0.372194 2160.019279 0.639912 2145 0.312824 2259.451659 0.665924 2200 0.336047 2708.303739 0.07043 2255 0.385936 2095.892973 0.893082 2310 0.230063 2664.896383 0.705469 2365 0.81349 2482.717857 0.809335 2420 0.519042 2599.406875 0.457852 2475 0.916344 2425.174191 0.891465 2530 0.409974 2499.241092 0.957904 2585 0.783303 2398.525412 0.848847 2640 0.047326 2476.152986 0.346126 2695 0.772678 3044.688968 0.658436 2750 0.701646 2760.666136 0.886281 2805 0.532217 2995.333551 0.057617 2860 0.499508 2758.39461 0.679189 2915 0.555494 2862.378662 0.036131 2970 0.454256 3145.24417 0.206413 3025 0.671447 2752.669102 0.070401 3080 0.376314 3062.741462 0.250077 3135 0.48545 2730.262785 0.365706 3190 0.256176 3252.172672 0.046372 3245 0.781331 3026.583588 0.941101 3300 0.649763 3560.698866 0.227353 3355 0.145504 3557.403916 0.1271 3410 0.573205 3480.8 0.09578 3465 0.494162 3333.987292 0.705567 3520 0.190664 3528.327967 0.233734 3575 0.945218 3484.723773 0.154516 3630 0.804322 3938.531555 0.056092 3685 0.266664 3614.734646 0.057626 3740 0.11987 3630.372428 0.138793 3795 0.406562 3879.352402 0.879805 3850 0.644641 4297.545986 0.448764 3905 0.83655 3998.531457 0.81755 3960 0.200031 3721.38721 0.712994 4015 0.355975 3960.860861 0.01785 4070 0.607153 4275.934726 0.339217 4125 0.858522 4032.970383 0.974734 4180 0.487089 4201.937704 0.556901 4235 0.37402 3925.279713 0.601192 4290 0.048023 4354.243905 0.8167 4345 0.497367 4041.630128 0.220147 4400 0.594611 4223.672852 0.267267 4455 0.401844 4330.67 0.295587 4510 0.064596 4386.107978 0.133664 4565 0.819208 4754.461417 0.049147 4620 0.089017 4715.302157 0.630805 4675 0.232735 4967.175866 0.483819 4730 0.19097 5124.544514 0.252946 4785 0.666765 4675.042959 0.711553 4840 0.730121 4777.576625 0.746793 4895 0.727444 4894.003471 0.692016 4950 0.902869 5217.222417 0.177084 5005 0.3304 5145.630694 0.513391 5060 0.498889 5325.958293 0.371263 5115 0.983506 5439.764652 0.550896 5170 0.561724 5062.73608 0.841273 5225 0.733981 5222.81013 0.233531 5280 0.613138 5502.805325 0.448393 5335 0.361689 5499.910557 0.63375 5390 0.577319 5066.872419 0.539965 5445 0.043063 5039.635341 0.708477 5500 0.021931 5934.064399 0.748797 5555 0.226761 5522.5 0.193671 5610 0.248953 5914.61 0.826853 5665 0.572621 5485.838489 0.959834 5720 0.190697 5806.068563 0.769783 5775 0.495149 6072.558088 0.034431 5830 0.957056 5717.605466 0.57892 5885 0.622524 6072.908686 0.591551 5940 0.341677 6092.533374 0.569235 5995 0.598642 5785.069251 0.492565 6050 0.120312 5970.1192 0.44751 6105 0.401204 5910.514708 0.567799 6160 0.698051 6650.778778 0.002632 6215 0.271155 6095.2 0.782655 6270 0.607783 6587.555111 0.232808 6325 0.511396 6331.517308 0.897402 6380 0.695158 6943.284353 0.91182 6435 0.644663 6012.123601 0.763469 6490 0.101164 6863.483644 0.812874 6545 0.566619 6197.802102 0.19701 6600 0.568514 6805.689775 0.174503 6655 0.500784 6249.554625 0.519492 6710 0.239254 6892.65971 0.134342 6765 0.38298 6253.113314 0.582761 6820 0.205862 7524.185369 0.165024 6875 0.166067 7462.437475 0.020605 6930 0.244856 6522.02916 0.429112 6985 0.84815 7482.986346 0.848947 7040 0.659272 7204.045282 0.099842 7095 0.461901 6820.74885 0.522032 7150 0.133739 7342.103749 0.259855 7205 0.007827 7052.903036 0.432268 7260 0.25338 7335.367967 0.945248 7315 0.32408 7812.265935 0.29736 7370 0.535982 7599.112953 0.216878 7425 0.129723 7713.803575 0.231507 7480 0.797086 8014.702819 0.050168 7535 0.192387 7398.02753 0.759363 7590 0.621911 7719.150391 0.089852 7645 0.506091 7690.63158 0.955037 7700 0.008643 7388.87 0.433545 7755 0.03717 8116.776527 0.016494 7810 0.618006 8171.288669 0.120152 7865 0.53804 7640.135461 0.302332 7920 0.897784 8110.026477 0.703619 7975 0.93774 8481.426571 0.437361 8030 0.922579 7759.434363 0.503037 8085 0.20835 8118.833678 0.950712 8140 0.513644 7889.671271 0.915528 8195 0.456514 7686.269208 0.851131 8250 0.886685 8397.845264 0.653606 8305 0.394246 8401.673698 0.014825 8360 0.163451 8103.574103 0.284016 8415 0.663183 8586.28671 0.598738 8470 0.912637 8883.063713 0.876451 8525 0.597539 8355.769326 0.373923 8580 0.934572 9127.191208 0.559624 8635 0.554791 8971.657219 0.767947 8690 0.640666 8143.150438 0.986174 8745 0.576794 8964.723717 0.020769 8800 0.111225 8442.306909 0.049595 8855 0.790441 8874.962215 0.594713 8910 0.643673 8558.623738 0.114374 8965 0.054654 8592.654131 0.37605 9020 0.867248 8918.976118 0.718827 9075 0.113484 8451.402218 0.193949 9130 0.230696 9406.7 0.408467 9185 0.143155 9271.462154 0.333466 9240 0.437597 9747.551673 0.541563 9295 0.569349 9540.40827 0.49475 9350 0.671618 9027.098919 0.578669 9405 0.380888 8879.869031 0.653203 9460 0.823768 9840.8038 0.2911 9515 0.643829 9944.041248 0.498251 9570 0.398818 9542.326333 0.281694 9625 0.308037 9142.246315 0.205281 9680 0.97214 9125.521588 0.252647 9735 0.744438 10027.763762 0.750738 9790 0.515856 9872.357562 0.1432 9845 0.318848 9809.586909 0.479316 9900 0.279283 10570.4124 0.923596 9955 0.026584 10169.32703 0.230274 10010 0.24899 10375.965597 0.815747 10065 0.125769 9603.803882 0.723516 10120 0.224545 11010.838093 0.625767 10175 0.426666 10313.405093 0.682042 10230 0.81419 10366.46 0.844994 10285 0.545514 10162.430467 0.053274 10340 0.907784 10475.907035 0.09584 10395 0.905755 10445.811909 0.805743 10450 0.540509 10188.697938 0.274105 10505 0.4745 10981.735205 0.878511 10560 0.278897 11230.195906 0.543016 10615 0.33044 10449.477413 0.597817 10670 0.99008 10124.442802 0.854801 10725 0.859597 11637.517494 0.038963 10780 0.885834 10110.801645 0.367038 10835 0.121453 11053.718291 0.581919 10890 0.245658 10280.642415 0.453214 10945 0.189873 10909.884332 0.10788 11000 0.039083 10855.545536 0.71509 11055 0.786092 11611.181131 0.622995 11110 0.498557 11035.225574 0.739706 11165 0.535945 11133.977197 0.42717 11220 0.393135 11665.754963 0.322661 11275 0.717029 10991.447394 0.513451 11330 0.562988 10993.489144 0.533994 11385 0.445836 12032.035188 0.570787 11440 0.079244 12177.664022 0.631322 11495 0.187959 10906.016386 0.54436 11550 0.967214 10820.258872 0.240452 11605 0.069663 11033.123399 0.098215 11660 0.688832 12240.941546 0.005475 11715 0.305642 11661.646604 0.830265 11770 0.827621 11648.797714 0.65314 11825 0.730234 11884.012694 0.656176 11880 0.603165 12201.171265 0.98048 11935 0.788234 11939.74183 0.243103 11990 0.798683 12963.628927 0.036125 12045 0.7826 12473.483883 0.714246 12100 0.392482 12086.949634 0.86615 12155 0.831426 12127.225777 0.428892 12210 0.010005 12567.134991 0.79186 12265 0.012845 11657.001795 0.478844 12320 0.266537 12606.268647 0.702492 12375 0.996731 12162.76827 0.530272 12430 0.051008 11971.225613 0.218867 12485 0.01485 12958.838029 0.820081 12540 0.848565 12853.96515 0.51863 12595 0.010396 12246.730834 0.918639 12650 0.744506 13440.252299 0.829719 12705 0.953523 13302.247594 0.367287 12760 0.865957 13106.360634 0.081242 12815 0.59673 13105.169173 0.451521 12870 0.662319 13260.713085 0.451259 12925 0.873942 12359.327704 0.28152 12980 0.703471 13396.675953 0.8354 13035 0.98627 12749.357215 0.514021 13090 0.07926 12925.601343 0.861238 13145 0.248092 13339.643304 0.597201 13200 0.148616 13298.088578 0.538597 13255 0.537053 13389.049587 0.377566 13310 0.336206 13504.191672 0.029048 13365 0.764356 13378.612693 0.440021 13420 0.073848 13588.354434 0.167813 13475 0.98634 13775.071199 0.214842 13530 0.388677 13894.201916 0.122902 13585 0.459648 14086.894211 0.874566 13640 0.246544 13099.882394 0.039832 13695 0.210532 13184.392161 0.446752 13750 0.654209 13575.595542 0.321857 13805 0.170034 13064.689416 0.612661 13860 0.935229 13627.249616 0.726645 13915 0.012571 13577.772645 0.965346 13970 0.140016 14531.318872 0.128239 14025 0.932945 14812.225815 0.322199 14080 0.48934",
+                    "patching_rect": [ 982.0, 1591.0, 382.0, 223.0 ],
+                    "text": "55 0 55 0 110 0.021277 110 0 165 0.042553 165 0 220 0.06383 220 0 275 0.085106 275 0 330 0.106383 330 0 385 0.12766 385 0 440 0.148936 440 0 495 0.170213 495 0 550 0.191489 550 0 605 0.212766 605 0 660 0.234043 660 0 715 0.255319 715 0 770 0.276596 770 0 825 0.297872 825 0 880 0.319149 880 0 935 0.340426 935 0 990 0.361702 990 0 1045 0.382979 1045 0 1100 0.404255 1100 0 1155 0.425532 1155 0 1210 0.446809 1210 0 1265 0.468085 1265 0 1320 0.489362 1320 0 1375 0.510638 1375 0 1430 0.531915 1430 0 1485 0.553191 1485 0 1540 0.574468 1540 0 1595 0.595745 1595 0 1650 0.617021 1650 0 1705 0.638298 1705 0 1760 0.659574 1760 0 1815 0.680851 1815 0 1870 0.702128 1870 0 1925 0.723404 1925 0 1980 0.744681 1980 0 2035 0.765957 2035 0 2090 0.787234 2090 0 2145 0.808511 2145 0 2200 0.829787 2200 0 2255 0.851064 2255 0 2310 0.87234 2310 0 2365 0.893617 2365 0 2420 0.914894 2420 0 2475 0.93617 2475 0 2530 0.957447 2530 0 2585 0.978723 2585 0 2640 1 2640 0",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
@@ -13963,13 +14643,13 @@
                     "bgfillcolor_type": "gradient",
                     "gradient": 1,
                     "id": "rm14-weights-preview",
-                    "linecount": 16,
+                    "linecount": 3,
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 42.0, 2046.0, 875.0, 223.0 ],
-                    "text": "1 0.996078 0.992157 0.988235 0.984313 0.980392 0.97647 0.972549 0.968627 0.964706 0.960784 0.956863 0.952941 0.94902 0.945098 0.941176 0.937255 0.933333 0.929412 0.92549 0.921569 0.917647 0.913726 0.909804 0.905883 0.901961 0.898039 0.894118 0.890196 0.886274 0.882353 0.878431 0.874509 0.870588 0.866666 0.862745 0.858823 0.854902 0.850981 0.847059 0.843137 0.839216 0.835294 0.831372 0.827451 0.823529 0.819608 0.815686 0.811765 0.807843 0.803922 0.8 0.796079 0.792157 0.788235 0.784314 0.780392 0.77647 0.772549 0.768627 0.764705 0.760784 0.756863 0.752941 0.74902 0.745098 0.741177 0.737255 0.733333 0.729412 0.72549 0.721568 0.717647 0.713726 0.709804 0.705883 0.701961 0.698039 0.694118 0.690196 0.686275 0.682353 0.678431 0.67451 0.670588 0.666666 0.662745 0.658823 0.654902 0.65098 0.647059 0.643137 0.639216 0.635294 0.631373 0.627451 0.623529 0.619608 0.615686 0.611765 0.607843 0.603922 0.6 0.596079 0.592157 0.588235 0.584314 0.580392 0.576471 0.572549 0.568627 0.564706 0.560784 0.556862 0.552941 0.549019 0.545098 0.541176 0.537255 0.533333 0.529412 0.52549 0.521569 0.517647 0.513725 0.509804 0.505882 0.501961 0.498039 0.494118 0.490196 0.486275 0.482353 0.478431 0.47451 0.470588 0.466667 0.462745 0.458824 0.454902 0.450981 0.447059 0.443138 0.439216 0.435294 0.431373 0.427451 0.423529 0.419608 0.415686 0.411765 0.407843 0.403921 0.4 0.396078 0.392157 0.388235 0.384314 0.380392 0.376471 0.372549 0.368627 0.364706 0.360784 0.356863 0.352941 0.34902 0.345098 0.341177 0.337255 0.333334 0.329412 0.32549 0.321569 0.317647 0.313725 0.309804 0.305882 0.301961 0.298039 0.294117 0.290196 0.286274 0.282353 0.278432 0.27451 0.270588 0.266667 0.262745 0.258823 0.254902 0.25098 0.247059 0.243137 0.239216 0.235295 0.231373 0.227451 0.22353 0.219608 0.215686 0.211765 0.207843 0.203921 0.2 0.196078 0.192157 0.188235 0.184314 0.180392 0.176471 0.172549 0.168628 0.164706 0.160784 0.156863 0.152941 0.149019 0.145098 0.141177 0.137255 0.133334 0.129412 0.125491 0.121569 0.117647 0.113726 0.109804 0.105882 0.101961 0.098039 0.094117 0.090196 0.086274 0.082353 0.078431 0.07451 0.070588 0.066667 0.062745 0.058824 0.054902 0.05098 0.047059 0.043137 0.039216 0.035294 0.031373 0.027451 0.02353 0.019608 0.015687 0.011765 0.007843 0.003922 0",
+                    "patching_rect": [ 42.0, 2046.0, 875.0, 49.0 ],
+                    "text": "1 0.978723 0.957447 0.93617 0.914894 0.893617 0.87234 0.851064 0.829787 0.808511 0.787234 0.765957 0.744681 0.723404 0.702128 0.680851 0.659574 0.638298 0.617021 0.595745 0.574468 0.553191 0.531915 0.510638 0.489362 0.468085 0.446809 0.425532 0.404255 0.382979 0.361702 0.340426 0.319149 0.297872 0.276596 0.255319 0.234043 0.212766 0.191489 0.170213 0.148936 0.12766 0.106383 0.085106 0.06383 0.042553 0.021277 0",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
@@ -24280,7 +24960,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1022.0, 572.0, 195.0, 33.0 ],
+                                    "patching_rect": [ 445.0, 598.0, 195.0, 33.0 ],
                                     "text": "GLOBAL SHAPE ADSR 12 LANES\nTrigger 12 ADSR"
                                 }
                             },
@@ -24293,7 +24973,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 992.75, 572.0, 24.0, 24.0 ]
+                                    "patching_rect": [ 416.0, 598.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -24552,7 +25232,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 992.75, 612.0, 233.0, 22.0 ],
+                                    "patching_rect": [ 416.0, 638.0, 233.0, 22.0 ],
                                     "text": "p ADSR_12_LANES_GLOBAL_TRIGGER"
                                 }
                             },
@@ -25021,7 +25701,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 995.0, 529.0, 289.0, 22.0 ],
+                                    "patching_rect": [ 89.0, 678.0, 289.0, 22.0 ],
                                     "text": "p ADSR_12_LANES_GLOBAL_SHAPES_LOOPING"
                                 }
                             },
@@ -25033,7 +25713,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 924.0, 478.5, 70.0, 33.0 ],
+                                    "patching_rect": [ 18.0, 627.0, 70.0, 33.0 ],
                                     "text": "ALL LANE \nLOOPS 0/1"
                                 }
                             },
@@ -25047,7 +25727,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 995.0, 483.0, 24.0, 24.0 ],
+                                    "patching_rect": [ 89.0, 632.0, 24.0, 24.0 ],
                                     "uncheckedcolor": [ 0.945, 0.431, 0.157, 1.0 ]
                                 }
                             },
@@ -25058,7 +25738,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1030.0, 473.0, 195.0, 20.0 ],
+                                    "patching_rect": [ 134.0, 612.0, 195.0, 20.0 ],
                                     "text": "GLOBAL SHAPE ADSR 12 LANES"
                                 }
                             },
@@ -25078,530 +25758,7 @@
                                     "numoutlets": 3,
                                     "outlettype": [ "int", "", "" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 1030.0, 499.0, 254.0, 22.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.945, 0.431, 0.157, 1.0 ],
-                                    "id": "obj-85",
-                                    "maxclass": "newobj",
-                                    "numinlets": 2,
-                                    "numoutlets": 0,
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 1,
-                                            "revision": 5,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 59.0, 119.0, 1000.0, 780.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "global-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 50.0, 180.0, 931.0, 20.0 ],
-                                                    "text": "The global controls fan out to all twelve lane-specific destinations. The Shape_state and Loop_state receives inside each lane module report the resulting state independently."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-01",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 100.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_01_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-01",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 100.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_01_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-02",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 131.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_02_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-02",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 131.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_02_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-03",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 162.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_03_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-03",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 162.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_03_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-04",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 193.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_04_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-04",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 193.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_04_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-05",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 224.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_05_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-05",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 224.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_05_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-06",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 970.0, 255.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_06_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-06",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1440.0, 255.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_06_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-07",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 100.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_07_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-07",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 100.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_07_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-08",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 131.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_08_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-08",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 131.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_08_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-09",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 162.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_09_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-09",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 162.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_09_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-10",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 193.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_10_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-10",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 193.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_10_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-11",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 224.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_11_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-11",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 224.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_11_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-loop-send-12",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1205.0, 255.0, 225.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_12_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "global-shape-send-12",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 1675.0, 255.0, 230.0, 22.0 ],
-                                                    "text": "send ADSR_Lane_12_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-1",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "int" ],
-                                                    "patching_rect": [ 1081.5, 40.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "",
-                                                    "id": "obj-2",
-                                                    "index": 2,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "int" ],
-                                                    "patching_rect": [ 1551.5, 40.0, 30.0, 30.0 ]
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-01", 0 ],
-                                                    "order": 11,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-02", 0 ],
-                                                    "order": 10,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-03", 0 ],
-                                                    "order": 9,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-04", 0 ],
-                                                    "order": 8,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-05", 0 ],
-                                                    "order": 7,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-06", 0 ],
-                                                    "order": 6,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-07", 0 ],
-                                                    "order": 5,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-08", 0 ],
-                                                    "order": 4,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-09", 0 ],
-                                                    "order": 3,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-10", 0 ],
-                                                    "order": 2,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-11", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-loop-send-12", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-01", 0 ],
-                                                    "order": 11,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-02", 0 ],
-                                                    "order": 10,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-03", 0 ],
-                                                    "order": 9,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-04", 0 ],
-                                                    "order": 8,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-05", 0 ],
-                                                    "order": 7,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-06", 0 ],
-                                                    "order": 6,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-07", 0 ],
-                                                    "order": 5,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-08", 0 ],
-                                                    "order": 4,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-09", 0 ],
-                                                    "order": 3,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-10", 0 ],
-                                                    "order": 2,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-11", 0 ],
-                                                    "order": 1,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "global-shape-send-12", 0 ],
-                                                    "order": 0,
-                                                    "source": [ "obj-2", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 655.0, 575.0, 289.0, 22.0 ],
-                                    "text": "p ADSR_12_LANES_GLOBAL_SHAPES_LOOPING"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "id": "global-loop-label",
-                                    "linecount": 2,
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 586.0, 553.0, 70.0, 33.0 ],
-                                    "text": "ALL LANE \nLOOPS 0/1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.945, 0.431, 0.157, 1.0 ],
-                                    "id": "global-loop-toggle",
-                                    "maxclass": "toggle",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "int" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 655.0, 545.0, 24.0, 24.0 ],
-                                    "uncheckedcolor": [ 0.945, 0.431, 0.157, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.945, 0.431, 0.157, 1.0 ],
-                                    "id": "global-shape-label",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 690.0, 519.0, 195.0, 20.0 ],
-                                    "text": "GLOBAL SHAPE ADSR 12 LANES"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.945, 0.431, 0.157, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.945, 0.431, 0.157, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "id": "global-shape-menu",
-                                    "items": [ "Flat Zero", ",", "All on full", ",", "Linear: low to high", ",", "Exponential: low to high", ",", "Linear: high to low", ",", "Exponential: high to low", ",", "Triangle: center peak", ",", "Exponential triangle: center peak", ",", "Gaussian", ",", "Steep Gaussian", ",", "Inverted Gaussian", ",", "Steep Inverted Gaussian", ",", "Double Gaussian", ",", "Steep Double Gaussian", ",", "Inverted Double Gaussian", ",", "Steep Inverted Double Gaussian", ",", "Triple Gaussian", ",", "Steep Triple Gaussian", ",", "Inverted Triple Gaussian", ",", "Steep Inverted Triple Gaussian", ",", "Quadruple Gaussian", ",", "Steep Quadruple Gaussian", ",", "Inverted Quadruple Gaussian", ",", "Steep Inverted Quadruple Gaussian", ",", "Random (fixed)" ],
-                                    "maxclass": "umenu",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "int", "", "" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 679.0, 546.0, 281.0, 22.0 ]
+                                    "patching_rect": [ 134.0, 638.0, 254.0, 22.0 ]
                                 }
                             },
                             {
@@ -26469,7 +26626,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 1007.25, 707.0, 59.0, 22.0 ],
+                                    "patching_rect": [ 1012.5, 609.0, 59.0, 22.0 ],
                                     "text": "1000. 50."
                                 }
                             },
@@ -26482,7 +26639,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 846.25, 791.0, 24.0, 24.0 ]
+                                    "patching_rect": [ 850.5, 697.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -26493,410 +26650,10 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 846.25, 765.0, 217.0, 22.0 ],
+                                    "patching_rect": [ 850.5, 671.0, 217.0, 22.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 460.0, 336.0, 410.0, 22.0 ],
                                     "text": "receive ADSR_Duration_ms_done_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-50",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1226.25, 687.0, 18.0, 22.0 ],
-                                    "text": "8"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-51",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1246.25, 687.0, 19.0, 22.0 ],
-                                    "text": "9"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-52",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1205.25, 687.0, 18.0, 22.0 ],
-                                    "text": "7"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-53",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1185.25, 687.0, 18.0, 22.0 ],
-                                    "text": "6"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-54",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1165.25, 687.0, 18.0, 22.0 ],
-                                    "text": "5"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-55",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1145.25, 687.0, 18.0, 22.0 ],
-                                    "text": "4"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-56",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1125.25, 687.0, 18.0, 22.0 ],
-                                    "text": "3"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-57",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1105.25, 687.0, 18.0, 22.0 ],
-                                    "text": "2"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-58",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1083.25, 687.0, 19.5, 22.0 ],
-                                    "text": "1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-48",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1221.25, 738.0, 18.0, 22.0 ],
-                                    "text": "8"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-47",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1241.25, 738.0, 19.0, 22.0 ],
-                                    "text": "9"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-46",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1200.25, 738.0, 18.0, 22.0 ],
-                                    "text": "7"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-45",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1180.25, 738.0, 18.0, 22.0 ],
-                                    "text": "6"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-44",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1160.25, 738.0, 18.0, 22.0 ],
-                                    "text": "5"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-43",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1140.25, 738.0, 18.0, 22.0 ],
-                                    "text": "4"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-42",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1120.25, 738.0, 18.0, 22.0 ],
-                                    "text": "3"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-41",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1100.25, 738.0, 18.0, 22.0 ],
-                                    "text": "2"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_angle": 270.0,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1.0 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-40",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 1078.25, 738.0, 19.5, 22.0 ],
-                                    "text": "1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "v19-recv-ADSR_Store_v19",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 1083.25, 713.0, 132.0, 22.0 ],
-                                    "text": "send ADSR_Store_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "v19-recv-ADSR_Recall_v19",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 1078.25, 765.0, 137.0, 22.0 ],
-                                    "text": "send ADSR_Recall_v19"
                                 }
                             },
                             {
@@ -36513,2714 +36270,6 @@
                             {
                                 "box": {
                                     "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-15",
-                                    "maxclass": "newobj",
-                                    "numinlets": 0,
-                                    "numoutlets": 0,
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 1,
-                                            "revision": 5,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 59.0, 119.0, 1080.0, 1080.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "fontsize": 16.0,
-                                                    "id": "title",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 25.0, 18.0, 560.0, 24.0 ],
-                                                    "text": "GAIN ENVELOPE SHAPER (ADSR) — COPYABLE CUES v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "instructions",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 25.0, 52.0, 960.0, 20.0 ],
-                                                    "text": "Copy a complete p Cue_… object into a score. The message at left is an input example; opening this patcher sends nothing."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-0",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 98.0, 360.0, 20.0 ],
-                                                    "text": "Breakpoints (visible points) | INTEGER 3–48"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-0",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 129.0, 320.0, 22.0 ],
-                                                    "text": "48"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                                    "id": "cue-0",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper breakpoints — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: one integer, 3–48. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                                    "text": "clip 3 48"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "integer",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "i"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Breakpoints_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Breakpoints_v19 14"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Breakpoints_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Breakpoints_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Breakpoints_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "integer", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "integer", 0 ],
-                                                                    "source": [ "limit", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "limit", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 129.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Breakpoints_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-1",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 210.0, 360.0, 20.0 ],
-                                                    "text": "Envelope duration ms | VALUE [RAMP_MS]"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-1",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 241.0, 320.0, 22.0 ],
-                                                    "text": "1000. 500."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                                    "id": "cue-1",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper duration ms — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: VALUE [RAMP_MS]. A bare value uses 20 ms; VALUE 0 jumps immediately. stop cancels this copy’s ramp. No output on load."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "parse",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 4,
-                                                                    "outlettype": [ "", "bang", "bang", "" ],
-                                                                    "patching_rect": [ 165.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "t l b b l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "stop",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 205.0, 45.0, 22.0 ],
-                                                                    "text": "stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "default-ms",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 310.0, 205.0, 50.0, 22.0 ],
-                                                                    "text": "20."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "current",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "float" ],
-                                                                    "patching_rect": [ 425.0, 205.0, 115.0, 22.0 ],
-                                                                    "text": "f 1000."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "set-current",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 250.0, 95.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "unpack",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "float", "float" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 115.0, 22.0 ],
-                                                                    "text": "unpack f f"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "value-limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 180.0, 22.0 ],
-                                                                    "text": "clip 1 3600000"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "time-limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 290.0, 170.0, 22.0 ],
-                                                                    "text": "clip 0. 3600000."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "target-time",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 335.0, 130.0, 22.0 ],
-                                                                    "text": "pack f 20."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "ramp",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "bang" ],
-                                                                    "patching_rect": [ 165.0, 385.0, 180.0, 22.0 ],
-                                                                    "text": "line 1000. 5"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "readback",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 155.0, 480.0, 22.0 ],
-                                                                    "text": "receive ADSR_Duration_ms_state_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "ramp-note",
-                                                                    "linecount": 2,
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 320.0, 470.0, 60.0 ],
-                                                                    "text": "5 ms line grain. Current engine readback is cached without output. Each cue starts from the last known value. Keep one active writer per variable."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Duration_ms_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Duration_ms_v19 1000."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Duration_ms_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Duration_ms_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Duration_ms_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 842.0, 800.0, 22.0 ],
-                                                                    "text": "Requested ramp duration controls completion: below 150 ms is suppressed."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-prepare",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "bang" ],
-                                                                    "patching_rect": [ 30.0, 882.0, 200.0, 22.0 ],
-                                                                    "text": "t l b"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-default",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 300.0, 882.0, 60.0, 22.0 ],
-                                                                    "text": "20."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-unpack",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "float", "float" ],
-                                                                    "patching_rect": [ 30.0, 922.0, 200.0, 22.0 ],
-                                                                    "text": "unpack f f"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-compare",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 300.0, 922.0, 200.0, 22.0 ],
-                                                                    "text": ">= 150."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-select",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 300.0, 962.0, 200.0, 22.0 ],
-                                                                    "text": "+ 1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-gate",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 300.0, 1002.0, 200.0, 22.0 ],
-                                                                    "text": "gate 2 1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 500.0, 1052.0, 380.0, 22.0 ],
-                                                                    "text": "send ADSR_Duration_ms_done_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-warning",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 1092.0, 800.0, 22.0 ],
-                                                                    "text": "Requested ramp duration is too low: completion suppressed (minimum 150 ms)."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "completion-print",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 1132.0, 450.0, 22.0 ],
-                                                                    "text": "print Cue_ADSR_Duration_ms_v19"
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-select", 0 ],
-                                                                    "source": [ "completion-compare", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-compare", 0 ],
-                                                                    "source": [ "completion-default", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-send", 0 ],
-                                                                    "source": [ "completion-gate", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-warning", 0 ],
-                                                                    "source": [ "completion-gate", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-default", 0 ],
-                                                                    "source": [ "completion-prepare", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-unpack", 0 ],
-                                                                    "source": [ "completion-prepare", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-gate", 0 ],
-                                                                    "source": [ "completion-select", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-compare", 0 ],
-                                                                    "source": [ "completion-unpack", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-print", 0 ],
-                                                                    "source": [ "completion-warning", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "set-current", 0 ],
-                                                                    "source": [ "current", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "time-limit", 0 ],
-                                                                    "source": [ "default-ms", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-prepare", 0 ],
-                                                                    "source": [ "parse", 3 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "current", 0 ],
-                                                                    "source": [ "parse", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "default-ms", 0 ],
-                                                                    "source": [ "parse", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "unpack", 0 ],
-                                                                    "source": [ "parse", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "completion-gate", 1 ],
-                                                                    "source": [ "ramp", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "current", 1 ],
-                                                                    "order": 0,
-                                                                    "source": [ "ramp", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "order": 1,
-                                                                    "source": [ "ramp", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "current", 1 ],
-                                                                    "source": [ "readback", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "parse", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "stop", 0 ],
-                                                                    "source": [ "route-stop", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "ramp", 0 ],
-                                                                    "source": [ "set-current", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "ramp", 0 ],
-                                                                    "source": [ "stop", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "ramp", 0 ],
-                                                                    "source": [ "target-time", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "target-time", 1 ],
-                                                                    "source": [ "time-limit", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "time-limit", 0 ],
-                                                                    "source": [ "unpack", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "value-limit", 0 ],
-                                                                    "source": [ "unpack", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "target-time", 0 ],
-                                                                    "source": [ "value-limit", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 241.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Duration_ms_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-2",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 322.0, 360.0, 20.0 ],
-                                                    "text": "Preset shape index | INTEGER 0–24"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-2",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 353.0, 320.0, 22.0 ],
-                                                    "text": "5"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                                    "id": "cue-2",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper shape 0–24 — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: one integer, 0–24. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                                    "text": "clip 0 24"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "integer",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "i"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Shape_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Shape_v19 5"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Shape_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Shape_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Shape_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "integer", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "integer", 0 ],
-                                                                    "source": [ "limit", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "limit", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 353.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-3",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 434.0, 360.0, 20.0 ],
-                                                    "text": "User-function storage index | INTEGER 1–9999"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-3",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 465.0, 320.0, 22.0 ],
-                                                    "text": "2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "cue-3",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 134.0, 172.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 20.0 ],
-                                                                    "text": "ADSR shaper coll index — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 20.0 ],
-                                                                    "text": "Input: one integer, 1–9999. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                                    "text": "clip 1 9999"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "integer",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "i"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Store_Index_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Store_Index_v19 1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Store_Index_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Store_Index_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 20.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Store_Index_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 20.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 20.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "integer", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "integer", 0 ],
-                                                                    "source": [ "limit", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "limit", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 465.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Store_Index_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-4",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 546.0, 360.0, 20.0 ],
-                                                    "text": "Store current function at selected index | BANG"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-4",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 577.0, 320.0, 22.0 ],
-                                                    "text": "bang"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "cue-4",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper store current function — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: bang to execute once. stop is ignored. No action is sent merely by opening or copying this module."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "bang-only",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 100.0, 22.0 ],
-                                                                    "text": "route bang"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "bang",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "t b"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Store_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Store_v19 — last message appears here"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Store_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Store_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Store_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "bang", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "bang", 0 ],
-                                                                    "source": [ "bang-only", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "bang-only", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 577.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Store_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-5",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 658.0, 360.0, 20.0 ],
-                                                    "text": "Emit the currently edited function | BANG"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-5",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 689.0, 320.0, 22.0 ],
-                                                    "text": "bang"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "cue-5",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper emit edited function — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: bang to execute once. stop is ignored. No action is sent merely by opening or copying this module."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "bang-only",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 100.0, 22.0 ],
-                                                                    "text": "route bang"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "bang",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "bang" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "t b"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Emit_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Emit_v19 — last message appears here"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Emit_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Emit_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Emit_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "bang", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "bang", 0 ],
-                                                                    "source": [ "bang-only", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "bang-only", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 689.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Emit_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-6",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 770.0, 360.0, 20.0 ],
-                                                    "text": "Direct function values | LIST (3–48 values)"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-6",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 801.0, 320.0, 22.0 ],
-                                                    "text": "0. 0.5 1. 0.5 0."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "cue-6",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                                    "text": "ADSR shaper values list (3–48) — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 48.0 ],
-                                                                    "text": "Input: a values list. Engine lists must match the visible partial count and use that layer’s Morph_ms. Envelope lists use the existing shaper behavior. stop is ignored."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "list-only",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 105.0, 22.0 ],
-                                                                    "text": "routepass list"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Points_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Points_v19 — last message appears here"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Points_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Points_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Points_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "linecount": 2,
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                                    "text": "List updates preserve the current point count only when lengths match; preset selection uses 48."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "list-only", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "list-only", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 801.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Points_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "label-7",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 35.0, 882.0, 360.0, 20.0 ],
-                                                    "text": "Recall stored user function | INTEGER 1–9999"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "example-7",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 35.0, 913.0, 320.0, 22.0 ],
-                                                    "text": "2"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "cue-7",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patcher": {
-                                                        "fileversion": 1,
-                                                        "appversion": {
-                                                            "major": 9,
-                                                            "minor": 1,
-                                                            "revision": 5,
-                                                            "architecture": "x64",
-                                                            "modernui": 1
-                                                        },
-                                                        "classnamespace": "box",
-                                                        "rect": [ 134.0, 172.0, 980.0, 820.0 ],
-                                                        "boxes": [
-                                                            {
-                                                                "box": {
-                                                                    "id": "title",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 15.0, 900.0, 20.0 ],
-                                                                    "text": "ADSR shaper recall stored function — SCORE CUE"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                                    "id": "in",
-                                                                    "index": 1,
-                                                                    "maxclass": "inlet",
-                                                                    "numinlets": 0,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "route-stop",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                                    "text": "route stop"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "protocol",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 50.0, 900.0, 20.0 ],
-                                                                    "text": "Input: one integer, 1–9999. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "limit",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 3,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                                    "text": "clip 1 9999"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "integer",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "int" ],
-                                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                                    "text": "i"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                                    "text": "prepend ADSR_Recall_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "fan",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 3,
-                                                                    "outlettype": [ "", "", "" ],
-                                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                                    "text": "t l l l"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-set",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                                    "text": "prepend set"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display",
-                                                                    "maxclass": "message",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 1,
-                                                                    "outlettype": [ "" ],
-                                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                                    "text": "ADSR_Recall_v19 1"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "strip-name",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 2,
-                                                                    "numoutlets": 2,
-                                                                    "outlettype": [ "", "" ],
-                                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                                    "text": "route ADSR_Recall_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "send",
-                                                                    "maxclass": "newobj",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                                    "text": "forward ADSR_Recall_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                                    "id": "out",
-                                                                    "index": 1,
-                                                                    "maxclass": "outlet",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "receiver-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 30.0, 780.0, 900.0, 20.0 ],
-                                                                    "text": "Destination in synthesis engine: receive ADSR_Recall_v19"
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "display-note",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 725.0, 490.0, 20.0 ],
-                                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                                }
-                                                            },
-                                                            {
-                                                                "box": {
-                                                                    "id": "details",
-                                                                    "maxclass": "comment",
-                                                                    "numinlets": 1,
-                                                                    "numoutlets": 0,
-                                                                    "patching_rect": [ 425.0, 205.0, 460.0, 20.0 ],
-                                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                                }
-                                                            }
-                                                        ],
-                                                        "lines": [
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display", 0 ],
-                                                                    "source": [ "display-set", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "display-set", 0 ],
-                                                                    "source": [ "fan", 2 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "out", 0 ],
-                                                                    "source": [ "fan", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "strip-name", 0 ],
-                                                                    "source": [ "fan", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "route-stop", 0 ],
-                                                                    "source": [ "in", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "name", 0 ],
-                                                                    "source": [ "integer", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "integer", 0 ],
-                                                                    "source": [ "limit", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "fan", 0 ],
-                                                                    "source": [ "name", 0 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "limit", 0 ],
-                                                                    "source": [ "route-stop", 1 ]
-                                                                }
-                                                            },
-                                                            {
-                                                                "patchline": {
-                                                                    "destination": [ "send", 0 ],
-                                                                    "source": [ "strip-name", 0 ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "patching_rect": [ 400.0, 913.0, 630.0, 22.0 ],
-                                                    "text": "p Cue_ADSR_Recall_v19"
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-0", 0 ],
-                                                    "source": [ "example-0", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-1", 0 ],
-                                                    "source": [ "example-1", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-2", 0 ],
-                                                    "source": [ "example-2", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-3", 0 ],
-                                                    "source": [ "example-3", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-4", 0 ],
-                                                    "source": [ "example-4", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-5", 0 ],
-                                                    "source": [ "example-5", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-6", 0 ],
-                                                    "source": [ "example-6", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "cue-7", 0 ],
-                                                    "source": [ "example-7", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 218.5, 676.0, 231.0, 22.0 ],
-                                    "text": "p Gain_Envelope_Shaper_ADSR_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-13",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 2,
-                                    "outlettype": [ "bang", "int" ],
-                                    "patching_rect": [ 218.5, 647.0, 29.5, 22.0 ],
-                                    "text": "t b i"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_angle": 270,
-                                    "bgfillcolor_autogradient": 0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color1": [ 0.3764705882352941, 0.3843137254901961, 0.4, 1 ],
-                                    "bgfillcolor_color2": [ 0.2901960784313726, 0.30980392156862746, 0.30196078431372547, 1 ],
-                                    "bgfillcolor_proportion": 0.39,
-                                    "bgfillcolor_type": "color",
-                                    "id": "obj-shape-menu-norm",
-                                    "items": [ "Flat Zero", ",", "All on full", ",", "Linear: low to high", ",", "Exponential: low to high", ",", "Linear: high to low", ",", "Exponential: high to low", ",", "Triangle: center peak", ",", "Exponential triangle: center peak", ",", "Gaussian", ",", "Steep Gaussian", ",", "Inverted Gaussian", ",", "Steep Inverted Gaussian", ",", "Double Gaussian", ",", "Steep Double Gaussian", ",", "Inverted Double Gaussian", ",", "Steep Inverted Double Gaussian", ",", "Triple Gaussian", ",", "Steep Triple Gaussian", ",", "Inverted Triple Gaussian", ",", "Steep Inverted Triple Gaussian", ",", "Quadruple Gaussian", ",", "Steep Quadruple Gaussian", ",", "Inverted Quadruple Gaussian", ",", "Steep Inverted Quadruple Gaussian", ",", "Random (fixed)" ],
-                                    "maxclass": "umenu",
-                                    "numinlets": 1,
-                                    "numoutlets": 3,
-                                    "outlettype": [ "int", "", "" ],
-                                    "parameter_enable": 0,
-                                    "patching_rect": [ 218.5, 618.0, 222.0, 22.0 ],
-                                    "presentation": 1,
-                                    "presentation_rect": [ 584.0, 138.0, 234.0, 22.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
                                     "format": 6,
                                     "id": "obj-12",
                                     "maxclass": "flonum",
@@ -39229,7 +36278,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 946.25, 678.0, 85.0, 22.0 ]
+                                    "patching_rect": [ 951.5, 580.0, 85.0, 22.0 ]
                                 }
                             },
                             {
@@ -39249,7 +36298,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 946.25, 707.0, 49.0, 22.0 ],
+                                    "patching_rect": [ 951.5, 609.0, 49.0, 22.0 ],
                                     "text": "$1 500."
                                 }
                             },
@@ -39264,624 +36313,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 703.25, 650.5, 50.0, 22.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0, 1 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_angle": 270,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-8",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 507.0, 645.0, 29.5, 22.0 ],
-                                    "text": "1"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-5",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 465.0, 617.0, 191.0, 20.0 ],
-                                    "text": "Envelope loop 0/1 | INTEGER 0–1",
-                                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0, 1 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_angle": 270,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-6",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 465.0, 645.0, 29.5, 22.0 ],
-                                    "text": "0"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-11",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 1,
-                                            "revision": 5,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "title",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                    "text": "Envelope loop 0/1 — SCORE CUE"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                    "id": "in",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "route-stop",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                    "text": "route stop"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "protocol",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                    "text": "Input: one integer, 0–1. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "limit",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 3,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                    "text": "clip 0 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "integer",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "int" ],
-                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                    "text": "i"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                    "text": "prepend Envelope_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "fan",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                    "text": "t l l l"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-set",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                    "text": "prepend set"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                    "text": "Envelope_Loop_v19 1"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "strip-name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                    "text": "route Envelope_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "send",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                    "text": "forward Envelope_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                    "id": "out",
-                                                    "index": 1,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "receiver-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                    "text": "Destination in synthesis engine: receive Envelope_Loop_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "details",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display", 0 ],
-                                                    "source": [ "display-set", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display-set", 0 ],
-                                                    "source": [ "fan", 2 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "out", 0 ],
-                                                    "source": [ "fan", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "strip-name", 0 ],
-                                                    "source": [ "fan", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "route-stop", 0 ],
-                                                    "source": [ "in", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "name", 0 ],
-                                                    "source": [ "integer", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "integer", 0 ],
-                                                    "source": [ "limit", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "fan", 0 ],
-                                                    "source": [ "name", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "limit", 0 ],
-                                                    "source": [ "route-stop", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "send", 0 ],
-                                                    "source": [ "strip-name", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 465.0, 676.0, 157.0, 22.0 ],
-                                    "text": "p Cue_Envelope_Loop_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-14",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 27.5, 593.0, 179.0, 20.0 ],
-                                    "text": "Trigger stored envelope | BANG",
-                                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0, 1 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_angle": 270,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-16",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 27.5, 621.0, 35.0, 22.0 ],
-                                    "text": "bang"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-17",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 1,
-                                            "revision": 5,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 134.0, 172.0, 980.0, 820.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "title",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 15.0, 900.0, 20.0 ],
-                                                    "text": "Trigger stored envelope — SCORE CUE"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                    "id": "in",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "route-stop",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                    "text": "route stop"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "protocol",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 50.0, 900.0, 20.0 ],
-                                                    "text": "Input: bang to execute once. stop is ignored. No action is sent merely by opening or copying this module."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "bang-only",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 165.0, 205.0, 100.0, 22.0 ],
-                                                    "text": "route bang"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "bang",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "bang" ],
-                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                    "text": "t b"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                    "text": "prepend Envelope_Trigger_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "fan",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                    "text": "t l l l"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-set",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                    "text": "prepend set"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                    "text": "Envelope_Trigger_v19 bang"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "strip-name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                    "text": "route Envelope_Trigger_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "send",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                    "text": "forward Envelope_Trigger_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                    "id": "out",
-                                                    "index": 1,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "receiver-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 780.0, 900.0, 20.0 ],
-                                                    "text": "Destination in synthesis engine: receive Envelope_Trigger_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 725.0, 490.0, 20.0 ],
-                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "details",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 205.0, 460.0, 20.0 ],
-                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "name", 0 ],
-                                                    "source": [ "bang", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "bang", 0 ],
-                                                    "source": [ "bang-only", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display", 0 ],
-                                                    "source": [ "display-set", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display-set", 0 ],
-                                                    "source": [ "fan", 2 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "out", 0 ],
-                                                    "source": [ "fan", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "strip-name", 0 ],
-                                                    "source": [ "fan", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "route-stop", 0 ],
-                                                    "source": [ "in", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "fan", 0 ],
-                                                    "source": [ "name", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "bang-only", 0 ],
-                                                    "source": [ "route-stop", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "send", 0 ],
-                                                    "source": [ "strip-name", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 27.5, 652.0, 167.0, 22.0 ],
-                                    "text": "p Cue_Envelope_Trigger_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-18",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 18.5, 571.0, 260.0, 20.0 ],
-                                    "text": "ADSR SHAPER — COPYABLE SCORE CUES",
-                                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
+                                    "patching_rect": [ 704.0, 607.0, 50.0, 22.0 ]
                                 }
                             },
                             {
@@ -39892,7 +36324,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 660.25, 606.5, 151.0, 33.0 ],
+                                    "patching_rect": [ 661.0, 563.0, 151.0, 33.0 ],
                                     "text": "ADSR shaper breakpoints \n| INTEGER 3–48",
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                                 }
@@ -39914,7 +36346,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 660.25, 650.5, 29.5, 22.0 ],
+                                    "patching_rect": [ 661.0, 607.0, 29.5, 22.0 ],
                                     "text": "48"
                                 }
                             },
@@ -40044,7 +36476,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
                                                     "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                    "text": "ADSR_Breakpoints_v19 14"
+                                                    "text": "ADSR_Breakpoints_v19 48"
                                                 }
                                             },
                                             {
@@ -40173,7 +36605,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 660.25, 682.0, 177.0, 22.0 ],
+                                    "patching_rect": [ 661.0, 638.0, 177.0, 22.0 ],
                                     "text": "p Cue_ADSR_Breakpoints_v19"
                                 }
                             },
@@ -40184,7 +36616,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 849.25, 653.0, 265.0, 20.0 ],
+                                    "patching_rect": [ 854.5, 555.0, 265.0, 20.0 ],
                                     "text": "ADSR shaper duration ms | VALUE [RAMP_MS]",
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                                 }
@@ -40206,7 +36638,7 @@
                                     "numinlets": 2,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 846.25, 707.0, 65.0, 22.0 ],
+                                    "patching_rect": [ 851.5, 609.0, 65.0, 22.0 ],
                                     "text": "1000. 500."
                                 }
                             },
@@ -40824,300 +37256,8 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 846.25, 736.0, 181.0, 22.0 ],
+                                    "patching_rect": [ 851.5, 638.0, 181.0, 22.0 ],
                                     "text": "p Cue_ADSR_Duration_ms_v19"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-26",
-                                    "maxclass": "comment",
-                                    "numinlets": 1,
-                                    "numoutlets": 0,
-                                    "patching_rect": [ 218.5, 593.0, 241.0, 20.0 ],
-                                    "text": "ADSR shaper shape 0–24 | INTEGER 0–24",
-                                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0, 1 ],
-                                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_angle": 270,
-                                    "bgfillcolor_autogradient": 0.0,
-                                    "bgfillcolor_color": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color1": [ 0.722, 0.247, 0, 1 ],
-                                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                                    "bgfillcolor_proportion": 0.5,
-                                    "bgfillcolor_type": "gradient",
-                                    "gradient": 1,
-                                    "id": "obj-27",
-                                    "maxclass": "message",
-                                    "numinlets": 2,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patching_rect": [ 258.5, 647.0, 29.5, 22.0 ],
-                                    "text": "22"
-                                }
-                            },
-                            {
-                                "box": {
-                                    "bgcolor": [ 0.722, 0.247, 0.0, 1.0 ],
-                                    "id": "obj-28",
-                                    "maxclass": "newobj",
-                                    "numinlets": 1,
-                                    "numoutlets": 1,
-                                    "outlettype": [ "" ],
-                                    "patcher": {
-                                        "fileversion": 1,
-                                        "appversion": {
-                                            "major": 9,
-                                            "minor": 1,
-                                            "revision": 5,
-                                            "architecture": "x64",
-                                            "modernui": 1
-                                        },
-                                        "classnamespace": "box",
-                                        "rect": [ 100.0, 80.0, 980.0, 820.0 ],
-                                        "boxes": [
-                                            {
-                                                "box": {
-                                                    "id": "title",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 15.0, 900.0, 28.0 ],
-                                                    "text": "ADSR shaper shape 0–24 — SCORE CUE"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Cue input; see the protocol above. stop cancels this module’s active ramp.",
-                                                    "id": "in",
-                                                    "index": 1,
-                                                    "maxclass": "inlet",
-                                                    "numinlets": 0,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 110.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "route-stop",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 155.0, 95.0, 22.0 ],
-                                                    "text": "route stop"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "protocol",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                    "text": "Input: one integer, 0–24. Immediate; no intermediate menu/count/seed values. stop is ignored."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "limit",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 3,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                    "text": "clip 0 24"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "integer",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "int" ],
-                                                    "patching_rect": [ 165.0, 250.0, 45.0, 22.0 ],
-                                                    "text": "i"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 30.0, 570.0, 350.0, 22.0 ],
-                                                    "text": "prepend ADSR_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "fan",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 3,
-                                                    "outlettype": [ "", "", "" ],
-                                                    "patching_rect": [ 30.0, 606.0, 80.0, 22.0 ],
-                                                    "text": "t l l l"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-set",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 606.0, 90.0, 22.0 ],
-                                                    "text": "prepend set"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display",
-                                                    "maxclass": "message",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 1,
-                                                    "outlettype": [ "" ],
-                                                    "patching_rect": [ 425.0, 645.0, 480.0, 22.0 ],
-                                                    "text": "ADSR_Shape_v19 22"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "strip-name",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 2,
-                                                    "numoutlets": 2,
-                                                    "outlettype": [ "", "" ],
-                                                    "patching_rect": [ 30.0, 645.0, 350.0, 22.0 ],
-                                                    "text": "route ADSR_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "send",
-                                                    "maxclass": "newobj",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 684.0, 370.0, 22.0 ],
-                                                    "text": "forward ADSR_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "comment": "Named outgoing message, for optional logging. No connection required.",
-                                                    "id": "out",
-                                                    "index": 1,
-                                                    "maxclass": "outlet",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 695.0, 30.0, 30.0 ]
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "receiver-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 30.0, 780.0, 900.0, 22.0 ],
-                                                    "text": "Destination in synthesis engine: receive ADSR_Shape_v19"
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "display-note",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 725.0, 490.0, 35.0 ],
-                                                    "text": "Display only. The outlet reports the named message; the internal forward already sends it."
-                                                }
-                                            },
-                                            {
-                                                "box": {
-                                                    "id": "details",
-                                                    "maxclass": "comment",
-                                                    "numinlets": 1,
-                                                    "numoutlets": 0,
-                                                    "patching_rect": [ 425.0, 205.0, 460.0, 90.0 ],
-                                                    "text": "Copy this entire p object; its receive destination is already built in."
-                                                }
-                                            }
-                                        ],
-                                        "lines": [
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display", 0 ],
-                                                    "source": [ "display-set", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "display-set", 0 ],
-                                                    "source": [ "fan", 2 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "out", 0 ],
-                                                    "source": [ "fan", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "strip-name", 0 ],
-                                                    "source": [ "fan", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "route-stop", 0 ],
-                                                    "source": [ "in", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "name", 0 ],
-                                                    "source": [ "integer", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "integer", 0 ],
-                                                    "source": [ "limit", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "fan", 0 ],
-                                                    "source": [ "name", 0 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "limit", 0 ],
-                                                    "source": [ "route-stop", 1 ]
-                                                }
-                                            },
-                                            {
-                                                "patchline": {
-                                                    "destination": [ "send", 0 ],
-                                                    "source": [ "strip-name", 0 ]
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "patching_rect": [ 292.5, 647.0, 148.0, 22.0 ],
-                                    "text": "p Cue_ADSR_Shape_v19"
                                 }
                             },
                             {
@@ -76626,7 +72766,7 @@
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
                                                     "patching_rect": [ 25.0, 115.0, 1000.0, 20.0 ],
-                                                    "text": "Render distribution 0 Interleaved, 1 Spectral Bands, 2 Seeded Random, 3 Octave Families"
+                                                    "text": "Render distribution 0 Interleaved, 1 Spectral Bands, 2 Seeded Random, 3 Octave Families; 4 Perfect Fifth Bands"
                                                 }
                                             },
                                             {
@@ -76676,7 +72816,7 @@
                                                                     "numinlets": 1,
                                                                     "numoutlets": 0,
                                                                     "patching_rect": [ 30.0, 50.0, 900.0, 35.0 ],
-                                                                    "text": "Input: one integer, 0–3. Discrete command; stop is ignored. No output on load."
+                                                                    "text": "Input: one integer, 0–4. Discrete command; stop is ignored. No output on load."
                                                                 }
                                                             },
                                                             {
@@ -76710,7 +72850,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 165.0, 205.0, 200.0, 22.0 ],
-                                                                    "text": "clip 0 3"
+                                                                    "text": "clip 0 4"
                                                                 }
                                                             },
                                                             {
@@ -77774,7 +73914,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 656.0, 448.0, 270.0, 20.0 ],
+                                    "patching_rect": [ 21.0, 553.0, 270.0, 20.0 ],
                                     "text": "12 lane-specific ADSR send/receive panels"
                                 }
                             },
@@ -79405,7 +75545,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 303.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -80059,7 +76199,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -80713,7 +76853,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -81367,7 +77507,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -82021,7 +78161,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -82675,7 +78815,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -83329,7 +79469,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -83983,7 +80123,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -84637,7 +80777,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -85291,7 +81431,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -85945,7 +82085,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -86599,7 +82739,7 @@
                                                                     "numoutlets": 1,
                                                                     "outlettype": [ "" ],
                                                                     "patching_rect": [ 270.0, 242.0, 140.0, 22.0 ],
-                                                                    "text": "0. 0.000001 0.000008 0.000037 0.000124 0.000347 0.000871 0.002003 0.004298 0.008674 0.016562 0.030024 0.051796 0.085169 0.133621 0.200171 0.286471 0.391805 0.512251 0.64032 0.765374 0.87488 0.956428 1. 1. 0.956428 0.87488 0.765374 0.64032 0.512251 0.391805 0.286471 0.200171 0.133621 0.085169 0.051796 0.030024 0.016562 0.008674 0.004298 0.002003 0.000871 0.000347 0.000124 0.000037 0.000008 0.000001 0."
+                                                                    "text": "0. 0.003544 0.007761 0.012779 0.018751 0.025857 0.034312 0.044374 0.056347 0.070594 0.087548 0.107721 0.131727 0.160293 0.194285 0.234734 0.282867 0.340142 0.408296 0.489397 0.585903 0.700741 0.837392 1. 1. 0.837392 0.700741 0.585903 0.489397 0.408296 0.340142 0.282867 0.234734 0.194285 0.160293 0.131727 0.107721 0.087548 0.070594 0.056347 0.044374 0.034312 0.025857 0.018751 0.012779 0.007761 0.003544 0."
                                                                 }
                                                             },
                                                             {
@@ -87058,7 +83198,7 @@
                                             }
                                         ]
                                     },
-                                    "patching_rect": [ 653.0, 485.0, 269.0, 29.0 ],
+                                    "patching_rect": [ 10.0, 571.5, 269.0, 29.0 ],
                                     "text": "p ADSR_12_LANES_Messaging"
                                 }
                             }
@@ -87144,18 +83284,6 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-85", 0 ],
-                                    "source": [ "global-loop-toggle", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-85", 1 ],
-                                    "source": [ "global-shape-menu", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-25", 0 ],
                                     "source": [ "obj-10", 0 ]
                                 }
@@ -87164,24 +83292,6 @@
                                 "patchline": {
                                     "destination": [ "obj-10", 0 ],
                                     "source": [ "obj-12", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-27", 1 ],
-                                    "source": [ "obj-13", 1 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-27", 0 ],
-                                    "source": [ "obj-13", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-17", 0 ],
-                                    "source": [ "obj-16", 0 ]
                                 }
                             },
                             {
@@ -87200,12 +83310,6 @@
                                 "patchline": {
                                     "destination": [ "obj-25", 0 ],
                                     "source": [ "obj-24", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-28", 0 ],
-                                    "source": [ "obj-27", 0 ]
                                 }
                             },
                             {
@@ -87246,122 +83350,8 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-40", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-41", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-42", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-43", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-44", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-45", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-46", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-47", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Recall_v19", 0 ],
-                                    "source": [ "obj-48", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-50", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-51", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-52", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-53", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-54", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-55", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-56", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-57", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "v19-recv-ADSR_Store_v19", 0 ],
-                                    "source": [ "obj-58", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-25", 0 ],
                                     "source": [ "obj-59", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-11", 0 ],
-                                    "source": [ "obj-6", 0 ]
                                 }
                             },
                             {
@@ -87416,12 +83406,6 @@
                                 "patchline": {
                                     "destination": [ "obj-78", 0 ],
                                     "source": [ "obj-77", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-11", 0 ],
-                                    "source": [ "obj-8", 0 ]
                                 }
                             },
                             {
@@ -87482,12 +83466,6 @@
                                 "patchline": {
                                     "destination": [ "obj-98", 0 ],
                                     "source": [ "obj-97", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
-                                    "destination": [ "obj-13", 0 ],
-                                    "source": [ "obj-shape-menu-norm", 0 ]
                                 }
                             },
                             {
@@ -113698,7 +109676,7 @@
                             {
                                 "box": {
                                     "id": "distribution",
-                                    "items": [ "Interleaved", ",", "Spectral Bands", ",", "Seeded Random", ",", "Octave Families" ],
+                                    "items": [ "Interleaved", ",", "Spectral Bands", ",", "Seeded Random", ",", "Octave Families", ",", "Perfect Fifth Bands" ],
                                     "maxclass": "umenu",
                                     "numinlets": 1,
                                     "numoutlets": 3,
@@ -114059,7 +110037,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 395.0, 550.0, 450.0, 22.0 ],
-                                    "text": "model 0 interleaved 12 12345 100 434"
+                                    "text": "model 0 interleaved 12 12345 100 96"
                                 }
                             }
                         ],
@@ -116910,6 +112888,16 @@
                     "patching_rect": [ 1086.3333333333335, 122.0, 362.99999999999955, 22.0 ],
                     "text": "p SINUSOIDS_AUDIO_ROUTING"
                 }
+            },
+            {
+                "box": {
+                    "id": "adsr-12-lanes-global-trigger-send",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 175.0, 204.0, 285.0, 22.0 ],
+                    "text": "send ADSR_12_Lanes_Global_Trigger_v19"
+                }
             }
         ],
         "lines": [
@@ -117507,7 +113495,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-21", 0 ],
+                    "destination": [ "adsr-12-lanes-global-trigger-send", 0 ],
                     "source": [ "obj-trigger-button", 0 ]
                 }
             },

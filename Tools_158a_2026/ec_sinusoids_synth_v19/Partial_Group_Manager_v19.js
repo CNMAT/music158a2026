@@ -5,7 +5,7 @@
 
     Inlets
       0: tagged records ID FREQUENCY AMPLITUDE ... (IDs 1..512)
-      1: distribution plan 0..3 or interleaved/spectral/random/octave
+      1: distribution plan 0..4 or interleaved/spectral/random/octave/fifth
       2: spatial output group count 2..12
       3: deterministic seed
       4: matrix~ routing ramp time in milliseconds
@@ -17,7 +17,8 @@
 
     Primary and exact-harmonic anchor records for a partial are always assigned
     to the same render lane. Every plan allocates all 512 IDs before playback;
-    resizing only changes amplitudes and never compacts or renumbers lane slots.
+    resizing only changes amplitudes in plans 0..3. In plan 4, frequency
+    changes can move a partial and its anchor together to another lane.
 */
 
 autowatch = 1;
@@ -32,6 +33,7 @@ var seedValue = 12345;
 var rampMs = 100.0;
 var lastFrequency = [];
 var currentAmplitude = [];
+var currentSeen = [];
 var laneForId = [];
 var slotForId = [];
 var idsByLane = [];
@@ -41,7 +43,7 @@ function clip(x, lo, hi) { return Math.max(lo, Math.min(hi, x)); }
 function finite(x) { return typeof x === "number" && isFinite(x); }
 function partialForId(id) { return Math.floor((id - 1) / 2) + 1; }
 function planName() {
-    return ["interleaved", "spectral-bands", "seeded-random", "octave-families"][planIndex];
+    return ["interleaved", "spectral-bands", "seeded-random", "octave-families", "perfect-fifth-bands"][planIndex];
 }
 function hash32(x) {
     x = (x ^ seedValue ^ 0x9e3779b9) >>> 0;
@@ -49,7 +51,7 @@ function hash32(x) {
     return x >>> 0;
 }
 function oddCore(n) { while (n > 0 && n % 2 === 0) n /= 2; return n; }
-function laneForPartial(partial) {
+function laneForPartial(partial, baseFrequency) {
     if (planIndex === 0) return (partial - 1) % LANES;
     if (planIndex === 1) {
         // Logarithmic fixed bands spread low partials while remaining independent
@@ -57,6 +59,15 @@ function laneForPartial(partial) {
         return Math.min(LANES - 1, Math.floor(Math.log(partial) / Math.log(256) * LANES));
     }
     if (planIndex === 2) return hash32(partial) % LANES;
+    if (planIndex === 4) {
+        // Eleven half-open frequency intervals of ratio 3:2, starting at the
+        // lowest current primary frequency. Lane 12 takes everything above.
+        // The primary decides ownership for both records in its ID pair.
+        var frequency = lastFrequency[2 * partial - 1];
+        if (frequency <= baseFrequency) return 0;
+        return Math.min(LANES - 1,
+            Math.max(0, Math.floor(Math.log(frequency / baseFrequency) / Math.log(1.5) + 1e-12)));
+    }
     // All members of an octave family share the same odd-core key and lane.
     return hash32(oddCore(partial)) % LANES;
 }
@@ -66,17 +77,25 @@ function initializeState() {
         partial = partialForId(id);
         lastFrequency[id] = Math.max(1.0, partial * 110.0);
         currentAmplitude[id] = 0.0;
+        currentSeen[id] = false;
     }
     // Build state silently. Max calls loadbang() only after the js object's
     // inlet/outlet topology exists; emitting here at file scope is too early.
     rebuildAssignments(false, false);
 }
 function rebuildAssignments(emitNow, emitState) {
-    var lane, id;
+    var lane, id, baseFrequency = Infinity;
+    if (planIndex === 4) {
+        // Use the current source model, excluding cached, inactive IDs.
+        for (id = 1; id <= CAPACITY; id += 2)
+            if (currentSeen[id] && lastFrequency[id] < baseFrequency)
+                baseFrequency = lastFrequency[id];
+        if (!finite(baseFrequency)) baseFrequency = lastFrequency[1];
+    }
     idsByLane = [];
     for (lane = 0; lane < LANES; lane++) idsByLane[lane] = [];
     for (id = 1; id <= CAPACITY; id++) {
-        lane = laneForPartial(partialForId(id));
+        lane = laneForPartial(partialForId(id), baseFrequency);
         laneForId[id] = lane;
         slotForId[id] = idsByLane[lane].length;
         idsByLane[lane].push(id);
@@ -117,8 +136,7 @@ function list() {
     if (values.length % 3) {
         error("Partial_Group_Manager_v19: ID/frequency/amplitude records required\n"); return;
     }
-    // Missing IDs become silent but retain their last valid frequency and slot.
-    for (id = 1; id <= CAPACITY; id++) currentAmplitude[id] = 0.0;
+    // Validate the entire message before changing the live model.
     for (i = 0; i < values.length; i += 3) {
         id = Number(values[i]); f = Number(values[i + 1]); a = Number(values[i + 2]);
         if (!finite(id) || id !== Math.floor(id) || id < 1 || id > CAPACITY || seen[id] ||
@@ -126,17 +144,24 @@ function list() {
             error("Partial_Group_Manager_v19: invalid or duplicate record\n"); return;
         }
         seen[id] = true;
+    }
+    // Missing IDs become silent but retain their last valid frequency.
+    for (id = 1; id <= CAPACITY; id++) { currentAmplitude[id] = 0.0; currentSeen[id] = false; }
+    for (i = 0; i < values.length; i += 3) {
+        id = Number(values[i]); f = Number(values[i + 1]); a = Number(values[i + 2]);
+        currentSeen[id] = true;
         lastFrequency[id] = f;
         currentAmplitude[id] = clip(a, 0.0, 1.0);
     }
     currentRecordCount = values.length / 3;
-    emitModels();
+    if (planIndex === 4) rebuildAssignments(true, false);
+    else emitModels();
     outputStatus("model");
 }
 function setPlan(value) {
     value = Math.round(Number(value));
     if (!finite(value)) return;
-    value = clip(value, 0, 3);
+    value = clip(value, 0, 4);
     if (value !== planIndex) { planIndex = value; rebuildAssignments(true); }
     else outputStatus("plan");
 }
@@ -162,6 +187,7 @@ function interleaved() { if (inlet === 1) setPlan(0); }
 function spectral() { if (inlet === 1) setPlan(1); }
 function random() { if (inlet === 1) setPlan(2); }
 function octave() { if (inlet === 1) setPlan(3); }
+function fifth() { if (inlet === 1) setPlan(4); }
 function msg_int(value) {
     if (inlet === 1) setPlan(value);
     else if (inlet === 2) groups(value);

@@ -89,6 +89,32 @@ assert.strictEqual(models.length,12);
 assert.strictEqual(models.reduce((n,e)=>n+(e.args[0].length-2)/2,0),512);
 for(let lane=0;lane<12;lane++)assert.strictEqual(models[lane].args[0][1],lane);
 
+// Mode 4 uses actual frequencies, consecutive 3:2 boundaries, and a
+// catch-all final lane. Anchor records travel with their primary partials.
+call(manager,1,'msg_int',4);
+managerEvents.length=0;
+call(manager,0,'list',1,100,1,2,100,0.5,3,149.99,1,4,200,0.5,
+  5,150,1,6,300,0.5,7,225,1,8,225,0.5,
+  9,100*Math.pow(1.5,11),1,10,1000,0.5);
+assert.strictEqual(manager.planIndex,4);
+assert.strictEqual(manager.laneForId[1],0);
+assert.strictEqual(manager.laneForId[3],0);
+assert.strictEqual(manager.laneForId[5],1);
+assert.strictEqual(manager.laneForId[6],1);
+assert.strictEqual(manager.laneForId[7],2);
+assert.strictEqual(manager.laneForId[9],11);
+assert.strictEqual(manager.laneForId[10],11);
+assert.strictEqual(managerEvents.filter(e=>e.args[0][0]==='model').length,12);
+assert.strictEqual(managerEvents.filter(e=>e.args[0][0]==='matrix').length,0);
+// Same records with a different base frequency produce new band assignments.
+call(manager,0,'list',1,200,1,2,200,0.5,3,149.99,1,4,200,0.5,
+  5,150,1,6,300,0.5,7,225,1,8,225,0.5,
+  9,100*Math.pow(1.5,11),1,10,1000,0.5);
+assert.strictEqual(manager.laneForId[9],10); // lowest primary is now 149.99
+assert.strictEqual(manager.laneForId[1],0);
+call(manager,1,'msg_int',0);
+assert.strictEqual(manager.planIndex,0);
+
 console.log(JSON.stringify({
   assertions:1555,
   permanent_ids:512,
