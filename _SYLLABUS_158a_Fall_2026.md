@@ -338,7 +338,7 @@ Compare fixed-media spatial compositions. Ask whether location and movement func
 <strong>Lesson Plan Week 8</strong>
 <br><br>
 <!-- wk.8 lesson -->
-<strong>(tu)</strong> 10/13 — Module 3 (cont.) Spatial Audio, Mixing, SPAT PT. 3
+<strong>(tu)</strong> 10/13 — Module 3 (cont.) Spatial Audio, Mixing, SPAT PT. 3, GUEST ARTIST:  Bevin Blectum:  https://en.wikipedia.org/wiki/Blevin_Blectum
 <br><br>
 <!-- class demonstration -->
 <strong>(th)</strong> 10/15 — Spatial Audio, Mixing, SPAT --CLASS DEMONSTRATIONS
