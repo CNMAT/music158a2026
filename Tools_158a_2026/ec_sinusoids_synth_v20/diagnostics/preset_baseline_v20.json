@@ -1,0 +1,284 @@
+{
+  "source_archive_sha256": "59cb75bc257c9967b5ac9037f4f39743e4d4d2e34e9d910894aa3bb7f6a0601c",
+  "records": [
+    {
+      "source_file": "ADSR_Lane_03_v19.maxpat",
+      "file": "ADSR_Lane_03_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_03_v19.maxpat",
+      "file": "ADSR_Lane_03_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_02_v19.maxpat",
+      "file": "ADSR_Lane_02_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_02_v19.maxpat",
+      "file": "ADSR_Lane_02_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_04_v19.maxpat",
+      "file": "ADSR_Lane_04_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_04_v19.maxpat",
+      "file": "ADSR_Lane_04_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_08_v19.maxpat",
+      "file": "ADSR_Lane_08_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_08_v19.maxpat",
+      "file": "ADSR_Lane_08_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_09_v19.maxpat",
+      "file": "ADSR_Lane_09_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_09_v19.maxpat",
+      "file": "ADSR_Lane_09_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_06_v19.maxpat",
+      "file": "ADSR_Lane_06_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_06_v19.maxpat",
+      "file": "ADSR_Lane_06_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_12_v19.maxpat",
+      "file": "ADSR_Lane_12_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_12_v19.maxpat",
+      "file": "ADSR_Lane_12_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_11_v19.maxpat",
+      "file": "ADSR_Lane_11_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_11_v19.maxpat",
+      "file": "ADSR_Lane_11_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "Envelope-Shaper_01_v19.maxpat",
+      "file": "Envelope-Shaper_01_v20.maxpat",
+      "path": "ROOT",
+      "id": "obj-coll",
+      "records": 2,
+      "records_sha256": "7f8d51b4b59442be6c67ddf281ca65ac6beedd7cd0cae95b90a7632637c0ccf5",
+      "original_count": 2
+    },
+    {
+      "source_file": "Envelope-Shaper_01_v19.maxpat",
+      "file": "Envelope-Shaper_01_v20.maxpat",
+      "path": "ROOT",
+      "id": "obj-shape-coll-norm",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_07_v19.maxpat",
+      "file": "ADSR_Lane_07_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_07_v19.maxpat",
+      "file": "ADSR_Lane_07_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_01_v19.maxpat",
+      "file": "ADSR_Lane_01_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_01_v19.maxpat",
+      "file": "ADSR_Lane_01_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "path": "ROOT/obj-21",
+      "id": "obj-coll",
+      "records": 2,
+      "records_sha256": "1284662895a12bb35768cab5fb6d26436b2cd5e6dd0cac694ae065d1b2d64234",
+      "original_count": 2
+    },
+    {
+      "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "path": "ROOT/obj-21",
+      "id": "obj-shape-coll-norm",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1150
+    },
+    {
+      "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "path": "ROOT/envelope-shaper01",
+      "id": "obj-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "path": "ROOT/envelope-shaper01",
+      "id": "obj-shape-coll-norm",
+      "records": 25,
+      "records_sha256": "4e331f55676b88cf0b474b1eccc5dd525272cd0c21eae4dbf4a413ec58c8a1c9",
+      "original_count": 25
+    },
+    {
+      "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "path": "ROOT/syn-three-shape-resizers",
+      "id": "resize-library",
+      "records": 6375,
+      "records_sha256": "000d8f5c37aa9236805df7731fbaa79958ad49f5377b016fc2a6f785e297ae03",
+      "original_count": 6375
+    },
+    {
+      "source_file": "ADSR_Lane_10_v19.maxpat",
+      "file": "ADSR_Lane_10_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_10_v19.maxpat",
+      "file": "ADSR_Lane_10_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    },
+    {
+      "source_file": "ADSR_Lane_05_v19.maxpat",
+      "file": "ADSR_Lane_05_v20.maxpat",
+      "path": "ROOT",
+      "id": "user-coll",
+      "records": 0,
+      "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_count": 0
+    },
+    {
+      "source_file": "ADSR_Lane_05_v19.maxpat",
+      "file": "ADSR_Lane_05_v20.maxpat",
+      "path": "ROOT",
+      "id": "shape-library",
+      "records": 1150,
+      "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7",
+      "original_count": 1104
+    }
+  ]
+}

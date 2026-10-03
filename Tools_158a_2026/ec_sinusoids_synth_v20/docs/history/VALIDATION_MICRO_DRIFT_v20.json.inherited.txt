@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "randomStepSelections": 10000,
+  "upSteps": 5033,
+  "downSteps": 4967,
+  "checks": [
+    "default 1 Hz step",
+    "zero amount stops task and resets offset",
+    "enabled toggle with zero amount stays stopped",
+    "linear midpoint",
+    "exact up/down step choices",
+    "adjustable step",
+    "amount scales offset",
+    "toggle off restores detuned baseline",
+    "detune edits move walk baseline without overwriting sliders",
+    "F0 lock",
+    "exact harmonic anchors",
+    "repeatable seed",
+    "patch graph and unambiguous startup"
+  ],
+  "master": {
+    "patchers": 102,
+    "objects": 4076,
+    "patchCords": 3269
+  },
+  "runtime": "Node VM with Max task/message stubs; Max audio not tested"
+}

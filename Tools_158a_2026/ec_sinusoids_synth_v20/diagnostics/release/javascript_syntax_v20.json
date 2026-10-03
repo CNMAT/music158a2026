@@ -1,0 +1,72 @@
+[
+  {
+    "file": "Partial_Group_Manager_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "cnmat_sinusoid_model_generator_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "component_index_ruler_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "detune_shape_library_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "dynamic_shape_library_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "dynamic_shape_library_weights_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "global_retuning_controller_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "multislider_interpolation_engine_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "multislider_interpolation_engine_v20_add_restore.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "random_multislider_values_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "sinusoid_model_transform_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "weighted_partial_add_remove_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "weighted_partial_removal_v20.js",
+    "returncode": 0,
+    "stderr": ""
+  }
+]

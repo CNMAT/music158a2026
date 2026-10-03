@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "assertions": 745,
+  "checks": [
+    "All 94 detune presets: correct lengths and signed range at counts 2, 48 and 256; Flat Zero and All on full.",
+    "All 25 removal-weight presets: correct lengths and 0–1 range at counts 2, 48 and 256.",
+    "Active remove/add engine restores all three layers exactly; direct memory resizing retains a hidden signed slot; All Off clears all 256 slots.",
+    "Generator preserves paired IDs, locks the source fundamental, detunes higher primaries by ±100 cents, and leaves anchors exact.",
+    "Retuning controller zero-duration ratio and fixed-Hz modes emit expected ratio/shift commands.",
+    "Post-transform exact-frequency merging preserves silent absorbed IDs; frequency-window rejection removes rejected records."
+  ],
+  "limitations": [
+    "JavaScript source tests only; Max patch-cord execution, scheduler, graphics, sinusoids~ DSP, actual audio channels and listening not exercised.",
+    "Memory resize test does not simulate patch-level selected-shape regeneration."
+  ]
+}

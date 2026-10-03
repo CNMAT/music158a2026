@@ -1,0 +1,5 @@
+{
+  "main_sha256": "6cf2c5b7a7d0d51a4129e5a4b689e658ed42b6fdb491f31bfd115625a93c13b7",
+  "embedded_live_sha256": "aacdaf03bea0508864173c42c7fc3dd7eaede4433963d9d6fa935dd389359fbc",
+  "standalone_live_sha256": "010b6badee20fcbfd14a98ce6460d32bebdc78bb4c321bcf0bd6375ed5d7e732"
+}

@@ -1,0 +1,14 @@
+{
+  "changes": [
+    "Sequential model/envelope inlet order; parent cords updated so every ADSR editor controls its same-numbered synthesis lane.",
+    "Sequential spatial-routing input/output ports: corrected named group buses without permuting the existing sequential DAC through-path.",
+    "Output_Gain_dB_v20 now drives the existing DAC master and all twelve DAC faders, with live state readback; pre-fader group/mono outputs preserved and labeled.",
+    "Removed implicit Master-to-lane point/duration/trigger subscriptions; retained Master editor/data with an independent trigger receive. Added global stop and protected loops against deferred post-stop retriggers. All Off cancels lane/Master loops even via workspace memory commands.",
+    "Synchronized embedded/standalone lane panels and message galleries; kept user-edited score material, retained legacy Master CUEs separately, added six canonical global lane CUEs, and redirected the timed example to lane authority. Duration-list helper now preserves float milliseconds.",
+    "Corrected 13 embedded collection count fields from 1104 to 1150 without changing any record keys or values.",
+    "Corrected canonical smoothing CUE value clipping to 0-600000 ms and its initial cache to 200 ms; duration remains 1-3600000 ms.",
+    "Migrated both command and feedback/completion namespaces in the timed example; moved new global CUE entry into an unoccupied header location.",
+    "Replaced stale validation/registry documents with current generated reports and contracts; preserved inherited reference material in a clearly marked history folder."
+  ],
+  "untested": "Native Max/UI/audio/runtime; external binaries are not provided or validated."
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "envelope_lane": 1,
+    "synthesis_lane": 1,
+    "matrix_input": 1,
+    "matrix_output": 1,
+    "pre_fader_group_bus": "sinusoids_group_01_v20",
+    "dac_fader": "obj-73",
+    "dac_channel": 1
+  },
+  {
+    "envelope_lane": 2,
+    "synthesis_lane": 2,
+    "matrix_input": 2,
+    "matrix_output": 2,
+    "pre_fader_group_bus": "sinusoids_group_02_v20",
+    "dac_fader": "obj-72",
+    "dac_channel": 2
+  },
+  {
+    "envelope_lane": 3,
+    "synthesis_lane": 3,
+    "matrix_input": 3,
+    "matrix_output": 3,
+    "pre_fader_group_bus": "sinusoids_group_03_v20",
+    "dac_fader": "obj-71",
+    "dac_channel": 3
+  },
+  {
+    "envelope_lane": 4,
+    "synthesis_lane": 4,
+    "matrix_input": 4,
+    "matrix_output": 4,
+    "pre_fader_group_bus": "sinusoids_group_04_v20",
+    "dac_fader": "obj-70",
+    "dac_channel": 4
+  },
+  {
+    "envelope_lane": 5,
+    "synthesis_lane": 5,
+    "matrix_input": 5,
+    "matrix_output": 5,
+    "pre_fader_group_bus": "sinusoids_group_05_v20",
+    "dac_fader": "obj-69",
+    "dac_channel": 5
+  },
+  {
+    "envelope_lane": 6,
+    "synthesis_lane": 6,
+    "matrix_input": 6,
+    "matrix_output": 6,
+    "pre_fader_group_bus": "sinusoids_group_06_v20",
+    "dac_fader": "obj-68",
+    "dac_channel": 6
+  },
+  {
+    "envelope_lane": 7,
+    "synthesis_lane": 7,
+    "matrix_input": 7,
+    "matrix_output": 7,
+    "pre_fader_group_bus": "sinusoids_group_07_v20",
+    "dac_fader": "obj-67",
+    "dac_channel": 7
+  },
+  {
+    "envelope_lane": 8,
+    "synthesis_lane": 8,
+    "matrix_input": 8,
+    "matrix_output": 8,
+    "pre_fader_group_bus": "sinusoids_group_08_v20",
+    "dac_fader": "obj-66",
+    "dac_channel": 8
+  },
+  {
+    "envelope_lane": 9,
+    "synthesis_lane": 9,
+    "matrix_input": 9,
+    "matrix_output": 9,
+    "pre_fader_group_bus": "sinusoids_group_09_v20",
+    "dac_fader": "obj-65",
+    "dac_channel": 9
+  },
+  {
+    "envelope_lane": 10,
+    "synthesis_lane": 10,
+    "matrix_input": 10,
+    "matrix_output": 10,
+    "pre_fader_group_bus": "sinusoids_group_10_v20",
+    "dac_fader": "obj-50",
+    "dac_channel": 10
+  },
+  {
+    "envelope_lane": 11,
+    "synthesis_lane": 11,
+    "matrix_input": 11,
+    "matrix_output": 11,
+    "pre_fader_group_bus": "sinusoids_group_11_v20",
+    "dac_fader": "obj-25",
+    "dac_channel": 11
+  },
+  {
+    "envelope_lane": 12,
+    "synthesis_lane": 12,
+    "matrix_input": 12,
+    "matrix_output": 12,
+    "pre_fader_group_bus": "sinusoids_group_12_v20",
+    "dac_fader": "obj-1",
+    "dac_channel": 12
+  }
+]

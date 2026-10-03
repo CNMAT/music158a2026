@@ -1,0 +1,7 @@
+{
+  "cue_models": 84,
+  "unique_control_addresses": 80,
+  "multiple_example_copies_are_intentional": true,
+  "missing_forward_destination_receivers": [],
+  "scope": "Across the supplied v20 patch corpus; individual standalone tools require opening their corresponding patch."
+}

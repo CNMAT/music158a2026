@@ -1,0 +1,15 @@
+{
+  "note": "Tests were migrated to documented current behavior; passing these emulations is not a native Max certification. Four inherited suites needed only filename/namespace migration.",
+  "changes": {
+    "tests_detune_v20.cjs": "Inserted All on full at index 1; exercised all 94 choices and current default signed multislider range.",
+    "tests_envelope_shaper01_v20.cjs": "25 presets, 1150 count-aware records; ignores menu separator serialization, not menu entries or values.",
+    "tests_micro_drift_v20.cjs": "Replaced an obsolete object-ID absence assertion with actual micro-command wiring; retained seeded 10000-step source tests.",
+    "tests_retuning_accuracy_v20.cjs": "Follows the generator destination of routepass, not the first parallel edge to the detune shape library.",
+    "tests_score_execution_v20.cjs": "Added current completion comparison, addition, multichannel gate, native line-completion and UI-control models; expanded tests for canonical lane CUEs and 150 ms threshold.",
+    "tests_seeded_micro_drift_v20.cjs": "Replaced obsolete bounded-excursion/zero-amount-motion assumptions with current accumulating-walk semantics and tagged-model wiring.",
+    "tests_stage_v20.cjs": "Retains legacy weighted-removal unit tests; uses the current shared amplitude shape menu as the library fixture rather than a removed weight-menu ID. Active remove/add is covered separately.",
+    "tests_student_controls_v20.cjs": "Replaced an obsolete immutable-layout snapshot with the active signed memory/control contract, canonical copy checks and alloff stop-bus assertions; structural/preset preservation now independently checked by the Python runner.",
+    "tests_v20_changes_and_stops_v20.cjs": "Updated Celeste beating assertion to the current normalized-cents conversion, not the older ERB-depth formula.",
+    "tests_current_core_v20.cjs": "Added 745-assertion source regression suite used during the baseline review, now executed against v20."
+  }
+}

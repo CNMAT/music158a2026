@@ -1,0 +1,86 @@
+[
+  {
+    "test": "tests_copy_amplitudes_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: full-bank independent copy, visible-count preservation, unchanged inharmonicity, morph snapshot/stop, one transaction and main-page routing.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_current_core_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"PASS\",\n  \"assertions\": 745,\n  \"checks\": [\n    \"All 94 detune presets: correct lengths and signed range at counts 2, 48 and 256; Flat Zero and All on full.\",\n    \"All 25 removal-weight presets: correct lengths and 0–1 range at counts 2, 48 and 256.\",\n    \"Active remove/add engine restores all three layers exactly; direct memory resizing retains a hidden signed slot; All Off clears all 256 slots.\",\n    \"Generator preserves paired IDs, locks the source fundamental, detunes higher primaries by ±100 cents, and leaves anchors exact.\",\n    \"Retuning controller zero-duration ratio and fixed-Hz modes emit expected ratio/shift commands.\",\n    \"Post-transform exact-frequency merging preserves silent absorbed IDs; frequency-window rejection removes rejected records.\"\n  ],\n  \"limitations\": [\n    \"JavaScript source tests only; Max patch-cord execution, scheduler, graphics, sinusoids~ DSP, actual audio channels and listening not exercised.\",\n    \"Memory resize test does not simulate patch-level selected-shape regeneration.\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_detune_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"passed\",\n  \"shapeCountBaseCases\": 95880,\n  \"frequencyCountBaseDetuneCases\": 80,\n  \"otherChecks\": [\n    \"ERB base recalculation\",\n    \"signed morph crossing zero\",\n    \"hidden-slot preservation\",\n    \"amplitude/anchor nonnegative clipping\",\n    \"positive full-bank amplitude transfer\",\n    \"signed stop-layer restore\",\n    \"signed random detune\",\n    \"organ-stop Hz beating conversion\",\n    \"harmonic anchors\",\n    \"F0 lock\",\n    \"micro-walk additive offset\",\n    \"all patch graphs and JS dependencies\",\n    \"new object placement\",\n    \"150 ms completion comparison preservation\"\n  ],\n  \"master\": {\n    \"patchers\": 144,\n    \"objects\": 5353,\n    \"patchCords\": 4052,\n    \"completionGates\": 24\n  },\n  \"allSuppliedPatchers\": {\n    \"patchers\": 316,\n    \"objects\": 11165,\n    \"patchCords\": 8773,\n    \"completionGates\": 48\n  },\n  \"jsDependencies\": [\n    \"Partial_Group_Manager_v20.js\",\n    \"cnmat_sinusoid_model_generator_v20.js\",\n    \"detune_shape_library_v20.js\",\n    \"dynamic_shape_library_weights_v20.js\",\n    \"ec_sinusoid_synth_stops_v20.js\",\n    \"global_retuning_controller_v20.js\",\n    \"multislider_interpolation_engine_v20.js\",\n    \"multislider_interpolation_engine_v20_add_restore.js\",\n    \"random_multislider_values_v20.js\",\n    \"sinusoid_model_transform_v20.js\",\n    \"weighted_partial_add_remove_v20.js\"\n  ],\n  \"runtime\": \"Node VM with Max message and Task stubs; not tested in Max audio runtime\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_envelope_shaper01_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: standalone and active ADSR retain all 25 shapes at every 3–48 count; reference shaper retains its 25 exact 48-point templates; normalized ranges, truncation and startup are intact.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_micro_drift_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\"status\":\"passed\",\"randomStepSelections\":10000,\"upSteps\":5033,\"downSteps\":4967,\"checks\":[\"default 1 Hz step\",\"zero amount stops task and resets offset\",\"enabled toggle with zero amount stays stopped\",\"linear midpoint\",\"exact up/down step choices\",\"adjustable step\",\"amount scales offset\",\"toggle off restores detuned baseline\",\"detune edits move walk baseline without overwriting sliders\",\"F0 lock\",\"exact harmonic anchors\",\"repeatable seed\",\"patch graph and unambiguous startup\"],\"master\":{\"patchers\":144,\"objects\":5353,\"patchCords\":4052},\"runtime\":\"Node VM with Max task/message stubs; Max audio not tested\"}\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_octave_families_stage_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: 128 disjoint families cover 2–256; reciprocal amplitudes, anchor silence, preserved inharmonicity/unrelated/hidden slots, morph behavior, single model transaction, 256-slot generation and workspace routing.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_partial_group_manager_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\n  \"assertions\": 1555,\n  \"permanent_ids\": 512,\n  \"render_lanes\": 12,\n  \"spatial_groups_tested\": 5,\n  \"resize_identity_preserved\": true,\n  \"anchor_identity_preserved\": true,\n  \"deterministic_seed\": true,\n  \"routing_messages\": 144\n}\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_retuning_accuracy_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: decimal 27.5 Hz through actual filter routing, three retuning modes, source resets, glide/re-targeting, bypass, semitones/cents/offset/gain, frequency rejection/silence, clustering, sample-rate limit, all numeric filter outlets and graph bounds.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_score_execution_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: graph-executed scalar default/explicit ramps, readback starts, stop cancellation, independent copied partial cues, query isolation, discrete/action protocols, silent score loading, timed dispatch, restart and cancellation.\nPASS: six global lane CUEs, value bounds, 0/149/150/151 ms completion boundaries, completion cancellation, exact 12-way trigger/duration/shape/loop/stop fanout, smoothing alias/state path without recursion, float durations, and loop-off-before-stop order.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_seeded_micro_drift_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: 300 paired 256-slot seeded walk frames; 229500 anchor/amplitude assertions; repeated seeds, resize stability, timing continuity, accumulated walk, positive/zero amount behavior, tagged transform movement, paired identities, parameter clamps, held transactions and tagged render wiring.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_stage_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: weighted bias means 8.29 / 16.59, Gaussian peaks, unique draws, fallbacks, silent exclusion, atomic memory removal/restoration, hidden slots, independent library, routing/names/layout/colors.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_student_controls_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: active indexed controls, signed detune bounds, hidden memory, rejected malformed commands, feedback query, atomic updates, interrupted morph, octave-family edits, alloff stop bus and standalone/embedded parity.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_v20_changes_and_stops_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: both full-bank named copies, single model transactions, alloff zero banks + silent shape/menu reset, rank algebra/Cornet/mutations/odd spectra, independent proposed selections, exact-anchor beating, 256-slot apply, clear, malformed input rejection, all patch graphs/dependencies.\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_workspace_stage_v20.cjs",
+    "returncode": 0,
+    "stdout": "PASS: ten pairs per row, ON above OFF, complete presentation layout, direct ALL OFF routing, visible/full-bank zeroing, all hidden slots cleared, stopped morphs, one transaction, renamed dependencies.\n",
+    "stderr": ""
+  }
+]
