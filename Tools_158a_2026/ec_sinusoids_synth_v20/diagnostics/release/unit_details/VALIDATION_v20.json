@@ -19,19 +19,20 @@
     "150 ms completion comparison preservation"
   ],
   "master": {
-    "patchers": 144,
-    "objects": 5353,
-    "patchCords": 4052,
+    "patchers": 145,
+    "objects": 5529,
+    "patchCords": 4296,
     "completionGates": 24
   },
   "allSuppliedPatchers": {
-    "patchers": 316,
-    "objects": 11165,
-    "patchCords": 8773,
+    "patchers": 317,
+    "objects": 11341,
+    "patchCords": 9017,
     "completionGates": 48
   },
   "jsDependencies": [
     "Partial_Group_Manager_v20.js",
+    "automatic_lines_v5_ed.js",
     "cnmat_sinusoid_model_generator_v20.js",
     "detune_shape_library_v20.js",
     "dynamic_shape_library_weights_v20.js",

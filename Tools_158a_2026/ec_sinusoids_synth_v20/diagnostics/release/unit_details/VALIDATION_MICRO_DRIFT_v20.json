@@ -19,9 +19,9 @@
     "patch graph and unambiguous startup"
   ],
   "master": {
-    "patchers": 144,
-    "objects": 5353,
-    "patchCords": 4052
+    "patchers": 145,
+    "objects": 5529,
+    "patchCords": 4296
   },
   "runtime": "Node VM with Max task/message stubs; Max audio not tested"
 }

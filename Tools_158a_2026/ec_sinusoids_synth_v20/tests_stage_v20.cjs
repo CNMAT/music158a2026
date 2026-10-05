@@ -17,7 +17,7 @@ let meanLow=0,meanHigh=0;
 configure(r,24,Array.from({length:24},(_,i)=>23-i));for(let i=0;i<8000;i++){r.remove(1);meanLow+=last(r,1)[0];}
 configure(r,24,Array.from({length:24},(_,i)=>i));for(let i=0;i<8000;i++){r.remove(1);meanHigh+=last(r,1)[0];}
 meanLow/=8000;meanHigh/=8000;assert(meanLow<10);assert(meanHigh>15);
-const patch=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_v20.maxpat'))).patcher;
+const patch=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher;
 const ids=new Map(patch.boxes.map(x=>[x.box.id,x.box]));function findBox(p,id){for(const {box:b} of p.boxes){if(b.id===id)return b;if(b.patcher){const found=findBox(b.patcher,id);if(found)return found;}}} const names=ids.get('syn-amp-shape-menu').items.filter(x=>x!==',');
 let remover,engine;const display=[[],[],[]];
 const gen=load('cnmat_sinusoid_model_generator_v20.js');
@@ -52,7 +52,7 @@ const gaussian=Array.from(last(lib,0));configure(r,48,gaussian);const bins=Array
 for(let i=0;i<8000;i++){r.remove(1);bins[last(r,1)[0]-1]++;}
 const peak=gaussian.map((w,i)=>[w,bins[i]]).filter(x=>x[0]>.8),valley=gaussian.map((w,i)=>[w,bins[i]]).filter(x=>x[0]<.1);
 assert(peak.reduce((s,x)=>s+x[1],0)/peak.length>5*valley.reduce((s,x)=>s+x[1],0)/valley.length);
-function graph(p){const map=new Map(p.boxes.map(x=>[x.box.id,x.box]));assert.equal(map.size,p.boxes.length);for(const l of p.lines||[]){const q=l.patchline;assert(map.has(q.source[0]));assert(map.has(q.destination[0]));assert(q.source[1]<map.get(q.source[0]).numoutlets);assert(q.destination[1]<map.get(q.destination[0]).numinlets);}for(const x of p.boxes){if(x.box.patcher)graph(x.box.patcher);if(x.box.text?.startsWith('js '))assert(/_v20(?:_[A-Za-z0-9]+)*\.js$/.test(x.box.text));}}
+function graph(p){const map=new Map(p.boxes.map(x=>[x.box.id,x.box]));assert.equal(map.size,p.boxes.length);for(const l of p.lines||[]){const q=l.patchline;assert(map.has(q.source[0]));assert(map.has(q.destination[0]));assert(q.source[1]<map.get(q.source[0]).numoutlets);assert(q.destination[1]<map.get(q.destination[0]).numinlets);}for(const x of p.boxes){if(x.box.patcher)graph(x.box.patcher);if(x.box.text?.startsWith('js '))assert(/_v20(?:_[A-Za-z0-9]+)*\.js$/.test(x.box.text.trim().split(/\s+/)[1]) || x.box.text.trim().split(/\s+/)[1] === 'automatic_lines_v5_ed.js');}}
 graph(patch);
 assert.deepEqual(names,ids.get('syn-amp-shape-menu').items.filter(x=>x!==','));
 assert(!patch.lines.some(l=>l.patchline.source[0]==='rm14-weight-library'&&['syn-freq-slider','syn-amp-slider','syn-harmonic-amp-slider','syn-interpolation-js'].includes(l.patchline.destination[0])));

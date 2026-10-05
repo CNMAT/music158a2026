@@ -1,0 +1,1916 @@
+[
+  {
+    "file": "ADSR_LANE_PANEL_v20.maxpat",
+    "path": "ROOT",
+    "objects": 91,
+    "cords": 65
+  },
+  {
+    "file": "ADSR_LANE_PANEL_v20.maxpat",
+    "path": "ROOT/all-lane-global-trigger-fanout",
+    "objects": 14,
+    "cords": 13
+  },
+  {
+    "file": "ADSR_LANE_PANEL_v20.maxpat",
+    "path": "ROOT/all-lane-duration-fanout",
+    "objects": 14,
+    "cords": 12
+  },
+  {
+    "file": "ADSR_LANE_PANEL_v20.maxpat",
+    "path": "ROOT/v20-global-stop-fanout",
+    "objects": 13,
+    "cords": 12
+  },
+  {
+    "file": "ADSR_Lane_01_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_01_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_02_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_02_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_03_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_03_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_04_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_04_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_05_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_05_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_06_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_06_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_07_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_07_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_08_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_08_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_09_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_09_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_10_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_10_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_11_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_11_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "ADSR_Lane_12_v20.maxpat",
+    "path": "ROOT",
+    "objects": 84,
+    "cords": 89
+  },
+  {
+    "file": "ADSR_Lane_12_v20.maxpat",
+    "path": "ROOT/translator",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT",
+    "objects": 88,
+    "cords": 75
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT/obj-6",
+    "objects": 11,
+    "cords": 10
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT/obj-3",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT/obj-round-output",
+    "objects": 3,
+    "cords": 2
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT",
+    "objects": 62,
+    "cords": 66
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/silence-cue",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue1",
+    "objects": 25,
+    "cords": 24
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue2",
+    "objects": 25,
+    "cords": 24
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue3",
+    "objects": 25,
+    "cords": 24
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue6",
+    "objects": 25,
+    "cords": 24
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue7",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue8",
+    "objects": 25,
+    "cords": 24
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue9",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue10",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Example_Timed_Score_v20.maxpat",
+    "path": "ROOT/cue11",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT",
+    "objects": 131,
+    "cords": 51
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-98",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-60",
+    "objects": 5,
+    "cords": 2
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-84",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-86",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-88",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/retuning-help14",
+    "objects": 8,
+    "cords": 0
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-66",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-69",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-72",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-75",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-78",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-81",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model6",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model7",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model8",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model9",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model10",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model5",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-36",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-39",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-32",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model3",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-22",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/obj-25",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model1",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/model2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/live-controls",
+    "objects": 1087,
+    "cords": 956
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category5",
+    "objects": 19,
+    "cords": 4
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category5/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category5/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category5/model2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category5/model3",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category6",
+    "objects": 14,
+    "cords": 4
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category6/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category6/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category6/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category6/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7",
+    "objects": 20,
+    "cords": 6
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category7/model5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8",
+    "objects": 59,
+    "cords": 19
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model6",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model7",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model8",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model9",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model10",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model11",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model12",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model13",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model14",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model15",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model16",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model17",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category8/model18",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9",
+    "objects": 20,
+    "cords": 6
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model0",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model1",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model2",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model3",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model4",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category9/model5",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category10",
+    "objects": 5,
+    "cords": 1
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category10/model0",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/how-messages-work",
+    "objects": 13,
+    "cords": 4
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/how-messages-work/cue",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category-render-v20",
+    "objects": 14,
+    "cords": 4
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category-render-v20/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category-render-v20/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category-render-v20/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/category-render-v20/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging",
+    "objects": 41,
+    "cords": 5
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/obj-10",
+    "objects": 15,
+    "cords": 13
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/obj-6",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/obj-1",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/obj-3",
+    "objects": 5,
+    "cords": 2
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-01",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-02",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-03",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-04",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-05",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-06",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-07",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-08",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-09",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-10",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-11",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/adsr-12-lanes-messaging/lane-module-12",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues",
+    "objects": 9,
+    "cords": 0
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-1",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-6",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-legacy-master-cues/legacy-7",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues",
+    "objects": 19,
+    "cords": 6
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/v20-global-cues/cue-5",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "Send_Message_Space_v20.maxpat",
+    "path": "ROOT/automixer-message-space-v20",
+    "objects": 76,
+    "cords": 32
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT",
+    "objects": 463,
+    "cords": 430
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-100",
+    "objects": 3,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-79",
+    "objects": 3,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-33",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-112",
+    "objects": 91,
+    "cords": 65
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-112/all-lane-global-trigger-fanout",
+    "objects": 14,
+    "cords": 13
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-112/all-lane-duration-fanout",
+    "objects": 14,
+    "cords": 12
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-112/v20-global-stop-fanout",
+    "objects": 13,
+    "cords": 12
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-21",
+    "objects": 111,
+    "cords": 102
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-21/obj-6",
+    "objects": 11,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-21/obj-3",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-21/obj-round-output",
+    "objects": 3,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-32",
+    "objects": 41,
+    "cords": 31
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-14",
+    "objects": 1,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-11",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-6",
+    "objects": 1,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-5",
+    "objects": 5,
+    "cords": 4
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/obj-17",
+    "objects": 26,
+    "cords": 30
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/workspace14",
+    "objects": 391,
+    "cords": 258
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/retuning-help14",
+    "objects": 8,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/envelope-shaper01",
+    "objects": 69,
+    "cords": 56
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/envelope-shaper01/obj-6",
+    "objects": 11,
+    "cords": 11
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/envelope-shaper01/obj-3",
+    "objects": 13,
+    "cords": 15
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/envelope-shaper01/obj-round-output",
+    "objects": 3,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20",
+    "objects": 131,
+    "cords": 51
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-98",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-60",
+    "objects": 5,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-84",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-86",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-88",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/retuning-help14",
+    "objects": 8,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-66",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-69",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-72",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-75",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-78",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-81",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model6",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model7",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model8",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model9",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model10",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model5",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-36",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-39",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-32",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model3",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-22",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/obj-25",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model1",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/model2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/live-controls",
+    "objects": 1087,
+    "cords": 956
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category5",
+    "objects": 19,
+    "cords": 4
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category5/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category5/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category5/model2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category5/model3",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category6",
+    "objects": 14,
+    "cords": 4
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category6/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category6/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category6/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category6/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7",
+    "objects": 20,
+    "cords": 6
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category7/model5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8",
+    "objects": 59,
+    "cords": 19
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model6",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model7",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model8",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model9",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model10",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model11",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model12",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model13",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model14",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model15",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model16",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model17",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category8/model18",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9",
+    "objects": 20,
+    "cords": 6
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model0",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model1",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model2",
+    "objects": 46,
+    "cords": 50
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model3",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model4",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category9/model5",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category10",
+    "objects": 5,
+    "cords": 1
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category10/model0",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/how-messages-work",
+    "objects": 13,
+    "cords": 4
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/how-messages-work/cue",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category-render-v20",
+    "objects": 14,
+    "cords": 4
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category-render-v20/model0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category-render-v20/model1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category-render-v20/model2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/category-render-v20/model3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging",
+    "objects": 41,
+    "cords": 5
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/obj-10",
+    "objects": 15,
+    "cords": 13
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/obj-6",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/obj-1",
+    "objects": 3,
+    "cords": 1
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/obj-3",
+    "objects": 5,
+    "cords": 2
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-01",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-02",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-03",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-04",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-05",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-06",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-07",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-08",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-09",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-10",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-11",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/adsr-12-lanes-messaging/lane-module-12",
+    "objects": 46,
+    "cords": 22
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues",
+    "objects": 9,
+    "cords": 0
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-1",
+    "objects": 15,
+    "cords": 9
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-2",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-5",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-6",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-legacy-master-cues/legacy-7",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues",
+    "objects": 19,
+    "cords": 6
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-0",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-1",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-2",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-3",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-4",
+    "objects": 16,
+    "cords": 10
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/v20-global-cues/cue-5",
+    "objects": 35,
+    "cords": 35
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/send-message-space-v20/automixer-message-space-v20",
+    "objects": 76,
+    "cords": 32
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/syn-three-shape-resizers",
+    "objects": 22,
+    "cords": 25
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/v20-render-controls",
+    "objects": 38,
+    "cords": 25
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/sinusoids-audio-rendering-v20",
+    "objects": 85,
+    "cords": 70
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/sinusoids-audio-routing-v20",
+    "objects": 66,
+    "cords": 71
+  },
+  {
+    "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "path": "ROOT/sinusoids-audio-routing-v20/am-controller-v20",
+    "objects": 135,
+    "cords": 202
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT",
+    "objects": 18,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic0",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic1",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic2",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic3",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic4",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic5",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/topic6",
+    "objects": 2,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "path": "ROOT/sources",
+    "objects": 25,
+    "cords": 0
+  },
+  {
+    "file": "ec_sinusoid_synth_stops_v20.maxpat",
+    "path": "ROOT",
+    "objects": 159,
+    "cords": 173
+  }
+]

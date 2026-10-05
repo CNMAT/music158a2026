@@ -1,0 +1,77 @@
+{
+  "status": "PASS_SOURCE_AND_GRAPH_CHECKS",
+  "entry_point": "_ec_sinusoids_synth_v20.maxpat",
+  "environment": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "node": "v22.16.0"
+  },
+  "counts": {
+    "maxpat_files": 19,
+    "javascript_files": 14,
+    "regression_suites": 14,
+    "patcher_contexts": 316,
+    "objects": 11165,
+    "patch_cords": 8773,
+    "bundled_referenced_dependencies": 26,
+    "named_bus_objects": 1633,
+    "distinct_bus_names": 444,
+    "embedded_collections": 33,
+    "preserved_source_collections": 31,
+    "structural_and_contract_assertions": 39450
+  },
+  "checks_by_category": {
+    "namespace": 1693,
+    "structure": 36364,
+    "port_order": 532,
+    "preset_data": 66,
+    "dependencies": 26,
+    "preservation": 62,
+    "canonical_copies": 2,
+    "semantic_wiring": 297,
+    "authority": 55,
+    "panel_layout": 325,
+    "syntax": 14,
+    "regression": 14
+  },
+  "errors": [],
+  "dependencies": [
+    "ADSR_Lane_01_v20.maxpat",
+    "ADSR_Lane_02_v20.maxpat",
+    "ADSR_Lane_03_v20.maxpat",
+    "ADSR_Lane_04_v20.maxpat",
+    "ADSR_Lane_05_v20.maxpat",
+    "ADSR_Lane_06_v20.maxpat",
+    "ADSR_Lane_07_v20.maxpat",
+    "ADSR_Lane_08_v20.maxpat",
+    "ADSR_Lane_09_v20.maxpat",
+    "ADSR_Lane_10_v20.maxpat",
+    "ADSR_Lane_11_v20.maxpat",
+    "ADSR_Lane_12_v20.maxpat",
+    "Partial_Group_Manager_v20.js",
+    "cnmat_sinusoid_model_generator_v20.js",
+    "component_index_ruler_v20.js",
+    "detune_shape_library_v20.js",
+    "dynamic_shape_library_weights_v20.js",
+    "ec_sinusoid_synth_stops_research_v20.maxpat",
+    "ec_sinusoid_synth_stops_v20.js",
+    "ec_sinusoid_synth_stops_v20.maxpat",
+    "global_retuning_controller_v20.js",
+    "multislider_interpolation_engine_v20.js",
+    "multislider_interpolation_engine_v20_add_restore.js",
+    "random_multislider_values_v20.js",
+    "sinusoid_model_transform_v20.js",
+    "weighted_partial_add_remove_v20.js"
+  ],
+  "limitations": [
+    "No native Cycling 74 Max application was run.",
+    "No native scheduler, GUI interaction, DSP/external loading, CPU benchmark, sound rendering, DAC hardware routing or listening test was performed.",
+    "Node tests execute JavaScript source with Max-message/Task/clock stubs; CUE tests simulate selected Max objects.",
+    "sinusoids~ is an installed third-party dependency and is not bundled or validated here.",
+    "Saved layout rectangles and port order were checked; this is not a native Max visual rendering test."
+  ],
+  "required_native_dependency": [
+    "CNMAT sinusoids~ compatible with the installed Max/platform"
+  ],
+  "namespace_scope": "Project control/signal buses and project JS/patch dependencies are v20. Max global DSP, third-party native object names, and multiple copies of this same version are not instance-isolated."
+}

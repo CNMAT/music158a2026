@@ -201,7 +201,7 @@
     },
     {
       "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
-      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
       "path": "ROOT/obj-21",
       "id": "obj-coll",
       "records": 2,
@@ -210,7 +210,7 @@
     },
     {
       "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
-      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
       "path": "ROOT/obj-21",
       "id": "obj-shape-coll-norm",
       "records": 1150,
@@ -219,7 +219,7 @@
     },
     {
       "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
-      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
       "path": "ROOT/envelope-shaper01",
       "id": "obj-coll",
       "records": 0,
@@ -228,7 +228,7 @@
     },
     {
       "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
-      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
       "path": "ROOT/envelope-shaper01",
       "id": "obj-shape-coll-norm",
       "records": 25,
@@ -237,7 +237,7 @@
     },
     {
       "source_file": "_ec_sinusoids_synth_v19-6.maxpat",
-      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "file": "_ec_sinusoids_synth_automixer_v20.maxpat",
       "path": "ROOT/syn-three-shape-resizers",
       "id": "resize-library",
       "records": 6375,

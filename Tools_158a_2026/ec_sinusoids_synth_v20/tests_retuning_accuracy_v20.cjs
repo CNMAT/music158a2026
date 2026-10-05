@@ -1,7 +1,7 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');let time=0;
 class Clock extends Date{constructor(...a){super(...(a.length?a:[time]));}}
 function load(name,cb){const c={inlet:0,Math,Date:Clock,isFinite,error:()=>{},Task:function(){this.cancel=()=>{};this.repeat=()=>{};},arrayfromargs:a=>Array.from(a),outlet:cb||(()=>{})};vm.createContext(c);vm.runInContext(fs.readFileSync(path.join(__dirname,name),'utf8'),c);return c;}
-const patch=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_v20.maxpat'))).patcher;let safe=[],targetDisplay;
+const patch=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher;let safe=[],targetDisplay;
 const transform=load('sinusoid_model_transform_v20.js',(out,...v)=>{if(out===0)safe=Array.from(v[0]);});
 const gen=load('cnmat_sinusoid_model_generator_v20.js',(out,...v)=>{if(out===4){transform.inlet=0;transform.list(...v[0]);}});
 // Follow the real patch's numeric filter outlet, including the previously missing float route.

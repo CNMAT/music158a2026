@@ -1,5 +1,5 @@
 {
-  "entry_point": "_ec_sinusoids_synth_v20.maxpat",
+  "entry_point": "_ec_sinusoids_synth_automixer_v20.maxpat",
   "cue_model_count": 80,
   "cue_models": [
     {

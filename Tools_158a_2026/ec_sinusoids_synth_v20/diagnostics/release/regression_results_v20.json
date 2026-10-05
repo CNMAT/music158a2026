@@ -1,5 +1,17 @@
 [
   {
+    "test": "tests_automatic_lines_v5_ed_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\"status\":\"PASS\",\"assertions\":337124,\"stress_output_events\":92220,\"stress_summary_lists\":6002,\"coverage\":\"Exact v5 source hash, argument bounds, 1/4/12/20 voices, full up/down/hold cycles, independent randomness, normalized output, start/stop/restart/deletion, runtime parameters, scheduler-lag protection. Max Task/clock emulation only.\"}\n",
+    "stderr": ""
+  },
+  {
+    "test": "tests_automixer_integration_v20.cjs",
+    "returncode": 0,
+    "stdout": "{\"status\":\"PASS\",\"assertions\":3630,\"graph_messages\":4023,\"original_runtime_files_preserved\":32,\"coverage\":\"Original synth and channel identities preserved; 12 scalar outputs and monitor-only summary; closed startup gates; mode ordering; real saved control/readback graph; external range cache; All Off; no-feedback UI; bounded settings; JS help resolution and saved presentation rectangles. Selective Max emulation, not native DSP.\"}\n",
+    "stderr": ""
+  },
+  {
     "test": "tests_copy_amplitudes_v20.cjs",
     "returncode": 0,
     "stdout": "PASS: full-bank independent copy, visible-count preservation, unchanged inharmonicity, morph snapshot/stop, one transaction and main-page routing.\n",
@@ -14,7 +26,7 @@
   {
     "test": "tests_detune_v20.cjs",
     "returncode": 0,
-    "stdout": "{\n  \"status\": \"passed\",\n  \"shapeCountBaseCases\": 95880,\n  \"frequencyCountBaseDetuneCases\": 80,\n  \"otherChecks\": [\n    \"ERB base recalculation\",\n    \"signed morph crossing zero\",\n    \"hidden-slot preservation\",\n    \"amplitude/anchor nonnegative clipping\",\n    \"positive full-bank amplitude transfer\",\n    \"signed stop-layer restore\",\n    \"signed random detune\",\n    \"organ-stop Hz beating conversion\",\n    \"harmonic anchors\",\n    \"F0 lock\",\n    \"micro-walk additive offset\",\n    \"all patch graphs and JS dependencies\",\n    \"new object placement\",\n    \"150 ms completion comparison preservation\"\n  ],\n  \"master\": {\n    \"patchers\": 144,\n    \"objects\": 5353,\n    \"patchCords\": 4052,\n    \"completionGates\": 24\n  },\n  \"allSuppliedPatchers\": {\n    \"patchers\": 316,\n    \"objects\": 11165,\n    \"patchCords\": 8773,\n    \"completionGates\": 48\n  },\n  \"jsDependencies\": [\n    \"Partial_Group_Manager_v20.js\",\n    \"cnmat_sinusoid_model_generator_v20.js\",\n    \"detune_shape_library_v20.js\",\n    \"dynamic_shape_library_weights_v20.js\",\n    \"ec_sinusoid_synth_stops_v20.js\",\n    \"global_retuning_controller_v20.js\",\n    \"multislider_interpolation_engine_v20.js\",\n    \"multislider_interpolation_engine_v20_add_restore.js\",\n    \"random_multislider_values_v20.js\",\n    \"sinusoid_model_transform_v20.js\",\n    \"weighted_partial_add_remove_v20.js\"\n  ],\n  \"runtime\": \"Node VM with Max message and Task stubs; not tested in Max audio runtime\"\n}\n",
+    "stdout": "{\n  \"status\": \"passed\",\n  \"shapeCountBaseCases\": 95880,\n  \"frequencyCountBaseDetuneCases\": 80,\n  \"otherChecks\": [\n    \"ERB base recalculation\",\n    \"signed morph crossing zero\",\n    \"hidden-slot preservation\",\n    \"amplitude/anchor nonnegative clipping\",\n    \"positive full-bank amplitude transfer\",\n    \"signed stop-layer restore\",\n    \"signed random detune\",\n    \"organ-stop Hz beating conversion\",\n    \"harmonic anchors\",\n    \"F0 lock\",\n    \"micro-walk additive offset\",\n    \"all patch graphs and JS dependencies\",\n    \"new object placement\",\n    \"150 ms completion comparison preservation\"\n  ],\n  \"master\": {\n    \"patchers\": 145,\n    \"objects\": 5529,\n    \"patchCords\": 4296,\n    \"completionGates\": 24\n  },\n  \"allSuppliedPatchers\": {\n    \"patchers\": 317,\n    \"objects\": 11341,\n    \"patchCords\": 9017,\n    \"completionGates\": 48\n  },\n  \"jsDependencies\": [\n    \"Partial_Group_Manager_v20.js\",\n    \"automatic_lines_v5_ed.js\",\n    \"cnmat_sinusoid_model_generator_v20.js\",\n    \"detune_shape_library_v20.js\",\n    \"dynamic_shape_library_weights_v20.js\",\n    \"ec_sinusoid_synth_stops_v20.js\",\n    \"global_retuning_controller_v20.js\",\n    \"multislider_interpolation_engine_v20.js\",\n    \"multislider_interpolation_engine_v20_add_restore.js\",\n    \"random_multislider_values_v20.js\",\n    \"sinusoid_model_transform_v20.js\",\n    \"weighted_partial_add_remove_v20.js\"\n  ],\n  \"runtime\": \"Node VM with Max message and Task stubs; not tested in Max audio runtime\"\n}\n",
     "stderr": ""
   },
   {
@@ -26,7 +38,7 @@
   {
     "test": "tests_micro_drift_v20.cjs",
     "returncode": 0,
-    "stdout": "{\"status\":\"passed\",\"randomStepSelections\":10000,\"upSteps\":5033,\"downSteps\":4967,\"checks\":[\"default 1 Hz step\",\"zero amount stops task and resets offset\",\"enabled toggle with zero amount stays stopped\",\"linear midpoint\",\"exact up/down step choices\",\"adjustable step\",\"amount scales offset\",\"toggle off restores detuned baseline\",\"detune edits move walk baseline without overwriting sliders\",\"F0 lock\",\"exact harmonic anchors\",\"repeatable seed\",\"patch graph and unambiguous startup\"],\"master\":{\"patchers\":144,\"objects\":5353,\"patchCords\":4052},\"runtime\":\"Node VM with Max task/message stubs; Max audio not tested\"}\n",
+    "stdout": "{\"status\":\"passed\",\"randomStepSelections\":10000,\"upSteps\":5033,\"downSteps\":4967,\"checks\":[\"default 1 Hz step\",\"zero amount stops task and resets offset\",\"enabled toggle with zero amount stays stopped\",\"linear midpoint\",\"exact up/down step choices\",\"adjustable step\",\"amount scales offset\",\"toggle off restores detuned baseline\",\"detune edits move walk baseline without overwriting sliders\",\"F0 lock\",\"exact harmonic anchors\",\"repeatable seed\",\"patch graph and unambiguous startup\"],\"master\":{\"patchers\":145,\"objects\":5529,\"patchCords\":4296},\"runtime\":\"Node VM with Max task/message stubs; Max audio not tested\"}\n",
     "stderr": ""
   },
   {

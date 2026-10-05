@@ -1,0 +1,164 @@
+{
+  "source_zip": "ec_sinusoids_synth_automixer_v20.zip",
+  "source_zip_sha256": "d2045b7ff526c551d3b47e1894f82a98fa58a15bcf49ce5d209bfd33eaf35f61",
+  "master": "_ec_sinusoids_synth_automixer_v20.maxpat",
+  "new_patcher_name": "AUTOMIXER_CONTROL_v20-message space",
+  "new_patcher_text": "p \"AUTOMIXER_CONTROL_v20-message space\"",
+  "gallery_addition_ids": [
+    "automixer-message-space-heading-v20",
+    "automixer-message-space-v20",
+    "automixer-message-space-note-v20"
+  ],
+  "command_examples": {
+    "ams-mode0": {
+      "text": "mode 0",
+      "target": "ams-transport-send",
+      "description": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+    },
+    "ams-bypass": {
+      "text": "bypass",
+      "target": "ams-transport-send",
+      "description": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+    },
+    "ams-mode1": {
+      "text": "mode 1",
+      "target": "ams-transport-send",
+      "description": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+    },
+    "ams-start": {
+      "text": "start",
+      "target": "ams-transport-send",
+      "description": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+    },
+    "ams-mode2": {
+      "text": "mode 2",
+      "target": "ams-transport-send",
+      "description": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+    },
+    "ams-stop": {
+      "text": "stop",
+      "target": "ams-transport-send",
+      "description": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+    },
+    "ams-restart": {
+      "text": "restart",
+      "target": "ams-transport-send",
+      "description": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+    },
+    "ams-bang": {
+      "text": "bang",
+      "target": "ams-transport-send",
+      "description": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+    },
+    "ams-range": {
+      "text": "range 2000 10000",
+      "target": "ams-parameter-send",
+      "description": "Set one-leg bounds: 2000 to 10000 ms, independently chosen per voice per cycle."
+    },
+    "ams-range-equal": {
+      "text": "range 3000 3000",
+      "target": "ams-parameter-send",
+      "description": "Equal bounds give exactly 3000 ms for each rising and falling leg of future cycles."
+    },
+    "ams-wait": {
+      "text": "waittime 5000",
+      "target": "ams-parameter-send",
+      "description": "Hold at zero for 5000 ms after each falling leg."
+    },
+    "ams-wait-zero": {
+      "text": "waittime 0",
+      "target": "ams-parameter-send",
+      "description": "No hold at zero; each voice starts its next cycle immediately after falling."
+    },
+    "ams-peak-one": {
+      "text": "fixedpeak 1",
+      "target": "ams-parameter-send",
+      "description": "Every new cycle peaks at 1.0. Values still ramp continuously between 0.0 and 1.0."
+    },
+    "ams-peak-random": {
+      "text": "fixedpeak 0",
+      "target": "ams-parameter-send",
+      "description": "Restore independent random peak targets between 0.0 and 1.0 for new cycles."
+    },
+    "ams-grain": {
+      "text": "grain 20",
+      "target": "ams-parameter-send",
+      "description": "Default 20 ms float-update interval and Auto signal interpolation time."
+    },
+    "ams-grain-slow": {
+      "text": "grain 100",
+      "target": "ams-parameter-send",
+      "description": "100 ms float updates and Auto signal interpolation; does not change the cycle-duration settings."
+    },
+    "ams-recipe-slow": {
+      "text": "range 2000 10000, waittime 5000, fixedpeak 0, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "SLOW RANDOM MIX: independent 2-10 s rises and falls, then 5 s at zero. Full cycles: 9-25 s; random peak levels."
+    },
+    "ams-recipe-continuous": {
+      "text": "range 750 2500, waittime 0, fixedpeak 1, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "CONTINUOUS FULL PEAKS: independent 0.75-2.5 s legs, no hold. Full cycles: 1.5-5 s; every peak target is 1.0."
+    },
+    "ams-recipe-synchronous": {
+      "text": "range 2000 2000, waittime 1000, fixedpeak 1, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "SYNCHRONIZED CYCLES: all 12 rise for 2 s, fall for 2 s, then wait 1 s. The fixed duration and common restart align their 5 s cycles."
+    }
+  },
+  "live_readback_buses": [
+    "Automixer_Mode_state_v20",
+    "Automixer_Range_state_v20",
+    "Automixer_Wait_ms_state_v20",
+    "Automixer_Fixed_Peak_state_v20",
+    "Automixer_Grain_ms_state_v20",
+    "Automixer_Levels_state_v20"
+  ],
+  "changed_runtime_files": [
+    "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "Send_Message_Space_v20.maxpat"
+  ],
+  "unchanged_runtime_sha256": {
+    "ADSR_LANE_PANEL_v20.maxpat": "580d71fc2e57b8c06f05155d6916da81f3fe05d3783a8bdd713016ddb0c0703e",
+    "ADSR_Lane_01_v20.maxpat": "c3062de9cb902c7796583cea8d498bf4195c7d27c6527b6bb539baa26fe88259",
+    "ADSR_Lane_02_v20.maxpat": "bb59f5e767f65874f6887d67fa2c8a86f24cee1e24842916ab6e26e500f37340",
+    "ADSR_Lane_03_v20.maxpat": "6eb709de416d986ad9544bdfb1d1f9888cbbb4d7b5c7ea957c9dc5847cf19cf5",
+    "ADSR_Lane_04_v20.maxpat": "f0da4c7c9c4316a2fe182ead15a38741c4d67f13969af4c8d42d6cad212da848",
+    "ADSR_Lane_05_v20.maxpat": "ac8ed61e28b3015a86170756a367eb265ffbcbe9b55651f8b61bdb23f20fcc9e",
+    "ADSR_Lane_06_v20.maxpat": "d0e6bb0606924ecec0e5ed0370ebfcc83e6f4a198fa9d3f62ed1e8d6c5af026a",
+    "ADSR_Lane_07_v20.maxpat": "8df98cf04d8cf3e3e960900c0605fc702a04eff9a194ee145210d39f0665786d",
+    "ADSR_Lane_08_v20.maxpat": "0512a0d70ce15ee24435ed6a71df66d46cb68539996bb2936f7501c1c00066da",
+    "ADSR_Lane_09_v20.maxpat": "fe8c2d937bc9c975884dd9c2c9bb98623dc8004b06230773e1ce3e53ce8c19a1",
+    "ADSR_Lane_10_v20.maxpat": "e47361b0b5288d68b2f188d053473f2349a25291f2dc4e5d5ae51aca98d5b159",
+    "ADSR_Lane_11_v20.maxpat": "3a788dd8e7b875ae62eb64ea4756e661c77ea6ea7a3d4b75c4ce71560c917d36",
+    "ADSR_Lane_12_v20.maxpat": "34d57a4520be15302e81337377e3629e0e9d5a7cf417ebd2632f08801bdfae82",
+    "DETUNE_SHAPES_v20.json": "1629f18966ab052a7e5dcfc067aa92d9ba54583e6cceaf9d75fdafc93998a1bd",
+    "Envelope-Shaper_01_v20.maxpat": "5a39d8a65ecb9caa4da86546197d590e240b4d958de15fb90e06b520563f7dcd",
+    "Example_Timed_Score_v20.maxpat": "858d92a79b2b6cb342a9b308be056d33f7dbaac6d1b557ed356160e83c73c9cc",
+    "Partial_Group_Manager_v20.js": "f4f83dcb1edf12ec7609f64a91774ffb9cfaa97f4e1245c1d5d21fa317717680",
+    "automatic_lines_v5_ed.js": "a120c3891f074c0cb8fdd49583b9b74266d7dbbec1710af2ffca18532667a5e6",
+    "automatic_lines_v5_ed.maxhelp": "2b3f8fa47cd0dd7a80cde5209da27719fc94c8c84fd6c7fd7ea0fd103aab468f",
+    "cnmat_sinusoid_model_generator_v20.js": "5b6e20143ee9eed56245bf6acb656828f06642d9357e4df80bcbbcc612fa1e1c",
+    "component_index_ruler_v20.js": "57b1be86a3a33e2fb7b1e970add0e424d541e4b032baca8f0948244563bdbd18",
+    "controls_v20.json": "c69f2800f0a564fa2b8d799d4b091d6137136ab39ca5365918944a2c43479309",
+    "dependency_renames_v20.json": "80126aab2bc7c64ca925f2f6d1805a4f10e7d7e8bff9dc92b0643ea844965990",
+    "detune_shape_library_v20.js": "378d1f9d4214f368b79b70c06dda25f5cfede1fa1b47f026d3e653c888ad00a4",
+    "dynamic_shape_library_v20.js": "229854284891fcc99b664d5c0024ba3c21420d6f3d4460ea8fc28cb2a461878e",
+    "dynamic_shape_library_weights_v20.js": "783a6e24faf7d885528121bf26c0203533ece28fa097cf789696e10e79da7526",
+    "ec_sinusoid_synth_stops_research_v20.maxpat": "c65b0b3439991cf88a141bd4cca42164dad1b491e80840ac6909561b86b9b49e",
+    "ec_sinusoid_synth_stops_v20.js": "66bb237fab55fc2a9875e102cfc645a0f5714683f55fd27982c50fece352986c",
+    "ec_sinusoid_synth_stops_v20.maxpat": "dd54852751ddba3687412b965bfb5c952f55dec34f1c7cdd63efcd8b86f6e448",
+    "global_retuning_controller_v20.js": "d414d25fe92294caf3aeef16b8255c491a9b682a2bbc0001133a5c72c46a0a24",
+    "multislider_interpolation_engine_v20.js": "3f7005149ac069fa7d02ed1523d0242493d39fb6b0b8cfa27ab7fcb888851978",
+    "multislider_interpolation_engine_v20_add_restore.js": "9a23be99239b49523debcc14818703245e002e11c275a8e1fb03a00a9d751152",
+    "random_multislider_values_v20.js": "b59d24778992485b9903a89f3bcfefd186753ff4336adde81e237e4f4196c36e",
+    "score_models_manifest_v20.json": "5c872326a00d4b0e37522ad34ac6d00f1ff74900dc0a77eee1fabb9648c824c8",
+    "sinusoid_model_transform_v20.js": "25195ceff15cfac7474ad8d54797fbc2db81936f1c3f195a45ea2cac354fc356",
+    "weighted_partial_add_remove_v20.js": "498fcca5ddb6e7fd612b1bd95e0d3e41856147a2068ee79e4c9a2dea793185dd",
+    "weighted_partial_removal_v20.js": "ec280f8542f6ea4dae5913261899d7ed089b1740877dce400849b7f85eda41ee"
+  },
+  "source_standalone_sha256": "e879758c677edb1668e23fbdf0f3efdb0a30414f6854d0a004e9774aa4f488fd",
+  "diagnostic_migration": "Original gallery content is compared after removing exactly the three new gallery boxes. Original runtime engine and audio checks remain in place. Standalone/embedded equality remains mandatory.",
+  "original_standalone_canonical_sha256": "5cccfa8140692ef3e9982c93dd58b9ae2c284e1e4049ab27536dbc23f6952314",
+  "original_master_canonical_sha256": "3e7855795f23e336d6db3aabec635bb147fb6e78b4644410436d67aa7decd476"
+}

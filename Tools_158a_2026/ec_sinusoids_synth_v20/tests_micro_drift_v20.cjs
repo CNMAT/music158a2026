@@ -32,6 +32,6 @@ function check(p,where=''){
  if(where.endsWith('/p Micro-Drift')){assert(p.lines.some(({patchline:l})=>l.source[0]==='micro-on14command'&&l.destination[0]==='obj-31'));assert.equal(ids.get('micro-on14load').text,'loadmess 0');assert.equal(ids.get('micro-depth14load').text,'loadmess 1.');}
  for(const b of ids.values())if(b.patcher)check(b.patcher,where+'/'+b.text);
 }
-check(JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_v20.maxpat'))).patcher);
+check(JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher);
 const report={status:'passed',randomStepSelections:10000,upSteps:plus,downSteps:minus,checks:['default 1 Hz step','zero amount stops task and resets offset','enabled toggle with zero amount stays stopped','linear midpoint','exact up/down step choices','adjustable step','amount scales offset','toggle off restores detuned baseline','detune edits move walk baseline without overwriting sliders','F0 lock','exact harmonic anchors','repeatable seed','patch graph and unambiguous startup'],master:{patchers,objects,patchCords:cords},runtime:'Node VM with Max task/message stubs; Max audio not tested'};
 fs.writeFileSync(path.join(__dirname,'VALIDATION_MICRO_DRIFT_v20.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

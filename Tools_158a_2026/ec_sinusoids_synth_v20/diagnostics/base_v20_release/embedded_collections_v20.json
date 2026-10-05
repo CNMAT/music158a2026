@@ -1,0 +1,266 @@
+[
+  {
+    "file": "ADSR_LANE_PANEL_v20.maxpat",
+    "path": "ROOT",
+    "id": "v20-shared-adsr-shapes",
+    "name": "coll ADSR_Shapes_v20 @embed 1",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_01_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_01_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_01_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_02_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_02_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_02_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_03_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_03_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_03_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_04_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_04_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_04_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_05_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_05_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_05_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_06_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_06_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_06_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_07_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_07_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_07_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_08_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_08_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_08_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_09_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_09_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_09_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_10_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_10_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_10_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_11_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_11_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_11_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "ADSR_Lane_12_v20.maxpat",
+    "path": "ROOT",
+    "id": "user-coll",
+    "name": "coll ADSR_Lane_12_User_Functions_v20 @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "ADSR_Lane_12_v20.maxpat",
+    "path": "ROOT",
+    "id": "shape-library",
+    "name": "coll ADSR_Shapes_v20",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT",
+    "id": "obj-coll",
+    "name": "coll @embed 1",
+    "records": 2,
+    "records_sha256": "7f8d51b4b59442be6c67ddf281ca65ac6beedd7cd0cae95b90a7632637c0ccf5"
+  },
+  {
+    "file": "Envelope-Shaper_01_v20.maxpat",
+    "path": "ROOT",
+    "id": "obj-shape-coll-norm",
+    "name": "coll @embed 1",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/obj-112",
+    "id": "v20-shared-adsr-shapes",
+    "name": "coll ADSR_Shapes_v20 @embed 1",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/obj-21",
+    "id": "obj-coll",
+    "name": "coll @embed 1",
+    "records": 2,
+    "records_sha256": "1284662895a12bb35768cab5fb6d26436b2cd5e6dd0cac694ae065d1b2d64234"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/obj-21",
+    "id": "obj-shape-coll-norm",
+    "name": "coll ADSR_Shapes_v20 @embed 1",
+    "records": 1150,
+    "records_sha256": "0b50158ecca3c9c629f4a1c56df18c4e82ef873802926fa070040d451dbb26b7"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/envelope-shaper01",
+    "id": "obj-coll",
+    "name": "coll @embed 1",
+    "records": 0,
+    "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/envelope-shaper01",
+    "id": "obj-shape-coll-norm",
+    "name": "coll @embed 1",
+    "records": 25,
+    "records_sha256": "4e331f55676b88cf0b474b1eccc5dd525272cd0c21eae4dbf4a413ec58c8a1c9"
+  },
+  {
+    "file": "_ec_sinusoids_synth_v20.maxpat",
+    "path": "ROOT/syn-three-shape-resizers",
+    "id": "resize-library",
+    "name": "coll @embed 1",
+    "records": 6375,
+    "records_sha256": "000d8f5c37aa9236805df7731fbaa79958ad49f5377b016fc2a6f785e297ae03"
+  }
+]

@@ -1,5 +1,42 @@
 # v20 control reference
 
+## Interactive Automixer message space
+Open `_ec_sinusoids_synth_automixer_v20.maxpat` → `p Send_Message_Space_v20` → `p "AUTOMIXER_CONTROL_v20-message space"` (lower right). All command examples are wired, and the standalone gallery contains the same panel. See `AUTOMIXER_MESSAGE_SPACE_v20.md` for the full implementation notes. The new panel does not change the existing command protocol.
+
+## Automixer command bus
+This section applies to `_ec_sinusoids_synth_automixer_v20.maxpat`.
+
+Send the following messages to **`send Automixer_v20`**. These are direct commands, not the existing continuous CUE model's `VALUE [RAMP_MS]` protocol. The engine and main-page controls share the same command/readback path.
+
+| Message | Effect |
+|---|---|
+| `mode 0` or `bypass` | Stop v5; close its gates; interpolate all new mixer gains to unity in 20 ms. |
+| `mode 1` or `start` | Open the gates and start v5. Repeated start does not reset active cycles. |
+| `mode 2` or `stop` | Close the gates first; stop v5; interpolate all new mixer gains to zero in 20 ms. |
+| `restart` or `bang` | Engage Auto and restart every generator cycle. |
+| `range 2000 10000` | Set one-leg ramp-time bounds. Values are clamped to at least 1 ms and sorted ascending. |
+| `waittime 5000` | Set nonnegative hold duration, consulted at the end of a falling leg. |
+| `fixedpeak 1` | Use 1.0 as every new cycle's peak target. `fixedpeak 0` restores random peaks. |
+| `grain 20` | Set the integer update interval and Auto interpolation time, clamped to 1–1000 ms. |
+
+No command above starts DSP or triggers the existing synthesis ADSRs. The automixer multiplies their outputs **after spatial routing**, so all relevant envelopes still need to be nonzero. A 20 ms interpolation follows a target update at the default grain; exact signal peaks and audible behavior require native DSP testing.
+
+Defaults: Bypass, range 2000–10000 ms, wait 5000 ms, random peaks, grain 20 ms. The existing `ADSR_12_Lanes_Stop_v20` / All Off path stops active Auto; it does not change an already-bypassed mixer into mute. Future external score commands may restart it, so cancel the driving score when needed.
+
+Readback buses:
+
+| Bus | Payload |
+|---|---|
+| `Automixer_Mode_state_v20` | Integer 0 / 1 / 2. |
+| `Automixer_Range_state_v20` | Sorted minimum and maximum milliseconds, two floats. |
+| `Automixer_Wait_ms_state_v20` | Nonnegative hold milliseconds. |
+| `Automixer_Fixed_Peak_state_v20` | Integer 0 / 1. |
+| `Automixer_Grain_ms_state_v20` | Integer 1–1000 ms. |
+| `Automixer_Levels_state_v20` | Twelve applied target gains. Unity list in Bypass, zero list in Stop, per-voice targets during Auto. Not audio-meter data. |
+
+Remote range readback also silently updates the main-page `pak` cache. Consequently, editing only one field after a remote range command does not restore a stale value in the other field.
+
+
 ## Global twelve-lane authority
 Send the following payload directly to a Max `send` with the named address. The corresponding copyable `p Cue_...` model forwards its messages internally; do not forward its reported outlet message a second time unintentionally.
 
@@ -43,7 +80,7 @@ Each lane's stored functions use its own `ADSR_Lane_NN_User_Functions_v20` colle
 ## Gain and audio buses
 `Output_Gain_dB_v20` takes a direct dB value in -70 to +6 and sets the DAC gang master and all twelve DAC faders. Its readback is `Output_Gain_dB_state_v20`. Changing an individual fader is a channel trim and does not redefine the gang master's reported setting.
 
-`sinusoids_group_01_v20` through `sinusoids_group_12_v20` are the twelve spatial-matrix outputs before DAC faders. `sinusoids_v20` is their mono sum before DAC faders. A synthesis lane passes through the spatial matrix, so it is not necessarily confined to its same-numbered output group under every routing configuration.
+`sinusoids_group_01_v20` through `sinusoids_group_12_v20` are the twelve spatial-matrix outputs after the automixer and before DAC faders. `sinusoids_v20` is their post-automixer mono sum before DAC faders. A synthesis lane passes through the spatial matrix, so it is not necessarily confined to its same-numbered output group under every routing configuration.
 
 ## Legacy Master editor
 `Envelope_Trigger_v20`, `Envelope_Loop_v20`, and the `ADSR_Duration_ms_v20` / `ADSR_Shape_v20` family address the retained legacy Master editor, not the twelve-lane global authority. New scores should use the global twelve-lane names above. Legacy CUEs are retained in `LEGACY_MASTER_EDITOR_CUES_v20`.

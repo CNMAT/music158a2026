@@ -1,0 +1,28 @@
+# v20 automixer integration — October 3, 2026
+
+## Baseline and entry point
+Baseline: the uploaded `ec_sinusoids_synth_v20.zip`, not the older master. The supplied standalone automated-routing patch is the placement reference; the attached earlier master is a structural reference only.
+
+New master: **`_ec_sinusoids_synth_automixer_v20.maxpat`**. The old main filename is not duplicated in this package, to reduce accidental simultaneous loading of two v20 masters.
+
+## Changes to the master
+The new embedded `p AUTOMIXER_CONTROL_v20` drives the existing twelve routing multipliers. It follows the reference placement after the spatial matrix and before the sends/output feeds/mono sum. Corrected v20 port order and every original audio cord are retained.
+
+The v5 instance uses **12** voices, not 11. Its thirteenth outlet is only a summary monitor. Signal-rate interpolation follows the float outputs. Native message gates enforce Bypass, Auto and Stop; closed startup gates/deferred initialization preserve the base synth's normal startup gain. Active automation responds to the existing global lane Stop/All Off path. A new main-page control strip and `Automixer_v20` command/readback buses provide synchronized local/remote control.
+
+## Files beyond the master
+**No original supporting runtime `.js` or `.maxpat` file was changed.** All 14 original synth JavaScript files and 18 supporting Max patch files match the supplied v20 ZIP byte-for-byte. The original 423 top-level objects other than the expanded routing container are structurally identical, as are every original object inside that routing container and every original main/routing patch cord.
+
+Added `automatic_lines_v5_ed.js` is byte-identical to the supplied script. No v6 was created. Added `automatic_lines_v5_ed.maxhelp` has corrected script references from the nonexistent `automatic_lines_v5.js` basename to the supplied `automatic_lines_v5_ed.js` basename. Its example behavior is otherwise retained, including standalone auto-start.
+
+Documentation, the control catalog, current entry-point references, and diagnostic metadata were updated. Two new regression suites and a test-only message/clock emulator were added. Existing tests now open the renamed master. Three inherited tests needed a parsing correction because they treated creation arguments as part of a JavaScript filename; one also has an explicit, exact-name exception for the supplied generic v5 engine. No synth algorithm test was removed. Details: `diagnostics/automixer_test_migrations_v20.json`.
+
+Existing envelope panels, message galleries, lane abstractions, timed example and synthesis engines were not rewritten. Consequently, their canonical-copy parity remains intact. Existing CUE galleries are unchanged; the new bus is documented for direct score use.
+
+## Preserved material and evidence
+All 31 original collection record sets remain identical; the release contains 33 placements after the earlier base-v20 repair. The base-v20 collections and all existing synthesis functionality are retained.
+
+`diagnostics/automixer_provenance_v20.json` records all four uploaded reference hashes and the v20 ZIP hash. `diagnostics/automixer_structure_baseline_v20.json` records preservation checks for original objects/cords. Fresh results are under `diagnostics/release/`. Earlier base-v20 reports are under `diagnostics/base_v20_release/` and are not represented as new checks.
+
+## Native execution boundary
+All automated source/graph and selective message tests passed. No native Max application, audio hardware or DSP render was run. Check actual Max behavior using `NATIVE_MAX_CHECKLIST_v20.md`. This build shares the v20 buses with the earlier v20 master; open only one of them at a time.

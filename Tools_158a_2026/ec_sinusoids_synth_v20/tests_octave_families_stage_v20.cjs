@@ -12,7 +12,7 @@ e.inlet=9;e.msg_int(256);assert.equal(e.current[1][255],.125);
 e.inlet=10;e.octavefamily(2,'off');assert.equal(e.memory[1][255],0);
 const saved=JSON.stringify(e.memory);for(const b of [1,4,6,256,257,NaN,3.5])e.octavefamily(b,'on');e.octavefamily(3,'bad');assert.equal(JSON.stringify(e.memory),saved);
 e.running=[true,true,true];e.inlet=10;e.octavefamily(3,'on');assert.equal(e.running[0],true);assert.equal(e.running[1],false);assert.equal(e.running[2],false);
-const p=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_v20.maxpat'))).patcher;
+const p=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher;
 const sub=p.boxes.find(x=>x.box.id==='workspace14').box.patcher;
 const seen=[];for(const {box:b} of sub.boxes.filter(x=>x.box.id.startsWith('family'))){const ns=b.text.split(' ').map(Number);assert(ns[0]===2||ns[0]%2===1);for(let j=1;j<ns.length;j++)assert.equal(ns[j],ns[j-1]*2);seen.push(...ns);}
 assert.equal(new Set(seen).size,255);assert.deepEqual(seen.sort((a,b)=>a-b),Array.from({length:255},(_,i)=>i+2));

@@ -1,0 +1,18 @@
+{
+  "changes": [
+    {
+      "file": "tests_stage_v20.cjs",
+      "change": "Tokenize the js filename and explicitly allow the unchanged supplied automatic_lines_v5_ed.js. Existing v20 dependency checks remain."
+    },
+    {
+      "file": "tests_v20_changes_and_stops_v20.cjs",
+      "change": "Resolve only the JS filename, excluding creation arguments, when checking file existence."
+    },
+    {
+      "file": "tests_workspace_stage_v20.cjs",
+      "change": "Resolve only the JS filename, excluding creation arguments, when checking file existence."
+    }
+  ],
+  "entrypoint_update": "Existing suites now address _ec_sinusoids_synth_automixer_v20.maxpat",
+  "runtime_js_changes": []
+}

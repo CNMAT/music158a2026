@@ -3,7 +3,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert'),vm=require('vm');
 const read=n=>JSON.parse(fs.readFileSync(path.join(__dirname,n))).patcher;
 const boxes=p=>Object.fromEntries(p.boxes.map(x=>[x.box.id,x.box]));
-const main=read('_ec_sinusoids_synth_v20.maxpat'),m=boxes(main);
+const main=read('_ec_sinusoids_synth_automixer_v20.maxpat'),m=boxes(main);
 const shapers=[read('Envelope-Shaper_01_v20.maxpat'),m['obj-21'].patcher,m['envelope-shaper01'].patcher];
 const c={outlet:()=>{}};vm.createContext(c);vm.runInContext(fs.readFileSync(path.join(__dirname,'dynamic_shape_library_v20.js'),'utf8'),c);
 for(const p of shapers){const b=boxes(p),wired=(s,o,d)=>p.lines.some(({patchline:l})=>l.source[0]===s&&l.source[1]===o&&l.destination[0]===d);

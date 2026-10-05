@@ -107959,6 +107959,3187 @@
             ""
           ]
         }
+      },
+      {
+        "box": {
+          "id": "automixer-message-space-heading-v20",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            830.0,
+            724.0,
+            432.0,
+            21.0
+          ],
+          "text": "AUTOMIXER | complete commands + worked examples",
+          "fontsize": 12.0,
+          "fontface": 1
+        }
+      },
+      {
+        "box": {
+          "id": "automixer-message-space-v20",
+          "maxclass": "newobj",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            830.0,
+            750.0,
+            435.0,
+            26.0
+          ],
+          "text": "p \"AUTOMIXER_CONTROL_v20-message space\"",
+          "fontsize": 12.0,
+          "presentation": 1,
+          "presentation_rect": [
+            830.0,
+            750.0,
+            435.0,
+            26.0
+          ],
+          "varname": "automixer_message_space_v20",
+          "patcher": {
+            "fileversion": 1,
+            "appversion": {
+              "major": 9,
+              "minor": 1,
+              "revision": 5,
+              "architecture": "x64",
+              "modernui": 1
+            },
+            "classnamespace": "box",
+            "rect": [
+              100.0,
+              80.0,
+              1240.0,
+              880.0
+            ],
+            "openinpresentation": 1,
+            "default_fontsize": 12.0,
+            "default_fontface": 0,
+            "default_fontname": "Arial",
+            "gridonopen": 0,
+            "gridsize": [
+              10.0,
+              10.0
+            ],
+            "enablehscroll": 1,
+            "enablevscroll": 1,
+            "bgcolor": [
+              0.965,
+              0.969,
+              0.975,
+              1.0
+            ],
+            "boxes": [
+              {
+                "box": {
+                  "id": "ams-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    16.0,
+                    1188.0,
+                    36.0
+                  ],
+                  "text": "AUTOMIXER v20 | MESSAGE SPACE",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    16.0,
+                    1188.0,
+                    36.0
+                  ],
+                  "fontsize": 22,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-intro",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    56.0,
+                    1188.0,
+                    43.0
+                  ],
+                  "text": "Click a message to send it to the running v20 automixer. Every example is wired to send Automixer_v20.\nThese are direct commands, NOT the continuous CUE VALUE [RAMP_MS] protocol. Scroll down for live readbacks.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    56.0,
+                    1188.0,
+                    43.0
+                  ],
+                  "fontsize": 13,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-transport-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    118.0,
+                    580.0,
+                    26.0
+                  ],
+                  "text": "01  TRANSPORT / MODE",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    118.0,
+                    580.0,
+                    26.0
+                  ],
+                  "fontsize": 15,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    118.0,
+                    560.0,
+                    26.0
+                  ],
+                  "text": "03  HOW automatic_lines_v5_ed DRIVES THE MIXER",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    118.0,
+                    560.0,
+                    26.0
+                  ],
+                  "fontsize": 14,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode0",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    156.0,
+                    86.0,
+                    24.0
+                  ],
+                  "text": "mode 0",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    156.0,
+                    86.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-bypass",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    124.0,
+                    156.0,
+                    90.0,
+                    24.0
+                  ],
+                  "text": "bypass",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    124.0,
+                    156.0,
+                    90.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode0-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    154.0,
+                    374.0,
+                    56.0
+                  ],
+                  "text": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    154.0,
+                    374.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode1",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    218.0,
+                    86.0,
+                    24.0
+                  ],
+                  "text": "mode 1",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    218.0,
+                    86.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-start",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    124.0,
+                    218.0,
+                    90.0,
+                    24.0
+                  ],
+                  "text": "start",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    124.0,
+                    218.0,
+                    90.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode1-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    216.0,
+                    374.0,
+                    56.0
+                  ],
+                  "text": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    216.0,
+                    374.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode2",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    280.0,
+                    86.0,
+                    24.0
+                  ],
+                  "text": "mode 2",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    280.0,
+                    86.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-stop",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    124.0,
+                    280.0,
+                    90.0,
+                    24.0
+                  ],
+                  "text": "stop",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    124.0,
+                    280.0,
+                    90.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-mode2-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    278.0,
+                    374.0,
+                    56.0
+                  ],
+                  "text": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    278.0,
+                    374.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-restart",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    342.0,
+                    86.0,
+                    24.0
+                  ],
+                  "text": "restart",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    342.0,
+                    86.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-bang",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    124.0,
+                    342.0,
+                    90.0,
+                    24.0
+                  ],
+                  "text": "bang",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    124.0,
+                    342.0,
+                    90.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-restart-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    340.0,
+                    374.0,
+                    56.0
+                  ],
+                  "text": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    340.0,
+                    374.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-transport-send",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    410.0,
+                    190.0,
+                    24.0
+                  ],
+                  "text": "send Automixer_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    410.0,
+                    190.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-transport-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    408.0,
+                    374.0,
+                    56.0
+                  ],
+                  "text": "No command here starts DSP or triggers a synth ADSR. This subpatch also has one inlet for forwarding your score commands.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    408.0,
+                    374.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-parameters-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    479.0,
+                    580.0,
+                    26.0
+                  ],
+                  "text": "02  TIMING / PEAK PARAMETERS",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    479.0,
+                    580.0,
+                    26.0
+                  ],
+                  "fontsize": 15,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-range",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    519.0,
+                    190.0,
+                    24.0
+                  ],
+                  "text": "range 2000 10000",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    519.0,
+                    190.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Set one-leg bounds: 2000 to 10000 ms, independently chosen per voice per cycle."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-range-equal",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    551.0,
+                    190.0,
+                    24.0
+                  ],
+                  "text": "range 3000 3000",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    551.0,
+                    190.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Equal bounds give exactly 3000 ms for each rising and falling leg of future cycles."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-range-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    516.0,
+                    374.0,
+                    72.0
+                  ],
+                  "text": "range <min_ms> <max_ms>\nBounds are sorted and clamped to at least 1 ms. Each new cycle chooses ONE time T for both rise and fall. This is not the total cycle time.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    516.0,
+                    374.0,
+                    72.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 4
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-wait",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    601.0,
+                    112.0,
+                    24.0
+                  ],
+                  "text": "waittime 5000",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    601.0,
+                    112.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Hold at zero for 5000 ms after each falling leg."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-wait-zero",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    146.0,
+                    601.0,
+                    87.0,
+                    24.0
+                  ],
+                  "text": "waittime 0",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    146.0,
+                    601.0,
+                    87.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "No hold at zero; each voice starts its next cycle immediately after falling."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-wait-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    253.0,
+                    598.0,
+                    355.0,
+                    72.0
+                  ],
+                  "text": "waittime <ms>\nHold at zero, clamped to 0 or greater. Read when a falling leg ends; an already-started hold keeps its duration.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    253.0,
+                    598.0,
+                    355.0,
+                    72.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-peak-one",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    683.0,
+                    103.0,
+                    24.0
+                  ],
+                  "text": "fixedpeak 1",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    683.0,
+                    103.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Every new cycle peaks at 1.0. Values still ramp continuously between 0.0 and 1.0."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-peak-random",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    139.0,
+                    683.0,
+                    103.0,
+                    24.0
+                  ],
+                  "text": "fixedpeak 0",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    139.0,
+                    683.0,
+                    103.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Restore independent random peak targets between 0.0 and 1.0 for new cycles."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-peak-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    253.0,
+                    680.0,
+                    355.0,
+                    72.0
+                  ],
+                  "text": "fixedpeak <0|1>\n1 = peak target 1.0; 0 = random peak. Applies when each new cycle begins. This is NOT binary on/off output.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    253.0,
+                    680.0,
+                    355.0,
+                    72.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-grain",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    765.0,
+                    82.0,
+                    24.0
+                  ],
+                  "text": "grain 20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    765.0,
+                    82.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "Default 20 ms float-update interval and Auto signal interpolation time."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-grain-slow",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    121.0,
+                    765.0,
+                    92.0,
+                    24.0
+                  ],
+                  "text": "grain 100",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    121.0,
+                    765.0,
+                    92.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "100 ms float updates and Auto signal interpolation; does not change the cycle-duration settings."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-grain-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    762.0,
+                    374.0,
+                    72.0
+                  ],
+                  "text": "grain <ms>\nInteger 1-1000 ms. Sets the float-update interval AND Auto signal interpolation. Stop and Bypass fades remain 20 ms.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    762.0,
+                    374.0,
+                    72.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-parameter-send",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    845.0,
+                    190.0,
+                    24.0
+                  ],
+                  "text": "send Automixer_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    845.0,
+                    190.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-parameter-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    842.0,
+                    374.0,
+                    58.0
+                  ],
+                  "text": "range / fixedpeak affect new cycles, not the current leg. Parameter edits alone do not enter Auto. Send restart to begin with the new settings.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    234.0,
+                    842.0,
+                    374.0,
+                    58.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-instance",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    154.0,
+                    560.0,
+                    45.0
+                  ],
+                  "text": "Installed instance (reference only):\njs automatic_lines_v5_ed.js 12 2000 10000 5000",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    154.0,
+                    560.0,
+                    45.0
+                  ],
+                  "fontsize": 13,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-args",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    207.0,
+                    560.0,
+                    83.0
+                  ],
+                  "text": "Argument order: <voices> <min_ms> <max_ms> <wait_ms> [fixed_peak]\n12 = output groups; 2000 / 10000 = one-leg bounds; 5000 = zero hold.\nThe optional fifth argument is omitted here: random peaks (0) is the default. Voice count is fixed at 12 in this patch, not set by this message bus.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    207.0,
+                    560.0,
+                    83.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 4
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-cycle",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    300.0,
+                    560.0,
+                    76.0
+                  ],
+                  "text": "For each voice: 0.0 -> peak -> 0.0 -> wait -> repeat.\nRise and fall use the same randomly selected T. Full cycle = 2 x T + wait. Default cycles last 9000-25000 ms. The 12 scalar outlets are gains; outlet 13 is only the list of all 12 current values.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    300.0,
+                    560.0,
+                    76.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-wrapper",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    384.0,
+                    560.0,
+                    76.0
+                  ],
+                  "text": "The v20 wrapper applies these gains AFTER the spatial matrix, before group sends, the mono sum and DAC faders. It adds Bypass / Auto / Stop, gates, state readbacks and line~ signal interpolation. The script already generates interpolated floats; line~ smooths between those updates.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    384.0,
+                    560.0,
+                    76.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-engine-startup",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    470.0,
+                    560.0,
+                    60.0
+                  ],
+                  "text": "The raw script starts on load. The wrapper closes its gates, starts at unity, then stops it during initialization: the synth opens in Bypass. These gains multiply the existing ADSRs; a silent ADSR remains silent.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    470.0,
+                    560.0,
+                    60.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipes-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    548.0,
+                    560.0,
+                    26.0
+                  ],
+                  "text": "04  CLICKABLE COMPLETE EXAMPLES",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    548.0,
+                    560.0,
+                    26.0
+                  ],
+                  "fontsize": 15,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-slow",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    650.0,
+                    584.0,
+                    560.0,
+                    40.0
+                  ],
+                  "text": "range 2000 10000, waittime 5000, fixedpeak 0, grain 20, restart",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    584.0,
+                    560.0,
+                    40.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "SLOW RANDOM MIX: independent 2-10 s rises and falls, then 5 s at zero. Full cycles: 9-25 s; random peak levels."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-slow-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    629.0,
+                    560.0,
+                    43.0
+                  ],
+                  "text": "SLOW RANDOM MIX: independent 2-10 s rises and falls, then 5 s at zero. Full cycles: 9-25 s; random peak levels.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    629.0,
+                    560.0,
+                    43.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-continuous",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    650.0,
+                    685.0,
+                    560.0,
+                    40.0
+                  ],
+                  "text": "range 750 2500, waittime 0, fixedpeak 1, grain 20, restart",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    685.0,
+                    560.0,
+                    40.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "CONTINUOUS FULL PEAKS: independent 0.75-2.5 s legs, no hold. Full cycles: 1.5-5 s; every peak target is 1.0."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-continuous-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    730.0,
+                    560.0,
+                    43.0
+                  ],
+                  "text": "CONTINUOUS FULL PEAKS: independent 0.75-2.5 s legs, no hold. Full cycles: 1.5-5 s; every peak target is 1.0.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    730.0,
+                    560.0,
+                    43.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-synchronous",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    650.0,
+                    786.0,
+                    560.0,
+                    40.0
+                  ],
+                  "text": "range 2000 2000, waittime 1000, fixedpeak 1, grain 20, restart",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    786.0,
+                    560.0,
+                    40.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "bgcolor": [
+                    0.9,
+                    0.94,
+                    0.985,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1,
+                  "hint": "SYNCHRONIZED CYCLES: all 12 rise for 2 s, fall for 2 s, then wait 1 s. The fixed duration and common restart align their 5 s cycles."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-synchronous-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    831.0,
+                    560.0,
+                    43.0
+                  ],
+                  "text": "SYNCHRONIZED CYCLES: all 12 rise for 2 s, fall for 2 s, then wait 1 s. The fixed duration and common restart align their 5 s cycles.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    831.0,
+                    560.0,
+                    43.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-send",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    650.0,
+                    893.0,
+                    195.0,
+                    24.0
+                  ],
+                  "text": "send Automixer_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    650.0,
+                    893.0,
+                    195.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-recipe-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    862.0,
+                    890.0,
+                    348.0,
+                    59.0
+                  ],
+                  "text": "Commas send settings in order, then restart. All three examples enter Auto; have a sounding synth model and ADSRs ready first.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    862.0,
+                    890.0,
+                    348.0,
+                    59.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 3
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-bus-limit-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    952.0,
+                    1186.0,
+                    56.0
+                  ],
+                  "text": "Only the commands above are accepted on Automixer_v20. There is no pause, per-group level, voice-count, seed or getstate command. Unknown commands print a warning. Global lane Stop / All Off stops active Auto but preserves an already-bypassed mixer; it does not cancel future score messages.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    952.0,
+                    1186.0,
+                    56.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    1028.0,
+                    1186.0,
+                    26.0
+                  ],
+                  "text": "05  LIVE READBACKS | RECEIVE ONLY",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1028.0,
+                    1186.0,
+                    26.0
+                  ],
+                  "fontsize": 15,
+                  "fontname": "Arial",
+                  "fontface": 1,
+                  "textcolor": [
+                    0.1,
+                    0.28,
+                    0.46,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    1064.0,
+                    1186.0,
+                    41.0
+                  ],
+                  "text": "These show the last received broadcast, not a queried snapshot. Opening this page sends nothing and resets nothing.\nReadbacks are one-way: none is fed back into Automixer_v20. Gain targets are not audio meters.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1064.0,
+                    1186.0,
+                    41.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 2
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-mode-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Mode_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-mode-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1120.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-mode-display",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "awaiting broadcast",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "ignoreclick": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-mode-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "0 = Bypass; 1 = Auto; 2 = Stop / mute.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-range-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    430.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Range_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-range-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1155.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-range-display",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    430.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "awaiting broadcast",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "ignoreclick": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-range-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    430.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "Sorted minimum / maximum, in ms.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-wait-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    836.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Wait_ms_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1120.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-wait-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1190.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-wait-display",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    836.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "awaiting broadcast",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1154.0,
+                    374.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "ignoreclick": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-wait-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    836.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "Hold at zero, in milliseconds.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1196.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-peak-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Fixed_Peak_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-peak-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1225.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-peak-display",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    1264.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "awaiting broadcast",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1264.0,
+                    374.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "ignoreclick": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-peak-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "0 = random peaks; 1 = peak target 1.0.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-grain-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    430.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Grain_ms_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-grain-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1260.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-grain-display",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    430.0,
+                    1264.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "awaiting broadcast",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1264.0,
+                    374.0,
+                    24.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "ignoreclick": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-grain-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    430.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "Update / Auto interpolation time, in ms.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    430.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-levels-receive",
+                  "maxclass": "newobj",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    836.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "text": "receive Automixer_Levels_state_v20",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1230.0,
+                    374.0,
+                    24.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-levels-set",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    1290.0,
+                    1295.0,
+                    104.0,
+                    22.0
+                  ],
+                  "text": "prepend set",
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-levels-display",
+                  "maxclass": "multislider",
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "patching_rect": [
+                    836.0,
+                    1263.0,
+                    374.0,
+                    38.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1263.0,
+                    374.0,
+                    38.0
+                  ],
+                  "outlettype": [
+                    "",
+                    ""
+                  ],
+                  "parameter_enable": 0,
+                  "ignoreclick": 1,
+                  "bgcolor": [
+                    0.94,
+                    0.947,
+                    0.955,
+                    1.0
+                  ],
+                  "slidercolor": [
+                    0.15,
+                    0.4,
+                    0.65,
+                    1.0
+                  ],
+                  "setminmax": [
+                    0.0,
+                    1.0
+                  ],
+                  "size": 12,
+                  "setstyle": 1,
+                  "spacing": 2,
+                  "thickness": 10,
+                  "contdata": 1,
+                  "hint": "Gain targets only. Not signal amplitudes or audio meters."
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-state-levels-desc",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    836.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "text": "12 targets: unity in Bypass, zero in Stop.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    836.0,
+                    1306.0,
+                    374.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.12,
+                    0.16,
+                    0.21,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-footer",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    24.0,
+                    1354.0,
+                    1186.0,
+                    40.0
+                  ],
+                  "text": "Opening this page is passive. Examples may change audible levels. Close other v20 masters before use. Named group / mono feeds are pre-DAC-fader: keep receive-side gain control.",
+                  "presentation": 1,
+                  "presentation_rect": [
+                    24.0,
+                    1354.0,
+                    1186.0,
+                    40.0
+                  ],
+                  "fontsize": 12,
+                  "fontname": "Arial",
+                  "fontface": 0,
+                  "textcolor": [
+                    0.29,
+                    0.34,
+                    0.4,
+                    1.0
+                  ],
+                  "linecount": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "ams-score-inlet",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    24.0,
+                    1435.0,
+                    30.0,
+                    30.0
+                  ],
+                  "index": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "comment": "Direct Automixer_v20 command; forwarded once. No output duplication."
+                }
+              }
+            ],
+            "lines": [
+              {
+                "patchline": {
+                  "source": [
+                    "ams-mode0",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-bypass",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-mode1",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-start",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-mode2",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-stop",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-restart",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-bang",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-range",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-range-equal",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-wait",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-wait-zero",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-peak-one",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-peak-random",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-grain",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-grain-slow",
+                    0
+                  ],
+                  "destination": [
+                    "ams-parameter-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-recipe-slow",
+                    0
+                  ],
+                  "destination": [
+                    "ams-recipe-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-recipe-continuous",
+                    0
+                  ],
+                  "destination": [
+                    "ams-recipe-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-recipe-synchronous",
+                    0
+                  ],
+                  "destination": [
+                    "ams-recipe-send",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-mode-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-mode-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-mode-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-mode-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-range-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-range-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-range-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-range-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-wait-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-wait-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-wait-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-wait-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-peak-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-peak-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-peak-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-peak-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-grain-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-grain-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-grain-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-grain-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-levels-receive",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-levels-set",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-state-levels-set",
+                    0
+                  ],
+                  "destination": [
+                    "ams-state-levels-display",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ams-score-inlet",
+                    0
+                  ],
+                  "destination": [
+                    "ams-transport-send",
+                    0
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "box": {
+          "id": "automixer-message-space-note-v20",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            830.0,
+            782.0,
+            435.0,
+            34.0
+          ],
+          "text": "Double-click for modes, timing, examples, v5 notes and live readbacks. Opening this page sends no commands.",
+          "fontsize": 12.0,
+          "linecount": 2
+        }
       }
     ],
     "lines": [

@@ -1,7 +1,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert'),vm=require('vm');
 const read=n=>JSON.parse(fs.readFileSync(path.join(__dirname,n))).patcher;
 const boxes=p=>Object.fromEntries(p.boxes.map(x=>[x.box.id,x.box]));
-const main=read('_ec_sinusoids_synth_v20.maxpat'), b=boxes(main);
+const main=read('_ec_sinusoids_synth_automixer_v20.maxpat'), b=boxes(main);
 assert.deepStrictEqual(b['obj-112'].patcher,read('ADSR_LANE_PANEL_v20.maxpat'));
 assert.deepStrictEqual(b['send-message-space-v20'].patcher,read('Send_Message_Space_v20.maxpat'));
 // Actual JS memory engine behavior, including hidden slots and synchronous current-value queries.

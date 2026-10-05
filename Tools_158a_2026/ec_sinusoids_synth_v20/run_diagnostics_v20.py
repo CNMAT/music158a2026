@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse, collections, hashlib, json, platform, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-MAIN='_ec_sinusoids_synth_v20.maxpat'
+MAIN='_ec_sinusoids_synth_automixer_v20.maxpat'
 
 def canonical(value):
     return json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
@@ -156,7 +156,7 @@ def run(output:Path):
         'checks_by_category':dict(checks),'errors':errors,'dependencies':sorted(deps),
         'limitations':['No native Cycling 74 Max application was run.','No native scheduler, GUI interaction, DSP/external loading, CPU benchmark, sound rendering, DAC hardware routing or listening test was performed.','Node tests execute JavaScript source with Max-message/Task/clock stubs; CUE tests simulate selected Max objects.','sinusoids~ is an installed third-party dependency and is not bundled or validated here.','Saved layout rectangles and port order were checked; this is not a native Max visual rendering test.'],
         'required_native_dependency':['CNMAT sinusoids~ compatible with the installed Max/platform'],
-        'namespace_scope':'Project control/signal buses and project JS/patch dependencies are v20. Max global DSP, third-party native object names, and multiple copies of this same version are not instance-isolated.'}
+        'namespace_scope':'Project control/signal buses and inherited synth dependencies are v20. The unchanged user-supplied automatic_lines_v5_ed.js intentionally retains its standalone v5 filename. Max global DSP, third-party object names, and multiple copies of this same version are not instance-isolated.'}
     write(output/'diagnostics_report_v20.json',report);write(output/'javascript_syntax_v20.json',syntax);write(output/'regression_results_v20.json',unit)
     write(output/'patch_inventory_v20.json',inventory);write(output/'bus_catalog_v20.json',buses);write(output/'embedded_collections_v20.json',colls);write(output/'audio_lane_map_v20.json',maps)
     print(json.dumps({'status':report['status'],'counts':report['counts'],'errors':errors},indent=2))

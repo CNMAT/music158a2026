@@ -1,61 +1,47 @@
-# v20 diagnostic report
+# v20 automixer message-space update — diagnostics
 
-**Build:** v20 repair release, October 3, 2026  
-**Entry point:** `_ec_sinusoids_synth_v20.maxpat`  
-**Result:** PASS — automated source, saved-graph and emulated-message tests.  
-**Native Max / audio execution:** NOT PERFORMED.
+**PASS: source, saved-graph, dependency, preservation and selectively emulated message checks.**
 
-## Automated results
+Entry point: `_ec_sinusoids_synth_automixer_v20.maxpat`.
+Input: existing `ec_sinusoids_synth_automixer_v20.zip` (left unchanged).
 
+## Current results
 | Check | Result |
-|---|---|
-| Max patch JSON files | 19 parsed and checked |
-| Embedded patcher contexts | 316 checked |
-| Saved objects / patch cords | 11,165 / 8,773 checked |
-| Structural and contract assertions | 39,450 passed |
-| Missing cord endpoints, invalid saved ports, duplicate cords | 0 |
-| Embedded parent/child port counts and left-to-right index consistency | Passed throughout the supplied patch corpus |
-| Project JavaScript files | 14 syntax checks passed |
-| JavaScript / message-graph regression suites | 14 passed; 0 failed |
-| Referenced bundled dependency files | 26 resolve |
-| Explicit named-bus objects / distinct names | 1,633 / 444 catalogued and namespaced |
-| Original embedded collection datasets | 31 record-content hashes unchanged |
-| Embedded collection count fields repaired | 13, from 1104 to 1150 |
-| Current embedded collections, including added shared-bank copies | 33 |
-| Copyable CUE models | 84 instances / 80 distinct addresses; all forwarded destinations have receivers in the supplied corpus |
-| Embedded / standalone panel and message-space copies | Exact structural parity |
-| Uploaded archive and extracted source files | Original archive hash unchanged; all 67 substantive source files unchanged |
+|---|---:|
+| Max patch files checked | 19 |
+| JavaScript syntax checks | 15 / 15 passed |
+| Regression suites | 17 / 17 passed |
+| Patcher contexts | 319 |
+| Objects / patch cords | 11,499 / 9,081 |
+| Structural / control assertions | 40,748 passed |
+| Referenced bundled dependencies | 27, all resolve |
+| Original collection datasets | All 31 preserved |
+| Clickable message examples | 19 |
+| Accepted selectors represented | All 10 |
+| Passive readback buses | All 6 |
+| New message-space assertions | 3,291 passed |
+| New suite's selectively emulated messages | 19,853 |
 
-## Coverage
+The inherited v5-engine suite also passed its 337,124 assertions, and the inherited automixer integration suite passed 3,630 assertions. These are source/message/clock emulations, not native DSP measurements.
 
-The exhaustive detune suite checks **95,880 shape/count/base-frequency combinations**, all 94 choices and all counts from 2 through 256 at four base frequencies. Other suites cover 25 amplitude/weight presets, exact signed detune conversion, source-fundamental locking, harmonic anchors, memory resize/copy operations, hidden slots, weighted removal/restoration, All Off, organ registrations, retuning modes and interrupted glides, transformed-model filtering/merging, and persistent primary/anchor IDs.
+## Change scope and preservation
+Two runtime files changed: the master and the synchronized standalone `Send_Message_Space_v20.maxpat`. Each gallery gained exactly three top-level boxes (heading, embedded message-space panel and note). The panel contains 76 objects and 32 cords. It has no DSP objects, generator instance, load action or timer.
 
-The renderer suite passes 1,555 counted assertions. Seeded micro-walk checks compare 300 paired 256-slot frames; they test an accumulating walk rather than incorrectly constraining it to one step. Positive and zero micro amounts, repeatable seeds, timing continuity, fixed anchors, source transactions and tagged-model movement are covered.
+The complete original master is compared after removal of exactly those three new gallery boxes; its original canonical content hash matches. The standalone gallery is checked the same way. Existing boxes, original gallery cords, audio routing and controller implementation are preserved. All 15 JavaScript files, 17 remaining Max patches and the help file match the input package byte-for-byte. All original collection data remains intact. Embedded/standalone gallery equality remains enforced.
 
-The CUE harness executes selected saved Max message graphs in a deterministic simulation. It tests parameter ramps, feedback-seeded starts, copied per-partial CUE independence, cancellation, discrete/action protocols, the timed score, all six global lane CUEs, exact twelve-way fanout and float durations. Completion behavior is checked at 0, 149, 150 and 151 ms. Global loop-off precedes Stop dispatch, and smoothing feedback does not recurse.
+An inherited hash test was adapted only to allow the declared additive gallery content. It still checks every original object and cord; an independent whole-master preservation test was added. No engine algorithm check was removed, and original source baseline hashes remain unchanged.
 
-The semantic routing contract separately traces every editor to its same-numbered synthesizer lane and matrix input. Matrix outputs are traced to their correctly numbered pre-fader buses and DAC faders. The matrix may intentionally redistribute input lanes; this is not a claim that every distribution routes a synthesis lane to only one speaker.
+## New tests
+Checks cover every command and alias against the controller's actual route whitelist; each example sends once; recipes send four parameter settings followed by Restart; parameter examples do not implicitly start automation; repeated Start does not reset phases; the fixed example produces a 2 s rise / 2 s fall / 1 s hold control cycle; readback displays have no command-feedback path; opening/adding the panel does not send a command; the copyable inlet forwards once; unknown commands remain rejected by the existing route.
 
-## Preservation and namespace
+Saved geometry checks cover new-panel bounds and non-overlap and ensure the gallery launcher does not cover existing controls. A non-native layout approximation was also visually inspected; this is not a screenshot or GUI test of Max.
 
-Preset preservation compares actual collection **records**, independently of corrected `count` metadata. No record keys or values were edited. The two additional shared-bank placements make the standalone/embedded lane panel self-contained for its preset reference; they are copies, not new preset content.
+## Evidence and reproduction
+Current detailed results: `diagnostics/message_space_release/`.
+Preservation/example manifest: `diagnostics/automixer_message_space_manifest_v20.json`.
+File changes: `diagnostics/message_space_changes_v20.json`.
 
-Runtime project references were scanned for old `v19` names. Literal control/signal buses, named collections, project JavaScript references, JSUI filenames and bpatcher dependencies use v20. Native object/API names, including `sinusoids~`, were intentionally retained. Two copies of v20 are not instance-isolated; Max DSP is globally managed by Max.
+Run `python3 run_diagnostics_v20.py` with Python 3.10+ and Node 18+. Tests execute in a temporary copy; new results are written under `diagnostics/latest/`. Historical results for the previous integration remain under `diagnostics/release/`, explicitly not this update's run.
 
-## Repairs represented by these checks
-
-The release corrects interleaved envelope-port mapping, named spatial-bus numbering, the disconnected Output_Gain_dB control/state path, implicit Master-to-lane overwrites, deferred-loop stop ordering, global UI/CUE synchronization, timed-score command/readback names, smoothing-CUE bounds/cache, and stale library-count metadata. The original uploaded ZIP remains untouched.
-
-## What is not verified
-
-**No native Max application or audio device was available in this execution environment.** The tests do not instantiate `sinusoids~`, exercise Max's real scheduler, render audio, measure CPU performance, interact with the native GUI, listen for clicks or validate physical DAC assignments. JavaScript tests use Max messaging/Task/clock stubs; native-object CUE execution is a selective simulation, not a replacement Max runtime. Layout checks compare saved rectangles, not rendered Max windows.
-
-Use `NATIVE_MAX_CHECKLIST_v20.md` before rehearsal or performance. In particular, confirm external loading, real channel mapping, quiet gain initialization, lane independence, stop behavior and timing at the actual sample rate/vector size.
-
-## Reproduction and evidence
-
-Run `python3 run_diagnostics_v20.py` with Python 3.10+ and Node 18+. Tests run in a temporary copy; new results go to `diagnostics/latest/`. The included release run used Linux, Python 3.13.5 and Node v22.16.0.
-
-Detailed results, logs, bus inventory and audio maps are in `diagnostics/release/`. Preset baseline, count repairs, source-integrity proof, rename provenance and test-migration notes are one directory above. Inherited reference material under `docs/history/` is not current validation.
-
-Source archive SHA-256: `59cb75bc257c9967b5ac9037f4f39743e4d4d2e34e9d910894aa3bb7f6a0601c`.
+## Verification boundary
+**Native Max execution, GUI interaction, external loading, DSP rendering, real scheduler behavior, CPU performance, physical channel mapping and audio auditioning were not performed.** The new native checklist remains to be completed. Keep `automatic_lines_v5_ed.js` and the existing dependencies with the master. This update introduces no new runtime dependencies.

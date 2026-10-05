@@ -1,6 +1,6 @@
 {
   "status": "PASS_SOURCE_AND_GRAPH_CHECKS",
-  "entry_point": "_ec_sinusoids_synth_v20.maxpat",
+  "entry_point": "_ec_sinusoids_synth_automixer_v20.maxpat",
   "environment": {
     "system": "Linux",
     "python": "3.13.5",
@@ -8,31 +8,31 @@
   },
   "counts": {
     "maxpat_files": 19,
-    "javascript_files": 14,
-    "regression_suites": 14,
-    "patcher_contexts": 316,
-    "objects": 11165,
-    "patch_cords": 8773,
-    "bundled_referenced_dependencies": 26,
-    "named_bus_objects": 1633,
-    "distinct_bus_names": 444,
+    "javascript_files": 15,
+    "regression_suites": 16,
+    "patcher_contexts": 317,
+    "objects": 11341,
+    "patch_cords": 9017,
+    "bundled_referenced_dependencies": 27,
+    "named_bus_objects": 1648,
+    "distinct_bus_names": 451,
     "embedded_collections": 33,
     "preserved_source_collections": 31,
-    "structural_and_contract_assertions": 39450
+    "structural_and_contract_assertions": 40463
   },
   "checks_by_category": {
-    "namespace": 1693,
-    "structure": 36364,
-    "port_order": 532,
+    "namespace": 1709,
+    "structure": 37345,
+    "port_order": 544,
     "preset_data": 66,
-    "dependencies": 26,
+    "dependencies": 27,
     "preservation": 62,
     "canonical_copies": 2,
     "semantic_wiring": 297,
     "authority": 55,
     "panel_layout": 325,
-    "syntax": 14,
-    "regression": 14
+    "syntax": 15,
+    "regression": 16
   },
   "errors": [],
   "dependencies": [
@@ -49,6 +49,7 @@
     "ADSR_Lane_11_v20.maxpat",
     "ADSR_Lane_12_v20.maxpat",
     "Partial_Group_Manager_v20.js",
+    "automatic_lines_v5_ed.js",
     "cnmat_sinusoid_model_generator_v20.js",
     "component_index_ruler_v20.js",
     "detune_shape_library_v20.js",
@@ -73,5 +74,5 @@
   "required_native_dependency": [
     "CNMAT sinusoids~ compatible with the installed Max/platform"
   ],
-  "namespace_scope": "Project control/signal buses and project JS/patch dependencies are v20. Max global DSP, third-party native object names, and multiple copies of this same version are not instance-isolated."
+  "namespace_scope": "Project control/signal buses and inherited synth dependencies are v20. The unchanged user-supplied automatic_lines_v5_ed.js intentionally retains its standalone v5 filename. Max global DSP, third-party object names, and multiple copies of this same version are not instance-isolated."
 }

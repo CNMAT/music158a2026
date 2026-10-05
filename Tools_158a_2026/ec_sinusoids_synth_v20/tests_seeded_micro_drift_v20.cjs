@@ -18,7 +18,7 @@ c.inlet=5;c.msg_float(0);const zero=c.raw();time+=500;c.microTick();assert.deepE
 c.inlet=8;c.microdepth(50);assert.equal(c.microDepthHz,5);c.microtime(0);assert.equal(c.microTimeMs,100);c.inlet=5;c.msg_float(1);
 c.inlet=7;c.beginupdate();const held=c.raw();time+=40;c.microTick();assert.deepEqual(c.raw(),held);c.endupdate();assert.notDeepEqual(c.raw(),held);
 // The current authoritative audio input is tagged, not the obsolete raw-model receive.
-const p=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_v20.maxpat'))).patcher;
+const p=JSON.parse(fs.readFileSync(path.join(__dirname,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher;
 function edge(s,o,z,i){assert(p.lines.some(({patchline:l})=>l.source[0]===s&&l.source[1]===o&&l.destination[0]===z&&l.destination[1]===i),s+' -> '+z);}
 edge('obj-32',0,'syn-js',8);edge('syn-js',6,'v20-tagged-prepend',0);edge('v20-tagged-prepend',0,'rt14-transform',0);edge('obj-29',0,'sinusoids-audio-rendering-v20',0);edge('syn-js',5,'obj-32',0);
 assert.equal(p.boxes.find(x=>x.box.id==='obj-29').box.text,'r tagged-model-s_v20');

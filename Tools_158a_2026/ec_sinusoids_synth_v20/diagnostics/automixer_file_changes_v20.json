@@ -1,0 +1,166 @@
+{
+  "changed_baseline_files": [
+    {
+      "file": "CONTROL_REFERENCE_v20.md",
+      "status": "updated"
+    },
+    {
+      "file": "DIAGNOSTICS_v20.md",
+      "status": "updated"
+    },
+    {
+      "file": "NATIVE_MAX_CHECKLIST_v20.md",
+      "status": "updated"
+    },
+    {
+      "file": "README_v20.md",
+      "status": "updated"
+    },
+    {
+      "file": "RELEASE_NOTES_v20.md",
+      "status": "updated"
+    },
+    {
+      "file": "_ec_sinusoids_synth_v20.maxpat",
+      "status": "renamed and automixer added",
+      "new": "_ec_sinusoids_synth_automixer_v20.maxpat"
+    },
+    {
+      "file": "controls_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "dependency_renames_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/preset_baseline_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/bus_catalog_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/diagnostics_report_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/embedded_collections_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/javascript_syntax_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/patch_inventory_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/regression_results_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/unit_details/VALIDATION_MICRO_DRIFT_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/release/unit_details/VALIDATION_RENDERER_v20.json",
+      "status": "moved to historical base evidence"
+    },
+    {
+      "file": "diagnostics/release/unit_details/VALIDATION_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "diagnostics/rename_manifest_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "run_diagnostics_v20.py",
+      "status": "updated"
+    },
+    {
+      "file": "score_models_manifest_v20.json",
+      "status": "updated"
+    },
+    {
+      "file": "tests_copy_amplitudes_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_detune_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_envelope_shaper01_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_micro_drift_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_octave_families_stage_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_retuning_accuracy_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_seeded_micro_drift_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_stage_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_student_controls_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_v20_changes_and_stops_v20.cjs",
+      "status": "updated"
+    },
+    {
+      "file": "tests_workspace_stage_v20.cjs",
+      "status": "updated"
+    }
+  ],
+  "added_files": [
+    "_ec_sinusoids_synth_automixer_v20.maxpat",
+    "automatic_lines_v5_ed.js",
+    "automatic_lines_v5_ed.maxhelp",
+    "automixer_test_harness_v20.cjs",
+    "diagnostics/automixer_provenance_v20.json",
+    "diagnostics/automixer_structure_baseline_v20.json",
+    "diagnostics/automixer_test_migrations_v20.json",
+    "diagnostics/base_v20_release/audio_lane_map_v20.json",
+    "diagnostics/base_v20_release/bus_catalog_v20.json",
+    "diagnostics/base_v20_release/diagnostics_report_v20.json",
+    "diagnostics/base_v20_release/embedded_collections_v20.json",
+    "diagnostics/base_v20_release/javascript_syntax_v20.json",
+    "diagnostics/base_v20_release/patch_inventory_v20.json",
+    "diagnostics/base_v20_release/regression_results_v20.json",
+    "diagnostics/base_v20_release/unit_details/VALIDATION_MICRO_DRIFT_v20.json",
+    "diagnostics/base_v20_release/unit_details/VALIDATION_RENDERER_v20.json",
+    "diagnostics/base_v20_release/unit_details/VALIDATION_v20.json",
+    "diagnostics/base_v20_release/unit_details/current_core_checks_results_v20.json",
+    "docs/history/BASE_DIAGNOSTICS_v20.md.inherited.txt",
+    "docs/history/BASE_README_v20.md.inherited.txt",
+    "docs/history/BASE_RELEASE_NOTES_v20.md.inherited.txt",
+    "tests_automatic_lines_v5_ed_v20.cjs",
+    "tests_automixer_integration_v20.cjs"
+  ],
+  "all_input_files_intact": {
+    "automatic_lines_v5_ed.js": true,
+    "automatic_lines_v5_ed.maxhelp": true,
+    "SINUSOIDS_AUDIO_ROUTING+automated_mixing.maxpat": true,
+    "_ec_sinusoids_synth_v19-6.maxpat": true,
+    "ec_sinusoids_synth_v20.zip": true
+  },
+  "independent_python_preservation_check": "PASS"
+}

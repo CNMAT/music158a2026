@@ -1,0 +1,68 @@
+# ec_sinusoids_synth_automixer_v20 — diagnostics
+
+## Result
+**PASS: saved-source, structural, dependency, preservation, and selective message/clock tests.**
+
+Entry point: `_ec_sinusoids_synth_automixer_v20.maxpat`.
+Baseline: the supplied `ec_sinusoids_synth_v20.zip`.
+Engine: the supplied `automatic_lines_v5_ed.js`, unchanged byte-for-byte. No v6 was created.
+
+**No native Max application, DSP renderer, audio device, GUI interaction or listening test was run.** A source/graph pass is not an audio certification. See `NATIVE_MAX_CHECKLIST_v20.md`.
+
+## Current checks
+| Check | Result |
+|---|---:|
+| Max patch files structurally validated | 19 |
+| Additional help file validated | 1 |
+| JavaScript files passing syntax checks | 15 / 15 |
+| Regression suites | 16 / 16 passed |
+| Saved patcher contexts | 317 |
+| Saved objects / patch cords | 11,341 / 9,017 |
+| Structural / control-contract assertions | 40,463 passed |
+| Bundled runtime dependencies resolved | 27 |
+| Original collection datasets preserved | 31 |
+| Total embedded collection placements | 33 |
+| Original supporting runtime files byte-identical | 32: 14 JS + 18 Max patches |
+| Unchanged original top-level objects, excluding the expanded routing container | 423 |
+| Original routing objects unchanged | 64 |
+| Original top-level / routing patch cords retained exactly | 400 / 59 |
+| Uploaded references and source ZIP left unchanged | All 5 verified by SHA-256 |
+
+## New v5 engine suite
+**337,124 assertions passed.** The suite tests the exact supplied source, voice counts 1/4/12/20, constructor defaults and clamping, 12 independent scalar outlets plus a separate list outlet, known fixed-peak rise/fall/hold cycles, independent randomness, normalized finite outputs, idempotent start, stop/restart, deletion cancellation, parameter changes and the missed-boundary transition guard.
+
+A simulated 120-second, twelve-voice run checked **92,220 output events**, including **6,002 summary lists**. This exercises the script through emulated Task/clock APIs; it does not measure real-time CPU performance.
+
+## New integration suite
+**3,630 assertions passed**, including **4,023 selectively emulated messages through the actual saved new control/readback graph**.
+
+The checks verify scalar channel identity from v5 outlet through gate/clip/pack/line~ to the same-numbered existing routing multiplier. The thirteenth JS outlet reaches only the gain-target monitor. Original renderer/routing port order and every preexisting audio connection remain intact.
+
+Startup is Bypass: closed gates prevent the original script's automatic load-start outputs from altering the gain layer; `line~ 1.` starts at unity; deferred initialization stops the generator. Stop and Bypass close the gates before stopping the source, then request 20 ms zero/unity transitions respectively. Auto interpolation follows the selected grain.
+
+Local and external controls are checked together. External range changes normalize and update both visible fields and their silent `pak` cache. Editing one field therefore retains the other current value. Repeated Start preserves active cycles, Restart resets them, and unknown commands are reported instead of reaching arbitrary JS functions. The existing global lane Stop/All Off path stops active Auto but preserves Bypass.
+
+Saved presentation rectangles are checked for bounds and new-versus-existing overlaps. This is geometry validation, not a rendering of the actual Max GUI. The help file's script references and saved ports are also checked.
+
+## Existing synth regressions
+All 14 inherited synthesis/envelope/CUE suites also passed against the renamed master. The original synthesis source files and supporting abstractions were not modified. Existing panel/gallery equality, all original collection records, same-numbered envelope/synthesis lanes, corrected spatial buses, DAC gain control, hidden-slot memory, transformations, distributions, stops, and CUE behavior remain covered.
+
+Three inherited dependency checks required a parser correction: a `js` object's creation arguments are not part of its script filename. One checker also needed an exact-name exception for the intentionally retained generic v5 script. These changes are recorded in `diagnostics/automixer_test_migrations_v20.json`; no algorithmic test was removed. A cross-language hash serialization mismatch during test development was resolved by generating and verifying structural hashes using the same ECMAScript numeric serialization; the underlying original objects were unchanged.
+
+## Files changed beyond the master
+Only the added generic v5 script and corrected matching help are new performance-time dependencies. All original 32 supporting runtime files remain byte-identical. Diagnostic scripts, entry-point metadata, documentation and control references were updated; two new suites and a test-only emulator were added. Existing CUE galleries were deliberately left unchanged.
+
+## Routing / gain cautions
+The new mixer acts on **spatial matrix outputs**, not directly on pre-matrix synthesis lanes. It multiplies the existing ADSRs; a silent envelope remains silent. Starting automation does not enable DSP or trigger an ADSR.
+
+The twelve named group buses and mono FX sum are **post-automixer but pre-DAC-fader**. DAC master attenuation does not protect those named feeds. Keep appropriate receive-side gain control. Bypass restores unity in the added layer; it is not a mute.
+
+The old and new v20 masters share v20 bus/store names. **Open only one v20 master/editor instance at a time.**
+
+## Reproduction and provenance
+Run `python3 run_diagnostics_v20.py` with Python 3.10+ and Node 18+. Tests run in a temporary copy; new results go to `diagnostics/latest/`. The release used Linux, Python 3.13.5, Node v22.16.0.
+
+Fresh detailed results: `diagnostics/release/`. Prior base-v20 results: `diagnostics/base_v20_release/`, explicitly historical. The input and runtime hashes are in `diagnostics/automixer_provenance_v20.json`; original object/cord hashes are in `diagnostics/automixer_structure_baseline_v20.json`. `SHA256SUMS_v20.txt` covers every packaged file except the checksum manifest itself.
+
+Source v20 ZIP SHA-256: `646c9db660915244f60d50258a439d0999fa980889216cf4bbb83296bf2d6781`.
+Supplied v5 JS SHA-256: `a120c3891f074c0cb8fdd49583b9b74266d7dbbec1710af2ffca18532667a5e6`.

@@ -64,7 +64,7 @@ function graph(p,path=''){
  }
 }
 function pathModule(f){return path.join(dir,f);}
-const master=JSON.parse(fs.readFileSync(path.join(dir,'_ec_sinusoids_synth_v20.maxpat'))).patcher;
+const master=JSON.parse(fs.readFileSync(path.join(dir,'_ec_sinusoids_synth_automixer_v20.maxpat'))).patcher;
 graph(master);masterCounts={...counts};
 for(const f of fs.readdirSync(dir).filter(f=>f.endsWith('.maxpat')&&!f.startsWith('_ec_')))graph(JSON.parse(fs.readFileSync(path.join(dir,f))).patcher,f);
 const b=new Map(master.boxes.map(e=>[e.box.id,e.box]));assert.deepEqual(b.get('syn-freq-slider').setminmax||[-1,1],[-1,1]);assert.equal(b.get('syn-freq-shape-menu').items.filter(x=>x!==',').length,94);

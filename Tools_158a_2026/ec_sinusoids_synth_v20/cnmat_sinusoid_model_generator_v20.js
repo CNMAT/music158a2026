@@ -11,7 +11,8 @@
     5: Drift Amount 0..1 (legacy Max_Drift address)
     6: audio sample rate in Hz
     7: beginupdate/endupdate transaction for atomic three-layer removal
-    8: seed, micro, microdepth (step Hz), microtime (ms) commands
+    8: seed, micro, microdepth (step Hz), microtime (ms), microofftime (ms),
+       firstpartial N (1..23000): slider slot i represents harmonic N+i
 
     Outlets
     0: interleaved frequency/amplitude model for sinusoids~
@@ -21,7 +22,8 @@
     4: full unfiltered source pairs for the Stage 15 post-transform pipeline
     5: current maximum micro-drift displacement readback
     6: stable tagged source records: ID, frequency, amplitude. Primary and
-       harmonic-anchor IDs are permanent odd/even partners for partials 1..256.
+       harmonic-anchor IDs are permanent odd/even partners for slider slots 1..256.
+       Partial Offset changes their frequencies, never their IDs or stored levels.
 */
 
 autowatch = 1;
@@ -30,6 +32,7 @@ outlets = 7;
 
 var componentCount = 32;
 var baseFrequency = 110.0;
+var firstPartial = 1;
 var microAmount = 0.0;
 var sampleRate = 48000.0;
 var requestedLimit = 23000.0;
@@ -43,6 +46,10 @@ var holdModel = false;
 var driftSeed = 12345, directionState = 1, walkState = 1;
 var driftDirections = [], microStart = [], microTarget = [], microTimes = [], microDurations = [];
 var microEnabled = false, microDepthHz = 1.0, microTimeMs = 2000.0;
+// OFF freezes each current walk offset and returns it to zero over this time.
+// Amount remains a separate multiplier; amount 0 still resets immediately.
+var microOffMs = 2000.0, microReturning = false;
+var microReturnStart = 0, microReturnDuration = 0;
 var microTask = new Task(microTick, this);
 microTask.interval = 40;
 function microNow(){return (new Date()).getTime();}
@@ -53,10 +60,11 @@ function seededRandom(walk){
     return x/4294967296.0;
 }
 function resetWalk(){
+    microReturning=false;
     walkState=(driftSeed^0x9e3779b9)>>>0;if(!walkState)walkState=1;
     var t=microNow();
     for(var i=0;i<256;i++){microStart[i]=0;microTarget[i]=0;microTimes[i]=t;microDurations[i]=1;}
-    if(microEnabled && microAmount>0)for(i=1;i<256;i++)nextMicro(i,0,t);
+    if(microEnabled && microAmount>0)for(i=(firstPartial===1?1:0);i<256;i++)nextMicro(i,0,t);
 }
 function seed(x){
     if(inlet!==8)return;
@@ -66,7 +74,7 @@ function seed(x){
     resetWalk();buildModel();
 }
 function microValue(i){
-    if(!microEnabled || microAmount<=0)return 0;
+    if((!microEnabled && !microReturning) || microAmount<=0)return 0;
     var t=clip((microNow()-microTimes[i])/microDurations[i],0,1);
     return microStart[i]+(microTarget[i]-microStart[i])*t;
 }
@@ -75,10 +83,57 @@ function nextMicro(i,value,t){
     microTarget[i]=value+(seededRandom(true)<0.5 ? -1 : 1)*microDepthHz;
     microTimes[i]=t;microDurations[i]=microTimeMs*(0.75+seededRandom(true)*0.5);
 }
+// Slot zero is protected only when it represents the actual fundamental.
+// Start/stop its walk separately so changing N does not reset other slots.
+function firstpartial(x){
+    if(inlet!==8)return;x=Number(x);if(!isFinite(x))return;
+    var next=clip(Math.round(x),1,23000);
+    if(next===firstPartial)return;
+    var wasFundamental=firstPartial===1;
+    firstPartial=next;
+    if(firstPartial===1){
+        microStart[0]=0;microTarget[0]=0;microTimes[0]=microNow();microDurations[0]=1;
+    }else if(wasFundamental && microEnabled && microAmount>0){
+        nextMicro(0,0,microNow());
+    }
+    buildModel();
+}
 function micro(x){
     if(inlet!==8||!isFinite(Number(x)))return;
-    microTask.cancel();microEnabled=Number(x)!==0;resetWalk();
-    if(microEnabled && microAmount>0)microTask.repeat();buildModel();
+    var enabled=Number(x)!==0;
+    // Repeated OFF messages must not restart an in-progress return.
+    if(!enabled && !microEnabled){buildModel();return;}
+    var t=microNow(), values=[], i, hasOffset=false;
+    if(microAmount>0)for(i=(firstPartial===1?1:0);i<256;i++){
+        values[i]=microValue(i);
+        if(values[i]!==0)hasOffset=true;
+    }
+    microTask.cancel();
+    if(!enabled){
+        microEnabled=false;
+        if(microAmount>0 && microOffMs>0 && hasOffset){
+            microReturning=true;microReturnStart=t;microReturnDuration=microOffMs;
+            for(i=(firstPartial===1?1:0);i<256;i++){
+                microStart[i]=values[i];microTarget[i]=0;
+                microTimes[i]=t;microDurations[i]=microReturnDuration;
+            }
+            microTask.repeat();
+        }else resetWalk();
+    }else{
+        var resumeReturn=microReturning;
+        microEnabled=true;microReturning=false;
+        if(resumeReturn && microAmount>0){
+            // ON during the return continues from its elapsed position.
+            for(i=(firstPartial===1?1:0);i<256;i++)nextMicro(i,values[i],t);
+        }else resetWalk();
+        if(microAmount>0)microTask.repeat();
+    }
+    buildModel();
+}
+function microofftime(x){
+    if(inlet!==8)return;x=Number(x);if(!isFinite(x))return;
+    // Changes affect the next OFF request, not an already running return.
+    microOffMs=clip(x,0,600000);
 }
 function microdepth(x){
     if(inlet!==8)return;x=Number(x);if(!isFinite(x))return;
@@ -88,7 +143,7 @@ function microtime(x){
     if(inlet!==8)return;x=Number(x);if(!isFinite(x))return;
     microTimeMs=clip(x,100,600000);
     // Materialize each line before changing its next segment duration.
-    var t=microNow();if(microEnabled)for(var i=1;i<256;i++)nextMicro(i,microValue(i),t);
+    var t=microNow();if(microEnabled)for(var i=(firstPartial===1?1:0);i<256;i++)nextMicro(i,microValue(i),t);
 }
 // Zero amount stops computation and discards the accumulated walk.
 function setMicroAmount(value){
@@ -99,9 +154,13 @@ function setMicroAmount(value){
     else if(!wasActive){resetWalk();if(microEnabled)microTask.repeat();}
 }
 function microTick(){
-    if(!microEnabled || microAmount<=0){microTask.cancel();return;}
+    if((!microEnabled && !microReturning) || microAmount<=0){microTask.cancel();return;}
     var t=microNow();
-    for(var i=1;i<256;i++)if(t>=microTimes[i]+microDurations[i])nextMicro(i,microTarget[i],t);
+    if(microReturning){
+        if(t>=microReturnStart+microReturnDuration){microTask.cancel();resetWalk();}
+        buildModel();return;
+    }
+    for(var i=(firstPartial===1?1:0);i<256;i++)if(t>=microTimes[i]+microDurations[i])nextMicro(i,microTarget[i],t);
     buildModel();
 }
 function notifydeleted(){microTask.cancel();}
@@ -204,14 +263,14 @@ function buildModel() {
     var i;
 
     for (i = 0; i < requested; i++) {
-        var partialNumber = i + 1;
+        var partialNumber = i + firstPartial;
         var idealFrequency = baseFrequency * partialNumber;
         var drift = i < driftValues.length ? driftValues[i] : 0.0;
         var amplitude = i < amplitudeValues.length ? amplitudeValues[i] : 0.0;
         var harmonicAmplitude = i < harmonicAmplitudeValues.length ? harmonicAmplitudeValues[i] : 0.0;
         var frequency;
 
-        if (i === 0) {
+        if (partialNumber === 1) {
             frequency = baseFrequency;
         } else {
             var detuned = idealFrequency * Math.pow(2.0, drift / 12.0);

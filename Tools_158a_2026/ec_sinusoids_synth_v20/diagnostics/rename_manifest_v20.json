@@ -1,5 +1,5 @@
 {
-  "entry_point": "_ec_sinusoids_synth_v20.maxpat",
+  "entry_point": "_ec_sinusoids_synth_automixer_v20.maxpat",
   "files": {
     "tests_detune_v19.cjs": "tests_detune_v20.cjs",
     "ec_sinusoid_synth_stops_v19.maxpat": "ec_sinusoid_synth_stops_v20.maxpat",
@@ -60,7 +60,7 @@
     "MICRO_DRIFT_v19.md": "MICRO_DRIFT_v20.md",
     "tests_score_execution_v19.cjs": "tests_score_execution_v20.cjs",
     "global_retuning_controller_v19.js": "global_retuning_controller_v20.js",
-    "_ec_sinusoids_synth_v19-6.maxpat": "_ec_sinusoids_synth_v20.maxpat",
+    "_ec_sinusoids_synth_v19-6.maxpat": "_ec_sinusoids_synth_automixer_v20.maxpat",
     "score_preservation_v19.json": "docs/history/score_preservation_v20.json.inherited.txt",
     "tests_workspace_stage_v19.cjs": "tests_workspace_stage_v20.cjs",
     "ADSR_Lane_10_v19.maxpat": "ADSR_Lane_10_v20.maxpat",
