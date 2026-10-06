@@ -369,7 +369,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <em>Assignment: Homework_4. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
 <!-- wk.9 lesson -->
-<strong>(th)</strong> 10/22 — GUEST ARTIST:  Bevin Blectum:  https://en.wikipedia.org/wiki/Blevin_Blectum
+<strong>(th)</strong> 10/22 — GUEST ARTIST:  Bevin Blectum:  https://vimeo.com/user2673719 https://en.wikipedia.org/wiki/Blevin_Blectum
 </td>
 </tr>
 <!-- WEEK 10 -->
