@@ -22,8 +22,10 @@
                                 "filekind": "audiofile",
                                 "id": "u526008295",
                                 "selection": [ 0.35514018691588783, 0.0 ],
-                                "loop": 0,
-                                "content_state": {                                }
+                                "loop": 1,
+                                "content_state": {
+                                    "loop": 1
+                                }
                             }
                         ]
                     },
@@ -192,7 +194,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 38.0, 490.0, 165.0, 33.0 ],
+                    "patching_rect": [ 28.0, 490.0, 165.0, 33.0 ],
                     "text": "select /dump to store settings\nbefore saving"
                 }
             },
@@ -1661,6 +1663,15 @@
             {
                 "patchline": {
                     "destination": [ "obj-18", 0 ],
+                    "order": 1,
+                    "source": [ "obj-43", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-26", 0 ],
+                    "midpoints": [ 23.25, 469.85546875, 199.0, 469.85546875 ],
+                    "order": 0,
                     "source": [ "obj-43", 0 ]
                 }
             },
