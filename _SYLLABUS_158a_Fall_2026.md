@@ -338,7 +338,7 @@ Compare fixed-media spatial compositions. Ask whether location and movement func
 <strong>Lesson Plan Week 8</strong>
 <br><br>
 <!-- wk.8 lesson -->
-<strong>(tu)</strong> 10/13 — Module 3 (cont.) Spatial Audio, Mixing, SPAT PT. 3, GUEST ARTIST:  Bevin Blectum:  https://en.wikipedia.org/wiki/Blevin_Blectum
+<strong>(tu)</strong> 10/13 — Module 3 (cont.) Spatial Audio, Mixing, SPAT PT. 3
 <br><br>
 <!-- class demonstration -->
 <strong>(th)</strong> 10/15 — Spatial Audio, Mixing, SPAT --CLASS DEMONSTRATIONS
@@ -369,7 +369,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <em>Assignment: Homework_4. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
 <!-- wk.9 lesson -->
-<strong>(th)</strong> 10/22 — Advanced Control and AI-assisted programming with Markov Chains PT. 2
+<strong>(th)</strong> 10/22 — GUEST ARTIST:  Bevin Blectum:  https://en.wikipedia.org/wiki/Blevin_Blectum
 </td>
 </tr>
 <!-- WEEK 10 -->
