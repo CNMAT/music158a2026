@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 3074.0, 149.0, 1080.0, 780.0 ],
+        "rect": [ 134.0, 159.0, 1080.0, 780.0 ],
         "boxes": [
             {
                 "box": {
@@ -18,7 +18,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 122.5, 416.0, 48.0, 22.0 ],
+                    "patching_rect": [ 112.5, 356.0, 48.0, 22.0 ],
                     "text": "pipe 10"
                 }
             },
@@ -29,7 +29,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "int", "" ],
-                    "patching_rect": [ 122.5, 385.0, 97.0, 22.0 ],
+                    "patching_rect": [ 112.5, 325.0, 97.0, 22.0 ],
                     "text": "t 1 l"
                 }
             },
@@ -52,7 +52,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 122.5, 508.0, 48.0, 136.0 ],
+                    "patching_rect": [ 112.5, 448.0, 48.0, 136.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_initial": [ -80 ],
@@ -76,8 +76,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 456.0, 374.0, 430.0, 33.0 ],
-                    "presentation_linecount": 4,
+                    "patching_rect": [ 446.5, 314.0, 430.0, 33.0 ],
                     "text": "speaker/number 8 for CNMAT main room where 0 degrees is directly in front of the \"sweet spot\" (i.e. -45 is left front 45 is right front (you need 8 in a circle)"
                 }
             },
@@ -99,7 +98,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 409.0, 181.0, 24.0 ],
+                    "patching_rect": [ 446.5, 349.0, 181.0, 24.0 ],
                     "text": "/speakers/az ? ? ? ? ? ? ? ?",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
@@ -110,7 +109,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 456.0, 326.0, 229.0, 20.0 ],
+                    "patching_rect": [ 446.5, 266.0, 229.0, 20.0 ],
                     "text": "speaker/number 8 for simulating in stereo"
                 }
             },
@@ -132,8 +131,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 456.0, 346.0, 361.0, 24.0 ],
-                    "presentation_linecount": 4,
+                    "patching_rect": [ 446.5, 286.0, 361.0, 24.0 ],
                     "text": "/speakers/az -45 -33.75 -22.5 -11.25 11.25 22.5 33.75 45",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
@@ -145,7 +143,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 122.5, 358.0, 97.0, 22.0 ],
+                    "patching_rect": [ 112.5, 298.0, 97.0, 22.0 ],
                     "text": "clear, append $1"
                 }
             },
@@ -155,7 +153,7 @@
                     "data": {
                         "clips": [
                             {
-                                "absolutepath": "Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/CNMAT-MMJ-Depot/media/Audio/mixing_sounds/impls02-wood-smash.wav",
+                                "absolutepath": "impls02-wood-smash.wav",
                                 "filename": "impls02-wood-smash.wav",
                                 "filekind": "audiofile",
                                 "id": "u394008561",
@@ -171,7 +169,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 122.5, 455.0, 271.0, 35.0 ],
+                    "patching_rect": [ 112.5, 395.0, 271.0, 35.0 ],
                     "quality": "basic",
                     "saved_attribute_attributes": {
                         "candicane2": {
@@ -209,7 +207,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 122.5, 317.0, 272.0, 22.0 ],
+                    "patching_rect": [ 112.5, 257.0, 272.0, 22.0 ],
                     "prefix": "Package:/CNMAT MMJ Depot 2.0/media/Audio/mixing_sounds/"
                 }
             },
@@ -221,8 +219,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 114.0, 251.0, 632.0, 53.0 ],
-                    "presentation_linecount": 4,
+                    "patching_rect": [ 104.5, 191.0, 632.0, 53.0 ],
                     "text": "PART 2:  reconfigure the spat5 objects to accommodate 8 sources and 8 speakers.\nCreate an 8 channel mix piece using sounds selected from the soundfiles listed in the menu below \n(note: you must have the CNMAT Depot installed properly for sounds to load)."
                 }
             },
@@ -230,24 +227,12 @@
                 "box": {
                     "fontsize": 14.0,
                     "id": "obj-4",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 114.0, 193.0, 530.0, 22.0 ],
-                    "text": "PART 1:  Create two new presets using the model shown in p preset-settings-DUMP"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 14.0,
-                    "id": "obj-3",
-                    "linecount": 3,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 114.0, 121.0, 605.0, 53.0 ],
-                    "presentation_linecount": 3,
-                    "text": "Begin with the patch 00_EC_SPAT5_1v_BASIC-tut.maxpat\n found in the Music 158A GitHub repository in the folder _158a2026_ClassPatches/1006_IRCAM_SPAT5-tutorials"
+                    "patching_rect": [ 104.5, 133.0, 530.0, 38.0 ],
+                    "text": "PART 1:  Create two new presets using the model shown in p preset-settings-DUMP\nusing the 00_EC_SPAT5_1v_BASIC-tut.maxpat"
                 }
             },
             {
@@ -259,7 +244,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 114.0, 47.0, 605.0, 53.0 ],
-                    "presentation_linecount": 3,
                     "text": "Begin with the patch 00_EC_SPAT5_1v_BASIC-tut.maxpat\n found in the Music 158A GitHub repository in the folder _158a2026_ClassPatches/1006_IRCAM_SPAT5-tutorials"
                 }
             },
@@ -290,14 +274,22 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-26", 1 ],
+                    "order": 0,
+                    "source": [ "obj-25", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-26", 0 ],
+                    "order": 1,
                     "source": [ "obj-25", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-14", 0 ],
-                    "midpoints": [ 210.0, 444.765625, 132.0, 444.765625 ],
+                    "midpoints": [ 200.0, 384.765625, 122.0, 384.765625 ],
                     "source": [ "obj-31", 1 ]
                 }
             },
