@@ -1,0 +1,3240 @@
+{
+  "patcher": {
+    "fileversion": 1,
+    "appversion": {
+      "major": 9,
+      "minor": 0,
+      "revision": 0,
+      "architecture": "x64",
+      "modernui": 1
+    },
+    "classnamespace": "dsp.gen",
+    "rect": [
+      80,
+      80,
+      1100,
+      850
+    ],
+    "default_fontsize": 12.0,
+    "default_fontname": "Arial",
+    "boxes": [
+      {
+        "box": {
+          "id": "input",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            30,
+            180,
+            22
+          ],
+          "text": "in 1"
+        }
+      },
+      {
+        "box": {
+          "id": "code",
+          "maxclass": "codebox",
+          "patching_rect": [
+            30,
+            260,
+            950,
+            580
+          ],
+          "code": "// One private circular-buffer channel per connected input (not per tap).\n// Buffer dimensions are managed at DSP setup; delay messages never resize it.\nBuffer memory(\"memory\");\nParam bankready(0);\nParam running(1);\nParam driftonly(0);\nParam bankepoch(0);\nHistory writepos(0);\nHistory seenbank(-1);\nParam revision(0);\nParam smoothms(50);\nParam master(1);\nHistory masterz(1);\nParam source1(0);\nParam time1(0);\nParam gain1(1);\nHistory oldtime1(0);\nHistory newtime1(0);\nHistory oldgain1(0);\nHistory newgain1(0);\nHistory phase1(1);\nHistory seen1(-1);\nParam source2(1);\nParam time2(250);\nParam gain2(1);\nHistory oldtime2(0);\nHistory newtime2(0);\nHistory oldgain2(0);\nHistory newgain2(0);\nHistory phase2(1);\nHistory seen2(-1);\nParam source3(2);\nParam time3(500);\nParam gain3(1);\nHistory oldtime3(0);\nHistory newtime3(0);\nHistory oldgain3(0);\nHistory newgain3(0);\nHistory phase3(1);\nHistory seen3(-1);\nParam source4(3);\nParam time4(750);\nParam gain4(1);\nHistory oldtime4(0);\nHistory newtime4(0);\nHistory oldgain4(0);\nHistory newgain4(0);\nHistory phase4(1);\nHistory seen4(-1);\nParam source5(4);\nParam time5(1000);\nParam gain5(0);\nHistory oldtime5(0);\nHistory newtime5(0);\nHistory oldgain5(0);\nHistory newgain5(0);\nHistory phase5(1);\nHistory seen5(-1);\nParam source6(5);\nParam time6(1250);\nParam gain6(0);\nHistory oldtime6(0);\nHistory newtime6(0);\nHistory oldgain6(0);\nHistory newgain6(0);\nHistory phase6(1);\nHistory seen6(-1);\nParam source7(6);\nParam time7(1500);\nParam gain7(0);\nHistory oldtime7(0);\nHistory newtime7(0);\nHistory oldgain7(0);\nHistory newgain7(0);\nHistory phase7(1);\nHistory seen7(-1);\nParam source8(7);\nParam time8(1750);\nParam gain8(0);\nHistory oldtime8(0);\nHistory newtime8(0);\nHistory oldgain8(0);\nHistory newgain8(0);\nHistory phase8(1);\nHistory seen8(-1);\nParam source9(8);\nParam time9(2000);\nParam gain9(0);\nHistory oldtime9(0);\nHistory newtime9(0);\nHistory oldgain9(0);\nHistory newgain9(0);\nHistory phase9(1);\nHistory seen9(-1);\nParam source10(9);\nParam time10(2250);\nParam gain10(0);\nHistory oldtime10(0);\nHistory newtime10(0);\nHistory oldgain10(0);\nHistory newgain10(0);\nHistory phase10(1);\nHistory seen10(-1);\nParam source11(10);\nParam time11(2500);\nParam gain11(0);\nHistory oldtime11(0);\nHistory newtime11(0);\nHistory oldgain11(0);\nHistory newgain11(0);\nHistory phase11(1);\nHistory seen11(-1);\nParam source12(11);\nParam time12(2750);\nParam gain12(0);\nHistory oldtime12(0);\nHistory newtime12(0);\nHistory oldgain12(0);\nHistory newgain12(0);\nHistory phase12(1);\nHistory seen12(-1);\nParam source13(12);\nParam time13(3000);\nParam gain13(0);\nHistory oldtime13(0);\nHistory newtime13(0);\nHistory oldgain13(0);\nHistory newgain13(0);\nHistory phase13(1);\nHistory seen13(-1);\nParam source14(13);\nParam time14(3250);\nParam gain14(0);\nHistory oldtime14(0);\nHistory newtime14(0);\nHistory oldgain14(0);\nHistory newgain14(0);\nHistory phase14(1);\nHistory seen14(-1);\nParam source15(14);\nParam time15(3500);\nParam gain15(0);\nHistory oldtime15(0);\nHistory newtime15(0);\nHistory oldgain15(0);\nHistory newgain15(0);\nHistory phase15(1);\nHistory seen15(-1);\nParam source16(15);\nParam time16(3750);\nParam gain16(0);\nHistory oldtime16(0);\nHistory newtime16(0);\nHistory oldgain16(0);\nHistory newgain16(0);\nHistory phase16(1);\nHistory seen16(-1);\nParam source17(16);\nParam time17(4000);\nParam gain17(0);\nHistory oldtime17(0);\nHistory newtime17(0);\nHistory oldgain17(0);\nHistory newgain17(0);\nHistory phase17(1);\nHistory seen17(-1);\nParam source18(17);\nParam time18(4250);\nParam gain18(0);\nHistory oldtime18(0);\nHistory newtime18(0);\nHistory oldgain18(0);\nHistory newgain18(0);\nHistory phase18(1);\nHistory seen18(-1);\nParam source19(18);\nParam time19(4500);\nParam gain19(0);\nHistory oldtime19(0);\nHistory newtime19(0);\nHistory oldgain19(0);\nHistory newgain19(0);\nHistory phase19(1);\nHistory seen19(-1);\nParam source20(19);\nParam time20(4750);\nParam gain20(0);\nHistory oldtime20(0);\nHistory newtime20(0);\nHistory oldgain20(0);\nHistory newgain20(0);\nHistory phase20(1);\nHistory seen20(-1);\nParam source21(20);\nParam time21(5000);\nParam gain21(0);\nHistory oldtime21(0);\nHistory newtime21(0);\nHistory oldgain21(0);\nHistory newgain21(0);\nHistory phase21(1);\nHistory seen21(-1);\nParam source22(21);\nParam time22(5250);\nParam gain22(0);\nHistory oldtime22(0);\nHistory newtime22(0);\nHistory oldgain22(0);\nHistory newgain22(0);\nHistory phase22(1);\nHistory seen22(-1);\nParam source23(22);\nParam time23(5500);\nParam gain23(0);\nHistory oldtime23(0);\nHistory newtime23(0);\nHistory oldgain23(0);\nHistory newgain23(0);\nHistory phase23(1);\nHistory seen23(-1);\nParam source24(23);\nParam time24(5750);\nParam gain24(0);\nHistory oldtime24(0);\nHistory newtime24(0);\nHistory oldgain24(0);\nHistory newgain24(0);\nHistory phase24(1);\nHistory seen24(-1);\nParam source25(24);\nParam time25(6000);\nParam gain25(0);\nHistory oldtime25(0);\nHistory newtime25(0);\nHistory oldgain25(0);\nHistory newgain25(0);\nHistory phase25(1);\nHistory seen25(-1);\nParam source26(25);\nParam time26(6250);\nParam gain26(0);\nHistory oldtime26(0);\nHistory newtime26(0);\nHistory oldgain26(0);\nHistory newgain26(0);\nHistory phase26(1);\nHistory seen26(-1);\nParam source27(26);\nParam time27(6500);\nParam gain27(0);\nHistory oldtime27(0);\nHistory newtime27(0);\nHistory oldgain27(0);\nHistory newgain27(0);\nHistory phase27(1);\nHistory seen27(-1);\nParam source28(27);\nParam time28(6750);\nParam gain28(0);\nHistory oldtime28(0);\nHistory newtime28(0);\nHistory oldgain28(0);\nHistory newgain28(0);\nHistory phase28(1);\nHistory seen28(-1);\nParam source29(28);\nParam time29(7000);\nParam gain29(0);\nHistory oldtime29(0);\nHistory newtime29(0);\nHistory oldgain29(0);\nHistory newgain29(0);\nHistory phase29(1);\nHistory seen29(-1);\nParam source30(29);\nParam time30(7250);\nParam gain30(0);\nHistory oldtime30(0);\nHistory newtime30(0);\nHistory oldgain30(0);\nHistory newgain30(0);\nHistory phase30(1);\nHistory seen30(-1);\nParam source31(30);\nParam time31(7500);\nParam gain31(0);\nHistory oldtime31(0);\nHistory newtime31(0);\nHistory oldgain31(0);\nHistory newgain31(0);\nHistory phase31(1);\nHistory seen31(-1);\nParam source32(31);\nParam time32(7750);\nParam gain32(0);\nHistory oldtime32(0);\nHistory newtime32(0);\nHistory oldgain32(0);\nHistory newgain32(0);\nHistory phase32(1);\nHistory seen32(-1);\nParam source33(32);\nParam time33(8000);\nParam gain33(0);\nHistory oldtime33(0);\nHistory newtime33(0);\nHistory oldgain33(0);\nHistory newgain33(0);\nHistory phase33(1);\nHistory seen33(-1);\nParam source34(33);\nParam time34(8250);\nParam gain34(0);\nHistory oldtime34(0);\nHistory newtime34(0);\nHistory oldgain34(0);\nHistory newgain34(0);\nHistory phase34(1);\nHistory seen34(-1);\nParam source35(34);\nParam time35(8500);\nParam gain35(0);\nHistory oldtime35(0);\nHistory newtime35(0);\nHistory oldgain35(0);\nHistory newgain35(0);\nHistory phase35(1);\nHistory seen35(-1);\nParam source36(35);\nParam time36(8750);\nParam gain36(0);\nHistory oldtime36(0);\nHistory newtime36(0);\nHistory oldgain36(0);\nHistory newgain36(0);\nHistory phase36(1);\nHistory seen36(-1);\nParam source37(36);\nParam time37(9000);\nParam gain37(0);\nHistory oldtime37(0);\nHistory newtime37(0);\nHistory oldgain37(0);\nHistory newgain37(0);\nHistory phase37(1);\nHistory seen37(-1);\nParam source38(37);\nParam time38(9250);\nParam gain38(0);\nHistory oldtime38(0);\nHistory newtime38(0);\nHistory oldgain38(0);\nHistory newgain38(0);\nHistory phase38(1);\nHistory seen38(-1);\nParam source39(38);\nParam time39(9500);\nParam gain39(0);\nHistory oldtime39(0);\nHistory newtime39(0);\nHistory oldgain39(0);\nHistory newgain39(0);\nHistory phase39(1);\nHistory seen39(-1);\nParam source40(39);\nParam time40(9750);\nParam gain40(0);\nHistory oldtime40(0);\nHistory newtime40(0);\nHistory oldgain40(0);\nHistory newgain40(0);\nHistory phase40(1);\nHistory seen40(-1);\nParam source41(40);\nParam time41(10000);\nParam gain41(0);\nHistory oldtime41(0);\nHistory newtime41(0);\nHistory oldgain41(0);\nHistory newgain41(0);\nHistory phase41(1);\nHistory seen41(-1);\nParam source42(41);\nParam time42(10000);\nParam gain42(0);\nHistory oldtime42(0);\nHistory newtime42(0);\nHistory oldgain42(0);\nHistory newgain42(0);\nHistory phase42(1);\nHistory seen42(-1);\nParam source43(42);\nParam time43(10000);\nParam gain43(0);\nHistory oldtime43(0);\nHistory newtime43(0);\nHistory oldgain43(0);\nHistory newgain43(0);\nHistory phase43(1);\nHistory seen43(-1);\nParam source44(43);\nParam time44(10000);\nParam gain44(0);\nHistory oldtime44(0);\nHistory newtime44(0);\nHistory oldgain44(0);\nHistory newgain44(0);\nHistory phase44(1);\nHistory seen44(-1);\nParam source45(44);\nParam time45(10000);\nParam gain45(0);\nHistory oldtime45(0);\nHistory newtime45(0);\nHistory oldgain45(0);\nHistory newgain45(0);\nHistory phase45(1);\nHistory seen45(-1);\nParam source46(45);\nParam time46(10000);\nParam gain46(0);\nHistory oldtime46(0);\nHistory newtime46(0);\nHistory oldgain46(0);\nHistory newgain46(0);\nHistory phase46(1);\nHistory seen46(-1);\nParam source47(46);\nParam time47(10000);\nParam gain47(0);\nHistory oldtime47(0);\nHistory newtime47(0);\nHistory oldgain47(0);\nHistory newgain47(0);\nHistory phase47(1);\nHistory seen47(-1);\nParam source48(47);\nParam time48(10000);\nParam gain48(0);\nHistory oldtime48(0);\nHistory newtime48(0);\nHistory oldgain48(0);\nHistory newgain48(0);\nHistory phase48(1);\nHistory seen48(-1);\nParam source49(48);\nParam time49(10000);\nParam gain49(0);\nHistory oldtime49(0);\nHistory newtime49(0);\nHistory oldgain49(0);\nHistory newgain49(0);\nHistory phase49(1);\nHistory seen49(-1);\nParam source50(49);\nParam time50(10000);\nParam gain50(0);\nHistory oldtime50(0);\nHistory newtime50(0);\nHistory oldgain50(0);\nHistory newgain50(0);\nHistory phase50(1);\nHistory seen50(-1);\nParam source51(50);\nParam time51(10000);\nParam gain51(0);\nHistory oldtime51(0);\nHistory newtime51(0);\nHistory oldgain51(0);\nHistory newgain51(0);\nHistory phase51(1);\nHistory seen51(-1);\nParam source52(51);\nParam time52(10000);\nParam gain52(0);\nHistory oldtime52(0);\nHistory newtime52(0);\nHistory oldgain52(0);\nHistory newgain52(0);\nHistory phase52(1);\nHistory seen52(-1);\nParam source53(52);\nParam time53(10000);\nParam gain53(0);\nHistory oldtime53(0);\nHistory newtime53(0);\nHistory oldgain53(0);\nHistory newgain53(0);\nHistory phase53(1);\nHistory seen53(-1);\nParam source54(53);\nParam time54(10000);\nParam gain54(0);\nHistory oldtime54(0);\nHistory newtime54(0);\nHistory oldgain54(0);\nHistory newgain54(0);\nHistory phase54(1);\nHistory seen54(-1);\nParam source55(54);\nParam time55(10000);\nParam gain55(0);\nHistory oldtime55(0);\nHistory newtime55(0);\nHistory oldgain55(0);\nHistory newgain55(0);\nHistory phase55(1);\nHistory seen55(-1);\nParam source56(55);\nParam time56(10000);\nParam gain56(0);\nHistory oldtime56(0);\nHistory newtime56(0);\nHistory oldgain56(0);\nHistory newgain56(0);\nHistory phase56(1);\nHistory seen56(-1);\nParam source57(56);\nParam time57(10000);\nParam gain57(0);\nHistory oldtime57(0);\nHistory newtime57(0);\nHistory oldgain57(0);\nHistory newgain57(0);\nHistory phase57(1);\nHistory seen57(-1);\nParam source58(57);\nParam time58(10000);\nParam gain58(0);\nHistory oldtime58(0);\nHistory newtime58(0);\nHistory oldgain58(0);\nHistory newgain58(0);\nHistory phase58(1);\nHistory seen58(-1);\nParam source59(58);\nParam time59(10000);\nParam gain59(0);\nHistory oldtime59(0);\nHistory newtime59(0);\nHistory oldgain59(0);\nHistory newgain59(0);\nHistory phase59(1);\nHistory seen59(-1);\nParam source60(59);\nParam time60(10000);\nParam gain60(0);\nHistory oldtime60(0);\nHistory newtime60(0);\nHistory oldgain60(0);\nHistory newgain60(0);\nHistory phase60(1);\nHistory seen60(-1);\nParam source61(60);\nParam time61(10000);\nParam gain61(0);\nHistory oldtime61(0);\nHistory newtime61(0);\nHistory oldgain61(0);\nHistory newgain61(0);\nHistory phase61(1);\nHistory seen61(-1);\nParam source62(61);\nParam time62(10000);\nParam gain62(0);\nHistory oldtime62(0);\nHistory newtime62(0);\nHistory oldgain62(0);\nHistory newgain62(0);\nHistory phase62(1);\nHistory seen62(-1);\nParam source63(62);\nParam time63(10000);\nParam gain63(0);\nHistory oldtime63(0);\nHistory newtime63(0);\nHistory oldgain63(0);\nHistory newgain63(0);\nHistory phase63(1);\nHistory seen63(-1);\nParam source64(63);\nParam time64(10000);\nParam gain64(0);\nHistory oldtime64(0);\nHistory newtime64(0);\nHistory oldgain64(0);\nHistory newgain64(0);\nHistory phase64(1);\nHistory seen64(-1);\nframes = max(2, dim(memory));\nwritehead = wrap(writepos, 0, frames);\nresetbank = (seenbank != bankepoch);\nif (resetbank) { writehead = 0; }\nseenbank = bankepoch;\nstep = 1 / max(1, smoothms * samplerate * 0.001);\nmg = masterz + clamp(master - masterz, -step, step);\nmasterz = mg;\n// Write current inputs BEFORE reads: delay 0 reads the current sample.\n// Keep input history recording even while taps are silent.\nif ((running > 0) && (bankready > 0) && (frames > 2)) {\n    if (channels(memory) >= 1) { poke(memory, in1, writehead, 0); }\n    if (channels(memory) >= 2) { poke(memory, in2, writehead, 1); }\n    if (channels(memory) >= 3) { poke(memory, in3, writehead, 2); }\n    if (channels(memory) >= 4) { poke(memory, in4, writehead, 3); }\n    if (channels(memory) >= 5) { poke(memory, in5, writehead, 4); }\n    if (channels(memory) >= 6) { poke(memory, in6, writehead, 5); }\n    if (channels(memory) >= 7) { poke(memory, in7, writehead, 6); }\n    if (channels(memory) >= 8) { poke(memory, in8, writehead, 7); }\n    if (channels(memory) >= 9) { poke(memory, in9, writehead, 8); }\n    if (channels(memory) >= 10) { poke(memory, in10, writehead, 9); }\n    if (channels(memory) >= 11) { poke(memory, in11, writehead, 10); }\n    if (channels(memory) >= 12) { poke(memory, in12, writehead, 11); }\n    if (channels(memory) >= 13) { poke(memory, in13, writehead, 12); }\n    if (channels(memory) >= 14) { poke(memory, in14, writehead, 13); }\n    if (channels(memory) >= 15) { poke(memory, in15, writehead, 14); }\n    if (channels(memory) >= 16) { poke(memory, in16, writehead, 15); }\n    if (channels(memory) >= 17) { poke(memory, in17, writehead, 16); }\n    if (channels(memory) >= 18) { poke(memory, in18, writehead, 17); }\n    if (channels(memory) >= 19) { poke(memory, in19, writehead, 18); }\n    if (channels(memory) >= 20) { poke(memory, in20, writehead, 19); }\n    if (channels(memory) >= 21) { poke(memory, in21, writehead, 20); }\n    if (channels(memory) >= 22) { poke(memory, in22, writehead, 21); }\n    if (channels(memory) >= 23) { poke(memory, in23, writehead, 22); }\n    if (channels(memory) >= 24) { poke(memory, in24, writehead, 23); }\n    if (channels(memory) >= 25) { poke(memory, in25, writehead, 24); }\n    if (channels(memory) >= 26) { poke(memory, in26, writehead, 25); }\n    if (channels(memory) >= 27) { poke(memory, in27, writehead, 26); }\n    if (channels(memory) >= 28) { poke(memory, in28, writehead, 27); }\n    if (channels(memory) >= 29) { poke(memory, in29, writehead, 28); }\n    if (channels(memory) >= 30) { poke(memory, in30, writehead, 29); }\n    if (channels(memory) >= 31) { poke(memory, in31, writehead, 30); }\n    if (channels(memory) >= 32) { poke(memory, in32, writehead, 31); }\n    if (channels(memory) >= 33) { poke(memory, in33, writehead, 32); }\n    if (channels(memory) >= 34) { poke(memory, in34, writehead, 33); }\n    if (channels(memory) >= 35) { poke(memory, in35, writehead, 34); }\n    if (channels(memory) >= 36) { poke(memory, in36, writehead, 35); }\n    if (channels(memory) >= 37) { poke(memory, in37, writehead, 36); }\n    if (channels(memory) >= 38) { poke(memory, in38, writehead, 37); }\n    if (channels(memory) >= 39) { poke(memory, in39, writehead, 38); }\n    if (channels(memory) >= 40) { poke(memory, in40, writehead, 39); }\n    if (channels(memory) >= 41) { poke(memory, in41, writehead, 40); }\n    if (channels(memory) >= 42) { poke(memory, in42, writehead, 41); }\n    if (channels(memory) >= 43) { poke(memory, in43, writehead, 42); }\n    if (channels(memory) >= 44) { poke(memory, in44, writehead, 43); }\n    if (channels(memory) >= 45) { poke(memory, in45, writehead, 44); }\n    if (channels(memory) >= 46) { poke(memory, in46, writehead, 45); }\n    if (channels(memory) >= 47) { poke(memory, in47, writehead, 46); }\n    if (channels(memory) >= 48) { poke(memory, in48, writehead, 47); }\n    if (channels(memory) >= 49) { poke(memory, in49, writehead, 48); }\n    if (channels(memory) >= 50) { poke(memory, in50, writehead, 49); }\n    if (channels(memory) >= 51) { poke(memory, in51, writehead, 50); }\n    if (channels(memory) >= 52) { poke(memory, in52, writehead, 51); }\n    if (channels(memory) >= 53) { poke(memory, in53, writehead, 52); }\n    if (channels(memory) >= 54) { poke(memory, in54, writehead, 53); }\n    if (channels(memory) >= 55) { poke(memory, in55, writehead, 54); }\n    if (channels(memory) >= 56) { poke(memory, in56, writehead, 55); }\n    if (channels(memory) >= 57) { poke(memory, in57, writehead, 56); }\n    if (channels(memory) >= 58) { poke(memory, in58, writehead, 57); }\n    if (channels(memory) >= 59) { poke(memory, in59, writehead, 58); }\n    if (channels(memory) >= 60) { poke(memory, in60, writehead, 59); }\n    if (channels(memory) >= 61) { poke(memory, in61, writehead, 60); }\n    if (channels(memory) >= 62) { poke(memory, in62, writehead, 61); }\n    if (channels(memory) >= 63) { poke(memory, in63, writehead, 62); }\n    if (channels(memory) >= 64) { poke(memory, in64, writehead, 63); }\n}\n\n// Reset pending tap transitions on stop or history replacement.\nif (resetbank || (running <= 0)) {\n    oldtime1=0; newtime1=0; oldgain1=0; newgain1=0; phase1=1; seen1=-1;\n    oldtime2=0; newtime2=0; oldgain2=0; newgain2=0; phase2=1; seen2=-1;\n    oldtime3=0; newtime3=0; oldgain3=0; newgain3=0; phase3=1; seen3=-1;\n    oldtime4=0; newtime4=0; oldgain4=0; newgain4=0; phase4=1; seen4=-1;\n    oldtime5=0; newtime5=0; oldgain5=0; newgain5=0; phase5=1; seen5=-1;\n    oldtime6=0; newtime6=0; oldgain6=0; newgain6=0; phase6=1; seen6=-1;\n    oldtime7=0; newtime7=0; oldgain7=0; newgain7=0; phase7=1; seen7=-1;\n    oldtime8=0; newtime8=0; oldgain8=0; newgain8=0; phase8=1; seen8=-1;\n    oldtime9=0; newtime9=0; oldgain9=0; newgain9=0; phase9=1; seen9=-1;\n    oldtime10=0; newtime10=0; oldgain10=0; newgain10=0; phase10=1; seen10=-1;\n    oldtime11=0; newtime11=0; oldgain11=0; newgain11=0; phase11=1; seen11=-1;\n    oldtime12=0; newtime12=0; oldgain12=0; newgain12=0; phase12=1; seen12=-1;\n    oldtime13=0; newtime13=0; oldgain13=0; newgain13=0; phase13=1; seen13=-1;\n    oldtime14=0; newtime14=0; oldgain14=0; newgain14=0; phase14=1; seen14=-1;\n    oldtime15=0; newtime15=0; oldgain15=0; newgain15=0; phase15=1; seen15=-1;\n    oldtime16=0; newtime16=0; oldgain16=0; newgain16=0; phase16=1; seen16=-1;\n    oldtime17=0; newtime17=0; oldgain17=0; newgain17=0; phase17=1; seen17=-1;\n    oldtime18=0; newtime18=0; oldgain18=0; newgain18=0; phase18=1; seen18=-1;\n    oldtime19=0; newtime19=0; oldgain19=0; newgain19=0; phase19=1; seen19=-1;\n    oldtime20=0; newtime20=0; oldgain20=0; newgain20=0; phase20=1; seen20=-1;\n    oldtime21=0; newtime21=0; oldgain21=0; newgain21=0; phase21=1; seen21=-1;\n    oldtime22=0; newtime22=0; oldgain22=0; newgain22=0; phase22=1; seen22=-1;\n    oldtime23=0; newtime23=0; oldgain23=0; newgain23=0; phase23=1; seen23=-1;\n    oldtime24=0; newtime24=0; oldgain24=0; newgain24=0; phase24=1; seen24=-1;\n    oldtime25=0; newtime25=0; oldgain25=0; newgain25=0; phase25=1; seen25=-1;\n    oldtime26=0; newtime26=0; oldgain26=0; newgain26=0; phase26=1; seen26=-1;\n    oldtime27=0; newtime27=0; oldgain27=0; newgain27=0; phase27=1; seen27=-1;\n    oldtime28=0; newtime28=0; oldgain28=0; newgain28=0; phase28=1; seen28=-1;\n    oldtime29=0; newtime29=0; oldgain29=0; newgain29=0; phase29=1; seen29=-1;\n    oldtime30=0; newtime30=0; oldgain30=0; newgain30=0; phase30=1; seen30=-1;\n    oldtime31=0; newtime31=0; oldgain31=0; newgain31=0; phase31=1; seen31=-1;\n    oldtime32=0; newtime32=0; oldgain32=0; newgain32=0; phase32=1; seen32=-1;\n    oldtime33=0; newtime33=0; oldgain33=0; newgain33=0; phase33=1; seen33=-1;\n    oldtime34=0; newtime34=0; oldgain34=0; newgain34=0; phase34=1; seen34=-1;\n    oldtime35=0; newtime35=0; oldgain35=0; newgain35=0; phase35=1; seen35=-1;\n    oldtime36=0; newtime36=0; oldgain36=0; newgain36=0; phase36=1; seen36=-1;\n    oldtime37=0; newtime37=0; oldgain37=0; newgain37=0; phase37=1; seen37=-1;\n    oldtime38=0; newtime38=0; oldgain38=0; newgain38=0; phase38=1; seen38=-1;\n    oldtime39=0; newtime39=0; oldgain39=0; newgain39=0; phase39=1; seen39=-1;\n    oldtime40=0; newtime40=0; oldgain40=0; newgain40=0; phase40=1; seen40=-1;\n    oldtime41=0; newtime41=0; oldgain41=0; newgain41=0; phase41=1; seen41=-1;\n    oldtime42=0; newtime42=0; oldgain42=0; newgain42=0; phase42=1; seen42=-1;\n    oldtime43=0; newtime43=0; oldgain43=0; newgain43=0; phase43=1; seen43=-1;\n    oldtime44=0; newtime44=0; oldgain44=0; newgain44=0; phase44=1; seen44=-1;\n    oldtime45=0; newtime45=0; oldgain45=0; newgain45=0; phase45=1; seen45=-1;\n    oldtime46=0; newtime46=0; oldgain46=0; newgain46=0; phase46=1; seen46=-1;\n    oldtime47=0; newtime47=0; oldgain47=0; newgain47=0; phase47=1; seen47=-1;\n    oldtime48=0; newtime48=0; oldgain48=0; newgain48=0; phase48=1; seen48=-1;\n    oldtime49=0; newtime49=0; oldgain49=0; newgain49=0; phase49=1; seen49=-1;\n    oldtime50=0; newtime50=0; oldgain50=0; newgain50=0; phase50=1; seen50=-1;\n    oldtime51=0; newtime51=0; oldgain51=0; newgain51=0; phase51=1; seen51=-1;\n    oldtime52=0; newtime52=0; oldgain52=0; newgain52=0; phase52=1; seen52=-1;\n    oldtime53=0; newtime53=0; oldgain53=0; newgain53=0; phase53=1; seen53=-1;\n    oldtime54=0; newtime54=0; oldgain54=0; newgain54=0; phase54=1; seen54=-1;\n    oldtime55=0; newtime55=0; oldgain55=0; newgain55=0; phase55=1; seen55=-1;\n    oldtime56=0; newtime56=0; oldgain56=0; newgain56=0; phase56=1; seen56=-1;\n    oldtime57=0; newtime57=0; oldgain57=0; newgain57=0; phase57=1; seen57=-1;\n    oldtime58=0; newtime58=0; oldgain58=0; newgain58=0; phase58=1; seen58=-1;\n    oldtime59=0; newtime59=0; oldgain59=0; newgain59=0; phase59=1; seen59=-1;\n    oldtime60=0; newtime60=0; oldgain60=0; newgain60=0; phase60=1; seen60=-1;\n    oldtime61=0; newtime61=0; oldgain61=0; newgain61=0; phase61=1; seen61=-1;\n    oldtime62=0; newtime62=0; oldgain62=0; newgain62=0; phase62=1; seen62=-1;\n    oldtime63=0; newtime63=0; oldgain63=0; newgain63=0; phase63=1; seen63=-1;\n    oldtime64=0; newtime64=0; oldgain64=0; newgain64=0; phase64=1; seen64=-1;\n}\n\n// Audio-side guard: a drift commit cannot begin until every old fade finishes.\ndriftbusy = 0;\nif (driftonly > 0) { driftbusy = (phase1 < 1) + (phase2 < 1) + (phase3 < 1) + (phase4 < 1) + (phase5 < 1) + (phase6 < 1) + (phase7 < 1) + (phase8 < 1) + (phase9 < 1) + (phase10 < 1) + (phase11 < 1) + (phase12 < 1) + (phase13 < 1) + (phase14 < 1) + (phase15 < 1) + (phase16 < 1) + (phase17 < 1) + (phase18 < 1) + (phase19 < 1) + (phase20 < 1) + (phase21 < 1) + (phase22 < 1) + (phase23 < 1) + (phase24 < 1) + (phase25 < 1) + (phase26 < 1) + (phase27 < 1) + (phase28 < 1) + (phase29 < 1) + (phase30 < 1) + (phase31 < 1) + (phase32 < 1) + (phase33 < 1) + (phase34 < 1) + (phase35 < 1) + (phase36 < 1) + (phase37 < 1) + (phase38 < 1) + (phase39 < 1) + (phase40 < 1) + (phase41 < 1) + (phase42 < 1) + (phase43 < 1) + (phase44 < 1) + (phase45 < 1) + (phase46 < 1) + (phase47 < 1) + (phase48 < 1) + (phase49 < 1) + (phase50 < 1) + (phase51 < 1) + (phase52 < 1) + (phase53 < 1) + (phase54 < 1) + (phase55 < 1) + (phase56 < 1) + (phase57 < 1) + (phase58 < 1) + (phase59 < 1) + (phase60 < 1) + (phase61 < 1) + (phase62 < 1) + (phase63 < 1) + (phase64 < 1); }\n\n// Tap 1: zero-gain settled taps skip the processing branch.\nout1 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain1 > 0) || (newgain1 > 0) || (phase1 < 1))) {\n    ot1 = oldtime1; nt1 = newtime1;\n    og1 = oldgain1; ng1 = newgain1;\n    p1 = phase1; s1 = seen1;\n    if (resetbank) { ot1=0; nt1=0; og1=0; ng1=0; p1=1; s1=-1; }\n    if ((p1 >= 1) && (revision != s1) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target1 = clamp(time1 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target1 != nt1) || (gain1 != ng1)) {\n            ot1 = nt1; og1 = ng1;\n            nt1 = target1; ng1 = gain1; p1 = 0;\n        }\n        s1 = revision;\n    }\n    if (p1 < 1) {\n        p1 = min(1, p1 + step);\n        // Gain-only changes need only one read.\n        if (ot1 == nt1) {\n            out1 = peek(memory, writehead - nt1, source1, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p1) * og1 + p1 * ng1) * mg;\n        } else {\n            a1 = 0; b1 = 0;\n            if ((og1 > 0) && (p1 < 1)) { a1 = peek(memory, writehead - ot1, source1, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng1 > 0) { b1 = peek(memory, writehead - nt1, source1, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out1 = ((1-p1) * og1 * a1 + p1 * ng1 * b1) * mg;\n        }\n    } else {\n        if (ng1 > 0) { out1 = peek(memory, writehead - nt1, source1, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng1 * mg; }\n    }\n    oldtime1 = ot1; newtime1 = nt1;\n    oldgain1 = og1; newgain1 = ng1;\n    phase1 = p1; seen1 = s1;\n}\n// Tap 2: zero-gain settled taps skip the processing branch.\nout2 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain2 > 0) || (newgain2 > 0) || (phase2 < 1))) {\n    ot2 = oldtime2; nt2 = newtime2;\n    og2 = oldgain2; ng2 = newgain2;\n    p2 = phase2; s2 = seen2;\n    if (resetbank) { ot2=0; nt2=0; og2=0; ng2=0; p2=1; s2=-1; }\n    if ((p2 >= 1) && (revision != s2) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target2 = clamp(time2 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target2 != nt2) || (gain2 != ng2)) {\n            ot2 = nt2; og2 = ng2;\n            nt2 = target2; ng2 = gain2; p2 = 0;\n        }\n        s2 = revision;\n    }\n    if (p2 < 1) {\n        p2 = min(1, p2 + step);\n        // Gain-only changes need only one read.\n        if (ot2 == nt2) {\n            out2 = peek(memory, writehead - nt2, source2, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p2) * og2 + p2 * ng2) * mg;\n        } else {\n            a2 = 0; b2 = 0;\n            if ((og2 > 0) && (p2 < 1)) { a2 = peek(memory, writehead - ot2, source2, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng2 > 0) { b2 = peek(memory, writehead - nt2, source2, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out2 = ((1-p2) * og2 * a2 + p2 * ng2 * b2) * mg;\n        }\n    } else {\n        if (ng2 > 0) { out2 = peek(memory, writehead - nt2, source2, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng2 * mg; }\n    }\n    oldtime2 = ot2; newtime2 = nt2;\n    oldgain2 = og2; newgain2 = ng2;\n    phase2 = p2; seen2 = s2;\n}\n// Tap 3: zero-gain settled taps skip the processing branch.\nout3 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain3 > 0) || (newgain3 > 0) || (phase3 < 1))) {\n    ot3 = oldtime3; nt3 = newtime3;\n    og3 = oldgain3; ng3 = newgain3;\n    p3 = phase3; s3 = seen3;\n    if (resetbank) { ot3=0; nt3=0; og3=0; ng3=0; p3=1; s3=-1; }\n    if ((p3 >= 1) && (revision != s3) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target3 = clamp(time3 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target3 != nt3) || (gain3 != ng3)) {\n            ot3 = nt3; og3 = ng3;\n            nt3 = target3; ng3 = gain3; p3 = 0;\n        }\n        s3 = revision;\n    }\n    if (p3 < 1) {\n        p3 = min(1, p3 + step);\n        // Gain-only changes need only one read.\n        if (ot3 == nt3) {\n            out3 = peek(memory, writehead - nt3, source3, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p3) * og3 + p3 * ng3) * mg;\n        } else {\n            a3 = 0; b3 = 0;\n            if ((og3 > 0) && (p3 < 1)) { a3 = peek(memory, writehead - ot3, source3, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng3 > 0) { b3 = peek(memory, writehead - nt3, source3, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out3 = ((1-p3) * og3 * a3 + p3 * ng3 * b3) * mg;\n        }\n    } else {\n        if (ng3 > 0) { out3 = peek(memory, writehead - nt3, source3, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng3 * mg; }\n    }\n    oldtime3 = ot3; newtime3 = nt3;\n    oldgain3 = og3; newgain3 = ng3;\n    phase3 = p3; seen3 = s3;\n}\n// Tap 4: zero-gain settled taps skip the processing branch.\nout4 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain4 > 0) || (newgain4 > 0) || (phase4 < 1))) {\n    ot4 = oldtime4; nt4 = newtime4;\n    og4 = oldgain4; ng4 = newgain4;\n    p4 = phase4; s4 = seen4;\n    if (resetbank) { ot4=0; nt4=0; og4=0; ng4=0; p4=1; s4=-1; }\n    if ((p4 >= 1) && (revision != s4) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target4 = clamp(time4 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target4 != nt4) || (gain4 != ng4)) {\n            ot4 = nt4; og4 = ng4;\n            nt4 = target4; ng4 = gain4; p4 = 0;\n        }\n        s4 = revision;\n    }\n    if (p4 < 1) {\n        p4 = min(1, p4 + step);\n        // Gain-only changes need only one read.\n        if (ot4 == nt4) {\n            out4 = peek(memory, writehead - nt4, source4, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p4) * og4 + p4 * ng4) * mg;\n        } else {\n            a4 = 0; b4 = 0;\n            if ((og4 > 0) && (p4 < 1)) { a4 = peek(memory, writehead - ot4, source4, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng4 > 0) { b4 = peek(memory, writehead - nt4, source4, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out4 = ((1-p4) * og4 * a4 + p4 * ng4 * b4) * mg;\n        }\n    } else {\n        if (ng4 > 0) { out4 = peek(memory, writehead - nt4, source4, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng4 * mg; }\n    }\n    oldtime4 = ot4; newtime4 = nt4;\n    oldgain4 = og4; newgain4 = ng4;\n    phase4 = p4; seen4 = s4;\n}\n// Tap 5: zero-gain settled taps skip the processing branch.\nout5 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain5 > 0) || (newgain5 > 0) || (phase5 < 1))) {\n    ot5 = oldtime5; nt5 = newtime5;\n    og5 = oldgain5; ng5 = newgain5;\n    p5 = phase5; s5 = seen5;\n    if (resetbank) { ot5=0; nt5=0; og5=0; ng5=0; p5=1; s5=-1; }\n    if ((p5 >= 1) && (revision != s5) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target5 = clamp(time5 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target5 != nt5) || (gain5 != ng5)) {\n            ot5 = nt5; og5 = ng5;\n            nt5 = target5; ng5 = gain5; p5 = 0;\n        }\n        s5 = revision;\n    }\n    if (p5 < 1) {\n        p5 = min(1, p5 + step);\n        // Gain-only changes need only one read.\n        if (ot5 == nt5) {\n            out5 = peek(memory, writehead - nt5, source5, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p5) * og5 + p5 * ng5) * mg;\n        } else {\n            a5 = 0; b5 = 0;\n            if ((og5 > 0) && (p5 < 1)) { a5 = peek(memory, writehead - ot5, source5, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng5 > 0) { b5 = peek(memory, writehead - nt5, source5, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out5 = ((1-p5) * og5 * a5 + p5 * ng5 * b5) * mg;\n        }\n    } else {\n        if (ng5 > 0) { out5 = peek(memory, writehead - nt5, source5, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng5 * mg; }\n    }\n    oldtime5 = ot5; newtime5 = nt5;\n    oldgain5 = og5; newgain5 = ng5;\n    phase5 = p5; seen5 = s5;\n}\n// Tap 6: zero-gain settled taps skip the processing branch.\nout6 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain6 > 0) || (newgain6 > 0) || (phase6 < 1))) {\n    ot6 = oldtime6; nt6 = newtime6;\n    og6 = oldgain6; ng6 = newgain6;\n    p6 = phase6; s6 = seen6;\n    if (resetbank) { ot6=0; nt6=0; og6=0; ng6=0; p6=1; s6=-1; }\n    if ((p6 >= 1) && (revision != s6) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target6 = clamp(time6 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target6 != nt6) || (gain6 != ng6)) {\n            ot6 = nt6; og6 = ng6;\n            nt6 = target6; ng6 = gain6; p6 = 0;\n        }\n        s6 = revision;\n    }\n    if (p6 < 1) {\n        p6 = min(1, p6 + step);\n        // Gain-only changes need only one read.\n        if (ot6 == nt6) {\n            out6 = peek(memory, writehead - nt6, source6, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p6) * og6 + p6 * ng6) * mg;\n        } else {\n            a6 = 0; b6 = 0;\n            if ((og6 > 0) && (p6 < 1)) { a6 = peek(memory, writehead - ot6, source6, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng6 > 0) { b6 = peek(memory, writehead - nt6, source6, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out6 = ((1-p6) * og6 * a6 + p6 * ng6 * b6) * mg;\n        }\n    } else {\n        if (ng6 > 0) { out6 = peek(memory, writehead - nt6, source6, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng6 * mg; }\n    }\n    oldtime6 = ot6; newtime6 = nt6;\n    oldgain6 = og6; newgain6 = ng6;\n    phase6 = p6; seen6 = s6;\n}\n// Tap 7: zero-gain settled taps skip the processing branch.\nout7 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain7 > 0) || (newgain7 > 0) || (phase7 < 1))) {\n    ot7 = oldtime7; nt7 = newtime7;\n    og7 = oldgain7; ng7 = newgain7;\n    p7 = phase7; s7 = seen7;\n    if (resetbank) { ot7=0; nt7=0; og7=0; ng7=0; p7=1; s7=-1; }\n    if ((p7 >= 1) && (revision != s7) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target7 = clamp(time7 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target7 != nt7) || (gain7 != ng7)) {\n            ot7 = nt7; og7 = ng7;\n            nt7 = target7; ng7 = gain7; p7 = 0;\n        }\n        s7 = revision;\n    }\n    if (p7 < 1) {\n        p7 = min(1, p7 + step);\n        // Gain-only changes need only one read.\n        if (ot7 == nt7) {\n            out7 = peek(memory, writehead - nt7, source7, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p7) * og7 + p7 * ng7) * mg;\n        } else {\n            a7 = 0; b7 = 0;\n            if ((og7 > 0) && (p7 < 1)) { a7 = peek(memory, writehead - ot7, source7, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng7 > 0) { b7 = peek(memory, writehead - nt7, source7, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out7 = ((1-p7) * og7 * a7 + p7 * ng7 * b7) * mg;\n        }\n    } else {\n        if (ng7 > 0) { out7 = peek(memory, writehead - nt7, source7, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng7 * mg; }\n    }\n    oldtime7 = ot7; newtime7 = nt7;\n    oldgain7 = og7; newgain7 = ng7;\n    phase7 = p7; seen7 = s7;\n}\n// Tap 8: zero-gain settled taps skip the processing branch.\nout8 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain8 > 0) || (newgain8 > 0) || (phase8 < 1))) {\n    ot8 = oldtime8; nt8 = newtime8;\n    og8 = oldgain8; ng8 = newgain8;\n    p8 = phase8; s8 = seen8;\n    if (resetbank) { ot8=0; nt8=0; og8=0; ng8=0; p8=1; s8=-1; }\n    if ((p8 >= 1) && (revision != s8) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target8 = clamp(time8 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target8 != nt8) || (gain8 != ng8)) {\n            ot8 = nt8; og8 = ng8;\n            nt8 = target8; ng8 = gain8; p8 = 0;\n        }\n        s8 = revision;\n    }\n    if (p8 < 1) {\n        p8 = min(1, p8 + step);\n        // Gain-only changes need only one read.\n        if (ot8 == nt8) {\n            out8 = peek(memory, writehead - nt8, source8, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p8) * og8 + p8 * ng8) * mg;\n        } else {\n            a8 = 0; b8 = 0;\n            if ((og8 > 0) && (p8 < 1)) { a8 = peek(memory, writehead - ot8, source8, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng8 > 0) { b8 = peek(memory, writehead - nt8, source8, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out8 = ((1-p8) * og8 * a8 + p8 * ng8 * b8) * mg;\n        }\n    } else {\n        if (ng8 > 0) { out8 = peek(memory, writehead - nt8, source8, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng8 * mg; }\n    }\n    oldtime8 = ot8; newtime8 = nt8;\n    oldgain8 = og8; newgain8 = ng8;\n    phase8 = p8; seen8 = s8;\n}\n// Tap 9: zero-gain settled taps skip the processing branch.\nout9 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain9 > 0) || (newgain9 > 0) || (phase9 < 1))) {\n    ot9 = oldtime9; nt9 = newtime9;\n    og9 = oldgain9; ng9 = newgain9;\n    p9 = phase9; s9 = seen9;\n    if (resetbank) { ot9=0; nt9=0; og9=0; ng9=0; p9=1; s9=-1; }\n    if ((p9 >= 1) && (revision != s9) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target9 = clamp(time9 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target9 != nt9) || (gain9 != ng9)) {\n            ot9 = nt9; og9 = ng9;\n            nt9 = target9; ng9 = gain9; p9 = 0;\n        }\n        s9 = revision;\n    }\n    if (p9 < 1) {\n        p9 = min(1, p9 + step);\n        // Gain-only changes need only one read.\n        if (ot9 == nt9) {\n            out9 = peek(memory, writehead - nt9, source9, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p9) * og9 + p9 * ng9) * mg;\n        } else {\n            a9 = 0; b9 = 0;\n            if ((og9 > 0) && (p9 < 1)) { a9 = peek(memory, writehead - ot9, source9, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng9 > 0) { b9 = peek(memory, writehead - nt9, source9, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out9 = ((1-p9) * og9 * a9 + p9 * ng9 * b9) * mg;\n        }\n    } else {\n        if (ng9 > 0) { out9 = peek(memory, writehead - nt9, source9, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng9 * mg; }\n    }\n    oldtime9 = ot9; newtime9 = nt9;\n    oldgain9 = og9; newgain9 = ng9;\n    phase9 = p9; seen9 = s9;\n}\n// Tap 10: zero-gain settled taps skip the processing branch.\nout10 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain10 > 0) || (newgain10 > 0) || (phase10 < 1))) {\n    ot10 = oldtime10; nt10 = newtime10;\n    og10 = oldgain10; ng10 = newgain10;\n    p10 = phase10; s10 = seen10;\n    if (resetbank) { ot10=0; nt10=0; og10=0; ng10=0; p10=1; s10=-1; }\n    if ((p10 >= 1) && (revision != s10) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target10 = clamp(time10 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target10 != nt10) || (gain10 != ng10)) {\n            ot10 = nt10; og10 = ng10;\n            nt10 = target10; ng10 = gain10; p10 = 0;\n        }\n        s10 = revision;\n    }\n    if (p10 < 1) {\n        p10 = min(1, p10 + step);\n        // Gain-only changes need only one read.\n        if (ot10 == nt10) {\n            out10 = peek(memory, writehead - nt10, source10, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p10) * og10 + p10 * ng10) * mg;\n        } else {\n            a10 = 0; b10 = 0;\n            if ((og10 > 0) && (p10 < 1)) { a10 = peek(memory, writehead - ot10, source10, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng10 > 0) { b10 = peek(memory, writehead - nt10, source10, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out10 = ((1-p10) * og10 * a10 + p10 * ng10 * b10) * mg;\n        }\n    } else {\n        if (ng10 > 0) { out10 = peek(memory, writehead - nt10, source10, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng10 * mg; }\n    }\n    oldtime10 = ot10; newtime10 = nt10;\n    oldgain10 = og10; newgain10 = ng10;\n    phase10 = p10; seen10 = s10;\n}\n// Tap 11: zero-gain settled taps skip the processing branch.\nout11 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain11 > 0) || (newgain11 > 0) || (phase11 < 1))) {\n    ot11 = oldtime11; nt11 = newtime11;\n    og11 = oldgain11; ng11 = newgain11;\n    p11 = phase11; s11 = seen11;\n    if (resetbank) { ot11=0; nt11=0; og11=0; ng11=0; p11=1; s11=-1; }\n    if ((p11 >= 1) && (revision != s11) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target11 = clamp(time11 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target11 != nt11) || (gain11 != ng11)) {\n            ot11 = nt11; og11 = ng11;\n            nt11 = target11; ng11 = gain11; p11 = 0;\n        }\n        s11 = revision;\n    }\n    if (p11 < 1) {\n        p11 = min(1, p11 + step);\n        // Gain-only changes need only one read.\n        if (ot11 == nt11) {\n            out11 = peek(memory, writehead - nt11, source11, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p11) * og11 + p11 * ng11) * mg;\n        } else {\n            a11 = 0; b11 = 0;\n            if ((og11 > 0) && (p11 < 1)) { a11 = peek(memory, writehead - ot11, source11, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng11 > 0) { b11 = peek(memory, writehead - nt11, source11, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out11 = ((1-p11) * og11 * a11 + p11 * ng11 * b11) * mg;\n        }\n    } else {\n        if (ng11 > 0) { out11 = peek(memory, writehead - nt11, source11, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng11 * mg; }\n    }\n    oldtime11 = ot11; newtime11 = nt11;\n    oldgain11 = og11; newgain11 = ng11;\n    phase11 = p11; seen11 = s11;\n}\n// Tap 12: zero-gain settled taps skip the processing branch.\nout12 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain12 > 0) || (newgain12 > 0) || (phase12 < 1))) {\n    ot12 = oldtime12; nt12 = newtime12;\n    og12 = oldgain12; ng12 = newgain12;\n    p12 = phase12; s12 = seen12;\n    if (resetbank) { ot12=0; nt12=0; og12=0; ng12=0; p12=1; s12=-1; }\n    if ((p12 >= 1) && (revision != s12) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target12 = clamp(time12 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target12 != nt12) || (gain12 != ng12)) {\n            ot12 = nt12; og12 = ng12;\n            nt12 = target12; ng12 = gain12; p12 = 0;\n        }\n        s12 = revision;\n    }\n    if (p12 < 1) {\n        p12 = min(1, p12 + step);\n        // Gain-only changes need only one read.\n        if (ot12 == nt12) {\n            out12 = peek(memory, writehead - nt12, source12, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p12) * og12 + p12 * ng12) * mg;\n        } else {\n            a12 = 0; b12 = 0;\n            if ((og12 > 0) && (p12 < 1)) { a12 = peek(memory, writehead - ot12, source12, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng12 > 0) { b12 = peek(memory, writehead - nt12, source12, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out12 = ((1-p12) * og12 * a12 + p12 * ng12 * b12) * mg;\n        }\n    } else {\n        if (ng12 > 0) { out12 = peek(memory, writehead - nt12, source12, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng12 * mg; }\n    }\n    oldtime12 = ot12; newtime12 = nt12;\n    oldgain12 = og12; newgain12 = ng12;\n    phase12 = p12; seen12 = s12;\n}\n// Tap 13: zero-gain settled taps skip the processing branch.\nout13 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain13 > 0) || (newgain13 > 0) || (phase13 < 1))) {\n    ot13 = oldtime13; nt13 = newtime13;\n    og13 = oldgain13; ng13 = newgain13;\n    p13 = phase13; s13 = seen13;\n    if (resetbank) { ot13=0; nt13=0; og13=0; ng13=0; p13=1; s13=-1; }\n    if ((p13 >= 1) && (revision != s13) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target13 = clamp(time13 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target13 != nt13) || (gain13 != ng13)) {\n            ot13 = nt13; og13 = ng13;\n            nt13 = target13; ng13 = gain13; p13 = 0;\n        }\n        s13 = revision;\n    }\n    if (p13 < 1) {\n        p13 = min(1, p13 + step);\n        // Gain-only changes need only one read.\n        if (ot13 == nt13) {\n            out13 = peek(memory, writehead - nt13, source13, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p13) * og13 + p13 * ng13) * mg;\n        } else {\n            a13 = 0; b13 = 0;\n            if ((og13 > 0) && (p13 < 1)) { a13 = peek(memory, writehead - ot13, source13, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng13 > 0) { b13 = peek(memory, writehead - nt13, source13, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out13 = ((1-p13) * og13 * a13 + p13 * ng13 * b13) * mg;\n        }\n    } else {\n        if (ng13 > 0) { out13 = peek(memory, writehead - nt13, source13, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng13 * mg; }\n    }\n    oldtime13 = ot13; newtime13 = nt13;\n    oldgain13 = og13; newgain13 = ng13;\n    phase13 = p13; seen13 = s13;\n}\n// Tap 14: zero-gain settled taps skip the processing branch.\nout14 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain14 > 0) || (newgain14 > 0) || (phase14 < 1))) {\n    ot14 = oldtime14; nt14 = newtime14;\n    og14 = oldgain14; ng14 = newgain14;\n    p14 = phase14; s14 = seen14;\n    if (resetbank) { ot14=0; nt14=0; og14=0; ng14=0; p14=1; s14=-1; }\n    if ((p14 >= 1) && (revision != s14) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target14 = clamp(time14 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target14 != nt14) || (gain14 != ng14)) {\n            ot14 = nt14; og14 = ng14;\n            nt14 = target14; ng14 = gain14; p14 = 0;\n        }\n        s14 = revision;\n    }\n    if (p14 < 1) {\n        p14 = min(1, p14 + step);\n        // Gain-only changes need only one read.\n        if (ot14 == nt14) {\n            out14 = peek(memory, writehead - nt14, source14, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p14) * og14 + p14 * ng14) * mg;\n        } else {\n            a14 = 0; b14 = 0;\n            if ((og14 > 0) && (p14 < 1)) { a14 = peek(memory, writehead - ot14, source14, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng14 > 0) { b14 = peek(memory, writehead - nt14, source14, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out14 = ((1-p14) * og14 * a14 + p14 * ng14 * b14) * mg;\n        }\n    } else {\n        if (ng14 > 0) { out14 = peek(memory, writehead - nt14, source14, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng14 * mg; }\n    }\n    oldtime14 = ot14; newtime14 = nt14;\n    oldgain14 = og14; newgain14 = ng14;\n    phase14 = p14; seen14 = s14;\n}\n// Tap 15: zero-gain settled taps skip the processing branch.\nout15 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain15 > 0) || (newgain15 > 0) || (phase15 < 1))) {\n    ot15 = oldtime15; nt15 = newtime15;\n    og15 = oldgain15; ng15 = newgain15;\n    p15 = phase15; s15 = seen15;\n    if (resetbank) { ot15=0; nt15=0; og15=0; ng15=0; p15=1; s15=-1; }\n    if ((p15 >= 1) && (revision != s15) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target15 = clamp(time15 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target15 != nt15) || (gain15 != ng15)) {\n            ot15 = nt15; og15 = ng15;\n            nt15 = target15; ng15 = gain15; p15 = 0;\n        }\n        s15 = revision;\n    }\n    if (p15 < 1) {\n        p15 = min(1, p15 + step);\n        // Gain-only changes need only one read.\n        if (ot15 == nt15) {\n            out15 = peek(memory, writehead - nt15, source15, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p15) * og15 + p15 * ng15) * mg;\n        } else {\n            a15 = 0; b15 = 0;\n            if ((og15 > 0) && (p15 < 1)) { a15 = peek(memory, writehead - ot15, source15, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng15 > 0) { b15 = peek(memory, writehead - nt15, source15, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out15 = ((1-p15) * og15 * a15 + p15 * ng15 * b15) * mg;\n        }\n    } else {\n        if (ng15 > 0) { out15 = peek(memory, writehead - nt15, source15, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng15 * mg; }\n    }\n    oldtime15 = ot15; newtime15 = nt15;\n    oldgain15 = og15; newgain15 = ng15;\n    phase15 = p15; seen15 = s15;\n}\n// Tap 16: zero-gain settled taps skip the processing branch.\nout16 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain16 > 0) || (newgain16 > 0) || (phase16 < 1))) {\n    ot16 = oldtime16; nt16 = newtime16;\n    og16 = oldgain16; ng16 = newgain16;\n    p16 = phase16; s16 = seen16;\n    if (resetbank) { ot16=0; nt16=0; og16=0; ng16=0; p16=1; s16=-1; }\n    if ((p16 >= 1) && (revision != s16) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target16 = clamp(time16 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target16 != nt16) || (gain16 != ng16)) {\n            ot16 = nt16; og16 = ng16;\n            nt16 = target16; ng16 = gain16; p16 = 0;\n        }\n        s16 = revision;\n    }\n    if (p16 < 1) {\n        p16 = min(1, p16 + step);\n        // Gain-only changes need only one read.\n        if (ot16 == nt16) {\n            out16 = peek(memory, writehead - nt16, source16, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p16) * og16 + p16 * ng16) * mg;\n        } else {\n            a16 = 0; b16 = 0;\n            if ((og16 > 0) && (p16 < 1)) { a16 = peek(memory, writehead - ot16, source16, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng16 > 0) { b16 = peek(memory, writehead - nt16, source16, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out16 = ((1-p16) * og16 * a16 + p16 * ng16 * b16) * mg;\n        }\n    } else {\n        if (ng16 > 0) { out16 = peek(memory, writehead - nt16, source16, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng16 * mg; }\n    }\n    oldtime16 = ot16; newtime16 = nt16;\n    oldgain16 = og16; newgain16 = ng16;\n    phase16 = p16; seen16 = s16;\n}\n// Tap 17: zero-gain settled taps skip the processing branch.\nout17 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain17 > 0) || (newgain17 > 0) || (phase17 < 1))) {\n    ot17 = oldtime17; nt17 = newtime17;\n    og17 = oldgain17; ng17 = newgain17;\n    p17 = phase17; s17 = seen17;\n    if (resetbank) { ot17=0; nt17=0; og17=0; ng17=0; p17=1; s17=-1; }\n    if ((p17 >= 1) && (revision != s17) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target17 = clamp(time17 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target17 != nt17) || (gain17 != ng17)) {\n            ot17 = nt17; og17 = ng17;\n            nt17 = target17; ng17 = gain17; p17 = 0;\n        }\n        s17 = revision;\n    }\n    if (p17 < 1) {\n        p17 = min(1, p17 + step);\n        // Gain-only changes need only one read.\n        if (ot17 == nt17) {\n            out17 = peek(memory, writehead - nt17, source17, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p17) * og17 + p17 * ng17) * mg;\n        } else {\n            a17 = 0; b17 = 0;\n            if ((og17 > 0) && (p17 < 1)) { a17 = peek(memory, writehead - ot17, source17, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng17 > 0) { b17 = peek(memory, writehead - nt17, source17, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out17 = ((1-p17) * og17 * a17 + p17 * ng17 * b17) * mg;\n        }\n    } else {\n        if (ng17 > 0) { out17 = peek(memory, writehead - nt17, source17, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng17 * mg; }\n    }\n    oldtime17 = ot17; newtime17 = nt17;\n    oldgain17 = og17; newgain17 = ng17;\n    phase17 = p17; seen17 = s17;\n}\n// Tap 18: zero-gain settled taps skip the processing branch.\nout18 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain18 > 0) || (newgain18 > 0) || (phase18 < 1))) {\n    ot18 = oldtime18; nt18 = newtime18;\n    og18 = oldgain18; ng18 = newgain18;\n    p18 = phase18; s18 = seen18;\n    if (resetbank) { ot18=0; nt18=0; og18=0; ng18=0; p18=1; s18=-1; }\n    if ((p18 >= 1) && (revision != s18) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target18 = clamp(time18 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target18 != nt18) || (gain18 != ng18)) {\n            ot18 = nt18; og18 = ng18;\n            nt18 = target18; ng18 = gain18; p18 = 0;\n        }\n        s18 = revision;\n    }\n    if (p18 < 1) {\n        p18 = min(1, p18 + step);\n        // Gain-only changes need only one read.\n        if (ot18 == nt18) {\n            out18 = peek(memory, writehead - nt18, source18, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p18) * og18 + p18 * ng18) * mg;\n        } else {\n            a18 = 0; b18 = 0;\n            if ((og18 > 0) && (p18 < 1)) { a18 = peek(memory, writehead - ot18, source18, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng18 > 0) { b18 = peek(memory, writehead - nt18, source18, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out18 = ((1-p18) * og18 * a18 + p18 * ng18 * b18) * mg;\n        }\n    } else {\n        if (ng18 > 0) { out18 = peek(memory, writehead - nt18, source18, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng18 * mg; }\n    }\n    oldtime18 = ot18; newtime18 = nt18;\n    oldgain18 = og18; newgain18 = ng18;\n    phase18 = p18; seen18 = s18;\n}\n// Tap 19: zero-gain settled taps skip the processing branch.\nout19 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain19 > 0) || (newgain19 > 0) || (phase19 < 1))) {\n    ot19 = oldtime19; nt19 = newtime19;\n    og19 = oldgain19; ng19 = newgain19;\n    p19 = phase19; s19 = seen19;\n    if (resetbank) { ot19=0; nt19=0; og19=0; ng19=0; p19=1; s19=-1; }\n    if ((p19 >= 1) && (revision != s19) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target19 = clamp(time19 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target19 != nt19) || (gain19 != ng19)) {\n            ot19 = nt19; og19 = ng19;\n            nt19 = target19; ng19 = gain19; p19 = 0;\n        }\n        s19 = revision;\n    }\n    if (p19 < 1) {\n        p19 = min(1, p19 + step);\n        // Gain-only changes need only one read.\n        if (ot19 == nt19) {\n            out19 = peek(memory, writehead - nt19, source19, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p19) * og19 + p19 * ng19) * mg;\n        } else {\n            a19 = 0; b19 = 0;\n            if ((og19 > 0) && (p19 < 1)) { a19 = peek(memory, writehead - ot19, source19, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng19 > 0) { b19 = peek(memory, writehead - nt19, source19, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out19 = ((1-p19) * og19 * a19 + p19 * ng19 * b19) * mg;\n        }\n    } else {\n        if (ng19 > 0) { out19 = peek(memory, writehead - nt19, source19, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng19 * mg; }\n    }\n    oldtime19 = ot19; newtime19 = nt19;\n    oldgain19 = og19; newgain19 = ng19;\n    phase19 = p19; seen19 = s19;\n}\n// Tap 20: zero-gain settled taps skip the processing branch.\nout20 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain20 > 0) || (newgain20 > 0) || (phase20 < 1))) {\n    ot20 = oldtime20; nt20 = newtime20;\n    og20 = oldgain20; ng20 = newgain20;\n    p20 = phase20; s20 = seen20;\n    if (resetbank) { ot20=0; nt20=0; og20=0; ng20=0; p20=1; s20=-1; }\n    if ((p20 >= 1) && (revision != s20) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target20 = clamp(time20 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target20 != nt20) || (gain20 != ng20)) {\n            ot20 = nt20; og20 = ng20;\n            nt20 = target20; ng20 = gain20; p20 = 0;\n        }\n        s20 = revision;\n    }\n    if (p20 < 1) {\n        p20 = min(1, p20 + step);\n        // Gain-only changes need only one read.\n        if (ot20 == nt20) {\n            out20 = peek(memory, writehead - nt20, source20, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p20) * og20 + p20 * ng20) * mg;\n        } else {\n            a20 = 0; b20 = 0;\n            if ((og20 > 0) && (p20 < 1)) { a20 = peek(memory, writehead - ot20, source20, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng20 > 0) { b20 = peek(memory, writehead - nt20, source20, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out20 = ((1-p20) * og20 * a20 + p20 * ng20 * b20) * mg;\n        }\n    } else {\n        if (ng20 > 0) { out20 = peek(memory, writehead - nt20, source20, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng20 * mg; }\n    }\n    oldtime20 = ot20; newtime20 = nt20;\n    oldgain20 = og20; newgain20 = ng20;\n    phase20 = p20; seen20 = s20;\n}\n// Tap 21: zero-gain settled taps skip the processing branch.\nout21 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain21 > 0) || (newgain21 > 0) || (phase21 < 1))) {\n    ot21 = oldtime21; nt21 = newtime21;\n    og21 = oldgain21; ng21 = newgain21;\n    p21 = phase21; s21 = seen21;\n    if (resetbank) { ot21=0; nt21=0; og21=0; ng21=0; p21=1; s21=-1; }\n    if ((p21 >= 1) && (revision != s21) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target21 = clamp(time21 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target21 != nt21) || (gain21 != ng21)) {\n            ot21 = nt21; og21 = ng21;\n            nt21 = target21; ng21 = gain21; p21 = 0;\n        }\n        s21 = revision;\n    }\n    if (p21 < 1) {\n        p21 = min(1, p21 + step);\n        // Gain-only changes need only one read.\n        if (ot21 == nt21) {\n            out21 = peek(memory, writehead - nt21, source21, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p21) * og21 + p21 * ng21) * mg;\n        } else {\n            a21 = 0; b21 = 0;\n            if ((og21 > 0) && (p21 < 1)) { a21 = peek(memory, writehead - ot21, source21, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng21 > 0) { b21 = peek(memory, writehead - nt21, source21, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out21 = ((1-p21) * og21 * a21 + p21 * ng21 * b21) * mg;\n        }\n    } else {\n        if (ng21 > 0) { out21 = peek(memory, writehead - nt21, source21, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng21 * mg; }\n    }\n    oldtime21 = ot21; newtime21 = nt21;\n    oldgain21 = og21; newgain21 = ng21;\n    phase21 = p21; seen21 = s21;\n}\n// Tap 22: zero-gain settled taps skip the processing branch.\nout22 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain22 > 0) || (newgain22 > 0) || (phase22 < 1))) {\n    ot22 = oldtime22; nt22 = newtime22;\n    og22 = oldgain22; ng22 = newgain22;\n    p22 = phase22; s22 = seen22;\n    if (resetbank) { ot22=0; nt22=0; og22=0; ng22=0; p22=1; s22=-1; }\n    if ((p22 >= 1) && (revision != s22) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target22 = clamp(time22 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target22 != nt22) || (gain22 != ng22)) {\n            ot22 = nt22; og22 = ng22;\n            nt22 = target22; ng22 = gain22; p22 = 0;\n        }\n        s22 = revision;\n    }\n    if (p22 < 1) {\n        p22 = min(1, p22 + step);\n        // Gain-only changes need only one read.\n        if (ot22 == nt22) {\n            out22 = peek(memory, writehead - nt22, source22, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p22) * og22 + p22 * ng22) * mg;\n        } else {\n            a22 = 0; b22 = 0;\n            if ((og22 > 0) && (p22 < 1)) { a22 = peek(memory, writehead - ot22, source22, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng22 > 0) { b22 = peek(memory, writehead - nt22, source22, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out22 = ((1-p22) * og22 * a22 + p22 * ng22 * b22) * mg;\n        }\n    } else {\n        if (ng22 > 0) { out22 = peek(memory, writehead - nt22, source22, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng22 * mg; }\n    }\n    oldtime22 = ot22; newtime22 = nt22;\n    oldgain22 = og22; newgain22 = ng22;\n    phase22 = p22; seen22 = s22;\n}\n// Tap 23: zero-gain settled taps skip the processing branch.\nout23 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain23 > 0) || (newgain23 > 0) || (phase23 < 1))) {\n    ot23 = oldtime23; nt23 = newtime23;\n    og23 = oldgain23; ng23 = newgain23;\n    p23 = phase23; s23 = seen23;\n    if (resetbank) { ot23=0; nt23=0; og23=0; ng23=0; p23=1; s23=-1; }\n    if ((p23 >= 1) && (revision != s23) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target23 = clamp(time23 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target23 != nt23) || (gain23 != ng23)) {\n            ot23 = nt23; og23 = ng23;\n            nt23 = target23; ng23 = gain23; p23 = 0;\n        }\n        s23 = revision;\n    }\n    if (p23 < 1) {\n        p23 = min(1, p23 + step);\n        // Gain-only changes need only one read.\n        if (ot23 == nt23) {\n            out23 = peek(memory, writehead - nt23, source23, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p23) * og23 + p23 * ng23) * mg;\n        } else {\n            a23 = 0; b23 = 0;\n            if ((og23 > 0) && (p23 < 1)) { a23 = peek(memory, writehead - ot23, source23, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng23 > 0) { b23 = peek(memory, writehead - nt23, source23, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out23 = ((1-p23) * og23 * a23 + p23 * ng23 * b23) * mg;\n        }\n    } else {\n        if (ng23 > 0) { out23 = peek(memory, writehead - nt23, source23, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng23 * mg; }\n    }\n    oldtime23 = ot23; newtime23 = nt23;\n    oldgain23 = og23; newgain23 = ng23;\n    phase23 = p23; seen23 = s23;\n}\n// Tap 24: zero-gain settled taps skip the processing branch.\nout24 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain24 > 0) || (newgain24 > 0) || (phase24 < 1))) {\n    ot24 = oldtime24; nt24 = newtime24;\n    og24 = oldgain24; ng24 = newgain24;\n    p24 = phase24; s24 = seen24;\n    if (resetbank) { ot24=0; nt24=0; og24=0; ng24=0; p24=1; s24=-1; }\n    if ((p24 >= 1) && (revision != s24) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target24 = clamp(time24 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target24 != nt24) || (gain24 != ng24)) {\n            ot24 = nt24; og24 = ng24;\n            nt24 = target24; ng24 = gain24; p24 = 0;\n        }\n        s24 = revision;\n    }\n    if (p24 < 1) {\n        p24 = min(1, p24 + step);\n        // Gain-only changes need only one read.\n        if (ot24 == nt24) {\n            out24 = peek(memory, writehead - nt24, source24, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p24) * og24 + p24 * ng24) * mg;\n        } else {\n            a24 = 0; b24 = 0;\n            if ((og24 > 0) && (p24 < 1)) { a24 = peek(memory, writehead - ot24, source24, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng24 > 0) { b24 = peek(memory, writehead - nt24, source24, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out24 = ((1-p24) * og24 * a24 + p24 * ng24 * b24) * mg;\n        }\n    } else {\n        if (ng24 > 0) { out24 = peek(memory, writehead - nt24, source24, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng24 * mg; }\n    }\n    oldtime24 = ot24; newtime24 = nt24;\n    oldgain24 = og24; newgain24 = ng24;\n    phase24 = p24; seen24 = s24;\n}\n// Tap 25: zero-gain settled taps skip the processing branch.\nout25 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain25 > 0) || (newgain25 > 0) || (phase25 < 1))) {\n    ot25 = oldtime25; nt25 = newtime25;\n    og25 = oldgain25; ng25 = newgain25;\n    p25 = phase25; s25 = seen25;\n    if (resetbank) { ot25=0; nt25=0; og25=0; ng25=0; p25=1; s25=-1; }\n    if ((p25 >= 1) && (revision != s25) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target25 = clamp(time25 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target25 != nt25) || (gain25 != ng25)) {\n            ot25 = nt25; og25 = ng25;\n            nt25 = target25; ng25 = gain25; p25 = 0;\n        }\n        s25 = revision;\n    }\n    if (p25 < 1) {\n        p25 = min(1, p25 + step);\n        // Gain-only changes need only one read.\n        if (ot25 == nt25) {\n            out25 = peek(memory, writehead - nt25, source25, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p25) * og25 + p25 * ng25) * mg;\n        } else {\n            a25 = 0; b25 = 0;\n            if ((og25 > 0) && (p25 < 1)) { a25 = peek(memory, writehead - ot25, source25, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng25 > 0) { b25 = peek(memory, writehead - nt25, source25, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out25 = ((1-p25) * og25 * a25 + p25 * ng25 * b25) * mg;\n        }\n    } else {\n        if (ng25 > 0) { out25 = peek(memory, writehead - nt25, source25, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng25 * mg; }\n    }\n    oldtime25 = ot25; newtime25 = nt25;\n    oldgain25 = og25; newgain25 = ng25;\n    phase25 = p25; seen25 = s25;\n}\n// Tap 26: zero-gain settled taps skip the processing branch.\nout26 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain26 > 0) || (newgain26 > 0) || (phase26 < 1))) {\n    ot26 = oldtime26; nt26 = newtime26;\n    og26 = oldgain26; ng26 = newgain26;\n    p26 = phase26; s26 = seen26;\n    if (resetbank) { ot26=0; nt26=0; og26=0; ng26=0; p26=1; s26=-1; }\n    if ((p26 >= 1) && (revision != s26) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target26 = clamp(time26 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target26 != nt26) || (gain26 != ng26)) {\n            ot26 = nt26; og26 = ng26;\n            nt26 = target26; ng26 = gain26; p26 = 0;\n        }\n        s26 = revision;\n    }\n    if (p26 < 1) {\n        p26 = min(1, p26 + step);\n        // Gain-only changes need only one read.\n        if (ot26 == nt26) {\n            out26 = peek(memory, writehead - nt26, source26, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p26) * og26 + p26 * ng26) * mg;\n        } else {\n            a26 = 0; b26 = 0;\n            if ((og26 > 0) && (p26 < 1)) { a26 = peek(memory, writehead - ot26, source26, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng26 > 0) { b26 = peek(memory, writehead - nt26, source26, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out26 = ((1-p26) * og26 * a26 + p26 * ng26 * b26) * mg;\n        }\n    } else {\n        if (ng26 > 0) { out26 = peek(memory, writehead - nt26, source26, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng26 * mg; }\n    }\n    oldtime26 = ot26; newtime26 = nt26;\n    oldgain26 = og26; newgain26 = ng26;\n    phase26 = p26; seen26 = s26;\n}\n// Tap 27: zero-gain settled taps skip the processing branch.\nout27 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain27 > 0) || (newgain27 > 0) || (phase27 < 1))) {\n    ot27 = oldtime27; nt27 = newtime27;\n    og27 = oldgain27; ng27 = newgain27;\n    p27 = phase27; s27 = seen27;\n    if (resetbank) { ot27=0; nt27=0; og27=0; ng27=0; p27=1; s27=-1; }\n    if ((p27 >= 1) && (revision != s27) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target27 = clamp(time27 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target27 != nt27) || (gain27 != ng27)) {\n            ot27 = nt27; og27 = ng27;\n            nt27 = target27; ng27 = gain27; p27 = 0;\n        }\n        s27 = revision;\n    }\n    if (p27 < 1) {\n        p27 = min(1, p27 + step);\n        // Gain-only changes need only one read.\n        if (ot27 == nt27) {\n            out27 = peek(memory, writehead - nt27, source27, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p27) * og27 + p27 * ng27) * mg;\n        } else {\n            a27 = 0; b27 = 0;\n            if ((og27 > 0) && (p27 < 1)) { a27 = peek(memory, writehead - ot27, source27, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng27 > 0) { b27 = peek(memory, writehead - nt27, source27, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out27 = ((1-p27) * og27 * a27 + p27 * ng27 * b27) * mg;\n        }\n    } else {\n        if (ng27 > 0) { out27 = peek(memory, writehead - nt27, source27, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng27 * mg; }\n    }\n    oldtime27 = ot27; newtime27 = nt27;\n    oldgain27 = og27; newgain27 = ng27;\n    phase27 = p27; seen27 = s27;\n}\n// Tap 28: zero-gain settled taps skip the processing branch.\nout28 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain28 > 0) || (newgain28 > 0) || (phase28 < 1))) {\n    ot28 = oldtime28; nt28 = newtime28;\n    og28 = oldgain28; ng28 = newgain28;\n    p28 = phase28; s28 = seen28;\n    if (resetbank) { ot28=0; nt28=0; og28=0; ng28=0; p28=1; s28=-1; }\n    if ((p28 >= 1) && (revision != s28) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target28 = clamp(time28 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target28 != nt28) || (gain28 != ng28)) {\n            ot28 = nt28; og28 = ng28;\n            nt28 = target28; ng28 = gain28; p28 = 0;\n        }\n        s28 = revision;\n    }\n    if (p28 < 1) {\n        p28 = min(1, p28 + step);\n        // Gain-only changes need only one read.\n        if (ot28 == nt28) {\n            out28 = peek(memory, writehead - nt28, source28, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p28) * og28 + p28 * ng28) * mg;\n        } else {\n            a28 = 0; b28 = 0;\n            if ((og28 > 0) && (p28 < 1)) { a28 = peek(memory, writehead - ot28, source28, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng28 > 0) { b28 = peek(memory, writehead - nt28, source28, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out28 = ((1-p28) * og28 * a28 + p28 * ng28 * b28) * mg;\n        }\n    } else {\n        if (ng28 > 0) { out28 = peek(memory, writehead - nt28, source28, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng28 * mg; }\n    }\n    oldtime28 = ot28; newtime28 = nt28;\n    oldgain28 = og28; newgain28 = ng28;\n    phase28 = p28; seen28 = s28;\n}\n// Tap 29: zero-gain settled taps skip the processing branch.\nout29 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain29 > 0) || (newgain29 > 0) || (phase29 < 1))) {\n    ot29 = oldtime29; nt29 = newtime29;\n    og29 = oldgain29; ng29 = newgain29;\n    p29 = phase29; s29 = seen29;\n    if (resetbank) { ot29=0; nt29=0; og29=0; ng29=0; p29=1; s29=-1; }\n    if ((p29 >= 1) && (revision != s29) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target29 = clamp(time29 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target29 != nt29) || (gain29 != ng29)) {\n            ot29 = nt29; og29 = ng29;\n            nt29 = target29; ng29 = gain29; p29 = 0;\n        }\n        s29 = revision;\n    }\n    if (p29 < 1) {\n        p29 = min(1, p29 + step);\n        // Gain-only changes need only one read.\n        if (ot29 == nt29) {\n            out29 = peek(memory, writehead - nt29, source29, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p29) * og29 + p29 * ng29) * mg;\n        } else {\n            a29 = 0; b29 = 0;\n            if ((og29 > 0) && (p29 < 1)) { a29 = peek(memory, writehead - ot29, source29, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng29 > 0) { b29 = peek(memory, writehead - nt29, source29, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out29 = ((1-p29) * og29 * a29 + p29 * ng29 * b29) * mg;\n        }\n    } else {\n        if (ng29 > 0) { out29 = peek(memory, writehead - nt29, source29, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng29 * mg; }\n    }\n    oldtime29 = ot29; newtime29 = nt29;\n    oldgain29 = og29; newgain29 = ng29;\n    phase29 = p29; seen29 = s29;\n}\n// Tap 30: zero-gain settled taps skip the processing branch.\nout30 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain30 > 0) || (newgain30 > 0) || (phase30 < 1))) {\n    ot30 = oldtime30; nt30 = newtime30;\n    og30 = oldgain30; ng30 = newgain30;\n    p30 = phase30; s30 = seen30;\n    if (resetbank) { ot30=0; nt30=0; og30=0; ng30=0; p30=1; s30=-1; }\n    if ((p30 >= 1) && (revision != s30) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target30 = clamp(time30 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target30 != nt30) || (gain30 != ng30)) {\n            ot30 = nt30; og30 = ng30;\n            nt30 = target30; ng30 = gain30; p30 = 0;\n        }\n        s30 = revision;\n    }\n    if (p30 < 1) {\n        p30 = min(1, p30 + step);\n        // Gain-only changes need only one read.\n        if (ot30 == nt30) {\n            out30 = peek(memory, writehead - nt30, source30, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p30) * og30 + p30 * ng30) * mg;\n        } else {\n            a30 = 0; b30 = 0;\n            if ((og30 > 0) && (p30 < 1)) { a30 = peek(memory, writehead - ot30, source30, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng30 > 0) { b30 = peek(memory, writehead - nt30, source30, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out30 = ((1-p30) * og30 * a30 + p30 * ng30 * b30) * mg;\n        }\n    } else {\n        if (ng30 > 0) { out30 = peek(memory, writehead - nt30, source30, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng30 * mg; }\n    }\n    oldtime30 = ot30; newtime30 = nt30;\n    oldgain30 = og30; newgain30 = ng30;\n    phase30 = p30; seen30 = s30;\n}\n// Tap 31: zero-gain settled taps skip the processing branch.\nout31 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain31 > 0) || (newgain31 > 0) || (phase31 < 1))) {\n    ot31 = oldtime31; nt31 = newtime31;\n    og31 = oldgain31; ng31 = newgain31;\n    p31 = phase31; s31 = seen31;\n    if (resetbank) { ot31=0; nt31=0; og31=0; ng31=0; p31=1; s31=-1; }\n    if ((p31 >= 1) && (revision != s31) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target31 = clamp(time31 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target31 != nt31) || (gain31 != ng31)) {\n            ot31 = nt31; og31 = ng31;\n            nt31 = target31; ng31 = gain31; p31 = 0;\n        }\n        s31 = revision;\n    }\n    if (p31 < 1) {\n        p31 = min(1, p31 + step);\n        // Gain-only changes need only one read.\n        if (ot31 == nt31) {\n            out31 = peek(memory, writehead - nt31, source31, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p31) * og31 + p31 * ng31) * mg;\n        } else {\n            a31 = 0; b31 = 0;\n            if ((og31 > 0) && (p31 < 1)) { a31 = peek(memory, writehead - ot31, source31, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng31 > 0) { b31 = peek(memory, writehead - nt31, source31, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out31 = ((1-p31) * og31 * a31 + p31 * ng31 * b31) * mg;\n        }\n    } else {\n        if (ng31 > 0) { out31 = peek(memory, writehead - nt31, source31, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng31 * mg; }\n    }\n    oldtime31 = ot31; newtime31 = nt31;\n    oldgain31 = og31; newgain31 = ng31;\n    phase31 = p31; seen31 = s31;\n}\n// Tap 32: zero-gain settled taps skip the processing branch.\nout32 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain32 > 0) || (newgain32 > 0) || (phase32 < 1))) {\n    ot32 = oldtime32; nt32 = newtime32;\n    og32 = oldgain32; ng32 = newgain32;\n    p32 = phase32; s32 = seen32;\n    if (resetbank) { ot32=0; nt32=0; og32=0; ng32=0; p32=1; s32=-1; }\n    if ((p32 >= 1) && (revision != s32) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target32 = clamp(time32 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target32 != nt32) || (gain32 != ng32)) {\n            ot32 = nt32; og32 = ng32;\n            nt32 = target32; ng32 = gain32; p32 = 0;\n        }\n        s32 = revision;\n    }\n    if (p32 < 1) {\n        p32 = min(1, p32 + step);\n        // Gain-only changes need only one read.\n        if (ot32 == nt32) {\n            out32 = peek(memory, writehead - nt32, source32, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p32) * og32 + p32 * ng32) * mg;\n        } else {\n            a32 = 0; b32 = 0;\n            if ((og32 > 0) && (p32 < 1)) { a32 = peek(memory, writehead - ot32, source32, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng32 > 0) { b32 = peek(memory, writehead - nt32, source32, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out32 = ((1-p32) * og32 * a32 + p32 * ng32 * b32) * mg;\n        }\n    } else {\n        if (ng32 > 0) { out32 = peek(memory, writehead - nt32, source32, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng32 * mg; }\n    }\n    oldtime32 = ot32; newtime32 = nt32;\n    oldgain32 = og32; newgain32 = ng32;\n    phase32 = p32; seen32 = s32;\n}\n// Tap 33: zero-gain settled taps skip the processing branch.\nout33 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain33 > 0) || (newgain33 > 0) || (phase33 < 1))) {\n    ot33 = oldtime33; nt33 = newtime33;\n    og33 = oldgain33; ng33 = newgain33;\n    p33 = phase33; s33 = seen33;\n    if (resetbank) { ot33=0; nt33=0; og33=0; ng33=0; p33=1; s33=-1; }\n    if ((p33 >= 1) && (revision != s33) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target33 = clamp(time33 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target33 != nt33) || (gain33 != ng33)) {\n            ot33 = nt33; og33 = ng33;\n            nt33 = target33; ng33 = gain33; p33 = 0;\n        }\n        s33 = revision;\n    }\n    if (p33 < 1) {\n        p33 = min(1, p33 + step);\n        // Gain-only changes need only one read.\n        if (ot33 == nt33) {\n            out33 = peek(memory, writehead - nt33, source33, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p33) * og33 + p33 * ng33) * mg;\n        } else {\n            a33 = 0; b33 = 0;\n            if ((og33 > 0) && (p33 < 1)) { a33 = peek(memory, writehead - ot33, source33, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng33 > 0) { b33 = peek(memory, writehead - nt33, source33, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out33 = ((1-p33) * og33 * a33 + p33 * ng33 * b33) * mg;\n        }\n    } else {\n        if (ng33 > 0) { out33 = peek(memory, writehead - nt33, source33, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng33 * mg; }\n    }\n    oldtime33 = ot33; newtime33 = nt33;\n    oldgain33 = og33; newgain33 = ng33;\n    phase33 = p33; seen33 = s33;\n}\n// Tap 34: zero-gain settled taps skip the processing branch.\nout34 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain34 > 0) || (newgain34 > 0) || (phase34 < 1))) {\n    ot34 = oldtime34; nt34 = newtime34;\n    og34 = oldgain34; ng34 = newgain34;\n    p34 = phase34; s34 = seen34;\n    if (resetbank) { ot34=0; nt34=0; og34=0; ng34=0; p34=1; s34=-1; }\n    if ((p34 >= 1) && (revision != s34) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target34 = clamp(time34 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target34 != nt34) || (gain34 != ng34)) {\n            ot34 = nt34; og34 = ng34;\n            nt34 = target34; ng34 = gain34; p34 = 0;\n        }\n        s34 = revision;\n    }\n    if (p34 < 1) {\n        p34 = min(1, p34 + step);\n        // Gain-only changes need only one read.\n        if (ot34 == nt34) {\n            out34 = peek(memory, writehead - nt34, source34, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p34) * og34 + p34 * ng34) * mg;\n        } else {\n            a34 = 0; b34 = 0;\n            if ((og34 > 0) && (p34 < 1)) { a34 = peek(memory, writehead - ot34, source34, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng34 > 0) { b34 = peek(memory, writehead - nt34, source34, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out34 = ((1-p34) * og34 * a34 + p34 * ng34 * b34) * mg;\n        }\n    } else {\n        if (ng34 > 0) { out34 = peek(memory, writehead - nt34, source34, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng34 * mg; }\n    }\n    oldtime34 = ot34; newtime34 = nt34;\n    oldgain34 = og34; newgain34 = ng34;\n    phase34 = p34; seen34 = s34;\n}\n// Tap 35: zero-gain settled taps skip the processing branch.\nout35 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain35 > 0) || (newgain35 > 0) || (phase35 < 1))) {\n    ot35 = oldtime35; nt35 = newtime35;\n    og35 = oldgain35; ng35 = newgain35;\n    p35 = phase35; s35 = seen35;\n    if (resetbank) { ot35=0; nt35=0; og35=0; ng35=0; p35=1; s35=-1; }\n    if ((p35 >= 1) && (revision != s35) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target35 = clamp(time35 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target35 != nt35) || (gain35 != ng35)) {\n            ot35 = nt35; og35 = ng35;\n            nt35 = target35; ng35 = gain35; p35 = 0;\n        }\n        s35 = revision;\n    }\n    if (p35 < 1) {\n        p35 = min(1, p35 + step);\n        // Gain-only changes need only one read.\n        if (ot35 == nt35) {\n            out35 = peek(memory, writehead - nt35, source35, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p35) * og35 + p35 * ng35) * mg;\n        } else {\n            a35 = 0; b35 = 0;\n            if ((og35 > 0) && (p35 < 1)) { a35 = peek(memory, writehead - ot35, source35, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng35 > 0) { b35 = peek(memory, writehead - nt35, source35, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out35 = ((1-p35) * og35 * a35 + p35 * ng35 * b35) * mg;\n        }\n    } else {\n        if (ng35 > 0) { out35 = peek(memory, writehead - nt35, source35, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng35 * mg; }\n    }\n    oldtime35 = ot35; newtime35 = nt35;\n    oldgain35 = og35; newgain35 = ng35;\n    phase35 = p35; seen35 = s35;\n}\n// Tap 36: zero-gain settled taps skip the processing branch.\nout36 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain36 > 0) || (newgain36 > 0) || (phase36 < 1))) {\n    ot36 = oldtime36; nt36 = newtime36;\n    og36 = oldgain36; ng36 = newgain36;\n    p36 = phase36; s36 = seen36;\n    if (resetbank) { ot36=0; nt36=0; og36=0; ng36=0; p36=1; s36=-1; }\n    if ((p36 >= 1) && (revision != s36) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target36 = clamp(time36 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target36 != nt36) || (gain36 != ng36)) {\n            ot36 = nt36; og36 = ng36;\n            nt36 = target36; ng36 = gain36; p36 = 0;\n        }\n        s36 = revision;\n    }\n    if (p36 < 1) {\n        p36 = min(1, p36 + step);\n        // Gain-only changes need only one read.\n        if (ot36 == nt36) {\n            out36 = peek(memory, writehead - nt36, source36, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p36) * og36 + p36 * ng36) * mg;\n        } else {\n            a36 = 0; b36 = 0;\n            if ((og36 > 0) && (p36 < 1)) { a36 = peek(memory, writehead - ot36, source36, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng36 > 0) { b36 = peek(memory, writehead - nt36, source36, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out36 = ((1-p36) * og36 * a36 + p36 * ng36 * b36) * mg;\n        }\n    } else {\n        if (ng36 > 0) { out36 = peek(memory, writehead - nt36, source36, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng36 * mg; }\n    }\n    oldtime36 = ot36; newtime36 = nt36;\n    oldgain36 = og36; newgain36 = ng36;\n    phase36 = p36; seen36 = s36;\n}\n// Tap 37: zero-gain settled taps skip the processing branch.\nout37 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain37 > 0) || (newgain37 > 0) || (phase37 < 1))) {\n    ot37 = oldtime37; nt37 = newtime37;\n    og37 = oldgain37; ng37 = newgain37;\n    p37 = phase37; s37 = seen37;\n    if (resetbank) { ot37=0; nt37=0; og37=0; ng37=0; p37=1; s37=-1; }\n    if ((p37 >= 1) && (revision != s37) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target37 = clamp(time37 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target37 != nt37) || (gain37 != ng37)) {\n            ot37 = nt37; og37 = ng37;\n            nt37 = target37; ng37 = gain37; p37 = 0;\n        }\n        s37 = revision;\n    }\n    if (p37 < 1) {\n        p37 = min(1, p37 + step);\n        // Gain-only changes need only one read.\n        if (ot37 == nt37) {\n            out37 = peek(memory, writehead - nt37, source37, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p37) * og37 + p37 * ng37) * mg;\n        } else {\n            a37 = 0; b37 = 0;\n            if ((og37 > 0) && (p37 < 1)) { a37 = peek(memory, writehead - ot37, source37, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng37 > 0) { b37 = peek(memory, writehead - nt37, source37, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out37 = ((1-p37) * og37 * a37 + p37 * ng37 * b37) * mg;\n        }\n    } else {\n        if (ng37 > 0) { out37 = peek(memory, writehead - nt37, source37, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng37 * mg; }\n    }\n    oldtime37 = ot37; newtime37 = nt37;\n    oldgain37 = og37; newgain37 = ng37;\n    phase37 = p37; seen37 = s37;\n}\n// Tap 38: zero-gain settled taps skip the processing branch.\nout38 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain38 > 0) || (newgain38 > 0) || (phase38 < 1))) {\n    ot38 = oldtime38; nt38 = newtime38;\n    og38 = oldgain38; ng38 = newgain38;\n    p38 = phase38; s38 = seen38;\n    if (resetbank) { ot38=0; nt38=0; og38=0; ng38=0; p38=1; s38=-1; }\n    if ((p38 >= 1) && (revision != s38) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target38 = clamp(time38 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target38 != nt38) || (gain38 != ng38)) {\n            ot38 = nt38; og38 = ng38;\n            nt38 = target38; ng38 = gain38; p38 = 0;\n        }\n        s38 = revision;\n    }\n    if (p38 < 1) {\n        p38 = min(1, p38 + step);\n        // Gain-only changes need only one read.\n        if (ot38 == nt38) {\n            out38 = peek(memory, writehead - nt38, source38, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p38) * og38 + p38 * ng38) * mg;\n        } else {\n            a38 = 0; b38 = 0;\n            if ((og38 > 0) && (p38 < 1)) { a38 = peek(memory, writehead - ot38, source38, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng38 > 0) { b38 = peek(memory, writehead - nt38, source38, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out38 = ((1-p38) * og38 * a38 + p38 * ng38 * b38) * mg;\n        }\n    } else {\n        if (ng38 > 0) { out38 = peek(memory, writehead - nt38, source38, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng38 * mg; }\n    }\n    oldtime38 = ot38; newtime38 = nt38;\n    oldgain38 = og38; newgain38 = ng38;\n    phase38 = p38; seen38 = s38;\n}\n// Tap 39: zero-gain settled taps skip the processing branch.\nout39 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain39 > 0) || (newgain39 > 0) || (phase39 < 1))) {\n    ot39 = oldtime39; nt39 = newtime39;\n    og39 = oldgain39; ng39 = newgain39;\n    p39 = phase39; s39 = seen39;\n    if (resetbank) { ot39=0; nt39=0; og39=0; ng39=0; p39=1; s39=-1; }\n    if ((p39 >= 1) && (revision != s39) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target39 = clamp(time39 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target39 != nt39) || (gain39 != ng39)) {\n            ot39 = nt39; og39 = ng39;\n            nt39 = target39; ng39 = gain39; p39 = 0;\n        }\n        s39 = revision;\n    }\n    if (p39 < 1) {\n        p39 = min(1, p39 + step);\n        // Gain-only changes need only one read.\n        if (ot39 == nt39) {\n            out39 = peek(memory, writehead - nt39, source39, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p39) * og39 + p39 * ng39) * mg;\n        } else {\n            a39 = 0; b39 = 0;\n            if ((og39 > 0) && (p39 < 1)) { a39 = peek(memory, writehead - ot39, source39, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng39 > 0) { b39 = peek(memory, writehead - nt39, source39, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out39 = ((1-p39) * og39 * a39 + p39 * ng39 * b39) * mg;\n        }\n    } else {\n        if (ng39 > 0) { out39 = peek(memory, writehead - nt39, source39, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng39 * mg; }\n    }\n    oldtime39 = ot39; newtime39 = nt39;\n    oldgain39 = og39; newgain39 = ng39;\n    phase39 = p39; seen39 = s39;\n}\n// Tap 40: zero-gain settled taps skip the processing branch.\nout40 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain40 > 0) || (newgain40 > 0) || (phase40 < 1))) {\n    ot40 = oldtime40; nt40 = newtime40;\n    og40 = oldgain40; ng40 = newgain40;\n    p40 = phase40; s40 = seen40;\n    if (resetbank) { ot40=0; nt40=0; og40=0; ng40=0; p40=1; s40=-1; }\n    if ((p40 >= 1) && (revision != s40) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target40 = clamp(time40 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target40 != nt40) || (gain40 != ng40)) {\n            ot40 = nt40; og40 = ng40;\n            nt40 = target40; ng40 = gain40; p40 = 0;\n        }\n        s40 = revision;\n    }\n    if (p40 < 1) {\n        p40 = min(1, p40 + step);\n        // Gain-only changes need only one read.\n        if (ot40 == nt40) {\n            out40 = peek(memory, writehead - nt40, source40, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p40) * og40 + p40 * ng40) * mg;\n        } else {\n            a40 = 0; b40 = 0;\n            if ((og40 > 0) && (p40 < 1)) { a40 = peek(memory, writehead - ot40, source40, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng40 > 0) { b40 = peek(memory, writehead - nt40, source40, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out40 = ((1-p40) * og40 * a40 + p40 * ng40 * b40) * mg;\n        }\n    } else {\n        if (ng40 > 0) { out40 = peek(memory, writehead - nt40, source40, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng40 * mg; }\n    }\n    oldtime40 = ot40; newtime40 = nt40;\n    oldgain40 = og40; newgain40 = ng40;\n    phase40 = p40; seen40 = s40;\n}\n// Tap 41: zero-gain settled taps skip the processing branch.\nout41 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain41 > 0) || (newgain41 > 0) || (phase41 < 1))) {\n    ot41 = oldtime41; nt41 = newtime41;\n    og41 = oldgain41; ng41 = newgain41;\n    p41 = phase41; s41 = seen41;\n    if (resetbank) { ot41=0; nt41=0; og41=0; ng41=0; p41=1; s41=-1; }\n    if ((p41 >= 1) && (revision != s41) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target41 = clamp(time41 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target41 != nt41) || (gain41 != ng41)) {\n            ot41 = nt41; og41 = ng41;\n            nt41 = target41; ng41 = gain41; p41 = 0;\n        }\n        s41 = revision;\n    }\n    if (p41 < 1) {\n        p41 = min(1, p41 + step);\n        // Gain-only changes need only one read.\n        if (ot41 == nt41) {\n            out41 = peek(memory, writehead - nt41, source41, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p41) * og41 + p41 * ng41) * mg;\n        } else {\n            a41 = 0; b41 = 0;\n            if ((og41 > 0) && (p41 < 1)) { a41 = peek(memory, writehead - ot41, source41, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng41 > 0) { b41 = peek(memory, writehead - nt41, source41, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out41 = ((1-p41) * og41 * a41 + p41 * ng41 * b41) * mg;\n        }\n    } else {\n        if (ng41 > 0) { out41 = peek(memory, writehead - nt41, source41, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng41 * mg; }\n    }\n    oldtime41 = ot41; newtime41 = nt41;\n    oldgain41 = og41; newgain41 = ng41;\n    phase41 = p41; seen41 = s41;\n}\n// Tap 42: zero-gain settled taps skip the processing branch.\nout42 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain42 > 0) || (newgain42 > 0) || (phase42 < 1))) {\n    ot42 = oldtime42; nt42 = newtime42;\n    og42 = oldgain42; ng42 = newgain42;\n    p42 = phase42; s42 = seen42;\n    if (resetbank) { ot42=0; nt42=0; og42=0; ng42=0; p42=1; s42=-1; }\n    if ((p42 >= 1) && (revision != s42) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target42 = clamp(time42 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target42 != nt42) || (gain42 != ng42)) {\n            ot42 = nt42; og42 = ng42;\n            nt42 = target42; ng42 = gain42; p42 = 0;\n        }\n        s42 = revision;\n    }\n    if (p42 < 1) {\n        p42 = min(1, p42 + step);\n        // Gain-only changes need only one read.\n        if (ot42 == nt42) {\n            out42 = peek(memory, writehead - nt42, source42, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p42) * og42 + p42 * ng42) * mg;\n        } else {\n            a42 = 0; b42 = 0;\n            if ((og42 > 0) && (p42 < 1)) { a42 = peek(memory, writehead - ot42, source42, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng42 > 0) { b42 = peek(memory, writehead - nt42, source42, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out42 = ((1-p42) * og42 * a42 + p42 * ng42 * b42) * mg;\n        }\n    } else {\n        if (ng42 > 0) { out42 = peek(memory, writehead - nt42, source42, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng42 * mg; }\n    }\n    oldtime42 = ot42; newtime42 = nt42;\n    oldgain42 = og42; newgain42 = ng42;\n    phase42 = p42; seen42 = s42;\n}\n// Tap 43: zero-gain settled taps skip the processing branch.\nout43 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain43 > 0) || (newgain43 > 0) || (phase43 < 1))) {\n    ot43 = oldtime43; nt43 = newtime43;\n    og43 = oldgain43; ng43 = newgain43;\n    p43 = phase43; s43 = seen43;\n    if (resetbank) { ot43=0; nt43=0; og43=0; ng43=0; p43=1; s43=-1; }\n    if ((p43 >= 1) && (revision != s43) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target43 = clamp(time43 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target43 != nt43) || (gain43 != ng43)) {\n            ot43 = nt43; og43 = ng43;\n            nt43 = target43; ng43 = gain43; p43 = 0;\n        }\n        s43 = revision;\n    }\n    if (p43 < 1) {\n        p43 = min(1, p43 + step);\n        // Gain-only changes need only one read.\n        if (ot43 == nt43) {\n            out43 = peek(memory, writehead - nt43, source43, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p43) * og43 + p43 * ng43) * mg;\n        } else {\n            a43 = 0; b43 = 0;\n            if ((og43 > 0) && (p43 < 1)) { a43 = peek(memory, writehead - ot43, source43, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng43 > 0) { b43 = peek(memory, writehead - nt43, source43, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out43 = ((1-p43) * og43 * a43 + p43 * ng43 * b43) * mg;\n        }\n    } else {\n        if (ng43 > 0) { out43 = peek(memory, writehead - nt43, source43, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng43 * mg; }\n    }\n    oldtime43 = ot43; newtime43 = nt43;\n    oldgain43 = og43; newgain43 = ng43;\n    phase43 = p43; seen43 = s43;\n}\n// Tap 44: zero-gain settled taps skip the processing branch.\nout44 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain44 > 0) || (newgain44 > 0) || (phase44 < 1))) {\n    ot44 = oldtime44; nt44 = newtime44;\n    og44 = oldgain44; ng44 = newgain44;\n    p44 = phase44; s44 = seen44;\n    if (resetbank) { ot44=0; nt44=0; og44=0; ng44=0; p44=1; s44=-1; }\n    if ((p44 >= 1) && (revision != s44) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target44 = clamp(time44 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target44 != nt44) || (gain44 != ng44)) {\n            ot44 = nt44; og44 = ng44;\n            nt44 = target44; ng44 = gain44; p44 = 0;\n        }\n        s44 = revision;\n    }\n    if (p44 < 1) {\n        p44 = min(1, p44 + step);\n        // Gain-only changes need only one read.\n        if (ot44 == nt44) {\n            out44 = peek(memory, writehead - nt44, source44, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p44) * og44 + p44 * ng44) * mg;\n        } else {\n            a44 = 0; b44 = 0;\n            if ((og44 > 0) && (p44 < 1)) { a44 = peek(memory, writehead - ot44, source44, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng44 > 0) { b44 = peek(memory, writehead - nt44, source44, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out44 = ((1-p44) * og44 * a44 + p44 * ng44 * b44) * mg;\n        }\n    } else {\n        if (ng44 > 0) { out44 = peek(memory, writehead - nt44, source44, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng44 * mg; }\n    }\n    oldtime44 = ot44; newtime44 = nt44;\n    oldgain44 = og44; newgain44 = ng44;\n    phase44 = p44; seen44 = s44;\n}\n// Tap 45: zero-gain settled taps skip the processing branch.\nout45 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain45 > 0) || (newgain45 > 0) || (phase45 < 1))) {\n    ot45 = oldtime45; nt45 = newtime45;\n    og45 = oldgain45; ng45 = newgain45;\n    p45 = phase45; s45 = seen45;\n    if (resetbank) { ot45=0; nt45=0; og45=0; ng45=0; p45=1; s45=-1; }\n    if ((p45 >= 1) && (revision != s45) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target45 = clamp(time45 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target45 != nt45) || (gain45 != ng45)) {\n            ot45 = nt45; og45 = ng45;\n            nt45 = target45; ng45 = gain45; p45 = 0;\n        }\n        s45 = revision;\n    }\n    if (p45 < 1) {\n        p45 = min(1, p45 + step);\n        // Gain-only changes need only one read.\n        if (ot45 == nt45) {\n            out45 = peek(memory, writehead - nt45, source45, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p45) * og45 + p45 * ng45) * mg;\n        } else {\n            a45 = 0; b45 = 0;\n            if ((og45 > 0) && (p45 < 1)) { a45 = peek(memory, writehead - ot45, source45, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng45 > 0) { b45 = peek(memory, writehead - nt45, source45, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out45 = ((1-p45) * og45 * a45 + p45 * ng45 * b45) * mg;\n        }\n    } else {\n        if (ng45 > 0) { out45 = peek(memory, writehead - nt45, source45, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng45 * mg; }\n    }\n    oldtime45 = ot45; newtime45 = nt45;\n    oldgain45 = og45; newgain45 = ng45;\n    phase45 = p45; seen45 = s45;\n}\n// Tap 46: zero-gain settled taps skip the processing branch.\nout46 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain46 > 0) || (newgain46 > 0) || (phase46 < 1))) {\n    ot46 = oldtime46; nt46 = newtime46;\n    og46 = oldgain46; ng46 = newgain46;\n    p46 = phase46; s46 = seen46;\n    if (resetbank) { ot46=0; nt46=0; og46=0; ng46=0; p46=1; s46=-1; }\n    if ((p46 >= 1) && (revision != s46) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target46 = clamp(time46 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target46 != nt46) || (gain46 != ng46)) {\n            ot46 = nt46; og46 = ng46;\n            nt46 = target46; ng46 = gain46; p46 = 0;\n        }\n        s46 = revision;\n    }\n    if (p46 < 1) {\n        p46 = min(1, p46 + step);\n        // Gain-only changes need only one read.\n        if (ot46 == nt46) {\n            out46 = peek(memory, writehead - nt46, source46, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p46) * og46 + p46 * ng46) * mg;\n        } else {\n            a46 = 0; b46 = 0;\n            if ((og46 > 0) && (p46 < 1)) { a46 = peek(memory, writehead - ot46, source46, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng46 > 0) { b46 = peek(memory, writehead - nt46, source46, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out46 = ((1-p46) * og46 * a46 + p46 * ng46 * b46) * mg;\n        }\n    } else {\n        if (ng46 > 0) { out46 = peek(memory, writehead - nt46, source46, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng46 * mg; }\n    }\n    oldtime46 = ot46; newtime46 = nt46;\n    oldgain46 = og46; newgain46 = ng46;\n    phase46 = p46; seen46 = s46;\n}\n// Tap 47: zero-gain settled taps skip the processing branch.\nout47 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain47 > 0) || (newgain47 > 0) || (phase47 < 1))) {\n    ot47 = oldtime47; nt47 = newtime47;\n    og47 = oldgain47; ng47 = newgain47;\n    p47 = phase47; s47 = seen47;\n    if (resetbank) { ot47=0; nt47=0; og47=0; ng47=0; p47=1; s47=-1; }\n    if ((p47 >= 1) && (revision != s47) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target47 = clamp(time47 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target47 != nt47) || (gain47 != ng47)) {\n            ot47 = nt47; og47 = ng47;\n            nt47 = target47; ng47 = gain47; p47 = 0;\n        }\n        s47 = revision;\n    }\n    if (p47 < 1) {\n        p47 = min(1, p47 + step);\n        // Gain-only changes need only one read.\n        if (ot47 == nt47) {\n            out47 = peek(memory, writehead - nt47, source47, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p47) * og47 + p47 * ng47) * mg;\n        } else {\n            a47 = 0; b47 = 0;\n            if ((og47 > 0) && (p47 < 1)) { a47 = peek(memory, writehead - ot47, source47, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng47 > 0) { b47 = peek(memory, writehead - nt47, source47, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out47 = ((1-p47) * og47 * a47 + p47 * ng47 * b47) * mg;\n        }\n    } else {\n        if (ng47 > 0) { out47 = peek(memory, writehead - nt47, source47, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng47 * mg; }\n    }\n    oldtime47 = ot47; newtime47 = nt47;\n    oldgain47 = og47; newgain47 = ng47;\n    phase47 = p47; seen47 = s47;\n}\n// Tap 48: zero-gain settled taps skip the processing branch.\nout48 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain48 > 0) || (newgain48 > 0) || (phase48 < 1))) {\n    ot48 = oldtime48; nt48 = newtime48;\n    og48 = oldgain48; ng48 = newgain48;\n    p48 = phase48; s48 = seen48;\n    if (resetbank) { ot48=0; nt48=0; og48=0; ng48=0; p48=1; s48=-1; }\n    if ((p48 >= 1) && (revision != s48) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target48 = clamp(time48 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target48 != nt48) || (gain48 != ng48)) {\n            ot48 = nt48; og48 = ng48;\n            nt48 = target48; ng48 = gain48; p48 = 0;\n        }\n        s48 = revision;\n    }\n    if (p48 < 1) {\n        p48 = min(1, p48 + step);\n        // Gain-only changes need only one read.\n        if (ot48 == nt48) {\n            out48 = peek(memory, writehead - nt48, source48, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p48) * og48 + p48 * ng48) * mg;\n        } else {\n            a48 = 0; b48 = 0;\n            if ((og48 > 0) && (p48 < 1)) { a48 = peek(memory, writehead - ot48, source48, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng48 > 0) { b48 = peek(memory, writehead - nt48, source48, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out48 = ((1-p48) * og48 * a48 + p48 * ng48 * b48) * mg;\n        }\n    } else {\n        if (ng48 > 0) { out48 = peek(memory, writehead - nt48, source48, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng48 * mg; }\n    }\n    oldtime48 = ot48; newtime48 = nt48;\n    oldgain48 = og48; newgain48 = ng48;\n    phase48 = p48; seen48 = s48;\n}\n// Tap 49: zero-gain settled taps skip the processing branch.\nout49 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain49 > 0) || (newgain49 > 0) || (phase49 < 1))) {\n    ot49 = oldtime49; nt49 = newtime49;\n    og49 = oldgain49; ng49 = newgain49;\n    p49 = phase49; s49 = seen49;\n    if (resetbank) { ot49=0; nt49=0; og49=0; ng49=0; p49=1; s49=-1; }\n    if ((p49 >= 1) && (revision != s49) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target49 = clamp(time49 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target49 != nt49) || (gain49 != ng49)) {\n            ot49 = nt49; og49 = ng49;\n            nt49 = target49; ng49 = gain49; p49 = 0;\n        }\n        s49 = revision;\n    }\n    if (p49 < 1) {\n        p49 = min(1, p49 + step);\n        // Gain-only changes need only one read.\n        if (ot49 == nt49) {\n            out49 = peek(memory, writehead - nt49, source49, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p49) * og49 + p49 * ng49) * mg;\n        } else {\n            a49 = 0; b49 = 0;\n            if ((og49 > 0) && (p49 < 1)) { a49 = peek(memory, writehead - ot49, source49, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng49 > 0) { b49 = peek(memory, writehead - nt49, source49, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out49 = ((1-p49) * og49 * a49 + p49 * ng49 * b49) * mg;\n        }\n    } else {\n        if (ng49 > 0) { out49 = peek(memory, writehead - nt49, source49, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng49 * mg; }\n    }\n    oldtime49 = ot49; newtime49 = nt49;\n    oldgain49 = og49; newgain49 = ng49;\n    phase49 = p49; seen49 = s49;\n}\n// Tap 50: zero-gain settled taps skip the processing branch.\nout50 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain50 > 0) || (newgain50 > 0) || (phase50 < 1))) {\n    ot50 = oldtime50; nt50 = newtime50;\n    og50 = oldgain50; ng50 = newgain50;\n    p50 = phase50; s50 = seen50;\n    if (resetbank) { ot50=0; nt50=0; og50=0; ng50=0; p50=1; s50=-1; }\n    if ((p50 >= 1) && (revision != s50) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target50 = clamp(time50 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target50 != nt50) || (gain50 != ng50)) {\n            ot50 = nt50; og50 = ng50;\n            nt50 = target50; ng50 = gain50; p50 = 0;\n        }\n        s50 = revision;\n    }\n    if (p50 < 1) {\n        p50 = min(1, p50 + step);\n        // Gain-only changes need only one read.\n        if (ot50 == nt50) {\n            out50 = peek(memory, writehead - nt50, source50, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p50) * og50 + p50 * ng50) * mg;\n        } else {\n            a50 = 0; b50 = 0;\n            if ((og50 > 0) && (p50 < 1)) { a50 = peek(memory, writehead - ot50, source50, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng50 > 0) { b50 = peek(memory, writehead - nt50, source50, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out50 = ((1-p50) * og50 * a50 + p50 * ng50 * b50) * mg;\n        }\n    } else {\n        if (ng50 > 0) { out50 = peek(memory, writehead - nt50, source50, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng50 * mg; }\n    }\n    oldtime50 = ot50; newtime50 = nt50;\n    oldgain50 = og50; newgain50 = ng50;\n    phase50 = p50; seen50 = s50;\n}\n// Tap 51: zero-gain settled taps skip the processing branch.\nout51 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain51 > 0) || (newgain51 > 0) || (phase51 < 1))) {\n    ot51 = oldtime51; nt51 = newtime51;\n    og51 = oldgain51; ng51 = newgain51;\n    p51 = phase51; s51 = seen51;\n    if (resetbank) { ot51=0; nt51=0; og51=0; ng51=0; p51=1; s51=-1; }\n    if ((p51 >= 1) && (revision != s51) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target51 = clamp(time51 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target51 != nt51) || (gain51 != ng51)) {\n            ot51 = nt51; og51 = ng51;\n            nt51 = target51; ng51 = gain51; p51 = 0;\n        }\n        s51 = revision;\n    }\n    if (p51 < 1) {\n        p51 = min(1, p51 + step);\n        // Gain-only changes need only one read.\n        if (ot51 == nt51) {\n            out51 = peek(memory, writehead - nt51, source51, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p51) * og51 + p51 * ng51) * mg;\n        } else {\n            a51 = 0; b51 = 0;\n            if ((og51 > 0) && (p51 < 1)) { a51 = peek(memory, writehead - ot51, source51, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng51 > 0) { b51 = peek(memory, writehead - nt51, source51, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out51 = ((1-p51) * og51 * a51 + p51 * ng51 * b51) * mg;\n        }\n    } else {\n        if (ng51 > 0) { out51 = peek(memory, writehead - nt51, source51, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng51 * mg; }\n    }\n    oldtime51 = ot51; newtime51 = nt51;\n    oldgain51 = og51; newgain51 = ng51;\n    phase51 = p51; seen51 = s51;\n}\n// Tap 52: zero-gain settled taps skip the processing branch.\nout52 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain52 > 0) || (newgain52 > 0) || (phase52 < 1))) {\n    ot52 = oldtime52; nt52 = newtime52;\n    og52 = oldgain52; ng52 = newgain52;\n    p52 = phase52; s52 = seen52;\n    if (resetbank) { ot52=0; nt52=0; og52=0; ng52=0; p52=1; s52=-1; }\n    if ((p52 >= 1) && (revision != s52) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target52 = clamp(time52 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target52 != nt52) || (gain52 != ng52)) {\n            ot52 = nt52; og52 = ng52;\n            nt52 = target52; ng52 = gain52; p52 = 0;\n        }\n        s52 = revision;\n    }\n    if (p52 < 1) {\n        p52 = min(1, p52 + step);\n        // Gain-only changes need only one read.\n        if (ot52 == nt52) {\n            out52 = peek(memory, writehead - nt52, source52, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p52) * og52 + p52 * ng52) * mg;\n        } else {\n            a52 = 0; b52 = 0;\n            if ((og52 > 0) && (p52 < 1)) { a52 = peek(memory, writehead - ot52, source52, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng52 > 0) { b52 = peek(memory, writehead - nt52, source52, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out52 = ((1-p52) * og52 * a52 + p52 * ng52 * b52) * mg;\n        }\n    } else {\n        if (ng52 > 0) { out52 = peek(memory, writehead - nt52, source52, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng52 * mg; }\n    }\n    oldtime52 = ot52; newtime52 = nt52;\n    oldgain52 = og52; newgain52 = ng52;\n    phase52 = p52; seen52 = s52;\n}\n// Tap 53: zero-gain settled taps skip the processing branch.\nout53 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain53 > 0) || (newgain53 > 0) || (phase53 < 1))) {\n    ot53 = oldtime53; nt53 = newtime53;\n    og53 = oldgain53; ng53 = newgain53;\n    p53 = phase53; s53 = seen53;\n    if (resetbank) { ot53=0; nt53=0; og53=0; ng53=0; p53=1; s53=-1; }\n    if ((p53 >= 1) && (revision != s53) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target53 = clamp(time53 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target53 != nt53) || (gain53 != ng53)) {\n            ot53 = nt53; og53 = ng53;\n            nt53 = target53; ng53 = gain53; p53 = 0;\n        }\n        s53 = revision;\n    }\n    if (p53 < 1) {\n        p53 = min(1, p53 + step);\n        // Gain-only changes need only one read.\n        if (ot53 == nt53) {\n            out53 = peek(memory, writehead - nt53, source53, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p53) * og53 + p53 * ng53) * mg;\n        } else {\n            a53 = 0; b53 = 0;\n            if ((og53 > 0) && (p53 < 1)) { a53 = peek(memory, writehead - ot53, source53, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng53 > 0) { b53 = peek(memory, writehead - nt53, source53, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out53 = ((1-p53) * og53 * a53 + p53 * ng53 * b53) * mg;\n        }\n    } else {\n        if (ng53 > 0) { out53 = peek(memory, writehead - nt53, source53, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng53 * mg; }\n    }\n    oldtime53 = ot53; newtime53 = nt53;\n    oldgain53 = og53; newgain53 = ng53;\n    phase53 = p53; seen53 = s53;\n}\n// Tap 54: zero-gain settled taps skip the processing branch.\nout54 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain54 > 0) || (newgain54 > 0) || (phase54 < 1))) {\n    ot54 = oldtime54; nt54 = newtime54;\n    og54 = oldgain54; ng54 = newgain54;\n    p54 = phase54; s54 = seen54;\n    if (resetbank) { ot54=0; nt54=0; og54=0; ng54=0; p54=1; s54=-1; }\n    if ((p54 >= 1) && (revision != s54) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target54 = clamp(time54 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target54 != nt54) || (gain54 != ng54)) {\n            ot54 = nt54; og54 = ng54;\n            nt54 = target54; ng54 = gain54; p54 = 0;\n        }\n        s54 = revision;\n    }\n    if (p54 < 1) {\n        p54 = min(1, p54 + step);\n        // Gain-only changes need only one read.\n        if (ot54 == nt54) {\n            out54 = peek(memory, writehead - nt54, source54, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p54) * og54 + p54 * ng54) * mg;\n        } else {\n            a54 = 0; b54 = 0;\n            if ((og54 > 0) && (p54 < 1)) { a54 = peek(memory, writehead - ot54, source54, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng54 > 0) { b54 = peek(memory, writehead - nt54, source54, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out54 = ((1-p54) * og54 * a54 + p54 * ng54 * b54) * mg;\n        }\n    } else {\n        if (ng54 > 0) { out54 = peek(memory, writehead - nt54, source54, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng54 * mg; }\n    }\n    oldtime54 = ot54; newtime54 = nt54;\n    oldgain54 = og54; newgain54 = ng54;\n    phase54 = p54; seen54 = s54;\n}\n// Tap 55: zero-gain settled taps skip the processing branch.\nout55 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain55 > 0) || (newgain55 > 0) || (phase55 < 1))) {\n    ot55 = oldtime55; nt55 = newtime55;\n    og55 = oldgain55; ng55 = newgain55;\n    p55 = phase55; s55 = seen55;\n    if (resetbank) { ot55=0; nt55=0; og55=0; ng55=0; p55=1; s55=-1; }\n    if ((p55 >= 1) && (revision != s55) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target55 = clamp(time55 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target55 != nt55) || (gain55 != ng55)) {\n            ot55 = nt55; og55 = ng55;\n            nt55 = target55; ng55 = gain55; p55 = 0;\n        }\n        s55 = revision;\n    }\n    if (p55 < 1) {\n        p55 = min(1, p55 + step);\n        // Gain-only changes need only one read.\n        if (ot55 == nt55) {\n            out55 = peek(memory, writehead - nt55, source55, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p55) * og55 + p55 * ng55) * mg;\n        } else {\n            a55 = 0; b55 = 0;\n            if ((og55 > 0) && (p55 < 1)) { a55 = peek(memory, writehead - ot55, source55, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng55 > 0) { b55 = peek(memory, writehead - nt55, source55, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out55 = ((1-p55) * og55 * a55 + p55 * ng55 * b55) * mg;\n        }\n    } else {\n        if (ng55 > 0) { out55 = peek(memory, writehead - nt55, source55, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng55 * mg; }\n    }\n    oldtime55 = ot55; newtime55 = nt55;\n    oldgain55 = og55; newgain55 = ng55;\n    phase55 = p55; seen55 = s55;\n}\n// Tap 56: zero-gain settled taps skip the processing branch.\nout56 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain56 > 0) || (newgain56 > 0) || (phase56 < 1))) {\n    ot56 = oldtime56; nt56 = newtime56;\n    og56 = oldgain56; ng56 = newgain56;\n    p56 = phase56; s56 = seen56;\n    if (resetbank) { ot56=0; nt56=0; og56=0; ng56=0; p56=1; s56=-1; }\n    if ((p56 >= 1) && (revision != s56) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target56 = clamp(time56 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target56 != nt56) || (gain56 != ng56)) {\n            ot56 = nt56; og56 = ng56;\n            nt56 = target56; ng56 = gain56; p56 = 0;\n        }\n        s56 = revision;\n    }\n    if (p56 < 1) {\n        p56 = min(1, p56 + step);\n        // Gain-only changes need only one read.\n        if (ot56 == nt56) {\n            out56 = peek(memory, writehead - nt56, source56, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p56) * og56 + p56 * ng56) * mg;\n        } else {\n            a56 = 0; b56 = 0;\n            if ((og56 > 0) && (p56 < 1)) { a56 = peek(memory, writehead - ot56, source56, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng56 > 0) { b56 = peek(memory, writehead - nt56, source56, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out56 = ((1-p56) * og56 * a56 + p56 * ng56 * b56) * mg;\n        }\n    } else {\n        if (ng56 > 0) { out56 = peek(memory, writehead - nt56, source56, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng56 * mg; }\n    }\n    oldtime56 = ot56; newtime56 = nt56;\n    oldgain56 = og56; newgain56 = ng56;\n    phase56 = p56; seen56 = s56;\n}\n// Tap 57: zero-gain settled taps skip the processing branch.\nout57 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain57 > 0) || (newgain57 > 0) || (phase57 < 1))) {\n    ot57 = oldtime57; nt57 = newtime57;\n    og57 = oldgain57; ng57 = newgain57;\n    p57 = phase57; s57 = seen57;\n    if (resetbank) { ot57=0; nt57=0; og57=0; ng57=0; p57=1; s57=-1; }\n    if ((p57 >= 1) && (revision != s57) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target57 = clamp(time57 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target57 != nt57) || (gain57 != ng57)) {\n            ot57 = nt57; og57 = ng57;\n            nt57 = target57; ng57 = gain57; p57 = 0;\n        }\n        s57 = revision;\n    }\n    if (p57 < 1) {\n        p57 = min(1, p57 + step);\n        // Gain-only changes need only one read.\n        if (ot57 == nt57) {\n            out57 = peek(memory, writehead - nt57, source57, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p57) * og57 + p57 * ng57) * mg;\n        } else {\n            a57 = 0; b57 = 0;\n            if ((og57 > 0) && (p57 < 1)) { a57 = peek(memory, writehead - ot57, source57, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng57 > 0) { b57 = peek(memory, writehead - nt57, source57, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out57 = ((1-p57) * og57 * a57 + p57 * ng57 * b57) * mg;\n        }\n    } else {\n        if (ng57 > 0) { out57 = peek(memory, writehead - nt57, source57, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng57 * mg; }\n    }\n    oldtime57 = ot57; newtime57 = nt57;\n    oldgain57 = og57; newgain57 = ng57;\n    phase57 = p57; seen57 = s57;\n}\n// Tap 58: zero-gain settled taps skip the processing branch.\nout58 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain58 > 0) || (newgain58 > 0) || (phase58 < 1))) {\n    ot58 = oldtime58; nt58 = newtime58;\n    og58 = oldgain58; ng58 = newgain58;\n    p58 = phase58; s58 = seen58;\n    if (resetbank) { ot58=0; nt58=0; og58=0; ng58=0; p58=1; s58=-1; }\n    if ((p58 >= 1) && (revision != s58) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target58 = clamp(time58 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target58 != nt58) || (gain58 != ng58)) {\n            ot58 = nt58; og58 = ng58;\n            nt58 = target58; ng58 = gain58; p58 = 0;\n        }\n        s58 = revision;\n    }\n    if (p58 < 1) {\n        p58 = min(1, p58 + step);\n        // Gain-only changes need only one read.\n        if (ot58 == nt58) {\n            out58 = peek(memory, writehead - nt58, source58, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p58) * og58 + p58 * ng58) * mg;\n        } else {\n            a58 = 0; b58 = 0;\n            if ((og58 > 0) && (p58 < 1)) { a58 = peek(memory, writehead - ot58, source58, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng58 > 0) { b58 = peek(memory, writehead - nt58, source58, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out58 = ((1-p58) * og58 * a58 + p58 * ng58 * b58) * mg;\n        }\n    } else {\n        if (ng58 > 0) { out58 = peek(memory, writehead - nt58, source58, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng58 * mg; }\n    }\n    oldtime58 = ot58; newtime58 = nt58;\n    oldgain58 = og58; newgain58 = ng58;\n    phase58 = p58; seen58 = s58;\n}\n// Tap 59: zero-gain settled taps skip the processing branch.\nout59 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain59 > 0) || (newgain59 > 0) || (phase59 < 1))) {\n    ot59 = oldtime59; nt59 = newtime59;\n    og59 = oldgain59; ng59 = newgain59;\n    p59 = phase59; s59 = seen59;\n    if (resetbank) { ot59=0; nt59=0; og59=0; ng59=0; p59=1; s59=-1; }\n    if ((p59 >= 1) && (revision != s59) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target59 = clamp(time59 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target59 != nt59) || (gain59 != ng59)) {\n            ot59 = nt59; og59 = ng59;\n            nt59 = target59; ng59 = gain59; p59 = 0;\n        }\n        s59 = revision;\n    }\n    if (p59 < 1) {\n        p59 = min(1, p59 + step);\n        // Gain-only changes need only one read.\n        if (ot59 == nt59) {\n            out59 = peek(memory, writehead - nt59, source59, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p59) * og59 + p59 * ng59) * mg;\n        } else {\n            a59 = 0; b59 = 0;\n            if ((og59 > 0) && (p59 < 1)) { a59 = peek(memory, writehead - ot59, source59, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng59 > 0) { b59 = peek(memory, writehead - nt59, source59, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out59 = ((1-p59) * og59 * a59 + p59 * ng59 * b59) * mg;\n        }\n    } else {\n        if (ng59 > 0) { out59 = peek(memory, writehead - nt59, source59, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng59 * mg; }\n    }\n    oldtime59 = ot59; newtime59 = nt59;\n    oldgain59 = og59; newgain59 = ng59;\n    phase59 = p59; seen59 = s59;\n}\n// Tap 60: zero-gain settled taps skip the processing branch.\nout60 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain60 > 0) || (newgain60 > 0) || (phase60 < 1))) {\n    ot60 = oldtime60; nt60 = newtime60;\n    og60 = oldgain60; ng60 = newgain60;\n    p60 = phase60; s60 = seen60;\n    if (resetbank) { ot60=0; nt60=0; og60=0; ng60=0; p60=1; s60=-1; }\n    if ((p60 >= 1) && (revision != s60) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target60 = clamp(time60 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target60 != nt60) || (gain60 != ng60)) {\n            ot60 = nt60; og60 = ng60;\n            nt60 = target60; ng60 = gain60; p60 = 0;\n        }\n        s60 = revision;\n    }\n    if (p60 < 1) {\n        p60 = min(1, p60 + step);\n        // Gain-only changes need only one read.\n        if (ot60 == nt60) {\n            out60 = peek(memory, writehead - nt60, source60, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p60) * og60 + p60 * ng60) * mg;\n        } else {\n            a60 = 0; b60 = 0;\n            if ((og60 > 0) && (p60 < 1)) { a60 = peek(memory, writehead - ot60, source60, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng60 > 0) { b60 = peek(memory, writehead - nt60, source60, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out60 = ((1-p60) * og60 * a60 + p60 * ng60 * b60) * mg;\n        }\n    } else {\n        if (ng60 > 0) { out60 = peek(memory, writehead - nt60, source60, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng60 * mg; }\n    }\n    oldtime60 = ot60; newtime60 = nt60;\n    oldgain60 = og60; newgain60 = ng60;\n    phase60 = p60; seen60 = s60;\n}\n// Tap 61: zero-gain settled taps skip the processing branch.\nout61 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain61 > 0) || (newgain61 > 0) || (phase61 < 1))) {\n    ot61 = oldtime61; nt61 = newtime61;\n    og61 = oldgain61; ng61 = newgain61;\n    p61 = phase61; s61 = seen61;\n    if (resetbank) { ot61=0; nt61=0; og61=0; ng61=0; p61=1; s61=-1; }\n    if ((p61 >= 1) && (revision != s61) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target61 = clamp(time61 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target61 != nt61) || (gain61 != ng61)) {\n            ot61 = nt61; og61 = ng61;\n            nt61 = target61; ng61 = gain61; p61 = 0;\n        }\n        s61 = revision;\n    }\n    if (p61 < 1) {\n        p61 = min(1, p61 + step);\n        // Gain-only changes need only one read.\n        if (ot61 == nt61) {\n            out61 = peek(memory, writehead - nt61, source61, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p61) * og61 + p61 * ng61) * mg;\n        } else {\n            a61 = 0; b61 = 0;\n            if ((og61 > 0) && (p61 < 1)) { a61 = peek(memory, writehead - ot61, source61, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng61 > 0) { b61 = peek(memory, writehead - nt61, source61, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out61 = ((1-p61) * og61 * a61 + p61 * ng61 * b61) * mg;\n        }\n    } else {\n        if (ng61 > 0) { out61 = peek(memory, writehead - nt61, source61, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng61 * mg; }\n    }\n    oldtime61 = ot61; newtime61 = nt61;\n    oldgain61 = og61; newgain61 = ng61;\n    phase61 = p61; seen61 = s61;\n}\n// Tap 62: zero-gain settled taps skip the processing branch.\nout62 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain62 > 0) || (newgain62 > 0) || (phase62 < 1))) {\n    ot62 = oldtime62; nt62 = newtime62;\n    og62 = oldgain62; ng62 = newgain62;\n    p62 = phase62; s62 = seen62;\n    if (resetbank) { ot62=0; nt62=0; og62=0; ng62=0; p62=1; s62=-1; }\n    if ((p62 >= 1) && (revision != s62) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target62 = clamp(time62 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target62 != nt62) || (gain62 != ng62)) {\n            ot62 = nt62; og62 = ng62;\n            nt62 = target62; ng62 = gain62; p62 = 0;\n        }\n        s62 = revision;\n    }\n    if (p62 < 1) {\n        p62 = min(1, p62 + step);\n        // Gain-only changes need only one read.\n        if (ot62 == nt62) {\n            out62 = peek(memory, writehead - nt62, source62, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p62) * og62 + p62 * ng62) * mg;\n        } else {\n            a62 = 0; b62 = 0;\n            if ((og62 > 0) && (p62 < 1)) { a62 = peek(memory, writehead - ot62, source62, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng62 > 0) { b62 = peek(memory, writehead - nt62, source62, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out62 = ((1-p62) * og62 * a62 + p62 * ng62 * b62) * mg;\n        }\n    } else {\n        if (ng62 > 0) { out62 = peek(memory, writehead - nt62, source62, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng62 * mg; }\n    }\n    oldtime62 = ot62; newtime62 = nt62;\n    oldgain62 = og62; newgain62 = ng62;\n    phase62 = p62; seen62 = s62;\n}\n// Tap 63: zero-gain settled taps skip the processing branch.\nout63 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain63 > 0) || (newgain63 > 0) || (phase63 < 1))) {\n    ot63 = oldtime63; nt63 = newtime63;\n    og63 = oldgain63; ng63 = newgain63;\n    p63 = phase63; s63 = seen63;\n    if (resetbank) { ot63=0; nt63=0; og63=0; ng63=0; p63=1; s63=-1; }\n    if ((p63 >= 1) && (revision != s63) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target63 = clamp(time63 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target63 != nt63) || (gain63 != ng63)) {\n            ot63 = nt63; og63 = ng63;\n            nt63 = target63; ng63 = gain63; p63 = 0;\n        }\n        s63 = revision;\n    }\n    if (p63 < 1) {\n        p63 = min(1, p63 + step);\n        // Gain-only changes need only one read.\n        if (ot63 == nt63) {\n            out63 = peek(memory, writehead - nt63, source63, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p63) * og63 + p63 * ng63) * mg;\n        } else {\n            a63 = 0; b63 = 0;\n            if ((og63 > 0) && (p63 < 1)) { a63 = peek(memory, writehead - ot63, source63, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng63 > 0) { b63 = peek(memory, writehead - nt63, source63, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out63 = ((1-p63) * og63 * a63 + p63 * ng63 * b63) * mg;\n        }\n    } else {\n        if (ng63 > 0) { out63 = peek(memory, writehead - nt63, source63, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng63 * mg; }\n    }\n    oldtime63 = ot63; newtime63 = nt63;\n    oldgain63 = og63; newgain63 = ng63;\n    phase63 = p63; seen63 = s63;\n}\n// Tap 64: zero-gain settled taps skip the processing branch.\nout64 = 0;\nif ((running > 0) && (bankready > 0) && (frames > 2) && ((gain64 > 0) || (newgain64 > 0) || (phase64 < 1))) {\n    ot64 = oldtime64; nt64 = newtime64;\n    og64 = oldgain64; ng64 = newgain64;\n    p64 = phase64; s64 = seen64;\n    if (resetbank) { ot64=0; nt64=0; og64=0; ng64=0; p64=1; s64=-1; }\n    if ((p64 >= 1) && (revision != s64) && ((driftonly <= 0) || (driftbusy <= 0))) {\n        target64 = clamp(time64 * samplerate * 0.001, 0, min(frames-2, samplerate*10));\n        if ((target64 != nt64) || (gain64 != ng64)) {\n            ot64 = nt64; og64 = ng64;\n            nt64 = target64; ng64 = gain64; p64 = 0;\n        }\n        s64 = revision;\n    }\n    if (p64 < 1) {\n        p64 = min(1, p64 + step);\n        // Gain-only changes need only one read.\n        if (ot64 == nt64) {\n            out64 = peek(memory, writehead - nt64, source64, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ((1-p64) * og64 + p64 * ng64) * mg;\n        } else {\n            a64 = 0; b64 = 0;\n            if ((og64 > 0) && (p64 < 1)) { a64 = peek(memory, writehead - ot64, source64, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            if (ng64 > 0) { b64 = peek(memory, writehead - nt64, source64, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\"); }\n            out64 = ((1-p64) * og64 * a64 + p64 * ng64 * b64) * mg;\n        }\n    } else {\n        if (ng64 > 0) { out64 = peek(memory, writehead - nt64, source64, interp=\"linear\", boundmode=\"wrap\", channelmode=\"ignore\") * ng64 * mg; }\n    }\n    oldtime64 = ot64; newtime64 = nt64;\n    oldgain64 = og64; newgain64 = ng64;\n    phase64 = p64; seen64 = s64;\n}\nif ((running > 0) && (bankready > 0) && (frames > 2)) { writepos = wrap(writehead + 1, 0, frames); }\n",
+          "numinlets": 64,
+          "numoutlets": 64
+        }
+      },
+      {
+        "box": {
+          "id": "out1",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            710,
+            90,
+            22
+          ],
+          "text": "out 1"
+        }
+      },
+      {
+        "box": {
+          "id": "out2",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            710,
+            90,
+            22
+          ],
+          "text": "out 2"
+        }
+      },
+      {
+        "box": {
+          "id": "out3",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            710,
+            90,
+            22
+          ],
+          "text": "out 3"
+        }
+      },
+      {
+        "box": {
+          "id": "out4",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            710,
+            90,
+            22
+          ],
+          "text": "out 4"
+        }
+      },
+      {
+        "box": {
+          "id": "out5",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            710,
+            90,
+            22
+          ],
+          "text": "out 5"
+        }
+      },
+      {
+        "box": {
+          "id": "out6",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            710,
+            90,
+            22
+          ],
+          "text": "out 6"
+        }
+      },
+      {
+        "box": {
+          "id": "out7",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            710,
+            90,
+            22
+          ],
+          "text": "out 7"
+        }
+      },
+      {
+        "box": {
+          "id": "out8",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            710,
+            90,
+            22
+          ],
+          "text": "out 8"
+        }
+      },
+      {
+        "box": {
+          "id": "out9",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            750,
+            90,
+            22
+          ],
+          "text": "out 9"
+        }
+      },
+      {
+        "box": {
+          "id": "out10",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            750,
+            90,
+            22
+          ],
+          "text": "out 10"
+        }
+      },
+      {
+        "box": {
+          "id": "out11",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            750,
+            90,
+            22
+          ],
+          "text": "out 11"
+        }
+      },
+      {
+        "box": {
+          "id": "out12",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            750,
+            90,
+            22
+          ],
+          "text": "out 12"
+        }
+      },
+      {
+        "box": {
+          "id": "out13",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            750,
+            90,
+            22
+          ],
+          "text": "out 13"
+        }
+      },
+      {
+        "box": {
+          "id": "out14",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            750,
+            90,
+            22
+          ],
+          "text": "out 14"
+        }
+      },
+      {
+        "box": {
+          "id": "out15",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            750,
+            90,
+            22
+          ],
+          "text": "out 15"
+        }
+      },
+      {
+        "box": {
+          "id": "out16",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            750,
+            90,
+            22
+          ],
+          "text": "out 16"
+        }
+      },
+      {
+        "box": {
+          "id": "out17",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            790,
+            90,
+            22
+          ],
+          "text": "out 17"
+        }
+      },
+      {
+        "box": {
+          "id": "out18",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            790,
+            90,
+            22
+          ],
+          "text": "out 18"
+        }
+      },
+      {
+        "box": {
+          "id": "out19",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            790,
+            90,
+            22
+          ],
+          "text": "out 19"
+        }
+      },
+      {
+        "box": {
+          "id": "out20",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            790,
+            90,
+            22
+          ],
+          "text": "out 20"
+        }
+      },
+      {
+        "box": {
+          "id": "out21",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            790,
+            90,
+            22
+          ],
+          "text": "out 21"
+        }
+      },
+      {
+        "box": {
+          "id": "out22",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            790,
+            90,
+            22
+          ],
+          "text": "out 22"
+        }
+      },
+      {
+        "box": {
+          "id": "out23",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            790,
+            90,
+            22
+          ],
+          "text": "out 23"
+        }
+      },
+      {
+        "box": {
+          "id": "out24",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            790,
+            90,
+            22
+          ],
+          "text": "out 24"
+        }
+      },
+      {
+        "box": {
+          "id": "out25",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            830,
+            90,
+            22
+          ],
+          "text": "out 25"
+        }
+      },
+      {
+        "box": {
+          "id": "out26",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            830,
+            90,
+            22
+          ],
+          "text": "out 26"
+        }
+      },
+      {
+        "box": {
+          "id": "out27",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            830,
+            90,
+            22
+          ],
+          "text": "out 27"
+        }
+      },
+      {
+        "box": {
+          "id": "out28",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            830,
+            90,
+            22
+          ],
+          "text": "out 28"
+        }
+      },
+      {
+        "box": {
+          "id": "out29",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            830,
+            90,
+            22
+          ],
+          "text": "out 29"
+        }
+      },
+      {
+        "box": {
+          "id": "out30",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            830,
+            90,
+            22
+          ],
+          "text": "out 30"
+        }
+      },
+      {
+        "box": {
+          "id": "out31",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            830,
+            90,
+            22
+          ],
+          "text": "out 31"
+        }
+      },
+      {
+        "box": {
+          "id": "out32",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            830,
+            90,
+            22
+          ],
+          "text": "out 32"
+        }
+      },
+      {
+        "box": {
+          "id": "out33",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            870,
+            90,
+            22
+          ],
+          "text": "out 33"
+        }
+      },
+      {
+        "box": {
+          "id": "out34",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            870,
+            90,
+            22
+          ],
+          "text": "out 34"
+        }
+      },
+      {
+        "box": {
+          "id": "out35",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            870,
+            90,
+            22
+          ],
+          "text": "out 35"
+        }
+      },
+      {
+        "box": {
+          "id": "out36",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            870,
+            90,
+            22
+          ],
+          "text": "out 36"
+        }
+      },
+      {
+        "box": {
+          "id": "out37",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            870,
+            90,
+            22
+          ],
+          "text": "out 37"
+        }
+      },
+      {
+        "box": {
+          "id": "out38",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            870,
+            90,
+            22
+          ],
+          "text": "out 38"
+        }
+      },
+      {
+        "box": {
+          "id": "out39",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            870,
+            90,
+            22
+          ],
+          "text": "out 39"
+        }
+      },
+      {
+        "box": {
+          "id": "out40",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            870,
+            90,
+            22
+          ],
+          "text": "out 40"
+        }
+      },
+      {
+        "box": {
+          "id": "out41",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            910,
+            90,
+            22
+          ],
+          "text": "out 41"
+        }
+      },
+      {
+        "box": {
+          "id": "out42",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            910,
+            90,
+            22
+          ],
+          "text": "out 42"
+        }
+      },
+      {
+        "box": {
+          "id": "out43",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            910,
+            90,
+            22
+          ],
+          "text": "out 43"
+        }
+      },
+      {
+        "box": {
+          "id": "out44",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            910,
+            90,
+            22
+          ],
+          "text": "out 44"
+        }
+      },
+      {
+        "box": {
+          "id": "out45",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            910,
+            90,
+            22
+          ],
+          "text": "out 45"
+        }
+      },
+      {
+        "box": {
+          "id": "out46",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            910,
+            90,
+            22
+          ],
+          "text": "out 46"
+        }
+      },
+      {
+        "box": {
+          "id": "out47",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            910,
+            90,
+            22
+          ],
+          "text": "out 47"
+        }
+      },
+      {
+        "box": {
+          "id": "out48",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            910,
+            90,
+            22
+          ],
+          "text": "out 48"
+        }
+      },
+      {
+        "box": {
+          "id": "out49",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            950,
+            90,
+            22
+          ],
+          "text": "out 49"
+        }
+      },
+      {
+        "box": {
+          "id": "out50",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            950,
+            90,
+            22
+          ],
+          "text": "out 50"
+        }
+      },
+      {
+        "box": {
+          "id": "out51",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            950,
+            90,
+            22
+          ],
+          "text": "out 51"
+        }
+      },
+      {
+        "box": {
+          "id": "out52",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            950,
+            90,
+            22
+          ],
+          "text": "out 52"
+        }
+      },
+      {
+        "box": {
+          "id": "out53",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            950,
+            90,
+            22
+          ],
+          "text": "out 53"
+        }
+      },
+      {
+        "box": {
+          "id": "out54",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            950,
+            90,
+            22
+          ],
+          "text": "out 54"
+        }
+      },
+      {
+        "box": {
+          "id": "out55",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            950,
+            90,
+            22
+          ],
+          "text": "out 55"
+        }
+      },
+      {
+        "box": {
+          "id": "out56",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            950,
+            90,
+            22
+          ],
+          "text": "out 56"
+        }
+      },
+      {
+        "box": {
+          "id": "out57",
+          "maxclass": "newobj",
+          "patching_rect": [
+            30,
+            990,
+            90,
+            22
+          ],
+          "text": "out 57"
+        }
+      },
+      {
+        "box": {
+          "id": "out58",
+          "maxclass": "newobj",
+          "patching_rect": [
+            150,
+            990,
+            90,
+            22
+          ],
+          "text": "out 58"
+        }
+      },
+      {
+        "box": {
+          "id": "out59",
+          "maxclass": "newobj",
+          "patching_rect": [
+            270,
+            990,
+            90,
+            22
+          ],
+          "text": "out 59"
+        }
+      },
+      {
+        "box": {
+          "id": "out60",
+          "maxclass": "newobj",
+          "patching_rect": [
+            390,
+            990,
+            90,
+            22
+          ],
+          "text": "out 60"
+        }
+      },
+      {
+        "box": {
+          "id": "out61",
+          "maxclass": "newobj",
+          "patching_rect": [
+            510,
+            990,
+            90,
+            22
+          ],
+          "text": "out 61"
+        }
+      },
+      {
+        "box": {
+          "id": "out62",
+          "maxclass": "newobj",
+          "patching_rect": [
+            630,
+            990,
+            90,
+            22
+          ],
+          "text": "out 62"
+        }
+      },
+      {
+        "box": {
+          "id": "out63",
+          "maxclass": "newobj",
+          "patching_rect": [
+            750,
+            990,
+            90,
+            22
+          ],
+          "text": "out 63"
+        }
+      },
+      {
+        "box": {
+          "id": "out64",
+          "maxclass": "newobj",
+          "patching_rect": [
+            870,
+            990,
+            90,
+            22
+          ],
+          "text": "out 64"
+        }
+      },
+      {
+        "box": {
+          "id": "input2",
+          "maxclass": "newobj",
+          "text": "in 2",
+          "patching_rect": [
+            90,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input3",
+          "maxclass": "newobj",
+          "text": "in 3",
+          "patching_rect": [
+            150,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input4",
+          "maxclass": "newobj",
+          "text": "in 4",
+          "patching_rect": [
+            210,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input5",
+          "maxclass": "newobj",
+          "text": "in 5",
+          "patching_rect": [
+            270,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input6",
+          "maxclass": "newobj",
+          "text": "in 6",
+          "patching_rect": [
+            330,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input7",
+          "maxclass": "newobj",
+          "text": "in 7",
+          "patching_rect": [
+            390,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input8",
+          "maxclass": "newobj",
+          "text": "in 8",
+          "patching_rect": [
+            450,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input9",
+          "maxclass": "newobj",
+          "text": "in 9",
+          "patching_rect": [
+            510,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input10",
+          "maxclass": "newobj",
+          "text": "in 10",
+          "patching_rect": [
+            570,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input11",
+          "maxclass": "newobj",
+          "text": "in 11",
+          "patching_rect": [
+            630,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input12",
+          "maxclass": "newobj",
+          "text": "in 12",
+          "patching_rect": [
+            690,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input13",
+          "maxclass": "newobj",
+          "text": "in 13",
+          "patching_rect": [
+            750,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input14",
+          "maxclass": "newobj",
+          "text": "in 14",
+          "patching_rect": [
+            810,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input15",
+          "maxclass": "newobj",
+          "text": "in 15",
+          "patching_rect": [
+            870,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input16",
+          "maxclass": "newobj",
+          "text": "in 16",
+          "patching_rect": [
+            930,
+            30,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input17",
+          "maxclass": "newobj",
+          "text": "in 17",
+          "patching_rect": [
+            30,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input18",
+          "maxclass": "newobj",
+          "text": "in 18",
+          "patching_rect": [
+            90,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input19",
+          "maxclass": "newobj",
+          "text": "in 19",
+          "patching_rect": [
+            150,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input20",
+          "maxclass": "newobj",
+          "text": "in 20",
+          "patching_rect": [
+            210,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input21",
+          "maxclass": "newobj",
+          "text": "in 21",
+          "patching_rect": [
+            270,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input22",
+          "maxclass": "newobj",
+          "text": "in 22",
+          "patching_rect": [
+            330,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input23",
+          "maxclass": "newobj",
+          "text": "in 23",
+          "patching_rect": [
+            390,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input24",
+          "maxclass": "newobj",
+          "text": "in 24",
+          "patching_rect": [
+            450,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input25",
+          "maxclass": "newobj",
+          "text": "in 25",
+          "patching_rect": [
+            510,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input26",
+          "maxclass": "newobj",
+          "text": "in 26",
+          "patching_rect": [
+            570,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input27",
+          "maxclass": "newobj",
+          "text": "in 27",
+          "patching_rect": [
+            630,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input28",
+          "maxclass": "newobj",
+          "text": "in 28",
+          "patching_rect": [
+            690,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input29",
+          "maxclass": "newobj",
+          "text": "in 29",
+          "patching_rect": [
+            750,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input30",
+          "maxclass": "newobj",
+          "text": "in 30",
+          "patching_rect": [
+            810,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input31",
+          "maxclass": "newobj",
+          "text": "in 31",
+          "patching_rect": [
+            870,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input32",
+          "maxclass": "newobj",
+          "text": "in 32",
+          "patching_rect": [
+            930,
+            55,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input33",
+          "maxclass": "newobj",
+          "text": "in 33",
+          "patching_rect": [
+            30,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input34",
+          "maxclass": "newobj",
+          "text": "in 34",
+          "patching_rect": [
+            90,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input35",
+          "maxclass": "newobj",
+          "text": "in 35",
+          "patching_rect": [
+            150,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input36",
+          "maxclass": "newobj",
+          "text": "in 36",
+          "patching_rect": [
+            210,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input37",
+          "maxclass": "newobj",
+          "text": "in 37",
+          "patching_rect": [
+            270,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input38",
+          "maxclass": "newobj",
+          "text": "in 38",
+          "patching_rect": [
+            330,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input39",
+          "maxclass": "newobj",
+          "text": "in 39",
+          "patching_rect": [
+            390,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input40",
+          "maxclass": "newobj",
+          "text": "in 40",
+          "patching_rect": [
+            450,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input41",
+          "maxclass": "newobj",
+          "text": "in 41",
+          "patching_rect": [
+            510,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input42",
+          "maxclass": "newobj",
+          "text": "in 42",
+          "patching_rect": [
+            570,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input43",
+          "maxclass": "newobj",
+          "text": "in 43",
+          "patching_rect": [
+            630,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input44",
+          "maxclass": "newobj",
+          "text": "in 44",
+          "patching_rect": [
+            690,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input45",
+          "maxclass": "newobj",
+          "text": "in 45",
+          "patching_rect": [
+            750,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input46",
+          "maxclass": "newobj",
+          "text": "in 46",
+          "patching_rect": [
+            810,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input47",
+          "maxclass": "newobj",
+          "text": "in 47",
+          "patching_rect": [
+            870,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input48",
+          "maxclass": "newobj",
+          "text": "in 48",
+          "patching_rect": [
+            930,
+            80,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input49",
+          "maxclass": "newobj",
+          "text": "in 49",
+          "patching_rect": [
+            30,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input50",
+          "maxclass": "newobj",
+          "text": "in 50",
+          "patching_rect": [
+            90,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input51",
+          "maxclass": "newobj",
+          "text": "in 51",
+          "patching_rect": [
+            150,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input52",
+          "maxclass": "newobj",
+          "text": "in 52",
+          "patching_rect": [
+            210,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input53",
+          "maxclass": "newobj",
+          "text": "in 53",
+          "patching_rect": [
+            270,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input54",
+          "maxclass": "newobj",
+          "text": "in 54",
+          "patching_rect": [
+            330,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input55",
+          "maxclass": "newobj",
+          "text": "in 55",
+          "patching_rect": [
+            390,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input56",
+          "maxclass": "newobj",
+          "text": "in 56",
+          "patching_rect": [
+            450,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input57",
+          "maxclass": "newobj",
+          "text": "in 57",
+          "patching_rect": [
+            510,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input58",
+          "maxclass": "newobj",
+          "text": "in 58",
+          "patching_rect": [
+            570,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input59",
+          "maxclass": "newobj",
+          "text": "in 59",
+          "patching_rect": [
+            630,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input60",
+          "maxclass": "newobj",
+          "text": "in 60",
+          "patching_rect": [
+            690,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input61",
+          "maxclass": "newobj",
+          "text": "in 61",
+          "patching_rect": [
+            750,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input62",
+          "maxclass": "newobj",
+          "text": "in 62",
+          "patching_rect": [
+            810,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input63",
+          "maxclass": "newobj",
+          "text": "in 63",
+          "patching_rect": [
+            870,
+            105,
+            50,
+            22
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "input64",
+          "maxclass": "newobj",
+          "text": "in 64",
+          "patching_rect": [
+            930,
+            105,
+            50,
+            22
+          ]
+        }
+      }
+    ],
+    "lines": [
+      {
+        "patchline": {
+          "source": [
+            "input",
+            0
+          ],
+          "destination": [
+            "code",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            0
+          ],
+          "destination": [
+            "out1",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            1
+          ],
+          "destination": [
+            "out2",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            2
+          ],
+          "destination": [
+            "out3",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            3
+          ],
+          "destination": [
+            "out4",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            4
+          ],
+          "destination": [
+            "out5",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            5
+          ],
+          "destination": [
+            "out6",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            6
+          ],
+          "destination": [
+            "out7",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            7
+          ],
+          "destination": [
+            "out8",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            8
+          ],
+          "destination": [
+            "out9",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            9
+          ],
+          "destination": [
+            "out10",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            10
+          ],
+          "destination": [
+            "out11",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            11
+          ],
+          "destination": [
+            "out12",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            12
+          ],
+          "destination": [
+            "out13",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            13
+          ],
+          "destination": [
+            "out14",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            14
+          ],
+          "destination": [
+            "out15",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            15
+          ],
+          "destination": [
+            "out16",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            16
+          ],
+          "destination": [
+            "out17",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            17
+          ],
+          "destination": [
+            "out18",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            18
+          ],
+          "destination": [
+            "out19",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            19
+          ],
+          "destination": [
+            "out20",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            20
+          ],
+          "destination": [
+            "out21",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            21
+          ],
+          "destination": [
+            "out22",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            22
+          ],
+          "destination": [
+            "out23",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            23
+          ],
+          "destination": [
+            "out24",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            24
+          ],
+          "destination": [
+            "out25",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            25
+          ],
+          "destination": [
+            "out26",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            26
+          ],
+          "destination": [
+            "out27",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            27
+          ],
+          "destination": [
+            "out28",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            28
+          ],
+          "destination": [
+            "out29",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            29
+          ],
+          "destination": [
+            "out30",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            30
+          ],
+          "destination": [
+            "out31",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            31
+          ],
+          "destination": [
+            "out32",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            32
+          ],
+          "destination": [
+            "out33",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            33
+          ],
+          "destination": [
+            "out34",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            34
+          ],
+          "destination": [
+            "out35",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            35
+          ],
+          "destination": [
+            "out36",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            36
+          ],
+          "destination": [
+            "out37",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            37
+          ],
+          "destination": [
+            "out38",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            38
+          ],
+          "destination": [
+            "out39",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            39
+          ],
+          "destination": [
+            "out40",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            40
+          ],
+          "destination": [
+            "out41",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            41
+          ],
+          "destination": [
+            "out42",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            42
+          ],
+          "destination": [
+            "out43",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            43
+          ],
+          "destination": [
+            "out44",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            44
+          ],
+          "destination": [
+            "out45",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            45
+          ],
+          "destination": [
+            "out46",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            46
+          ],
+          "destination": [
+            "out47",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            47
+          ],
+          "destination": [
+            "out48",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            48
+          ],
+          "destination": [
+            "out49",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            49
+          ],
+          "destination": [
+            "out50",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            50
+          ],
+          "destination": [
+            "out51",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            51
+          ],
+          "destination": [
+            "out52",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            52
+          ],
+          "destination": [
+            "out53",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            53
+          ],
+          "destination": [
+            "out54",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            54
+          ],
+          "destination": [
+            "out55",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            55
+          ],
+          "destination": [
+            "out56",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            56
+          ],
+          "destination": [
+            "out57",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            57
+          ],
+          "destination": [
+            "out58",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            58
+          ],
+          "destination": [
+            "out59",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            59
+          ],
+          "destination": [
+            "out60",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            60
+          ],
+          "destination": [
+            "out61",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            61
+          ],
+          "destination": [
+            "out62",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            62
+          ],
+          "destination": [
+            "out63",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "code",
+            63
+          ],
+          "destination": [
+            "out64",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input2",
+            0
+          ],
+          "destination": [
+            "code",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input3",
+            0
+          ],
+          "destination": [
+            "code",
+            2
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input4",
+            0
+          ],
+          "destination": [
+            "code",
+            3
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input5",
+            0
+          ],
+          "destination": [
+            "code",
+            4
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input6",
+            0
+          ],
+          "destination": [
+            "code",
+            5
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input7",
+            0
+          ],
+          "destination": [
+            "code",
+            6
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input8",
+            0
+          ],
+          "destination": [
+            "code",
+            7
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input9",
+            0
+          ],
+          "destination": [
+            "code",
+            8
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input10",
+            0
+          ],
+          "destination": [
+            "code",
+            9
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input11",
+            0
+          ],
+          "destination": [
+            "code",
+            10
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input12",
+            0
+          ],
+          "destination": [
+            "code",
+            11
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input13",
+            0
+          ],
+          "destination": [
+            "code",
+            12
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input14",
+            0
+          ],
+          "destination": [
+            "code",
+            13
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input15",
+            0
+          ],
+          "destination": [
+            "code",
+            14
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input16",
+            0
+          ],
+          "destination": [
+            "code",
+            15
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input17",
+            0
+          ],
+          "destination": [
+            "code",
+            16
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input18",
+            0
+          ],
+          "destination": [
+            "code",
+            17
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input19",
+            0
+          ],
+          "destination": [
+            "code",
+            18
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input20",
+            0
+          ],
+          "destination": [
+            "code",
+            19
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input21",
+            0
+          ],
+          "destination": [
+            "code",
+            20
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input22",
+            0
+          ],
+          "destination": [
+            "code",
+            21
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input23",
+            0
+          ],
+          "destination": [
+            "code",
+            22
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input24",
+            0
+          ],
+          "destination": [
+            "code",
+            23
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input25",
+            0
+          ],
+          "destination": [
+            "code",
+            24
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input26",
+            0
+          ],
+          "destination": [
+            "code",
+            25
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input27",
+            0
+          ],
+          "destination": [
+            "code",
+            26
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input28",
+            0
+          ],
+          "destination": [
+            "code",
+            27
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input29",
+            0
+          ],
+          "destination": [
+            "code",
+            28
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input30",
+            0
+          ],
+          "destination": [
+            "code",
+            29
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input31",
+            0
+          ],
+          "destination": [
+            "code",
+            30
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input32",
+            0
+          ],
+          "destination": [
+            "code",
+            31
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input33",
+            0
+          ],
+          "destination": [
+            "code",
+            32
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input34",
+            0
+          ],
+          "destination": [
+            "code",
+            33
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input35",
+            0
+          ],
+          "destination": [
+            "code",
+            34
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input36",
+            0
+          ],
+          "destination": [
+            "code",
+            35
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input37",
+            0
+          ],
+          "destination": [
+            "code",
+            36
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input38",
+            0
+          ],
+          "destination": [
+            "code",
+            37
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input39",
+            0
+          ],
+          "destination": [
+            "code",
+            38
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input40",
+            0
+          ],
+          "destination": [
+            "code",
+            39
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input41",
+            0
+          ],
+          "destination": [
+            "code",
+            40
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input42",
+            0
+          ],
+          "destination": [
+            "code",
+            41
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input43",
+            0
+          ],
+          "destination": [
+            "code",
+            42
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input44",
+            0
+          ],
+          "destination": [
+            "code",
+            43
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input45",
+            0
+          ],
+          "destination": [
+            "code",
+            44
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input46",
+            0
+          ],
+          "destination": [
+            "code",
+            45
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input47",
+            0
+          ],
+          "destination": [
+            "code",
+            46
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input48",
+            0
+          ],
+          "destination": [
+            "code",
+            47
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input49",
+            0
+          ],
+          "destination": [
+            "code",
+            48
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input50",
+            0
+          ],
+          "destination": [
+            "code",
+            49
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input51",
+            0
+          ],
+          "destination": [
+            "code",
+            50
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input52",
+            0
+          ],
+          "destination": [
+            "code",
+            51
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input53",
+            0
+          ],
+          "destination": [
+            "code",
+            52
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input54",
+            0
+          ],
+          "destination": [
+            "code",
+            53
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input55",
+            0
+          ],
+          "destination": [
+            "code",
+            54
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input56",
+            0
+          ],
+          "destination": [
+            "code",
+            55
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input57",
+            0
+          ],
+          "destination": [
+            "code",
+            56
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input58",
+            0
+          ],
+          "destination": [
+            "code",
+            57
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input59",
+            0
+          ],
+          "destination": [
+            "code",
+            58
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input60",
+            0
+          ],
+          "destination": [
+            "code",
+            59
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input61",
+            0
+          ],
+          "destination": [
+            "code",
+            60
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input62",
+            0
+          ],
+          "destination": [
+            "code",
+            61
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input63",
+            0
+          ],
+          "destination": [
+            "code",
+            62
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "input64",
+            0
+          ],
+          "destination": [
+            "code",
+            63
+          ]
+        }
+      }
+    ]
+  }
+}
