@@ -9,9 +9,115 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 134.0, 159.0, 1386.0, 852.0 ],
+        "rect": [ 42.0, 100.0, 1386.0, 852.0 ],
         "default_fontsize": 13.0,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-32",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 547.0, 133.0, 471.0, 36.0 ],
+                    "presentation_linecount": 3,
+                    "text": "reset source presence fade in multiples of the radius-1 circle\n2 = no source (reverb continues) by 2X distance, 4 = no source by 4X distance"
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-31",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 461.0, 146.0, 84.0, 23.0 ],
+                    "presentation_linecount": 2,
+                    "text": "sourcepres 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-30",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 518.0, 106.0, 395.0, 21.0 ],
+                    "text": "reset distance in multiples of the radius-1 circle, launch on \"go\""
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-29",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 445.0, 106.0, 68.0, 23.0 ],
+                    "text": "distance 4"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-26",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 485.0, 64.0, 279.0, 36.0 ],
+                    "text": "global \"cycle\" time in seconds from center to \nedge in seconds for all sources, launch on \"go\""
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-21",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 427.0, 77.0, 56.0, 23.0 ],
+                    "text": "cycle 10"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-16",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 486.0, 38.0, 281.0, 21.0 ],
+                    "text": "number of sources <int (1-150)> launch on \"go\""
+                }
+            },
+            {
+                "box": {
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-13",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 411.0, 37.0, 65.0, 23.0 ],
+                    "text": "sources 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 160.0, 140.5, 195.0, 21.0 ],
+                    "text": "bang = restart with active values"
+                }
+            },
             {
                 "box": {
                     "id": "obj-18",
@@ -77,8 +183,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 137.0, 116.0, 292.0, 21.0 ],
-                    "text": "go  or bang = new weighted random launch order"
+                    "patching_rect": [ 137.0, 116.0, 241.0, 21.0 ],
+                    "text": "go = new weighted random launch order"
                 }
             },
             {
@@ -101,7 +207,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1051.0, 416.5, 319.0, 94.0 ],
-                    "presentation_linecount": 6,
                     "text": "init = reinstall preset + HOLD\n\ngo / bang = new weighted random launch order\nLaunch spacing = cycle seconds / source count.\nEach source launches once, then cycles continuously.\nWide angular jumps favored; nearby jumps possible."
                 }
             },
@@ -938,7 +1043,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 37.0, 20.0, 920.0, 31.0 ],
+                    "patching_rect": [ 37.0, 5.0, 572.0, 31.0 ],
                     "text": "ec_SPAT5 RECTILINEAR TRAJECTORY — VERSION 2"
                 }
             },
@@ -1001,12 +1106,12 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 37.0, 170.0, 244.0, 23.0 ],
+                    "patching_rect": [ 37.0, 170.0, 255.0, 23.0 ],
                     "saved_object_attributes": {
                         "filename": "spat5_rectilinear_trajectory.js",
                         "parameter_enable": 0
                     },
-                    "text": "js spat5_rectilinear_trajectory.js 32 20 10"
+                    "text": "js spat5_rectilinear_trajectory.js 32 20 10 2"
                 }
             },
             {
@@ -1026,12 +1131,12 @@
                     "fontname": "Arial",
                     "fontsize": 13.0,
                     "id": "args",
-                    "linecount": 6,
+                    "linecount": 9,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 484.0, 58.0, 473.0, 94.0 ],
-                    "text": "ARGUMENT INDEX (after the filename)\n1. Sources: integer 1–150; default 1.\n2. Cycle: full outer → center → outer trip in seconds; positive number; default 10.\n3. Distance: outer radius in multiples of the radius-1 circle; \n2X = distance 2.0; 10X = distance 10.0.\nOmitted arguments use defaults."
+                    "patching_rect": [ 1007.0, 64.0, 363.0, 137.0 ],
+                    "text": "ARGUMENT INDEX (after the filename)\n1. Sources: integer 1–150; default 1.\n2. Cycle: full outer → center → outer trip in seconds; positive number; default 10.\n3. Distance: outer radius in multiples of the radius-1 circle; \n2X = distance 2.0; 10X = distance 10.0.\nOmitted arguments use defaults.\n4. sourcepres = rate of source drop off into distance.\n2 = no source by 2X distance, 4 = no source by 4X distance"
                 }
             },
             {
@@ -1039,12 +1144,11 @@
                     "fontname": "Arial",
                     "fontsize": 13.0,
                     "id": "states",
-                    "linecount": 6,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 972.0, 58.0, 319.0, 94.0 ],
-                    "text": "init = reinstall preset + HOLD\nhold = stop and return all sources to outer distance\ngo / bang = new weighted random launch order\nLaunch spacing = cycle seconds / source count.\nEach source launches once, then cycles continuously.\nWide angular jumps favored; nearby jumps possible."
+                    "patching_rect": [ 1007.0, 31.0, 319.0, 21.0 ],
+                    "text": "Each source launches once, then cycles continuously."
                 }
             },
             {
@@ -1125,8 +1229,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 872.0, 172.0, 227.0, 79.0 ],
-                    "text": "DISTANCE / DIRECT AMPLITUDE\n0.00–0.25 : 100%\n1.00 : 50%\n1.50 : 5%\n2.00 : muted; reverb feed continues"
+                    "patching_rect": [ 1087.0, 214.0, 227.0, 79.0 ],
+                    "text": "DISTANCE / SOURCEPRES\n0.00–0.25 : 100%\n1.00 : 50%\n1.50 : 5%\n2.00 : muted; reverb feed continues"
                 }
             },
             {
@@ -1167,90 +1271,6 @@
                 "patchline": {
                     "destination": [ "full", 0 ],
                     "source": [ "delay", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 29 ],
-                    "source": [ "full", 15 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 28 ],
-                    "source": [ "full", 14 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 25 ],
-                    "source": [ "full", 13 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 24 ],
-                    "source": [ "full", 12 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 21 ],
-                    "source": [ "full", 11 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 20 ],
-                    "source": [ "full", 10 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 17 ],
-                    "source": [ "full", 9 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 16 ],
-                    "source": [ "full", 8 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 13 ],
-                    "source": [ "full", 7 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 12 ],
-                    "source": [ "full", 6 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 9 ],
-                    "source": [ "full", 5 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 8 ],
-                    "source": [ "full", 4 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 5 ],
-                    "source": [ "full", 3 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "spat", 4 ],
-                    "source": [ "full", 2 ]
                 }
             },
             {
@@ -1330,6 +1350,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "js", 0 ],
+                    "midpoints": [ 420.5, 166.984375, 46.5, 166.984375 ],
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-15", 0 ],
                     "source": [ "obj-14", 0 ]
                 }
@@ -1396,6 +1423,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "js", 0 ],
+                    "midpoints": [ 436.5, 166.58203125, 46.5, 166.58203125 ],
+                    "source": [ "obj-21", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 25 ],
                     "order": 0,
                     "source": [ "obj-25", 0 ]
@@ -1437,6 +1471,13 @@
             },
             {
                 "patchline": {
+                    "destination": [ "js", 0 ],
+                    "midpoints": [ 454.5, 165.15625, 46.5, 165.15625 ],
+                    "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-4", 24 ],
                     "order": 0,
                     "source": [ "obj-3", 0 ]
@@ -1461,6 +1502,12 @@
                     "destination": [ "obj-4", 0 ],
                     "order": 3,
                     "source": [ "obj-3", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "js", 0 ],
+                    "source": [ "obj-31", 0 ]
                 }
             },
             {
