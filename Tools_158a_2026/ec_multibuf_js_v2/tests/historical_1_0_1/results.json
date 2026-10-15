@@ -1,0 +1,247 @@
+{
+  "kind": "Node mock-Max control-logic tests; NOT native Max execution",
+  "passed": 60,
+  "total": 60,
+  "results": [
+    {
+      "name": "default all-channel native read; filename includes extension",
+      "pass": true
+    },
+    {
+      "name": "slashless commands dispatch without private-function conflicts",
+      "pass": true
+    },
+    {
+      "name": "spaces / punctuation / Unicode are single exact name atoms",
+      "pass": true
+    },
+    {
+      "name": "duplicate same file skips, without extra success bang",
+      "pass": true
+    },
+    {
+      "name": "same basename different folder rejected with both full paths",
+      "pass": true
+    },
+    {
+      "name": "native empty foreign buffer is not overwritten by loader",
+      "pass": true
+    },
+    {
+      "name": "different loader instances reserve names while loading",
+      "pass": true
+    },
+    {
+      "name": "folder filtering, hidden files, stable alphabetic order",
+      "pass": true
+    },
+    {
+      "name": "folder type alias WAVE limits selection to wav",
+      "pass": true
+    },
+    {
+      "name": "MPG3 legacy filter uses import with automatic channel count",
+      "pass": true
+    },
+    {
+      "name": "recursive is off by default and opt-in includes subdirectories",
+      "pass": true
+    },
+    {
+      "name": "missing path fails without phantom registry entry",
+      "pass": true
+    },
+    {
+      "name": "empty existing folder distinguished by parent directory",
+      "pass": true
+    },
+    {
+      "name": "invalid folder reports inability to confirm empty directory",
+      "pass": true
+    },
+    {
+      "name": "timeout does not emit a loaded event or successful registry entry",
+      "pass": true
+    },
+    {
+      "name": "failed refresh preserves the old native buffer and data",
+      "pass": true
+    },
+    {
+      "name": "successful refresh replaces data, preserves name and index",
+      "pass": true
+    },
+    {
+      "name": "queued refresh snapshots entries at execution, not message arrival",
+      "pass": true
+    },
+    {
+      "name": "mono config captured for each queued batch",
+      "pass": true
+    },
+    {
+      "name": "stop cancels remaining files, lets in-flight native read finish",
+      "pass": true
+    },
+    {
+      "name": "clear during read waits, discards in-flight sample, removes everything",
+      "pass": true
+    },
+    {
+      "name": "capacity rejects excess buffers without counter rollover",
+      "pass": true
+    },
+    {
+      "name": "extension stripping exposes collisions instead of renumbering",
+      "pass": true
+    },
+    {
+      "name": "prefix allows equal filenames from separate collections",
+      "pass": true
+    },
+    {
+      "name": "native coll first-value paths, including a spaced path",
+      "pass": true
+    },
+    {
+      "name": "multicoll gathers two child collections in one batch",
+      "pass": true
+    },
+    {
+      "name": "menu uses separate status outlet clear / append messages",
+      "pass": true
+    },
+    {
+      "name": "duplicate native completion bangs cannot double-count a load",
+      "pass": true
+    },
+    {
+      "name": "zero-frame audio rejected even after native completion bang",
+      "pass": true
+    },
+    {
+      "name": "legacy middle-inlet index, dump; third inlet controls verbosity",
+      "pass": true
+    },
+    {
+      "name": "clearing releases cross-instance claims",
+      "pass": true
+    },
+    {
+      "name": "closing delegates native destruction and releases tasks and claims",
+      "pass": true
+    },
+    {
+      "name": "malformed arguments and unsupported samplor mode are explicit errors",
+      "pass": true
+    },
+    {
+      "name": "Windows paths retain drive and full path for native load",
+      "pass": true
+    },
+    {
+      "name": "explicit relative paths resolve beside saved top-level patch",
+      "pass": true
+    },
+    {
+      "name": "no recurring Task remains when loading is finished",
+      "pass": true
+    },
+    {
+      "name": "startup does not enumerate or mutate the runtime graph",
+      "pass": true
+    },
+    {
+      "name": "startup leaves unrelated or accidentally saved boxes untouched",
+      "pass": true
+    },
+    {
+      "name": "notifydeleted alone never calls native destruction",
+      "pass": true
+    },
+    {
+      "name": "native-first destruction cannot cause stale patcher access",
+      "pass": true
+    },
+    {
+      "name": "direct freebang shutdown and notifydeleted are idempotent",
+      "pass": true
+    },
+    {
+      "name": "close before deferred initialization cancels all loader tasks",
+      "pass": true
+    },
+    {
+      "name": "close during native read ignores late native callbacks",
+      "pass": true
+    },
+    {
+      "name": "stray queued callbacks after shutdown are ignored",
+      "pass": true
+    },
+    {
+      "name": "timeout retains private target; late completion discards without success",
+      "pass": true
+    },
+    {
+      "name": "a timed-out decoder blocks additional loads instead of queueing them",
+      "pass": true
+    },
+    {
+      "name": "clear after timeout cannot delete a potentially active decoder",
+      "pass": true
+    },
+    {
+      "name": "clear after timeout completes only after late native completion",
+      "pass": true
+    },
+    {
+      "name": "timeout cancels queued batches rather than starting overlapping reads",
+      "pass": true
+    },
+    {
+      "name": "clear releases at most eight owned buffers per worker turn",
+      "pass": true
+    },
+    {
+      "name": "clear does not remove unrelated native objects",
+      "pass": true
+    },
+    {
+      "name": "empty-folder parent validation yields every 128 entries",
+      "pass": true
+    },
+    {
+      "name": "100 repeated create-load-close cycles leave no buffers or live tasks",
+      "pass": true
+    },
+    {
+      "name": "version query identifies the stability build",
+      "pass": true
+    },
+    {
+      "name": "downstream close during loading status cannot issue a native read",
+      "pass": true
+    },
+    {
+      "name": "shutdown closes an active folder iterator without native patch access",
+      "pass": true
+    },
+    {
+      "name": "shutdown closes an empty-folder parent probe",
+      "pass": true
+    },
+    {
+      "name": "late callback after refresh timeout keeps the original public buffer",
+      "pass": true
+    },
+    {
+      "name": "shutdown during chunked clear stops subsequent scripted deletion",
+      "pass": true
+    },
+    {
+      "name": "completed native buffer removed externally is rejected using valid guard",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "release": "multibuf_js_v2",
+  "build": "2.0.0",
+  "source_archive": "multibuf_js_v1_save_diagnostics(1).zip",
+  "source_archive_sha256": "a5ec253a3ef63b52da0f9e69c83cc8f31da4c98679029e704b90a75ac0766eb0",
+  "native_Max_execution": false,
+  "patches": [
+    {
+      "boxes": 23,
+      "patchcords": 13,
+      "blue_send_receive_boxes": 0,
+      "subpatchers": [],
+      "file": "01_LOADER_ONLY.maxpat",
+      "all_geometry_styles_connections_and_data_preserved": true,
+      "text_and_dependency_changes": [
+        {
+          "path": "/patcher/boxes/1/box/text",
+          "old": "Uses the UNCHANGED 1.0.1 engine and abstraction. No preview, menu, embedded coll, or automatic sample loading in this test patch.",
+          "new": "Uses the v2 engine and abstraction; loading behavior is unchanged. No preview, menu, embedded coll, or automatic sample loading in this test patch."
+        },
+        {
+          "path": "/patcher/boxes/16/box/text",
+          "old": "multibuf_js_v1",
+          "new": "multibuf_js_v2"
+        },
+        {
+          "path": "/patcher/dependency_cache/0/name",
+          "old": "multibuf_js_v1.maxpat",
+          "new": "multibuf_js_v2.maxpat"
+        },
+        {
+          "path": "/patcher/dependency_cache/1/name",
+          "old": "multibuf_js_v1.js",
+          "new": "multibuf_js_v2.js"
+        }
+      ]
+    },
+    {
+      "boxes": 13,
+      "patchcords": 4,
+      "blue_send_receive_boxes": 0,
+      "subpatchers": [],
+      "file": "02_NATIVE_BUFFER_CONTROL.maxpat",
+      "all_geometry_styles_connections_and_data_preserved": true,
+      "text_and_dependency_changes": []
+    },
+    {
+      "boxes": 228,
+      "patchcords": 87,
+      "blue_send_receive_boxes": 21,
+      "subpatchers": [
+        "p MESSAGE_REFERENCE",
+        "p Developer Messages",
+        "p prepare_multicoll_example",
+        "p Developer Files",
+        "p COLLECTION_EXAMPLES",
+        "p IN_MAX_SMOKE_TESTS",
+        "p STARTUP_AND_CLOSE_CHECKS"
+      ],
+      "file": "_multibuf_js_v2.maxhelp",
+      "all_geometry_styles_connections_and_data_preserved": true,
+      "text_and_dependency_changes": [
+        {
+          "path": "/patcher/boxes/3/box/text",
+          "old": "Create [multibuf_js_v1] with no arguments. Keep the .maxpat and .js together. Start with the included folder, then select a sample and preview it.",
+          "new": "Create [multibuf_js_v2] with no arguments. Keep the .maxpat and .js together. Start with the included folder, then select a sample and preview it."
+        },
+        {
+          "path": "/patcher/boxes/27/box/text",
+          "old": "multibuf_js_v1",
+          "new": "multibuf_js_v2"
+        },
+        {
+          "path": "/patcher/boxes/48/box/patcher/boxes/9/box/text",
+          "old": "Stability revision 1.0.1: see CRASH_FIX_NOTES.md and tests/test_loader.js on disk.",
+          "new": "Version 2.0.0: see V2_RELEASE_NOTES.md and tests/test_loader.js on disk."
+        },
+        {
+          "path": "/patcher/boxes/48/box/patcher/boxes/11/box/patcher/boxes/0/box/text",
+          "old": "STARTUP AND CLOSE CHECKS / stability revision 1.0.1",
+          "new": "STARTUP AND CLOSE CHECKS / version 2.0.0"
+        },
+        {
+          "path": "/patcher/boxes/48/box/patcher/boxes/11/box/patcher/boxes/3/box/text",
+          "old": "Expected status: version multibuf_js_v1 1.0.1-stability",
+          "new": "Expected status: version multibuf_js_v2 2.0.0"
+        },
+        {
+          "path": "/patcher/boxes/49/box/text",
+          "old": "To see the buffers: open multibuf_js_v1, then p runtime_buffers after loading.",
+          "new": "To see the buffers: open multibuf_js_v2, then p runtime_buffers after loading."
+        },
+        {
+          "path": "/patcher/boxes/53/box/text",
+          "old": "SAVE DIAGNOSTICS: startup coll write removed. Loader engine remains 1.0.1; crash cause is not yet confirmed. Start with 01_LOADER_ONLY.maxpat.",
+          "new": "VERSION 2.0.0: existing controls, defaults, and safeguards retained. Save/close test: 01_LOADER_ONLY.maxpat. Not a verified native crash fix."
+        }
+      ]
+    },
+    {
+      "boxes": 18,
+      "patchcords": 11,
+      "blue_send_receive_boxes": 0,
+      "subpatchers": [
+        "p runtime_buffers"
+      ],
+      "file": "multibuf_js_v2.maxpat",
+      "all_geometry_styles_connections_and_data_preserved": true,
+      "text_and_dependency_changes": [
+        {
+          "path": "/patcher/boxes/0/box/text",
+          "old": "multibuf_js_v1 | native-buffer host",
+          "new": "multibuf_js_v2 | native-buffer host"
+        },
+        {
+          "path": "/patcher/boxes/1/box/text",
+          "old": "Stability revision 1.0.1. No user arguments. Keep this abstraction and multibuf_js_v1.js together.",
+          "new": "Version 2.0.0. No user arguments. Keep this abstraction and multibuf_js_v2.js together."
+        },
+        {
+          "path": "/patcher/boxes/6/box/text",
+          "old": "js multibuf_js_v1.js #0",
+          "new": "js multibuf_js_v2.js #0"
+        }
+      ]
+    }
+  ],
+  "unchanged_files": [
+    "02_NATIVE_BUFFER_CONTROL.maxpat",
+    "START_HERE_SAVE_DIAGNOSTICS.md",
+    "test_collisions/mono_test.wav",
+    "test_samples/README.txt",
+    "test_samples/mono_test.wav",
+    "test_samples/name with spaces.wav",
+    "test_samples/quad_test.wav",
+    "test_samples/stereo_test.wav",
+    "tests/CRASH_FIX_NOTES.md",
+    "tests/historical_1_0_1/README.txt",
+    "tests/historical_1_0_1/SHA256SUMS.txt",
+    "tests/historical_1_0_1/patch_validation.json",
+    "tests/historical_1_0_1/results.json",
+    "tests/save_diagnostic_audit.json",
+    "tests/save_diagnostic_validation.json"
+  ],
+  "changed_files": [
+    {
+      "from": "01_LOADER_ONLY.maxpat",
+      "to": "01_LOADER_ONLY.maxpat"
+    },
+    {
+      "from": "QUICK_START.txt",
+      "to": "QUICK_START.txt"
+    },
+    {
+      "from": "README.md",
+      "to": "README.md"
+    },
+    {
+      "from": "_multibuf_js_v1.maxhelp",
+      "to": "_multibuf_js_v2.maxhelp"
+    },
+    {
+      "from": "multibuf_js_v1.js",
+      "to": "multibuf_js_v2.js"
+    },
+    {
+      "from": "multibuf_js_v1.maxpat",
+      "to": "multibuf_js_v2.maxpat"
+    },
+    {
+      "from": "tests/SHA256SUMS_CURRENT.txt",
+      "to": "tests/SHA256SUMS_CURRENT.txt"
+    },
+    {
+      "from": "tests/test_loader.js",
+      "to": "tests/test_loader.js"
+    }
+  ],
+  "audio_fixtures": [
+    {
+      "file": "test_collisions/mono_test.wav",
+      "channels": 1,
+      "frames": 16800,
+      "sample_rate": 48000,
+      "sha256": "0fed1a9a100fe7b3b14e50384e4f951e515863a307c48c84b2589705624d5cba"
+    },
+    {
+      "file": "test_samples/mono_test.wav",
+      "channels": 1,
+      "frames": 16800,
+      "sample_rate": 48000,
+      "sha256": "0fed1a9a100fe7b3b14e50384e4f951e515863a307c48c84b2589705624d5cba"
+    },
+    {
+      "file": "test_samples/name with spaces.wav",
+      "channels": 1,
+      "frames": 16800,
+      "sample_rate": 48000,
+      "sha256": "c63b8b394ecf85d2eb014c474763e93714d63d4868d103e89ef551b14f640e56"
+    },
+    {
+      "file": "test_samples/quad_test.wav",
+      "channels": 4,
+      "frames": 16800,
+      "sample_rate": 48000,
+      "sha256": "f43e01e076a05a5a24502b2cd78ffd2bcec3f7d394fa4a8166f17dcdebecfaed"
+    },
+    {
+      "file": "test_samples/stereo_test.wav",
+      "channels": 2,
+      "frames": 16800,
+      "sample_rate": 48000,
+      "sha256": "7ac1ae80eb10d86304c4e2ef8a8c8f6bbfdf18843e73557a9db551ca2f7e50b1"
+    }
+  ],
+  "loader_logic_and_defaults_identical_after_identity_normalization": true,
+  "only_v1_runtime_string": "Global registry multibuf_js_v1_name_claims (intentional shared identity, not a file dependency)",
+  "existing_simulated_control_tests": {
+    "passed": 60,
+    "total": 60
+  },
+  "saved_runtime_contains_only_callback_outlet": true,
+  "active_v1_file_dependencies": [],
+  "all_original_functional_and_reference_files_retained": true,
+  "status": "PASS"
+}

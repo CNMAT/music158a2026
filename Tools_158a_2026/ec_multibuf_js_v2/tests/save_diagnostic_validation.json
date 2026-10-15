@@ -1,0 +1,46 @@
+{
+  "kind": "static JSON, wiring and source-preservation checks; no native Max execution",
+  "passed": true,
+  "errors": [],
+  "engine_and_host_byte_identical": true,
+  "top_level_user_positions_preserved": true,
+  "help_has_no_loadmess_or_loadbang_objects": true,
+  "files": {
+    "01_LOADER_ONLY.maxpat": {
+      "patchers": 1,
+      "objects": 23,
+      "connections": 13,
+      "sends_receives": 0,
+      "startup_objects": [],
+      "buffers": []
+    },
+    "02_NATIVE_BUFFER_CONTROL.maxpat": {
+      "patchers": 1,
+      "objects": 13,
+      "connections": 4,
+      "sends_receives": 0,
+      "startup_objects": [],
+      "buffers": [
+        "02_NATIVE_BUFFER_CONTROL.maxpat: buffer~ #0-mb-native-control"
+      ]
+    },
+    "_multibuf_js_v1.maxhelp": {
+      "patchers": 8,
+      "objects": 228,
+      "connections": 88,
+      "sends_receives": 21,
+      "startup_objects": [],
+      "buffers": [
+        "_multibuf_js_v1.maxhelp: buffer~ #0-mb-silent"
+      ]
+    },
+    "multibuf_js_v1.maxpat": {
+      "patchers": 2,
+      "objects": 18,
+      "connections": 11,
+      "sends_receives": 0,
+      "startup_objects": [],
+      "buffers": []
+    }
+  }
+}
