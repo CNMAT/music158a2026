@@ -1,0 +1,15 @@
+MULTIBUF_JS_V2 — VERSION 2.0.0
+
+Open _multibuf_js_v2.maxhelp for the complete, preserved help interface.
+In your own patch create: multibuf_js_v2
+No arguments are required.
+Keep multibuf_js_v2.maxpat and multibuf_js_v2.js together.
+/version reports: version multibuf_js_v2 2.0.0
+
+The included test folder is ./test_samples.
+Loading another folder appends; /clear explicitly removes owned buffers.
+Commands, defaults, and help layout are unchanged from the supplied package.
+
+01_LOADER_ONLY.maxpat and 02_NATIVE_BUFFER_CONTROL.maxpat remain optional.
+Read V2_RELEASE_NOTES.md for changes and testing limitations.
+Native Max/M5 operation and crash resolution have not been verified here.

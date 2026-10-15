@@ -1,0 +1,93 @@
+{
+  "kind": "Static structure checks; not Max execution",
+  "patches": {
+    "multibuf_js_v1.maxpat/p runtime_buffers": {
+      "objects": 1,
+      "patchcords": 0,
+      "blue_sends_receives": 0
+    },
+    "multibuf_js_v1.maxpat": {
+      "objects": 17,
+      "patchcords": 11,
+      "blue_sends_receives": 0
+    },
+    "_multibuf_js_v1.maxhelp/p MESSAGE_REFERENCE": {
+      "objects": 24,
+      "patchcords": 7,
+      "blue_sends_receives": 1
+    },
+    "_multibuf_js_v1.maxhelp/p Developer Messages": {
+      "objects": 58,
+      "patchcords": 25,
+      "blue_sends_receives": 2
+    },
+    "_multibuf_js_v1.maxhelp/p Developer Files/p COLLECTION_EXAMPLES": {
+      "objects": 12,
+      "patchcords": 3,
+      "blue_sends_receives": 2
+    },
+    "_multibuf_js_v1.maxhelp/p Developer Files/p IN_MAX_SMOKE_TESTS": {
+      "objects": 44,
+      "patchcords": 11,
+      "blue_sends_receives": 9
+    },
+    "_multibuf_js_v1.maxhelp/p Developer Files/p STARTUP_AND_CLOSE_CHECKS": {
+      "objects": 15,
+      "patchcords": 3,
+      "blue_sends_receives": 1
+    },
+    "_multibuf_js_v1.maxhelp/p Developer Files": {
+      "objects": 14,
+      "patchcords": 0,
+      "blue_sends_receives": 0
+    },
+    "_multibuf_js_v1.maxhelp": {
+      "objects": 54,
+      "patchcords": 32,
+      "blue_sends_receives": 6
+    }
+  },
+  "errors": [],
+  "native_max_executed": false,
+  "fixtures": {
+    "mono_test.wav": {
+      "channels": 1,
+      "sample_rate": 48000,
+      "frames": 16800
+    },
+    "name with spaces.wav": {
+      "channels": 1,
+      "sample_rate": 48000,
+      "frames": 16800
+    },
+    "quad_test.wav": {
+      "channels": 4,
+      "sample_rate": 48000,
+      "frames": 16800
+    },
+    "stereo_test.wav": {
+      "channels": 2,
+      "sample_rate": 48000,
+      "frames": 16800
+    }
+  },
+  "changed_original_files": [
+    "README.md",
+    "_multibuf_js_v1.maxhelp",
+    "multibuf_js_v1.js",
+    "multibuf_js_v1.maxpat",
+    "QUICK_START.txt",
+    "tests/patch_validation.json",
+    "tests/test_loader.js",
+    "tests/results.json"
+  ],
+  "unchanged_original_files": [
+    "test_samples/name with spaces.wav",
+    "test_samples/README.txt",
+    "test_samples/stereo_test.wav",
+    "test_samples/mono_test.wav",
+    "test_samples/quad_test.wav",
+    "test_collisions/mono_test.wav"
+  ],
+  "passed": true
+}

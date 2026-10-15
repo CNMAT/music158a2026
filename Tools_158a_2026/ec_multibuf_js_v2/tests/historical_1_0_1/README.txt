@@ -1,0 +1,1 @@
+Historical mock results and static validation from the prior 1.0.1 package. They do not establish native crash safety. See ../save_diagnostic_validation.json for checks performed on this diagnostic copy.

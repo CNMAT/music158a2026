@@ -1,0 +1,15 @@
+{
+  "kind": "Node mock-Max cross-version reservation checks; NOT native Max execution",
+  "passed": 2,
+  "total": 2,
+  "results": [
+    {
+      "test": "v1 reservation blocks v2 until cleared",
+      "pass": true
+    },
+    {
+      "test": "v2 reservation blocks v1 until cleared",
+      "pass": true
+    }
+  ]
+}

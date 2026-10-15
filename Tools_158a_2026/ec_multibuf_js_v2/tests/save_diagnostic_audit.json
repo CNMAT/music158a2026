@@ -1,0 +1,19 @@
+{
+  "source_archive": "multibuf_js_v1-quits.zip",
+  "scope": "help startup edit + diagnostic patchers; no loader-engine changes",
+  "loader_engine_build": "1.0.1-stability",
+  "native_Max_executed": false,
+  "saved_menu_sample_count": 86,
+  "saved_runtime_buffer_count": 0,
+  "crash_reports_in_source": [],
+  "unchanged_files": {
+    "multibuf_js_v1.js": {
+      "sha256": "8941416bb1e16087c928101b893d105610a312c43b18e1545b72b25815e4eb03",
+      "byte_identical_to_uploaded": true
+    },
+    "multibuf_js_v1.maxpat": {
+      "sha256": "5f29b47daf9426ffb663e18e4fa6554f2e8d52fd19c736a78155e4b0def3be9f",
+      "byte_identical_to_uploaded": true
+    }
+  }
+}
