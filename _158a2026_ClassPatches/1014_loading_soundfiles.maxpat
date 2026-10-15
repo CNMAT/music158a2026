@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 59.0, 114.0, 1324.0, 781.0 ],
+        "rect": [ 59.0, 114.0, 1635.0, 803.0 ],
         "boxes": [
             {
                 "box": {
@@ -269,8 +269,8 @@
                     "numinlets": 3,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "" ],
-                    "patching_rect": [ 327.0, 230.0, 234.0, 22.0 ],
-                    "text": "multibuf_js_v1"
+                    "patching_rect": [ 327.0, 230.0, 85.0, 22.0 ],
+                    "text": "multibuf_js_v2"
                 }
             },
             {
@@ -633,7 +633,7 @@
                 "patchline": {
                     "destination": [ "auto-menu-route", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 551.5, 255.82421875, 544.5, 255.82421875 ],
+                    "midpoints": [ 402.5, 255.82421875, 544.5, 255.82421875 ],
                     "order": 1,
                     "source": [ "loader", 2 ]
                 }
