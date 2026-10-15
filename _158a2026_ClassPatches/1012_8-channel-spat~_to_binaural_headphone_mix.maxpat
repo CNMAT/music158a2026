@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 1805.0, 375.0, 1214.0, 519.0 ],
+        "rect": [ 134.0, 159.0, 1214.0, 519.0 ],
         "boxes": [
             {
                 "box": {
@@ -93,13 +93,14 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 361.0, 442.0, 61.0, 20.0 ],
+                    "patching_rect": [ 324.0, 442.0, 61.0, 20.0 ],
                     "text": "dac on/off"
                 }
             },
             {
                 "box": {
                     "channels": 8,
+                    "display_range": [ -70.0, 12.0 ],
                     "id": "obj-17",
                     "lastchannelcount": 0,
                     "maxclass": "live.gain~",
@@ -110,8 +111,10 @@
                     "patching_rect": [ 419.0, 226.5, 223.0, 52.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
+                            "parameter_initial": [ -80 ],
+                            "parameter_initial_enable": 1,
                             "parameter_longname": "live.gain~",
-                            "parameter_mmax": 6.0,
+                            "parameter_mmax": 12.0,
                             "parameter_mmin": -70.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "live.gain~",
@@ -129,7 +132,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 918.0, 93.0, 150.0, 87.0 ],
+                    "patching_rect": [ 918.0, 93.0, 153.0, 87.0 ],
                     "text": "this patch spatializes 8 sources that can go directly to the mainroom in CNMAT.  But also routed to a binaural headphone rendering"
                 }
             },
@@ -140,7 +143,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 609.0, 35.0, 156.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "1) preset for all spat objects"
                 }
             },
@@ -518,7 +520,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 424.0, 440.0, 24.0, 24.0 ]
+                    "patching_rect": [ 387.0, 440.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -527,7 +529,7 @@
                     "maxclass": "newobj",
                     "numinlets": 8,
                     "numoutlets": 0,
-                    "patching_rect": [ 424.0, 483.0, 222.87500000000006, 22.0 ],
+                    "patching_rect": [ 423.0, 478.0, 154.79999999999995, 22.0 ],
                     "text": "dac~ 1 2 3 4 5 6 7 8"
                 }
             },
@@ -1942,6 +1944,54 @@
                     "destination": [ "obj-26", 3 ],
                     "midpoints": [ 53.5, 288.0, 36.217633928571445, 288.0, 36.217633928571445, 156.5, 528.3571428571429, 156.5 ],
                     "source": [ "obj-16", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 7 ],
+                    "source": [ "obj-17", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 6 ],
+                    "source": [ "obj-17", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 5 ],
+                    "source": [ "obj-17", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 4 ],
+                    "source": [ "obj-17", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 3 ],
+                    "source": [ "obj-17", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 2 ],
+                    "source": [ "obj-17", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 1 ],
+                    "source": [ "obj-17", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-44", 0 ],
+                    "source": [ "obj-17", 0 ]
                 }
             },
             {
