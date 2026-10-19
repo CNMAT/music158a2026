@@ -362,7 +362,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <strong>Lesson Plan Week 9 (New Module 4: Advanced Control)</strong>
 <br><br>
 <!-- wk.9 lesson -->
-<strong>(tu)</strong> 10/20 — Advanced Control and AI-assisted programming (ml.star) with Pitch Spaces (v8.codebox and v8.ui) PT. 1, Max nodes object for interpolation with trackpad interface control <br>
+<strong>(tu)</strong> 10/20 — Advanced Control and AI-assisted programming (ml.star) with Pitch Spaces 
   Students can present results from Homework 03 in class today.
 <br><br>
   <!-- homework assignment 4 -->
@@ -380,7 +380,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <strong>Lesson Plan Week 10 (New Module 5: Advanced Sampling)</strong>
 <br><br>
 <!-- wk.10 lesson -->
-<strong>(tu)</strong> 10/27 — Advanced Sampling, Event Morphology with Soundfile Descriptors, <code>vst~</code> plug-ins, <code>sfz~</code> samplers PT. 1 <br>
+<strong>(tu)</strong> 10/27 — Advanced Sampling, Event Morphology with Soundfile Descriptors, <code>vst~</code> plug-ins, <code>sfz~</code> samplers PT. 1, Max nodes object for interpolation with trackpad interface control <br><br>
   Students can present results from Homework 04 in class today.
 <br><br>
    <!-- homework assignment 5 -->
@@ -483,7 +483,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
 <br><br>
 <!-- wk.14 lesson -->
-<strong>(th)</strong> 11/26 (Spring Break)
+<strong>(th)</strong> 11/26 (Thanksgiving Break)
 </td>
 </tr>
 <!-- shading parity spacer -->
