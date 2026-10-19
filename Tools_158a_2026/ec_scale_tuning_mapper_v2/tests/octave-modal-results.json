@@ -1,0 +1,71 @@
+{
+  "result": "PASS",
+  "host": "Node vm with mocked Max API; not Max runtime",
+  "embeddedStates": 8,
+  "metrics": [
+    {
+      "melodic": 0,
+      "weight": 0,
+      "notes": 12000,
+      "below": 0,
+      "primary": 12000,
+      "above": 0
+    },
+    {
+      "melodic": 0,
+      "weight": 0.25,
+      "notes": 12000,
+      "below": 1529,
+      "primary": 9014,
+      "above": 1457
+    },
+    {
+      "melodic": 0,
+      "weight": 0.5,
+      "notes": 12000,
+      "below": 3061,
+      "primary": 6046,
+      "above": 2893
+    },
+    {
+      "melodic": 0,
+      "weight": 1,
+      "notes": 12000,
+      "below": 5980,
+      "primary": 0,
+      "above": 6020
+    },
+    {
+      "melodic": 1,
+      "weight": 0,
+      "notes": 12000,
+      "below": 0,
+      "primary": 12000,
+      "above": 0
+    },
+    {
+      "melodic": 1,
+      "weight": 0.25,
+      "notes": 12000,
+      "below": 1529,
+      "primary": 9014,
+      "above": 1457
+    },
+    {
+      "melodic": 1,
+      "weight": 0.5,
+      "notes": 12000,
+      "below": 3061,
+      "primary": 6046,
+      "above": 2893
+    },
+    {
+      "melodic": 1,
+      "weight": 1,
+      "notes": 12000,
+      "below": 5980,
+      "primary": 0,
+      "above": 6020
+    }
+  ]
+}

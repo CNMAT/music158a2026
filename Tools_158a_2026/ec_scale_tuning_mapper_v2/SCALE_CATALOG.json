@@ -1,0 +1,968 @@
+{
+  "major": {
+    "id": "major",
+    "nominal": [
+      0,
+      200,
+      400,
+      500,
+      700,
+      900,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc5",
+      "pc7",
+      "pc9",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "natural_minor": {
+    "id": "natural_minor",
+    "nominal": [
+      0,
+      200,
+      300,
+      500,
+      700,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "dorian": {
+    "id": "dorian",
+    "nominal": [
+      0,
+      200,
+      300,
+      500,
+      700,
+      900,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc9",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "phrygian": {
+    "id": "phrygian",
+    "nominal": [
+      0,
+      100,
+      300,
+      500,
+      700,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "lydian": {
+    "id": "lydian",
+    "nominal": [
+      0,
+      200,
+      400,
+      600,
+      700,
+      900,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc6",
+      "pc7",
+      "pc9",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "mixolydian": {
+    "id": "mixolydian",
+    "nominal": [
+      0,
+      200,
+      400,
+      500,
+      700,
+      900,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc5",
+      "pc7",
+      "pc9",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "locrian": {
+    "id": "locrian",
+    "nominal": [
+      0,
+      100,
+      300,
+      500,
+      600,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc3",
+      "pc5",
+      "pc6",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "harmonic_minor": {
+    "id": "harmonic_minor",
+    "nominal": [
+      0,
+      200,
+      300,
+      500,
+      700,
+      800,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "melodic_minor_ascending": {
+    "id": "melodic_minor_ascending",
+    "nominal": [
+      0,
+      200,
+      300,
+      500,
+      700,
+      900,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc9",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "harmonic_major": {
+    "id": "harmonic_major",
+    "nominal": [
+      0,
+      200,
+      400,
+      500,
+      700,
+      800,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "major_pentatonic": {
+    "id": "major_pentatonic",
+    "nominal": [
+      0,
+      200,
+      400,
+      700,
+      900
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc7",
+      "pc9"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "minor_pentatonic": {
+    "id": "minor_pentatonic",
+    "nominal": [
+      0,
+      300,
+      500,
+      700,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "major_blues": {
+    "id": "major_blues",
+    "nominal": [
+      0,
+      200,
+      300,
+      400,
+      700,
+      900
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc4",
+      "pc7",
+      "pc9"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "minor_blues": {
+    "id": "minor_blues",
+    "nominal": [
+      0,
+      300,
+      500,
+      600,
+      700,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc3",
+      "pc5",
+      "pc6",
+      "pc7",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "whole_tone": {
+    "id": "whole_tone",
+    "nominal": [
+      0,
+      200,
+      400,
+      600,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc6",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "octatonic_wh": {
+    "id": "octatonic_wh",
+    "nominal": [
+      0,
+      200,
+      300,
+      500,
+      600,
+      800,
+      900,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc6",
+      "pc8",
+      "pc9",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "octatonic_hw": {
+    "id": "octatonic_hw",
+    "nominal": [
+      0,
+      100,
+      300,
+      400,
+      600,
+      700,
+      900,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc3",
+      "pc4",
+      "pc6",
+      "pc7",
+      "pc9",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "augmented_hexatonic": {
+    "id": "augmented_hexatonic",
+    "nominal": [
+      0,
+      300,
+      400,
+      700,
+      800,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc3",
+      "pc4",
+      "pc7",
+      "pc8",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "chromatic": {
+    "id": "chromatic",
+    "nominal": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900,
+      1000,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc2",
+      "pc3",
+      "pc4",
+      "pc5",
+      "pc6",
+      "pc7",
+      "pc8",
+      "pc9",
+      "pc10",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "lydian_dominant": {
+    "id": "lydian_dominant",
+    "nominal": [
+      0,
+      200,
+      400,
+      600,
+      700,
+      900,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc6",
+      "pc7",
+      "pc9",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "altered": {
+    "id": "altered",
+    "nominal": [
+      0,
+      100,
+      300,
+      400,
+      600,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc3",
+      "pc4",
+      "pc6",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "phrygian_dominant": {
+    "id": "phrygian_dominant",
+    "nominal": [
+      0,
+      100,
+      400,
+      500,
+      700,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc4",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_1": {
+    "id": "messiaen_1",
+    "nominal": [
+      0,
+      200,
+      400,
+      600,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc6",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_2": {
+    "id": "messiaen_2",
+    "nominal": [
+      0,
+      100,
+      300,
+      400,
+      600,
+      700,
+      900,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc3",
+      "pc4",
+      "pc6",
+      "pc7",
+      "pc9",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_3": {
+    "id": "messiaen_3",
+    "nominal": [
+      0,
+      200,
+      300,
+      400,
+      600,
+      700,
+      800,
+      1000,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3",
+      "pc4",
+      "pc6",
+      "pc7",
+      "pc8",
+      "pc10",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_4": {
+    "id": "messiaen_4",
+    "nominal": [
+      0,
+      100,
+      200,
+      500,
+      600,
+      700,
+      800,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc2",
+      "pc5",
+      "pc6",
+      "pc7",
+      "pc8",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_5": {
+    "id": "messiaen_5",
+    "nominal": [
+      0,
+      100,
+      500,
+      600,
+      700,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc5",
+      "pc6",
+      "pc7",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_6": {
+    "id": "messiaen_6",
+    "nominal": [
+      0,
+      200,
+      400,
+      500,
+      600,
+      800,
+      1000,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc5",
+      "pc6",
+      "pc8",
+      "pc10",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "messiaen_7": {
+    "id": "messiaen_7",
+    "nominal": [
+      0,
+      100,
+      200,
+      300,
+      500,
+      600,
+      700,
+      800,
+      900,
+      1100
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc2",
+      "pc3",
+      "pc5",
+      "pc6",
+      "pc7",
+      "pc8",
+      "pc9",
+      "pc11"
+    ],
+    "period": 1200,
+    "category": "Western pitch collection",
+    "note": "12-TET pitch template; no melodic grammar."
+  },
+  "gong_12tet": {
+    "id": "gong_12tet",
+    "nominal": [
+      0,
+      200,
+      400,
+      700,
+      900
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc4",
+      "pc7",
+      "pc9"
+    ],
+    "period": 1200,
+    "category": "Chinese pentatonic model",
+    "note": "12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model."
+  },
+  "shang_12tet": {
+    "id": "shang_12tet",
+    "nominal": [
+      0,
+      200,
+      500,
+      700,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc5",
+      "pc7",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Chinese pentatonic model",
+    "note": "12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model."
+  },
+  "jue_12tet": {
+    "id": "jue_12tet",
+    "nominal": [
+      0,
+      300,
+      500,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc3",
+      "pc5",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Chinese pentatonic model",
+    "note": "12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model."
+  },
+  "zhi_12tet": {
+    "id": "zhi_12tet",
+    "nominal": [
+      0,
+      200,
+      500,
+      700,
+      900
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc5",
+      "pc7",
+      "pc9"
+    ],
+    "period": 1200,
+    "category": "Chinese pentatonic model",
+    "note": "12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model."
+  },
+  "yu_12tet": {
+    "id": "yu_12tet",
+    "nominal": [
+      0,
+      300,
+      500,
+      700,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Chinese pentatonic model",
+    "note": "12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model."
+  },
+  "rast_24edo_model": {
+    "id": "rast_24edo_model",
+    "nominal": [
+      0,
+      200,
+      350,
+      500,
+      700,
+      900,
+      1050
+    ],
+    "ids": [
+      "pc0",
+      "pc2",
+      "pc3.5",
+      "pc5",
+      "pc7",
+      "pc9",
+      "pc10.5"
+    ],
+    "period": 1200,
+    "category": "Arabic pitch approximation",
+    "note": "Quarter-tone pedagogical approximation of Rast; variable intonation and sayr are not modelled."
+  },
+  "bayati_24edo_model": {
+    "id": "bayati_24edo_model",
+    "nominal": [
+      0,
+      150,
+      300,
+      500,
+      700,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1.5",
+      "pc3",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Arabic pitch approximation",
+    "note": "Quarter-tone Bayati/Nahawand pitch model; no claim of fixed authentic intonation or complete maqam grammar."
+  },
+  "hijaz_12tet_model": {
+    "id": "hijaz_12tet_model",
+    "nominal": [
+      0,
+      100,
+      400,
+      500,
+      700,
+      800,
+      1000
+    ],
+    "ids": [
+      "pc0",
+      "pc1",
+      "pc4",
+      "pc5",
+      "pc7",
+      "pc8",
+      "pc10"
+    ],
+    "period": 1200,
+    "category": "Arabic pitch approximation",
+    "note": "12-TET Hijaz/Nahawand pitch model; no claim of fixed authentic intonation or complete maqam grammar."
+  },
+  "hirajoshi_ellis_112": {
+    "id": "hirajoshi_ellis_112",
+    "nominal": [
+      0,
+      185,
+      337,
+      683,
+      790
+    ],
+    "ids": [
+      "d1",
+      "d2",
+      "d3",
+      "d4",
+      "d5"
+    ],
+    "period": 1200,
+    "category": "Documented tuning model",
+    "kind": "documented_model",
+    "note": "Scala hirajoshi.scl; historical observation attributed there to Helmholtz/Ellis p.519 no.112. Specific model, not universal Japanese tuning."
+  },
+  "hirajoshi_ellis_111": {
+    "id": "hirajoshi_ellis_111",
+    "nominal": [
+      0,
+      193,
+      357,
+      719,
+      801
+    ],
+    "ids": [
+      "d1",
+      "d2",
+      "d3",
+      "d4",
+      "d5"
+    ],
+    "period": 1199,
+    "category": "Documented tuning model",
+    "kind": "documented_model",
+    "note": "Scala hirajoshi3.scl; historical observation attributed there to Helmholtz/Ellis p.519 no.111. Preserves the 1199-cent period."
+  },
+  "pelog_ksatria": {
+    "id": "pelog_ksatria",
+    "nominal": [
+      0,
+      153,
+      315,
+      552,
+      706,
+      848,
+      1058
+    ],
+    "ids": [
+      "d1",
+      "d2",
+      "d3",
+      "d4",
+      "d5",
+      "d6",
+      "d7"
+    ],
+    "period": 1200,
+    "category": "Documented tuning model",
+    "kind": "documented_model",
+    "note": "Scala pelog1.scl: Saih pitu, Ksatria, Den Pasar. Archive reference tonic 312.5 Hz; mapper tonic remains user-controlled."
+  },
+  "slendro_kanyut_mesem": {
+    "id": "slendro_kanyut_mesem",
+    "nominal": [
+      0,
+      222.974,
+      475.59,
+      711.842,
+      937.091
+    ],
+    "ids": [
+      "d1",
+      "d2",
+      "d3",
+      "d4",
+      "d5"
+    ],
+    "period": 1200,
+    "category": "Documented tuning model",
+    "kind": "documented_model",
+    "note": "Scala slendro_ky1.scl: Kyahi Kanyut Mesem, Mangku Nagaran, Solo. Archive reference tonic 291 Hz; mapper tonic remains user-controlled."
+  }
+}

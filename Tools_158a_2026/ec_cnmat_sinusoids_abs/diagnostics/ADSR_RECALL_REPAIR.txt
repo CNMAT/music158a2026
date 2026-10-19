@@ -1,0 +1,69 @@
+ADSR preset recall repair 1.7 — 2026-10-16
+
+THREE CORRECTIONS
+1. The attached help's p preset connected its inlet to the RIGHT inlet of the
+   message box. Its saved message began 'set preset 1 ...'. The connection now
+   uses the LEFT inlet, and only the leading 'set ' was removed from the saved
+   message. All encoded preset chunks and its checksum are unchanged.
+
+2. The controller restored UI values and then sent bang to replay each one.
+   A bang to a toggle reverses its value. This disabled saved loop switches
+   and also affected other synth toggles. Toggles now receive their explicit
+   saved number: int when output is needed, set for silent restoration.
+
+3. Global duration and smoothing appeared after the individual lanes in the
+   manifest. Replaying them last overwrote lane-specific values. All four
+   global ADSR controls now restore first, followed by individual controls,
+   sampled point lists, engine states and finally edited function values.
+   Function output refreshes the stored envelope used by the next trigger.
+
+YOUR SAVED PRESET
+Checksum hfc3362a9: 211345 decoded bytes in 551 chunks.
+All 195 controls, 25 engines and 14 user stores are present.
+ALL LANE LOOPS: 1; all twelve individual LOOP switches: 1.
+All twelve lanes: shape index 7, 48 points, duration 1000 ms, smoothing 200 ms.
+The shape data and enabled loop settings were present in the original snapshot.
+Preset format remains version 1; valid older snapshots remain compatible.
+
+CHANGED RUNTIME FILE
+  dependencies/ec_cnmat_sinusoids_controller.js
+The abstraction and the other 27 runtime dependencies are byte-identical to
+the attachment. Your _ec_cnmat_sinusoids~.maxhelp has only the nested preset
+inlet correction, removal of the stored leading set, and revised guidance.
+Your keyboard, parent gain, audio routing and layout are retained.
+README and diagnostics are updated. Dependencies remain in dependencies/;
+tests and diagnostic records remain in diagnostics/.
+
+TEST IN MAX
+1. Close the old help and any open instances. Replace the complete folder.
+2. Open _ec_cnmat_sinusoids~.maxhelp. Confirm ready gain 0.1 build 1.7.
+3. Open p preset and click the supplied filled message. Wait for recalled.
+4. Open AMP_ENVELOPE_ADSR_12_VOICES. Confirm the twelve shapes, the individual
+   LOOP switches and ALL LANE LOOPS match the values above.
+5. Send trigger. The loop switches enable repetition; recall itself does not
+   start envelope playback.
+6. Change one lane's duration, smoothing and LOOP state. Dump and save the help.
+   Close and reopen it, click the saved message, and verify that this lane's
+   overrides survive even when they differ from the global controls.
+
+Saving a message stores the preset in the patch; it does not make that message
+fire automatically on reopening. Click the saved message to install its state.
+
+VALIDATION
+Run node diagnostics/validate.cjs from the top-level folder. The test reads the
+saved help message, verifies its checksum and validates all engine states.
+The simulation covers cold ADSR state, repeat recall, global fanout, mixed
+individual loop values, per-lane durations and smoothing, directly edited
+functions, cached playback messages, and reading values back after recall.
+Negative tests reintroduced each controller defect separately and confirmed
+the tests fail on the loop value and overwritten lane duration respectively.
+
+The ADSR control-flow model uses the included shape collection and actual
+envelope JavaScript, with modeled UI/fanout/cache behavior. It does not execute
+Max's native GUI, loader, scheduler, line~ or sinusoids~ DSP. A native Max/audio
+test was not available here.
+
+References:
+https://docs.cycling74.com/reference/toggle/ (bang, int and set)
+https://docs.cycling74.com/reference/function/ (bang output for line~)
+https://docs.cycling74.com/apiref/js/maxobj/ (setvalueof)

@@ -1,0 +1,8 @@
+{
+  "original_factory_record_count": 1150,
+  "original_values": 29325,
+  "factory_dependency_sha256": "df130225a12c1a0e04b62d80b996cf96eed0c9a39a96a1fa47933976ee374870",
+  "factory_records_sha256": "8171e208192d485085def206589803f23b4417399fa66fa836456302f9ec1d05",
+  "source": "Exact factory records recovered from the previous complete build 2.3; no regenerated/randomized shapes.",
+  "factory_values_sha256": "22534e13635bf961266bb1b40243dd33443ba83695579ca69329b45b00f560ff"
+}

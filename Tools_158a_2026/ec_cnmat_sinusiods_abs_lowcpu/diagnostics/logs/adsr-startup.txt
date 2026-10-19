@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "assertions": 2807,
+  "factory_records": 1150,
+  "factory_values": 29325,
+  "fresh_lane_contexts": 24,
+  "negative_control": "PASS: uploaded empty factory reproduces blank lane",
+  "scenarios": [
+    "all 1150 exact factory records",
+    "invalid keys",
+    "defensive output copies",
+    "12 cold starts and 12 fresh JSON reloads",
+    "alternate loadbang order",
+    "immediate visible curve and playback cache",
+    "no startup audio or pending morph",
+    "Master 45-point startup",
+    "shape/count changes after startup",
+    "independent factory and envelope contexts",
+    "Full On waits for all12 smoothing engines; loops enabled; one deferred trigger; Stop cancellation"
+  ],
+  "limitations": [
+    "Native Max objects and scheduler are modeled; JSON reload is not the native Max save/load process.",
+    "No CNMAT DSP or audio listening test. Preset/loop/delay roundtrips are covered by validate.cjs and lane-delay.cjs."
+  ]
+}
+

@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "assertions": 6560,
+  "render_budgets": [
+    {
+      "limit": 64,
+      "steady_slots": 128,
+      "crossfade_slots": 256
+    },
+    {
+      "limit": 128,
+      "steady_slots": 256,
+      "crossfade_slots": 512
+    },
+    {
+      "limit": 256,
+      "steady_slots": 512,
+      "crossfade_slots": 1024
+    }
+  ],
+  "scenarios": [
+    "all five spatial assignment plans",
+    "source counts below and above limit",
+    "independent bank clearing",
+    "unchanged-message suppression",
+    "150 ms budget ramps and reversal",
+    "hidden-memory recovery",
+    "stable sounding slots",
+    "legacy engine import",
+    "four harmonic mappings and anchors",
+    "maximum prime offset",
+    "generator/transform/crossfade/render integration",
+    "rapid sequence changes",
+    "alias filtering",
+    "Auto Level budget",
+    "24-bank saved audio graph"
+  ],
+  "limitations": [
+    "Runs actual classic JS with modeled Tasks/time and inspects saved Max graph. Native sinusoids~ DSP, CPU measurement, phase continuity and listening require Max.",
+    "Slot holes are retained to preserve sounding identities; distribution changes can temporarily or persistently leave extra zero slots until the bank becomes idle. Render statistics report actual native slots."
+  ]
+}

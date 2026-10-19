@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "support_topics": 11,
+  "connected_examples": 69,
+  "support_graph_checks": 175,
+  "standalone_matches_embedded": true,
+  "existing_preset_messages_unchanged": 2,
+  "preset_message_sha256": [
+    "5c223fd73c57489ef067c0de6739e85677e7f7ff8ec45710f8365ecbfd45a4d1",
+    "5c223fd73c57489ef067c0de6739e85677e7f7ff8ec45710f8365ecbfd45a4d1"
+  ],
+  "existing_instrument_presentation_rects_unchanged": true,
+  "all_12_ADSR_patchers_unchanged": true,
+  "native_Max_GUI_tested": false
+}

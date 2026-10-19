@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "verification": "JSON structure / connections / exact menus / preserved audition wiring; not Max GUI",
+  "counts": {
+    "patchers": 12,
+    "boxes": 582,
+    "connections": 375,
+    "menus": 2,
+    "preference_panels": 3
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "integerCeilingCases": 622440,
+  "profileDraws": 70000,
+  "profileCounts": [
+    14779,
+    8060,
+    10153,
+    9642,
+    12097,
+    8525,
+    6744
+  ],
+  "expectedProbabilities": [
+    0.21145521145521148,
+    0.11588411588411589,
+    0.14585414585414588,
+    0.13619713619713622,
+    0.17282717282717286,
+    0.1218781218781219,
+    0.0959040959040959
+  ],
+  "mixtureCounts": {
+    "major_12tet": 3114,
+    "minor_12tet": 6886
+  },
+  "result": "PASS",
+  "host": "Node vm with mocked Max API; not Max runtime"
+}

@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "assertions": 33,
+  "scenarios": [
+    "format 3 offset=5 message recall",
+    "BASE FREQ restoration",
+    "first primary and anchor after recall",
+    "all seven relocated Auto Level controls",
+    "recaptured stable preset keys"
+  ],
+  "limitations": [
+    "Actual controller/Dict/engine protocol with modeled Max UI; no native Max reload."
+  ]
+}

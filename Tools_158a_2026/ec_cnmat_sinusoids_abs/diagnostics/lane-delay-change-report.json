@@ -1,0 +1,42 @@
+{
+  "release": "1.8",
+  "feature": "Per-lane integer start delay",
+  "default_ms": 0,
+  "range_ms": [
+    0,
+    3600000
+  ],
+  "runtime_changed": [
+    "dependencies/ec_cnmat_sinusoids_adsr_01.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_02.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_03.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_04.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_05.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_06.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_07.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_08.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_09.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_10.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_11.maxpat",
+    "dependencies/ec_cnmat_sinusoids_adsr_12.maxpat",
+    "dependencies/ec_cnmat_sinusoids_controller.js"
+  ],
+  "main_abstraction_unchanged": true,
+  "supplied_help_byte_identical": true,
+  "saved_preset_preserved": {
+    "checksum": "h4606823b",
+    "bytes": 178614,
+    "chunks": 466,
+    "version": 1
+  },
+  "capture_controls": 207,
+  "capture_version": 2,
+  "legacy_version_1": "All original values retained; twelve new delays initialized to zero.",
+  "timing": "Every start, including loop restarts; zero is immediate; Stop cancels pending starts.",
+  "test_reports": [
+    "validation-results.json",
+    "lane-delay-results.json",
+    "path-results.json"
+  ],
+  "native_Max_execution": false
+}

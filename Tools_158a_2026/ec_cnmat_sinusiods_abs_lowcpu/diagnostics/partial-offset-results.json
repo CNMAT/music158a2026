@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "assertions": 86,
+  "scenarios": [
+    "four sequences at offsets 1 and 5",
+    "primary and anchor frequencies",
+    "stable base frequency, IDs and memory",
+    "first-slot detune and micro-drift return",
+    "ERB frequency",
+    "engine preset roundtrip",
+    "saved offset UI path",
+    "150 ms crossfade and latest edit",
+    "OFF and ON reset",
+    "BASE FREQ readback wiring"
+  ],
+  "limitations": [
+    "Actual JS with modeled Tasks and Max UI messages; no native Max audio or GUI test."
+  ]
+}

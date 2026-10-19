@@ -1,0 +1,107 @@
+Native Max check — ec_cnmat_sinusoids_lowcpu_abs~ 2.4
+
+ADSR save/reopen check (not executed in the offline build environment)
+A. Close previous copies of this instrument. Extract the entire new package;
+   keep dependencies/ beside the abstraction and open its supplied help file.
+   Keep only this package on the instrument's search path while checking.
+B. Without clicking a saved preset, open AMP_ENVELOPE_ADSR_12_VOICES. All
+   twelve lanes should show triangle shape 6, PTS48, DUR1000, DEL0 and smoothing
+   200. Loops start OFF. The Master editor retains the uploaded PTS45 default.
+C. Change lane01 to a different shape, duration, nonzero DEL and Loop ON.
+   Set contrasting values in lane02. Enable ALL LANE LOOPS, then override a
+   single lane's loop state. Send dump and save the parent message box.
+D. Close and reopen the parent and abstraction. The factory triangle defaults
+   should appear before recall. Click the saved preset message; custom curves,
+   per-lane values and loop states should return. Send trigger or note-in.
+E. Save the abstraction in Max, close all instances, and reopen from disk.
+   Repeat B-D. Factory data is now in a read-only JS dependency, not a coll's
+   embedded data, so no coll embedding flag is needed.
+F. Click ALL ON FULL + LOOPS ON + START. At nonzero smoothing it should start
+   once after all lanes reach the all-one curve. Stop must cancel pending starts.
+G. Send check; expect preset_bridge_ok for the 25 mutable engines. The 13
+   factory readers are stateless and are outside the preset manifest. Check
+   shape menus in the lanes and Master to exercise those readers in Max.
+H. Open two copies with different lane settings. Change/recall/stop one and
+   verify the second is unchanged. Do not connect a common external control
+   bus unless you intend to address both copies.
+
+Existing renderer / keyboard / offset checks
+
+1. Open the supplied clean help patch. Startup should report build
+   2.4-lowcpu. Check the Max console for missing dependencies.
+2. Compare one instrument at a time. The supplied performance rig also runs
+   SPAT/Markov objects; their CPU is separate from this abstraction.
+3. Keep the same sample rate, I/O vector, signal vector, and audio driver for
+   each measurement. Record average and peak Max DSP CPU during each condition.
+4. For a repeatable quiet workload, send gain 0, enable audio in the help patch,
+   then send the following in order:
+     control Partial_Distribution 0
+     control Partial_Offset_On 0
+     control Source_Base_Hz 30
+     control Render_Limit 256
+     control Partial_Count 256
+     control Amplitude_Shape 1
+     control Anchor_Shape 1
+   Keep the signal output connected. Gain 0 prevents audible output but does
+   not suspend the oscillator computation being measured.
+5. Select Render Limit 64, 128, and 256. Set Slider Count to the matching
+   count after each selection; raising the limit alone does not add sliders.
+   Wait for transitions to finish. In a
+   fresh settled one-to-one allocation, expect 128, 256, and 512 steady slots.
+   Repeat with Slider Count 32: only 64 paired slots are needed at any limit.
+6. Change sequence from one-to-one to prime and back. Confirm both banks are
+   active during the crossfade and the outgoing bank subsequently clears.
+7. Compare steady playback, drift, shape morphs, count changes, and repeated
+   offset edits separately. Check both DSP CPU and overall application CPU.
+8. For listening, restore a suitable gain, trigger the lanes, and check long
+   sustained tones, rapid sequence changes, rapid limit reversals, and DEL
+   with loop restarts. The slot tests cannot verify absence of audible clicks.
+9. Set different lane delays, choose Render Limit 64 and prime multiples, dump,
+   save the parent patch, close it, reopen, recall and trigger. Confirm both
+   menus, individual ADSR curves, delays, and loop switches return correctly.
+
+Interpretation
+The render limit counts slider positions. Each may have a primary and anchor,
+and crossfades briefly need both old/new banks. Do not interpret 128 as a
+strict 128-total-oscillator ceiling. Retained internal holes may add zero slots
+after editing; the status row reports the actual allocation.
+
+Compare old and lowcpu versions using the same spectrum and sample rate.
+No percentage reduction is promised before measuring native Max. Increasing
+vector sizes is an additional test with a separate latency tradeoff; keep it
+separate from the instrument comparison.
+
+Build 2.1 count / memory / help checks
+10. Set limit 256, count 256, then Partial_Amplitude 200 0.4. Lower limit to64:
+    count must become64. Raise limit256: count stays64. Raise count256:
+    position200 must return at0.4. Repeat for a custom detune and anchor value.
+11. Repeat after dump, close, reopen, recall. Inspect hidden values after
+    explicitly raising both limit and count. Old presets with count above
+    their restored ceiling should clamp without discarding the hidden bank.
+12. Select a non-flat shape, edit a few bars manually, lower and raise count.
+    Stored values should return. Select the shape again to apply it across
+    the new count. Try both the count slider and typed/addressed counts.
+13. In the help file, double-click FULL_SUPPORT_AND_REFERENCE. Open its topic
+    patchers. Confirm comments are readable and examples address only this
+    help instance. The standalone support patcher should load without any
+    synthesizer or extra external dependencies.
+
+Build 2.2 keyboard articulation
+14. With all lane DEL values zero and finite nonzero envelope shapes, click
+    the internal keyboard and send note-in 60 100. All twelve lanes should
+    restart together once per event. Repeat the same pitch: it retriggers.
+15. Give lane01 DEL500 and lane02 DEL1000. A keyboard note should schedule
+    both delays from the same note event. The remaining zero-delay lanes
+    should start immediately. Repeat a note before expiry: latest start wins.
+16. note-in 60 0, silent keyboard set/clear and preset recall should not
+    launch lanes. A subsequent keyboard note or explicit trigger should.
+17. Test the help keyboard. It should send only note-in, with no additional
+    trigger in the parent. A long pitch glide should not repeatedly trigger.
+
+Build 2.3 Partial Offset
+Set one-to-one, Source_Base_Hz 100, flat detune, Micro_On 0. Enable
+Partial_Offset_On 1, then Partial_Offset_Number 5. The first three ideal
+frequencies should be 500, 600, 700 Hz; BASE FREQ must remain 100.
+Set offset 1: expect 100, 200, 300 Hz. Switch OFF: the same normal mapping.
+Check the first shifted slider can detune/drift and its anchor remains exact.
+Dump/recall with offset 5; check all lanes and Auto Level controls after reopen.

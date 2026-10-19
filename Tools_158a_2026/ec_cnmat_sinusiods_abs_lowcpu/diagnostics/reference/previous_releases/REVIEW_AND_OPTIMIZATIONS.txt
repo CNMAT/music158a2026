@@ -1,0 +1,115 @@
+Review of the working _ec_sinusoids_synth_v20-6.maxpat
+Prepared 2026-10-16
+
+The supplied working patch, rather than older release notes, was used as the
+source of truth. The main file contained 151 embedded patchers and 5,848 boxes,
+plus twelve separately loaded ADSR lane patchers and the organ-stop patcher.
+The original materials were retained separately and were not overwritten.
+
+CHANGES IMPLEMENTED
+1. Replaced hardware outputs with twelve group signal outlets and a post-gain
+   mono-sum outlet. Removed the random automixer and thirteen live.gain~ objects.
+   Added one linear global gain, default 0.1, with a 50 ms signal ramp, inlet,
+   slider, numeric display and message selectors. Twelve meters replace faders.
+
+2. Removed hardware MIDI ownership and routed note-in messages through the
+   visible keyboard. Preserved note-on-only pitch selection and the existing
+   independent ADSR trigger model. Removed host DSP switching and the obsolete
+   48 kHz instruction; added host sample-rate updates through dspstate~.
+
+3. Scoped all named connections and stores to the parent abstraction instance.
+   Renamed the custom helper files. Embedded organ-stop functionality and its
+   notes. Replaced the old global-message workspace with local examples.
+   Removed cached dependency paths and old Live parameter registrations.
+
+4. Added versioned, checksum-protected preset dumps and guarded recall. Included
+   internal memory as well as UI state: hidden partials, remove/add memory,
+   anchor settings, lane curves and user collections, drift/retuning state,
+   distribution state and Auto Level reference power. Collection dumping uses
+   silent proxy readers to avoid accidentally recalling every stored shape.
+
+5. Removed thirteen identical copies of the ADSR shape table. One embedded
+   table supplies all consumers inside an instance. Kept the original numeric
+   data and shaping algorithms. Added Task cleanup to the envelope-memory and
+   retuning helpers, which previously had no notifydeleted cleanup.
+
+6. Aligned the model-gain UI/input clip with the transform engine's actual 0–2
+   range. The source UI could show values above 2 while the engine clipped them
+   to 2. Removed an unwired duplicate numeric display over the micro-drift depth
+   control and stale output/DSP instructions.
+
+7. Kept the positions of the retained synthesis, retuning, keyboard, shape and
+   envelope controls. The only relocated retained presentation elements are
+   the twelve channel labels, now above the output meters. New preset controls
+   occupy the former automixer area. Individual ADSR layouts remain intact.
+
+FURTHER OPTIMIZATIONS, IN PRIORITY ORDER
+A. Profile the permanent oscillator allocation before changing it.
+   The renderer reserves IDs across two 512-ID banks and twelve sinusoids~
+   lanes. This supports phase continuity and the 150 ms offset crossfade, but
+   sending zero amplitude is not the same as eliminating oscillator CPU work.
+   Measure native Max CPU at 32, 128 and 256 partials and during offset changes.
+   A later active-bank or poly~ design could suspend unused work, with explicit
+   listening tests for phase changes and crossfade discontinuities. It has not
+   been substituted here because it can alter the instrument's behavior.
+
+B. Replace the 6,375-record resampled shape coll with on-demand resampling.
+   The main patch still carries precomputed shapes for 25 profiles at counts
+   2–256. A compact normalized template library plus a deterministic resampler
+   could reduce patch size and loading overhead considerably. Compare every
+   resulting list with the current data, including rounding, before replacing
+   it. The current build preserves the original values.
+
+C. Coalesce redundant spectral rebuilds within a scheduler turn.
+   Multiple controls can rebuild the same model in succession. The existing
+   beginupdate/endupdate protocol is already useful. Extending transaction
+   batching to control bundles and using a single pending low-priority rebuild
+   could reduce JavaScript work. Preserve the 5 ms lifecycle/crossfade timing
+   and avoid delaying note or envelope events unintentionally.
+
+D. Revisit work on hidden micro-drift slots only after measuring it.
+   The walk engine maintains 256 slots, even at smaller visible counts. Skipping
+   hidden slots would change seeded-stream evolution and later revealed values.
+   An optimization should preserve deterministic state advancement or explicitly
+   introduce a new behavior mode, rather than silently changing existing tones.
+
+E. Consolidate the twelve lane files into a parameterized lane template.
+   They now have private parent namespaces and shared shape data. A future
+   template taking both instance ID and lane number could reduce maintenance.
+   Keeping twelve explicit files in this delivery reduces changes to the tested
+   editor/control graph and preserves the individual layouts.
+
+F. Consider removing the hidden legacy master editor in a future UI revision.
+   The twelve independent lane envelopes are the renderer's active amplitude
+   controls. The older master and generic library editors remain available and
+   included in presets to preserve the supplied editing functionality. If they
+   are no longer needed pedagogically, removing them would simplify the state
+   model and reduce the number of user stores.
+
+G. Keep output protection as an explicit parent-patch choice.
+   Auto Level compensates spectral power relative to a captured reference; it
+   is not a peak limiter and excludes the independently evolving lane envelopes.
+   The mono sum is a true sum and can exceed unity. For a performance rig, add
+   the desired limiter/output metering in the parent or offer a documented
+   optional protection mode. No limiter was inserted into the sound here.
+
+COMPATIBILITY / TEST LIMITS
+Updated by the preset repair: engines now expose a public ecpreset Max message
+and exchange JSON strings through an instance-local temporary Dict. The
+controller no longer calls other objects through Maxobj.js. The runtime still
+uses classic Max js; no Node-for-Max process is involved.
+The included tests simulate native Max objects and scheduling. Native Max
+loading, exact UI/pattr behavior, message-box capacity, actual audio output,
+CPU cost and listening still require testing on the target Max installation.
+
+Official API references used for the new interface:
+https://docs.cycling74.com/apiref/js/maxobj/
+https://docs.cycling74.com/reference/coll/
+https://docs.cycling74.com/reference/message/
+https://docs.cycling74.com/reference/kslider/
+https://docs.cycling74.com/reference/slider/
+https://docs.cycling74.com/reference/bpatcher/
+https://docs.cycling74.com/userguide/abstractions/
+
+Additional API reference for the repair:
+https://docs.cycling74.com/apiref/js/dict/

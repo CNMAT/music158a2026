@@ -1,0 +1,61 @@
+Per-lane start delay — build 1.8 — 2026-10-16
+
+CONTROLS
+All twelve lane panels now show PTS, DUR and DEL across the upper row.
+DEL is an integer in milliseconds, minimum 0, maximum 3600000, default 0.
+The existing 240 x 160 lane panel dimensions and remaining layout are retained.
+The existing duration control keeps its original numeric type and precision.
+
+MESSAGE INPUT
+  control ADSR_Lane_01_Delay_ms 250
+Replace 01 with 02 through 12 for the other lanes. Delay state broadcasts use
+the same instance namespace and the suffix ADSR_Lane_XX_Delay_ms_state.
+
+BEHAVIOR
+The DEL value applies to the lane's TRIG button, addressed/global triggers,
+and subsequent loop restarts. Zero bypasses the scheduler and starts at once.
+A newly received trigger cancels and replaces any waiting start for that lane.
+Changing DEL alone affects the next trigger, without rescheduling a pending one.
+Stop cancels pending starts and performs the existing loop-off/stop/fade action.
+Preset recall invokes Stop before restoring settings, so old pending starts
+cannot fire into the recalled state. Individual instances remain independent.
+DEL postpones the start bang; it does not modify the envelope's shape or DUR.
+No new JavaScript engine, dependency file or external is required for timing.
+
+PRESETS
+Capture now includes 207 UI controls: the previous 195 plus twelve delays.
+New dumps use header 'preset 2 ...' and snapshot version 2. They save DEL values,
+not countdown progress. Existing version 1 presets are accepted and receive
+explicit zero delays; current nonzero DEL values cannot leak into an old preset.
+The supplied saved help preset is preserved byte-for-byte. Its checksum is
+h4606823b, with 178614 decoded bytes in 466 chunks.
+Do not use newly captured version 2 presets with an older controller.
+
+FILES
+Runtime changes: ec_cnmat_sinusoids_adsr_01.maxpat through _12.maxpat and
+dependencies/ec_cnmat_sinusoids_controller.js. The main abstraction, supplied
+help and all other engine scripts are unchanged. Documentation, control names,
+the preset manifest, and regression tests are updated in their existing folders.
+The full package is supplied because preset capture/recall needs the controller.
+
+TESTING
+Automated source/message tests validate new delay capture and recall, original
+version 1 migration, integer/range checks, independent lane overrides and the
+previous ADSR toggle fixes. A separate timer model follows the actual lane patch
+cords to test zero bypass, delayed starts, retrigger replacement, cancellation,
+loop behavior and instance separation. A layout check verifies that the upper
+row fits each existing bpatcher without overlaps. These checks do not execute
+native Max GUI, scheduling or audio.
+
+IN MAX
+1. Close old instances, replace the folder, open the supplied help and confirm
+   ready gain 0.1 build 1.8.
+2. Recall your saved message, then set different DEL values in several lanes.
+3. Trigger all lanes and confirm their staggered starts. Test LOOP as well.
+4. Set DEL 2000, trigger, then Stop before two seconds: no waiting start fires.
+5. Dump and save the help, reopen, recall, and verify the twelve DEL values.
+
+Reference: https://docs.cycling74.com/reference/delay/
+The native delay object stores one pending bang; stop cancels it. The patch
+adds an explicit zero-delay bypass and cancels a previous pending bang before
+processing each new trigger.

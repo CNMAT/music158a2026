@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "assertions": 26626,
+  "patch_boxes": 3921,
+  "cord_endpoints": 6500,
+  "scoped_connections": 569,
+  "local_dependencies": 29,
+  "preset_controls": 209,
+  "preset_engines": 25,
+  "user_stores": 14,
+  "dump_atoms": 309,
+  "message_box_connections_checked": 3,
+  "supplied_preset": {
+    "bytes": 182126,
+    "chunks": 475,
+    "checksum": "h3ddbb3dd",
+    "original_version": 2,
+    "source_controls": 207,
+    "restored_controls": 209,
+    "engines": 25,
+    "stores": 14,
+    "simulated_recall": "PASS"
+  },
+  "adsr_control_flow": {
+    "scenarios": [
+      "cold-state supplied snapshot",
+      "repeat recall",
+      "mixed loops and durations",
+      "individual smoothing overrides",
+      "directly edited function and cached playback message",
+      "capture after recall",
+      "v2 nonzero delay capture",
+      "legacy v1 resets delays to zero",
+      "malformed delay rejection"
+    ],
+    "fanouts": 16,
+    "programUpdates": 420,
+    "loopUpdates": 96
+  },
+  "message_requests": 1350,
+  "dictionary_operations": 37611,
+  "transport_tests": [
+    "Actual help and isolation patch cords route outlet 14 to the message LEFT inlet",
+    "Dump stores silently; click sends preset to inlet 1 and completes simulated recall",
+    "Right-inlet fault reproduces literal set selector",
+    "Toggle bang flips state in the model; explicit numeric recall preserves ON and OFF",
+    "ADSR global fanout, loop gates and function playback-cache effects simulated",
+    "Dictionary text atoms limited to 481 characters and Base64-safe characters",
+    "Single-atom dictionary results wrapped in lists",
+    "Container-only JSON parser with direct scalar copying",
+    "Large escaped/Unicode payload roundtrip",
+    "Truncated and checksum-corrupt chunks rejected",
+    "Exact UI context and no incomplete dump on capture failure"
+  ],
+  "limitations": [
+    "Simulated Max UI/messages/Tasks/Dict; Maxobj.js access is deliberately blocked. Native host verification is still required.",
+    "The stress-test behaviors are fault models, not verified explanations of the user's generic JSON.parse error.",
+    "No native sinusoids~ DSP, audio playback or listening test was available."
+  ]
+}

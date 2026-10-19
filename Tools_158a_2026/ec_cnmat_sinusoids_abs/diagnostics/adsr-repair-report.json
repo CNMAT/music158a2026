@@ -1,0 +1,61 @@
+{
+  "release": "1.7",
+  "input": "ec_cnmat_sinusoids_abs.zip",
+  "runtime_changed": [
+    "dependencies/ec_cnmat_sinusoids_controller.js"
+  ],
+  "runtime_files_byte_identical_to_attachment": 28,
+  "help_file": "_ec_cnmat_sinusoids~.maxhelp",
+  "help_changes": [
+    "p preset: inlet connects to message left inlet",
+    "Saved message: remove leading set only; all encoded chunks preserved",
+    "Preset guidance updated; layout and parent audio controls preserved"
+  ],
+  "saved_preset": {
+    "checksum": "hfc3362a9",
+    "decoded_bytes": 211345,
+    "chunks": 551,
+    "controls": 195,
+    "engines": 25,
+    "stores": 14,
+    "all_lane_loops": 1,
+    "individual_loops": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "lane_shape_index": 7,
+    "duration_ms": 1000,
+    "smoothing_ms": 200
+  },
+  "regressions_detected": {
+    "toggle_bang": {
+      "detected": true,
+      "assertion": "AssertionError [ERR_ASSERTION]: supplied UI restored ec_obj_112/ec_all_lane_loops_toggle"
+    },
+    "global_after_lanes": {
+      "detected": true,
+      "assertion": "AssertionError [ERR_ASSERTION]: independent lane overrides translator duration ec_obj_112/ec_lane_bpatch_01/"
+    }
+  },
+  "validation": "diagnostics/validation-results.json",
+  "native_Max_execution": false,
+  "changed_files": [
+    "README.txt",
+    "_ec_cnmat_sinusoids~.maxhelp",
+    "dependencies/ec_cnmat_sinusoids_controller.js",
+    "diagnostics/ADSR_RECALL_REPAIR.txt",
+    "diagnostics/adsr-effects.cjs",
+    "diagnostics/validate.cjs",
+    "diagnostics/validation-results.json"
+  ]
+}

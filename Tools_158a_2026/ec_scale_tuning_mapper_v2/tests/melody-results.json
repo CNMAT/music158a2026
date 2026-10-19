@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "host": "Node vm with mocked Max API; not Max runtime",
+  "metrics": {
+    "notes": 50000,
+    "stepFraction": 0.9365987319746395,
+    "stepFractionOfMovement": 0.9541749867557765,
+    "repeatedNotes": 921,
+    "leaps": 2249,
+    "largeLeaps": 725,
+    "immediateOppositeStepRecoveries": 714,
+    "recoveryRate": 0.9848275862068966,
+    "consecutiveLeaps": 35,
+    "allowedSameDirectionThirdPairs": 33,
+    "otherSameDirectionLeapPairs": 0,
+    "continuingAfterThreeRate": 0.0787518573551263,
+    "sameDirectionThirdChoiceRate": 0.9713333333333334
+  }
+}

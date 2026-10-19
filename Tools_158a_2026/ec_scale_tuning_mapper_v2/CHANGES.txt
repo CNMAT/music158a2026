@@ -1,0 +1,66 @@
+EC SCALE / TUNING MAPPER v1.2.0 -- 2026-10-16
+
+- Six-circle modal morph: mixolydian / ionian / lydian on top;
+  dorian / aeolian / phrygian below. Main help and nodes_tuning updated.
+- Added nodesmode modal to interpolate corresponding scale degrees in cents;
+  strict nodesmode tuning remains available. modalnodes initializes six modes.
+- Added octave <int> for the primary generated octave and octaveshift <0..1>
+  for the probability of moving exactly one octave up or down on each bang.
+  Default shift 0; up/down equally likely; shifts do not accumulate.
+- Added controls to the main page, nodes_tuning, and melodic_preferences.
+  octave 4 = C4 = MIDI 60 = 6000 cents with the default C tonic.
+  Selecting a primary octave resets register to 0 0.
+- Added a main-page external notein -> kslider -> stripnote -> * 100 -> JS path
+  and a mouse-playable keyboard in the independent nodes_tuning example.
+  Played notes retain their input register; new octave controls affect bangs.
+- Preserved the user's scale-tab audition path and connected nodes_tuning
+  to the same parent sine audition. Both .maxhelp copies are identical.
+- Saved state includes new controls; older states migrate with shift OFF
+  and continue to follow their existing tonic octave.
+
+Validation: original mapper and melodic suites, plus new octave probability,
+modal endpoint/midpoint, state migration, input mapping, and patch wiring tests.
+Host: Node with mocked Max API and Python JSON checks; no Max runtime/audio
+or physical controller test was available.
+
+Previous release notes follow.
+
+EC SCALE / TUNING MAPPER v1.1.0 -- 2026-10-16
+
+- Added melodic preferences, enabled by default: strongly favor adjacent steps;
+  recover immediately after large leaps with an opposite-direction step;
+  discourage consecutive leaps, except thirds continuing in the same direction;
+  progressively favor a turn after three moves in one direction.
+- Selection now evaluates actual degree/register candidates. Tone-profile and
+  nodes weights remain the starting probabilities. Sparse profiles and register
+  boundaries relax unavailable preferences without adding excluded tones.
+- Added adjustable melodic controls and phrase reset. Old saved states migrate
+  with the new defaults. melodic 0 allows comparison with profile-only selection.
+- Added all 41 built-in scales to menus on the main and scales/tunings pages.
+  First six: phrygian, aeolian, dorian, ionian, mixolydian, lydian.
+- Preserved the user's scales-tab Hz outlet and parent sine-audition connection.
+  _ec_scale_tuning_mapper.maxhelp and the canonical .maxhelp are identical.
+
+VALIDATION
+50,000 generated notes with the major profile, three registers, seeded RNG:
+  93.66% of transitions were steps (95.42% of nonrepeated movement).
+  714 of 725 large leaps immediately recovered by opposite step (98.48%).
+  35 consecutive-leap pairs; 33 were same-direction thirds.
+  No other same-direction consecutive-leap pairs in this run.
+  7.88% continued in the same direction after a run of three or more moves.
+These are results for this test configuration, not guarantees for every scale,
+weight vector or register. Exact test parameters and results are in tests/.
+
+Regression tests cover 622,440 integer ceiling mappings and 70,000 profile-only
+samples, plus tuning, nodes, MIDI note-off pairing, state restore and Scala data.
+New tests cover melodic behavior, zero weights, boundaries, thirds, all 41 menu
+entries, non-octave periods, node changes and old-state migration.
+Patch JSON, all connections and the preserved audition wiring were checked.
+The help layout was inspected using an approximate offline rendering.
+Max runtime/audio audition is still required on the user's machine.
+
+USAGE
+Unzip the whole folder and open _ec_scale_tuning_mapper.maxhelp.
+Click bang to generate. The menus select the base scale and turn nodes mode OFF.
+Double-click p melodic_preferences for controls. The scale tab remains a
+separate mapper and feeds the main sine audition through the user's connection.

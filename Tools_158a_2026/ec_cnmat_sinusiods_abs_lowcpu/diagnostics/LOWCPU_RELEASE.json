@@ -1,0 +1,74 @@
+{
+  "build": "2.4-lowcpu",
+  "package_folder": "ec_cnmat_sinusiods_abs_lowcpu",
+  "abstraction": "ec_cnmat_sinusoids_lowcpu_abs~.maxpat",
+  "support_patcher": "_ec_cnmat_sinusoids_lowcpu_support.maxpat",
+  "default_render_limit": 128,
+  "render_limits": [
+    64,
+    128,
+    256
+  ],
+  "preset_version": 3,
+  "readable_preset_versions": [
+    1,
+    2,
+    3
+  ],
+  "preset_controls": 209,
+  "preset_engines": 25,
+  "preset_user_stores": 14,
+  "runtime_dependencies": 29,
+  "factory_readers": 13,
+  "factory_profile_records": 1150,
+  "runtime_namespace": "#0-ec-cnmat-sinusoids-opt_ / #1-ec-cnmat-sinusoids-opt_",
+  "native_Max_tested": false,
+  "repair_report": "REPAIR_REPORT.txt",
+  "automated_tests": "all-results.json",
+  "native_check_instructions": "PROFILE_IN_MAX.txt",
+  "presentation_and_data_preservation": {
+    "result": "PASS",
+    "preserved_presentation_objects": 1262,
+    "preserved_embedded_collections": 18,
+    "lane_reference_paths_made_explicit": 12,
+    "help_and_support_unchanged": true,
+    "preset_manifest_unchanged": true
+  },
+  "factory_origin": {
+    "original_factory_record_count": 1150,
+    "original_values": 29325,
+    "factory_dependency_sha256": "df130225a12c1a0e04b62d80b996cf96eed0c9a39a96a1fa47933976ee374870",
+    "factory_records_sha256": "8171e208192d485085def206589803f23b4417399fa66fa836456302f9ec1d05",
+    "source": "Exact factory records recovered from the previous complete build 2.3; no regenerated/randomized shapes.",
+    "factory_values_sha256": "22534e13635bf961266bb1b40243dd33443ba83695579ca69329b45b00f560ff"
+  },
+  "changes": [
+    "Immutable exact factory ADSR profiles independent of coll embedding",
+    "Ordered immediate initialization in all12 lanes and Master editor",
+    "Explicit package-relative bpatcher references",
+    "Console build label 2.4-lowcpu; controller behavior unchanged",
+    "Diagnostics accept native automatic port indices and verify physical order"
+  ],
+  "source_of_truth_note": "Previous release reports under reference/previous_releases are historical; use all-results.json for this build.",
+  "changed_runtime_and_root_files": [
+    "README.txt",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_01.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_02.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_03.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_04.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_05.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_06.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_07.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_08.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_09.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_10.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_11.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_adsr_12.maxpat",
+    "dependencies/ec_cnmat_sinusoids_opt_controller.js",
+    "ec_cnmat_sinusoids_lowcpu_abs~.maxpat"
+  ],
+  "added_runtime_file": "dependencies/ec_cnmat_sinusoids_opt_adsr_shapes.js",
+  "tests_passed": 11,
+  "supplied_saved_preset_messages": 2,
+  "distinct_supplied_saved_presets": 1
+}

@@ -1,0 +1,57 @@
+Preset serialization repair 1.5 — 2026-10-16
+
+Reported error
+  ec_cnmat_sinusoids_opt_status: error JSON.parse
+
+The three reported lines do not identify the failing operation. The old code
+had JSON.parse calls in ordinary value copies, engine transfer decoding and
+preset-message recall. This release removes unnecessary parsing, hardens the
+dictionary transport, and identifies the operation in any remaining error.
+It does not claim a native root cause that the log alone cannot establish.
+
+Changes
+1. Ordinary values are copied recursively, without stringify/parse round trips.
+   Numbers, strings, booleans, null, arrays and plain objects keep their types.
+   Non-finite or unsupported values fail with a specific error.
+2. Request and response JSON is ASCII-escaped, Base64-encoded, then stored in
+   chunks of at most 480 encoded characters plus a one-character prefix. Dict
+   never receives JSON punctuation or a long JSON string in a single value.
+3. Each transfer carries its format, chunk count, encoded length, decoded
+   length, checksum and completion flag. Missing/truncated/corrupt data is
+   rejected before JSON parsing. Single-atom lists returned by the host are
+   unwrapped explicitly.
+4. Parsing errors include direction and length; the controller adds engine path
+   and action. Capture errors identify the UI control or user store. The preset
+   recall parser also supplies context. An incomplete capture emits no preset.
+5. check now performs ping, export and validation on every engine, exercising
+   real state payloads instead of only small acknowledgements. It still reports
+   every failed engine and preserves instance isolation.
+6. Startup identifies this controller with: ready gain 0.1 build 1.5
+
+Compatibility and scope
+The message-box preset format remains version 1; existing complete presets keep
+their checksum/chunk format. The private dictionary transport has changed, so
+replace the complete folder and close earlier instances before reopening.
+All Max patch documents and the user's help file are byte-identical to 1.4.
+No synthesis, audio routing, UI layout, control names or dependencies changed.
+The transport helpers are included directly in each script, avoiding another
+include-file path dependency. All helpers are private to Max message dispatch.
+
+Tests
+The full simulated controller passes sweep/dump/recall while its parser rejects
+standalone JSON scalars and its Dict returns one-item lists. Every dictionary
+string is limited to 481 Base64-safe characters. Additional tests roundtrip a
+large payload containing quotes, backslashes, newlines and Unicode, reject
+truncation/checksum corruption/incomplete transfers, and verify that a failed
+UI capture names the control and emits no partial preset. These are deliberate
+fault models, not verified claims about the user's Max version. Core algorithm
+and patch/dependency audits also pass. See validation-results.json for details.
+
+Native Max check
+1. Close current instances and replace the whole folder.
+2. Open ec_cnmat_sinusoids_lowcpu_abs~.maxhelp. Confirm ready gain 0.1 build 1.5.
+3. Click check. Expected: preset_bridge_ok 25 engines.
+4. Click dump. Expected: swept ... followed by dumped ... and a filled message.
+5. Change a value, click the saved preset message, then trigger the envelopes.
+If an error remains, retain its complete new text, including the engine/control
+path and operation. A native Max installation was unavailable during this build.

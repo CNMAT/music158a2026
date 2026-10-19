@@ -1,0 +1,61 @@
+Saved script filename repair 1.4 — 2026-10-16
+
+Reported error
+No preset reply from ec_obj_21/ec_adsr_morph_engine
+
+Finding
+The failing js object had two inconsistent file references:
+  text: js Patcher:/dependencies/ec_cnmat_sinusoids_opt_envelope_memory.js #0
+  saved_object_attributes.filename: multislider_interpolation_engine_v20.js
+
+Thirteen additional js objects retained similar v20 filenames in saved
+attributes. The twelve private ADSR lanes had no such saved override. This
+matches the point where the check stopped: after those twelve lane engines,
+at the first envelope engine with a stale saved filename.
+
+An older script without the ecpreset endpoint can silently ignore that message
+through its anything() handler, leading to "No preset reply". The stale saved
+references are a verified packaging defect; their precise role in the user's
+native Max load still requires confirmation there.
+
+Repair
+- All fourteen saved filename attributes now match their visible js arguments,
+  including the Patcher:/dependencies/ prefix.
+- The path audit checks saved filename attributes and every string in runtime
+  patch JSON for original v20 .js/.maxpat/.maxhelp references.
+- Full-controller tests load the scripts selected by saved filename attributes
+  when present, rather than assuming the manifest's desired engine kind.
+- check tries all twenty-five endpoints and reports each failure, then either
+  preset_bridge_ok 25 engines or preset_bridge_failed N of 25 engines.
+- A mismatched instance namespace receives an explicit negative acknowledgement.
+  The endpoint rejects it before exporting, importing, or emitting any state.
+  The old silent rejection could look identical to a missing or outdated script.
+- No-acknowledgement errors no longer claim that a dependency folder must be
+  missing; they state that the loaded script did not acknowledge ecpreset.
+
+Scope
+Main patch: fourteen saved filename attributes changed; all box IDs, visible
+object text, patch cords, UI settings and presentation positions preserved.
+Twelve private lane patchers and the user's help patch are byte-identical to 1.3.
+Thirteen engine scripts received only the namespace diagnostic change above;
+the controller received only error-message/check reporting changes. Synthesis,
+gain, note routing, preset format, capture and recall algorithms are unchanged.
+Dependencies and diagnostics retain their separate subfolders.
+
+Verification
+Included tests pass: actual selected scripts expose all twenty-five preset
+endpoints; sweep/dump/recall works in the simulated Max message/Dict environment;
+all saved filenames match; no old v20 filenames remain in runtime patch JSON;
+port/cord checks and core synthesis/control checks pass. A test with both a
+silent handler and an incorrect namespace confirms that check reports both,
+then returns to success when those simulated faults are removed.
+
+Install and test
+Close existing instances and replace the whole folder, including its scripts.
+Open ec_cnmat_sinusoids_lowcpu_abs~.maxhelp and click check. Expected success is:
+  preset_bridge_ok 25 engines
+Then try dump, modify settings, and recall. If check still fails, its complete
+output now identifies every failed engine and distinguishes namespace errors.
+
+Native Max was unavailable in the build environment; actual loading, message
+dispatch, scheduling, UI behavior and audio have not been verified here.

@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "assertions": 185,
+  "scenarios": [
+    "keyboard pitch before common ADSR launch",
+    "all12 lanes synchronous at DEL0",
+    "addressed and repeated note-on",
+    "velocity-zero suppression",
+    "silent set/clear and preset keyboard restore",
+    "recall busy guard",
+    "independent DEL and latest-note replacement",
+    "help path has no second trigger"
+  ],
+  "limitations": [
+    "Uses saved patchcords and actual controller with modeled Max keyboard/message/timer behavior. Native Max loading, timing and audio listening remain required."
+  ]
+}

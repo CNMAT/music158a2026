@@ -1,0 +1,57 @@
+Preset repair 1.1 — 2026-10-16
+
+Historical note: repair 1.5 retains the message/Dict interface but replaces the
+single JSON-string payload with bounded Base64 chunks. See JSON_REPAIR.txt.
+
+Reported failure
+  ec_cnmat_sinusoids_opt_status: error "o.js.ec_export is not a function"
+
+Diagnosis
+The controller called ec_export/ec_validate/ec_import/ec_emit directly through
+another Max object's .js property. Those functions are marked local in the
+engine scripts. The reported Max session did not expose ec_export as callable
+through that path. The original Node test supplied a complete JavaScript VM
+object as .js and therefore did not reproduce the host's access boundary.
+
+Repair
+All four cross-object operations now use the normal Max message interface:
+  target.message("ecpreset", <instance-local dictionary name>)
+The target executes its private helper within its own script context. It writes
+an acknowledged response to the temporary named Dict. Request/response payloads
+are JSON STRINGS inside the dictionary, so Max's dictionary value conversion
+cannot change booleans, null, empty arrays, nested arrays or sparse-memory data.
+The controller checks the protocol, request sequence, engine kind and success
+flag before accepting a reply. Failures identify the affected object path.
+Temporary dictionaries are released on success and failure.
+
+There is no Maxobj.js dependency and no silent fallback to an incomplete preset.
+The controller embeds its manifest, avoiding a separate include-file lookup.
+The new check message verifies the 25 engine endpoints without changing sound.
+Existing preset message syntax and snapshot format remain version 1.
+
+Folder cleanup
+- Root: abstraction, your edited help file, README and control reference.
+- dependencies/: all custom runtime JavaScript and private lane patchers.
+- diagnostics/: tests, results, isolation patch, manifest inventory and reviews.
+- Removed macOS resource forks, .DS_Store files and the stale integrity list.
+- Folder references were subsequently corrected in repair 1.2 to use the
+  documented Patcher:/dependencies/ prefix. See PATH_REPAIR.txt.
+- The CNMAT native sinusoids~ external remains an installed prerequisite.
+
+Verification performed
+- Regression environment deliberately throws on ANY Maxobj.js access.
+- Full controller check, sweep, dump, validation and recall pass through message
+  dispatch and a shared Dict simulation.
+- Hidden 256th-slot values, booleans, null and user memories survive transfer.
+- Missing endpoints, mismatched replies and cross-instance requests are rejected.
+- Temporary dictionary handles are released, including on error.
+- Existing synthesis/control algorithm tests pass.
+- Main presentation coordinates, original patch cords and your help keyboard
+  are retained; the change does not rewrite synthesis algorithms.
+
+Native Max follow-up
+A Max application is not available in the build environment. Simulated tests
+cannot certify native message dispatch timing, UI/pattr behavior or audio DSP.
+Open the new help file, click check (expect preset_bridge_ok 25 engines), then
+exercise dump / edit / recall and trigger. Use the entire replacement folder
+so old helper scripts cannot mix with this controller.

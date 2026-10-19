@@ -1,0 +1,353 @@
+{
+  "build": "2.3-lowcpu",
+  "package_folder": "ec_cnmat_sinusiods_abs_lowcpu",
+  "abstraction": "ec_cnmat_sinusoids_lowcpu_abs~.maxpat",
+  "default_render_limit": 128,
+  "partial_distribution_default": 0,
+  "partial_distribution_names": [
+    "one-to-one",
+    "even num partials",
+    "odd num partials",
+    "prime multiples"
+  ],
+  "preset_version": 3,
+  "readable_preset_versions": [
+    1,
+    2,
+    3
+  ],
+  "user_presentation_controls_moved": 0,
+  "existing_comment_width_adjusted": "partial-offset-v20-presentation-note",
+  "supplied_saved_presets_preserved_exactly": 2,
+  "runtime_dependencies": 28,
+  "runtime_namespace": "#0-ec-cnmat-sinusoids-opt_ / #1-ec-cnmat-sinusoids-opt_",
+  "native_Max_tested": false,
+  "tests": {
+    "core-results.json": {
+      "status": "PASS",
+      "assertions": 745,
+      "checks": [
+        "All 94 detune presets: correct lengths and signed range at counts 2, 48 and 256; Flat Zero and All on full.",
+        "All 25 removal-weight presets: correct lengths and 0\u20131 range at counts 2, 48 and 256.",
+        "Active remove/add engine restores all three layers exactly; direct memory resizing retains a hidden signed slot; All Off clears all 256 slots.",
+        "Generator preserves paired IDs, locks the source fundamental, detunes higher primaries by \u00b1100 cents, and leaves anchors exact.",
+        "Retuning controller zero-duration ratio and fixed-Hz modes emit expected ratio/shift commands.",
+        "Post-transform exact-frequency merging preserves silent absorbed IDs; frequency-window rejection removes rejected records."
+      ],
+      "limitations": [
+        "JavaScript source tests only; Max patch-cord execution, scheduler, graphics, sinusoids~ DSP, actual audio channels and listening not exercised.",
+        "Memory resize test does not simulate patch-level selected-shape regeneration."
+      ]
+    },
+    "lowcpu-results.json": {
+      "result": "PASS",
+      "assertions": 6560,
+      "render_budgets": [
+        {
+          "limit": 64,
+          "steady_slots": 128,
+          "crossfade_slots": 256
+        },
+        {
+          "limit": 128,
+          "steady_slots": 256,
+          "crossfade_slots": 512
+        },
+        {
+          "limit": 256,
+          "steady_slots": 512,
+          "crossfade_slots": 1024
+        }
+      ],
+      "scenarios": [
+        "all five spatial assignment plans",
+        "source counts below and above limit",
+        "independent bank clearing",
+        "unchanged-message suppression",
+        "150 ms budget ramps and reversal",
+        "hidden-memory recovery",
+        "stable sounding slots",
+        "legacy engine import",
+        "four harmonic mappings and anchors",
+        "maximum prime offset",
+        "generator/transform/crossfade/render integration",
+        "rapid sequence changes",
+        "alias filtering",
+        "Auto Level budget",
+        "24-bank saved audio graph"
+      ],
+      "limitations": [
+        "Runs actual classic JS with modeled Tasks/time and inspects saved Max graph. Native sinusoids~ DSP, CPU measurement, phase continuity and listening require Max.",
+        "Slot holes are retained to preserve sounding identities; distribution changes can temporarily or persistently leave extra zero slots until the bank becomes idle. Render statistics report actual native slots."
+      ]
+    },
+    "validation-results.json": {
+      "result": "PASS",
+      "assertions": 25370,
+      "patch_boxes": 3607,
+      "cord_endpoints": 6350,
+      "scoped_connections": 570,
+      "local_dependencies": 28,
+      "preset_controls": 209,
+      "preset_engines": 25,
+      "user_stores": 14,
+      "dump_atoms": 309,
+      "message_box_connections_checked": 3,
+      "supplied_preset": {
+        "bytes": 182126,
+        "chunks": 475,
+        "checksum": "h3ddbb3dd",
+        "original_version": 2,
+        "source_controls": 207,
+        "restored_controls": 209,
+        "engines": 25,
+        "stores": 14,
+        "simulated_recall": "PASS"
+      },
+      "adsr_control_flow": {
+        "scenarios": [
+          "cold-state supplied snapshot",
+          "repeat recall",
+          "mixed loops and durations",
+          "individual smoothing overrides",
+          "directly edited function and cached playback message",
+          "capture after recall",
+          "v2 nonzero delay capture",
+          "legacy v1 resets delays to zero",
+          "malformed delay rejection"
+        ],
+        "fanouts": 16,
+        "programUpdates": 420,
+        "loopUpdates": 96
+      },
+      "message_requests": 1350,
+      "dictionary_operations": 37611,
+      "transport_tests": [
+        "Actual help and isolation patch cords route outlet 14 to the message LEFT inlet",
+        "Dump stores silently; click sends preset to inlet 1 and completes simulated recall",
+        "Right-inlet fault reproduces literal set selector",
+        "Toggle bang flips state in the model; explicit numeric recall preserves ON and OFF",
+        "ADSR global fanout, loop gates and function playback-cache effects simulated",
+        "Dictionary text atoms limited to 481 characters and Base64-safe characters",
+        "Single-atom dictionary results wrapped in lists",
+        "Container-only JSON parser with direct scalar copying",
+        "Large escaped/Unicode payload roundtrip",
+        "Truncated and checksum-corrupt chunks rejected",
+        "Exact UI context and no incomplete dump on capture failure"
+      ],
+      "limitations": [
+        "Simulated Max UI/messages/Tasks/Dict; Maxobj.js access is deliberately blocked. Native host verification is still required.",
+        "The stress-test behaviors are fault models, not verified explanations of the user's generic JSON.parse error.",
+        "No native sinusoids~ DSP, audio playback or listening test was available."
+      ]
+    },
+    "lane-delay-results.json": {
+      "result": "PASS",
+      "assertions": 469,
+      "lanes": 12,
+      "scenarios": [
+        "zero bypass",
+        "positive delay",
+        "manual and addressed trigger",
+        "pending-time edits",
+        "latest-trigger replacement",
+        "zero-trigger cancellation",
+        "Stop cancels waiting start",
+        "loop restart delay",
+        "Stop cancels waiting loop",
+        "independent instances",
+        "row fits existing 240px bpatchers"
+      ],
+      "limitations": [
+        "Executes saved patchcords with a modeled message scheduler; no native Max GUI, scheduler or audio execution."
+      ]
+    },
+    "path-results.json": {
+      "result": "PASS",
+      "assertions": 24477,
+      "file_references": 42,
+      "unique_dependencies": 28,
+      "dependency_cord_endpoints": 315,
+      "owner_patch_files": 13,
+      "metadata_notes": [
+        "stage12-freq-indices: original cached outlet is unused; script declares zero",
+        "stage12-amp-indices: original cached outlet is unused; script declares zero",
+        "stage12-harmonic-indices: original cached outlet is unused; script declares zero"
+      ],
+      "saved_script_filenames": 15,
+      "previous_lane_path_rejected": true,
+      "path_context": "Parent instrument folder retained while traversing bpatchers; model based on the reported Max 1.2 load failure.",
+      "limitations": [
+        "Static hierarchy/path and port audit; the path-context model is an inference from the user log, not execution of the native Max loader.",
+        "Private lane files are checked inside the instrument, not opened independently."
+      ],
+      "documentation": "https://docs.cycling74.com/userguide/search_path/#path-prefixes"
+    },
+    "count-ceiling-results.json": {
+      "result": "PASS",
+      "assertions": 225,
+      "scenarios": [
+        "UI and external count ceiling",
+        "no count growth when limit rises",
+        "stored detune/primary/anchor values survive clamp and expansion",
+        "150 ms retirement and rapid reversal",
+        "no shape regeneration on count edits",
+        "real preset dump/cold recall retains hidden values",
+        "build2.0 format3 count-limit mismatch",
+        "legacy format2 migration"
+      ],
+      "limitations": [
+        "Native objects and scheduler are modeled; actual controller, memory, shape JS and public Dict preset bridge are executed. Native Max GUI/audio checks remain required."
+      ]
+    },
+    "support-results.json": {
+      "result": "PASS",
+      "support_topics": 11,
+      "connected_examples": 69,
+      "support_graph_checks": 175,
+      "standalone_matches_embedded": true,
+      "existing_preset_messages_unchanged": 2,
+      "preset_message_sha256": [
+        "5c223fd73c57489ef067c0de6739e85677e7f7ff8ec45710f8365ecbfd45a4d1",
+        "5c223fd73c57489ef067c0de6739e85677e7f7ff8ec45710f8365ecbfd45a4d1"
+      ],
+      "existing_instrument_presentation_rects_unchanged": true,
+      "all_12_ADSR_patchers_unchanged": true,
+      "native_Max_GUI_tested": false
+    },
+    "keyboard-trigger-results.json": {
+      "result": "PASS",
+      "assertions": 185,
+      "scenarios": [
+        "keyboard pitch before common ADSR launch",
+        "all12 lanes synchronous at DEL0",
+        "addressed and repeated note-on",
+        "velocity-zero suppression",
+        "silent set/clear and preset keyboard restore",
+        "recall busy guard",
+        "independent DEL and latest-note replacement",
+        "help path has no second trigger"
+      ],
+      "limitations": [
+        "Uses saved patchcords and actual controller with modeled Max keyboard/message/timer behavior. Native Max loading, timing and audio listening remain required."
+      ]
+    },
+    "offset-preset-results.json": {
+      "result": "PASS",
+      "assertions": 33,
+      "scenarios": [
+        "format 3 offset=5 message recall",
+        "BASE FREQ restoration",
+        "first primary and anchor after recall",
+        "all seven relocated Auto Level controls",
+        "recaptured stable preset keys"
+      ],
+      "limitations": [
+        "Actual controller/Dict/engine protocol with modeled Max UI; no native Max reload."
+      ]
+    },
+    "partial-offset-results.json": {
+      "result": "PASS",
+      "assertions": 86,
+      "scenarios": [
+        "four sequences at offsets 1 and 5",
+        "primary and anchor frequencies",
+        "stable base frequency, IDs and memory",
+        "first-slot detune and micro-drift return",
+        "ERB frequency",
+        "engine preset roundtrip",
+        "saved offset UI path",
+        "150 ms crossfade and latest edit",
+        "OFF and ON reset",
+        "BASE FREQ readback wiring"
+      ],
+      "limitations": [
+        "Actual JS with modeled Tasks and Max UI messages; no native Max audio or GUI test."
+      ]
+    }
+  },
+  "default_slider_count": 32,
+  "slider_count_ceiling": "Render Limit",
+  "raising_limit_increases_count": false,
+  "full_memory_capacity": 256,
+  "count_edits_reapply_shapes": false,
+  "support_patcher": "ec_cnmat_sinusoids_lowcpu_support.maxpat",
+  "support_topics": 11,
+  "support_message_examples": 69,
+  "keyboard_note_auto_trigger": true,
+  "note_on_order": "pitch target, then one common ADSR trigger; individual DEL retained",
+  "help_keyboard_external_trigger_removed": true,
+  "name_sync": {
+    "date": "2026-10-19",
+    "replacement_occurrences": 114,
+    "package_folder": "ec_cnmat_sinusiods_abs_lowcpu",
+    "abstraction": "ec_cnmat_sinusoids_lowcpu_abs~.maxpat",
+    "support_patcher": "ec_cnmat_sinusoids_lowcpu_support.maxpat",
+    "verification": {
+      "result": "PASS",
+      "files_scanned": 70,
+      "patchers_including_nested": 102,
+      "boxes": 3951,
+      "patchcords": 3304,
+      "preset_message_boxes": 4,
+      "all_patch_edits_are_name_substitutions": true,
+      "remaining_old_name_matches": 0
+    },
+    "checks_rerun": [
+      "paths.cjs",
+      "keyboard-trigger.cjs (includes validate.cjs and lane-delay.cjs)",
+      "lowcpu.cjs"
+    ],
+    "native_max_tested": false
+  },
+  "partial_offset": {
+    "meaning": "First selected sequence position, including slider 1",
+    "one_to_one_offset_5": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "even_offset_5": [
+      8,
+      10,
+      12,
+      14
+    ],
+    "odd_offset_5": [
+      9,
+      11,
+      13,
+      15
+    ],
+    "prime_offset_5": [
+      7,
+      11,
+      13,
+      17
+    ],
+    "base_frequency_display": "unchanged reference f0",
+    "offset_off": 1,
+    "transition_ms": 150,
+    "preset_format": 3,
+    "legacy_offsets_use_new_mapping": true
+  },
+  "latest_patch_integration": {
+    "result": "PASS",
+    "latest_layout_rectangles_preserved": 1951,
+    "existing_embedded_collections_preserved": 6,
+    "restored_factory_shape_records": 1150,
+    "preset_messages_unchanged": true,
+    "all_saved_graphs_valid": true,
+    "remaining_previous_brand_matches": 0
+  },
+  "relocated_preset_keys": [
+    "ec_alc_db",
+    "ec_alc_gain",
+    "ec_alc_strength",
+    "ec_alc_smooth",
+    "ec_alc_maxboost",
+    "ec_alc_model",
+    "ec_alc_reference"
+  ]
+}

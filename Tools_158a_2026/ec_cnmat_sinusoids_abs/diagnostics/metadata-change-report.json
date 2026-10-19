@@ -1,0 +1,109 @@
+{
+  "release": "1.4 saved script filename correction",
+  "changed_attributes": 14,
+  "main_patch_identical_except_saved_script_filenames": true,
+  "help_byte_identical": true,
+  "changes": [
+    {
+      "object": "/obj-112/full-on-start-engine-v20-6/js",
+      "field": "saved_object_attributes.filename",
+      "before": "adsr_full_on_start_v20_6.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_full_on.js"
+    },
+    {
+      "object": "/obj-21/adsr-morph-engine",
+      "field": "saved_object_attributes.filename",
+      "before": "multislider_interpolation_engine_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_envelope_memory.js"
+    },
+    {
+      "object": "/syn-js",
+      "field": "saved_object_attributes.filename",
+      "before": "cnmat_sinusoid_model_generator_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_model.js"
+    },
+    {
+      "object": "/syn-random-js",
+      "field": "saved_object_attributes.filename",
+      "before": "random_multislider_values_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_random.js"
+    },
+    {
+      "object": "/syn-interpolation-js",
+      "field": "saved_object_attributes.filename",
+      "before": "multislider_interpolation_engine_v20_6.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_partial_memory.js"
+    },
+    {
+      "object": "/rt14-retuning",
+      "field": "saved_object_attributes.filename",
+      "before": "global_retuning_controller_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_retuning.js"
+    },
+    {
+      "object": "/rt14-transform",
+      "field": "saved_object_attributes.filename",
+      "before": "sinusoid_model_transform_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_transform.js"
+    },
+    {
+      "object": "/rm14-weight-library",
+      "field": "saved_object_attributes.filename",
+      "before": "dynamic_shape_library_weights_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_shapes.js"
+    },
+    {
+      "object": "/rm14-engine",
+      "field": "saved_object_attributes.filename",
+      "before": "weighted_partial_add_remove_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_add_remove.js"
+    },
+    {
+      "object": "/stops-workspace14/js",
+      "field": "saved_object_attributes.filename",
+      "before": "ec_sinusoid_synth_stops_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_stops.js"
+    },
+    {
+      "object": "/detune-shapes-v20",
+      "field": "saved_object_attributes.filename",
+      "before": "detune_shape_library_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_detune_shapes.js"
+    },
+    {
+      "object": "/sinusoids-audio-rendering-v20/manager",
+      "field": "saved_object_attributes.filename",
+      "before": "Partial_Group_Manager_v20_6.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_groups.js"
+    },
+    {
+      "object": "/sinusoids-audio-rendering-v20/offset-crossfade-js-v20-6",
+      "field": "saved_object_attributes.filename",
+      "before": "partial_offset_crossfade_v20_6.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_offset.js"
+    },
+    {
+      "object": "/alc-engine-v20/js",
+      "field": "saved_object_attributes.filename",
+      "before": "auto_level_compensation_v20.js",
+      "after": "Patcher:/dependencies/ec_cnmat_sinusoids_auto_level.js"
+    }
+  ],
+  "lane_patchers_byte_identical": true,
+  "endpoint_diagnostic_changes": [
+    "ec_cnmat_sinusoids_add_remove.js",
+    "ec_cnmat_sinusoids_auto_level.js",
+    "ec_cnmat_sinusoids_detune_shapes.js",
+    "ec_cnmat_sinusoids_envelope_memory.js",
+    "ec_cnmat_sinusoids_groups.js",
+    "ec_cnmat_sinusoids_model.js",
+    "ec_cnmat_sinusoids_offset.js",
+    "ec_cnmat_sinusoids_partial_memory.js",
+    "ec_cnmat_sinusoids_random.js",
+    "ec_cnmat_sinusoids_retuning.js",
+    "ec_cnmat_sinusoids_shapes.js",
+    "ec_cnmat_sinusoids_stops.js",
+    "ec_cnmat_sinusoids_transform.js"
+  ],
+  "controller_diagnostic_change": "check continues through all 25 engines; accurate no-acknowledgement error"
+}

@@ -1,0 +1,64 @@
+Nested ADSR path repair 1.3 — 2026-10-16
+
+Reported failure after repair 1.2
+The main controller reached "ready gain 0.1" and the CNMAT external loaded.
+All twelve ADSR lane js objects still failed to find:
+  Patcher:/ec_cnmat_sinusoids_opt_envelope_memory.js
+Max consequently deleted cords connected to the missing script's inlets.
+"no function list", "no function ecpreset" and "No preset reply" followed.
+
+Correction
+Each of the twelve private lane patchers now contains:
+  js Patcher:/dependencies/ec_cnmat_sinusoids_opt_envelope_memory.js #1
+
+That filename matches the parent instrument's envelope-memory reference, which
+was not reported missing. The previous fix incorrectly assumed that a loaded
+bpatcher would resolve Patcher:/ from its separate source file's directory.
+The reported behavior instead indicates a parent path context for these lanes.
+This is an inference from the user's native Max log; it remains to be confirmed
+by loading this correction in Max. The general prefix documentation is here:
+https://docs.cycling74.com/userguide/search_path/#path-prefixes
+
+Scope and preservation
+Exactly twelve runtime strings changed: one js filename in each ADSR lane.
+All lane documents compare identically after undoing that string substitution.
+Every lane patch cord, stored value, namespace and presentation position is
+preserved. The main abstraction, help file including the user's keyboard, and
+all sixteen JavaScript files are byte-identical to repair 1.2. The message/Dict
+preset bridge repair is retained. See path-change-report.json for the changes.
+
+The source was the intact shipped folder, not a file saved after Max deleted
+patch cords. All custom dependencies remain in dependencies/; all tests and
+diagnostics remain in diagnostics/. No duplicate helper scripts were added.
+
+Regression checks
+The old path test treated every lane as an independently opened document. That
+modeled the wrong context for the reported failure. paths.cjs now starts at the
+instrument, descends into embedded subpatchers and external bpatchers, and keeps
+the parent instrument's path context. The previously shipped lane reference
+must fail this audit. The corrected references must resolve to included files.
+The test also checks actual script and lane port counts against connected cords.
+The private lane files are intended to run inside the instrument, with #1 set
+by the parent; they are not standalone entry points.
+
+validate.cjs checks sweep/dump/recall through simulated message/Dict boundaries.
+core.cjs checks the existing synthesis/control algorithms. Their results, and
+the path audit results, are included as JSON files beside the test scripts.
+None of these tests execute Max's native file loader, scheduler, UI or DSP.
+
+Install and verify
+1. Close the failed copy WITHOUT SAVING. If already saved, replace it with this
+   complete copy: changing filenames alone does not restore deleted cords.
+2. Extract this ZIP and replace the previous instrument folder in full.
+3. Open ec_cnmat_sinusoids_lowcpu_abs~.maxhelp from the new folder. The console should have
+   no missing-file, inlet-out-of-range or missing-function errors.
+4. Click check. Expected outlet-15 status: preset_bridge_ok 25 engines.
+5. Test dump, edit a lane curve, recall the preset, and trigger the envelopes.
+
+To instantiate the instrument by name from another folder, add the instrument's
+top-level folder to Max's File Preferences. The two-instance diagnostic uses
+that same by-name lookup. Close old instances and avoid duplicate older copies
+of the abstraction on the search path.
+
+Native Max testing was unavailable in the build environment. The above Max
+loading, preset and audio checks still require the user's running installation.

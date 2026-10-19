@@ -1,0 +1,249 @@
+BUILT-IN SCALE / PITCH MODEL CATALOG
+41 entries. Positions are cents relative to tonic; period endpoint excluded.
+
+major
+  Western pitch collection
+  cents: 0 200 400 500 700 900 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+natural_minor
+  Western pitch collection
+  cents: 0 200 300 500 700 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+dorian
+  Western pitch collection
+  cents: 0 200 300 500 700 900 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+phrygian
+  Western pitch collection
+  cents: 0 100 300 500 700 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+lydian
+  Western pitch collection
+  cents: 0 200 400 600 700 900 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+mixolydian
+  Western pitch collection
+  cents: 0 200 400 500 700 900 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+locrian
+  Western pitch collection
+  cents: 0 100 300 500 600 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+harmonic_minor
+  Western pitch collection
+  cents: 0 200 300 500 700 800 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+melodic_minor_ascending
+  Western pitch collection
+  cents: 0 200 300 500 700 900 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+harmonic_major
+  Western pitch collection
+  cents: 0 200 400 500 700 800 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+major_pentatonic
+  Western pitch collection
+  cents: 0 200 400 700 900
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+minor_pentatonic
+  Western pitch collection
+  cents: 0 300 500 700 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+major_blues
+  Western pitch collection
+  cents: 0 200 300 400 700 900
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+minor_blues
+  Western pitch collection
+  cents: 0 300 500 600 700 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+whole_tone
+  Western pitch collection
+  cents: 0 200 400 600 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+octatonic_wh
+  Western pitch collection
+  cents: 0 200 300 500 600 800 900 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+octatonic_hw
+  Western pitch collection
+  cents: 0 100 300 400 600 700 900 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+augmented_hexatonic
+  Western pitch collection
+  cents: 0 300 400 700 800 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+chromatic
+  Western pitch collection
+  cents: 0 100 200 300 400 500 600 700 800 900 1000 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+lydian_dominant
+  Western pitch collection
+  cents: 0 200 400 600 700 900 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+altered
+  Western pitch collection
+  cents: 0 100 300 400 600 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+phrygian_dominant
+  Western pitch collection
+  cents: 0 100 400 500 700 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_1
+  Western pitch collection
+  cents: 0 200 400 600 800 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_2
+  Western pitch collection
+  cents: 0 100 300 400 600 700 900 1000
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_3
+  Western pitch collection
+  cents: 0 200 300 400 600 700 800 1000 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_4
+  Western pitch collection
+  cents: 0 100 200 500 600 700 800 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_5
+  Western pitch collection
+  cents: 0 100 500 600 700 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_6
+  Western pitch collection
+  cents: 0 200 400 500 600 800 1000 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+messiaen_7
+  Western pitch collection
+  cents: 0 100 200 300 500 600 700 800 900 1100
+  period: 1200
+  12-TET pitch template; no melodic grammar.
+
+gong_12tet
+  Chinese pentatonic model
+  cents: 0 200 400 700 900
+  period: 1200
+  12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model.
+
+shang_12tet
+  Chinese pentatonic model
+  cents: 0 200 500 700 1000
+  period: 1200
+  12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model.
+
+jue_12tet
+  Chinese pentatonic model
+  cents: 0 300 500 800 1000
+  period: 1200
+  12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model.
+
+zhi_12tet
+  Chinese pentatonic model
+  cents: 0 200 500 700 900
+  period: 1200
+  12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model.
+
+yu_12tet
+  Chinese pentatonic model
+  cents: 0 300 500 700 1000
+  period: 1200
+  12-TET modal pitch collection, as represented in the CNMAT pedagogy tuner; not a complete performance model.
+
+rast_24edo_model
+  Arabic pitch approximation
+  cents: 0 200 350 500 700 900 1050
+  period: 1200
+  Quarter-tone pedagogical approximation of Rast; variable intonation and sayr are not modelled.
+
+bayati_24edo_model
+  Arabic pitch approximation
+  cents: 0 150 300 500 700 800 1000
+  period: 1200
+  Quarter-tone Bayati/Nahawand pitch model; no claim of fixed authentic intonation or complete maqam grammar.
+
+hijaz_12tet_model
+  Arabic pitch approximation
+  cents: 0 100 400 500 700 800 1000
+  period: 1200
+  12-TET Hijaz/Nahawand pitch model; no claim of fixed authentic intonation or complete maqam grammar.
+
+hirajoshi_ellis_112
+  Documented tuning model
+  cents: 0 185 337 683 790
+  period: 1200
+  Scala hirajoshi.scl; historical observation attributed there to Helmholtz/Ellis p.519 no.112. Specific model, not universal Japanese tuning.
+
+hirajoshi_ellis_111
+  Documented tuning model
+  cents: 0 193 357 719 801
+  period: 1199
+  Scala hirajoshi3.scl; historical observation attributed there to Helmholtz/Ellis p.519 no.111. Preserves the 1199-cent period.
+
+pelog_ksatria
+  Documented tuning model
+  cents: 0 153 315 552 706 848 1058
+  period: 1200
+  Scala pelog1.scl: Saih pitu, Ksatria, Den Pasar. Archive reference tonic 312.5 Hz; mapper tonic remains user-controlled.
+
+slendro_kanyut_mesem
+  Documented tuning model
+  cents: 0 222.974 475.59 711.842 937.091
+  period: 1200
+  Scala slendro_ky1.scl: Kyahi Kanyut Mesem, Mangku Nagaran, Solo. Archive reference tonic 291 Hz; mapper tonic remains user-controlled.
+

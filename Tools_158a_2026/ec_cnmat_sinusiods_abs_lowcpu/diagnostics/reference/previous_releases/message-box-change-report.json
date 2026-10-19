@@ -1,0 +1,35 @@
+{
+  "release": "1.6",
+  "runtime_build": "1.5 (unchanged)",
+  "runtime_files_byte_identical_to_1_5": 29,
+  "help_edits": [
+    {
+      "source": [
+        "synth",
+        13
+      ],
+      "old_destination": [
+        "preset",
+        1
+      ],
+      "new_destination": [
+        "preset",
+        0
+      ]
+    },
+    "Preset comment now specifies the LEFT inlet and the stored preset selector."
+  ],
+  "isolation_patch": "Both preset boxes already use the LEFT inlet; unchanged.",
+  "regression_test_rejects_original_wiring": true,
+  "submitted_preset": {
+    "bytes": 176308,
+    "chunks": 460,
+    "checksum": "h7fd06128",
+    "checksum_valid": true,
+    "controls": 195,
+    "engines": 25,
+    "stores": 14,
+    "simulated_recall": "PASS"
+  },
+  "native_Max_execution": false
+}

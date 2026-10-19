@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "assertions": 225,
+  "scenarios": [
+    "UI and external count ceiling",
+    "no count growth when limit rises",
+    "stored detune/primary/anchor values survive clamp and expansion",
+    "150 ms retirement and rapid reversal",
+    "no shape regeneration on count edits",
+    "real preset dump/cold recall retains hidden values",
+    "build2.0 format3 count-limit mismatch",
+    "legacy format2 migration"
+  ],
+  "limitations": [
+    "Native objects and scheduler are modeled; actual controller, memory, shape JS and public Dict preset bridge are executed. Native Max GUI/audio checks remain required."
+  ]
+}

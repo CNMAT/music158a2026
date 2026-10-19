@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "assertions": 26357,
+  "file_references": 55,
+  "unique_dependencies": 29,
+  "dependency_cord_endpoints": 341,
+  "owner_patch_files": 13,
+  "metadata_notes": [
+    "stage12-freq-indices: original cached outlet is unused; script declares zero",
+    "stage12-amp-indices: original cached outlet is unused; script declares zero",
+    "stage12-harmonic-indices: original cached outlet is unused; script declares zero"
+  ],
+  "saved_script_filenames": 28,
+  "previous_lane_path_rejected": true,
+  "path_context": "Parent instrument folder retained while traversing bpatchers; model based on the reported Max 1.2 load failure.",
+  "limitations": [
+    "Static hierarchy/path and port audit; the path-context model is an inference from the user log, not execution of the native Max loader.",
+    "Private lane files are checked inside the instrument, not opened independently."
+  ],
+  "documentation": "https://docs.cycling74.com/userguide/search_path/#path-prefixes"
+}
+

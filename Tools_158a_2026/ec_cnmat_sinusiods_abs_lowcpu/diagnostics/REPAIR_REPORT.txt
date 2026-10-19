@@ -1,0 +1,67 @@
+ec_cnmat_sinusoids_lowcpu_abs~ — build 2.4 — ADSR startup repair
+Based on the supplied ec_cnmat_sinusiods_abs_lowcpu(1).zip.
+
+CONFIRMED FAILURE
+The master patch's shared ADSR factory coll has no coll_data records, and
+its saved embed attribute is 0, despite @embed 1 in the displayed object text.
+All twelve lanes and the Master editor query that same empty collection.
+Without its data, selecting a factory shape cannot populate the curves.
+The exact native save action that removed the data has not been established.
+The offline negative-control test reproduces the resulting blank lane.
+
+REPAIR
+1. Recovered all 1,150 factory records (29,325 values) from the last complete
+   build: 25 shapes, each at point counts 3 through 48, including fixed Random.
+   Every numeric value is checked against the recovered source checksum.
+2. Replaced all 13 factory readers with a read-only JS lookup dependency.
+   Removed the unused shared factory coll. No load-time file read, named shared
+   collection, embedded-data save flag, timer or broadcast is needed. Readers
+   only run when asked for a shape; they do not add continuous DSP/Task work.
+3. Made lane startup a single synchronous sequence: morph0, duration1000,
+   count48, triangle6, restore morph200. DEL stays0; loops default OFF.
+   The Master uses the same sequence with the uploaded count45 default.
+   A startup curve is immediately ready; no pending morph can write it later.
+4. Made all 12 bpatcher references explicitly package-relative again. The bare
+   names in the upload could depend on an existing Max search-path resolution.
+5. Reinstated explicit main port indices. The uploaded zero indices can mean
+   automatic left-to-right order; their geometry was already correct. Tests
+   now accept either representation and verify the actual port order.
+6. Updated the console build label to 2.4-lowcpu. No controller preset logic,
+   renderer, namespace, message API or preset schema changed.
+
+PRESERVATION
+The 209-control / 25-engine / 14-user-store preset manifest is unchanged.
+All 1,262 presentation objects retain their UI settings and geometry; only the
+12 bpatcher dependency names change among those objects. All 18 embedded
+collection instances found in the supplied patch files retain their data.
+The two help message boxes contain the same complete preset; both remain
+byte-for-byte intact. Help and standalone support patch files are unchanged,
+including the user's added control-reference documentation. The original
+master's control-reference subpatcher and current layout are preserved.
+
+Opening initializes factory defaults. It does not automatically click a saved
+message-box preset. Send/click the saved preset after loading, as before.
+Recall restores curves and loop switches but waits for a note or trigger.
+
+TESTS
+All 11 suites passed: paths, core synthesis helpers, preset validation,
+lane delay, lowcpu rendering, count ceiling, keyboard articulation, partial
+offset, offset/preset integration, ADSR startup, and the saved preset message.
+The ADSR startup suite also tests Full On readiness across all 12 real
+smoothing engines, deferred single triggering, loop enable and Stop cancel.
+The final console-label change was rechecked with the preset validation suite.
+See all-results.json, individual *-results.json files and logs/ for evidence.
+
+Run all offline checks using installed Node.js, from any working directory:
+  node /path/to/ec_cnmat_sinusiods_abs_lowcpu/diagnostics/run-all.cjs
+Optional second argument: the original uploaded package directory, to repeat
+the missing-factory negative control. No extra npm dependencies are required.
+
+LIMITS
+Tests execute actual JavaScript and inspect/follow saved patchcords using
+modeled Max UI/messages/Tasks/Dict. Fresh JS contexts and JSON reserialization
+exercise restart without embedded factory data, but do not run the native
+Max save/load process. Native Max 9 loading, scheduler/audio timing, DSP CPU,
+CNMAT sinusoids~ and listening were unavailable here. Use PROFILE_IN_MAX.txt
+for the focused native reopen check and the remaining audio/CPU checks.
+CNMAT sinusoids~ and the retained odot o.display still require installation.

@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "assertions": 469,
+  "lanes": 12,
+  "scenarios": [
+    "zero bypass",
+    "positive delay",
+    "manual and addressed trigger",
+    "pending-time edits",
+    "latest-trigger replacement",
+    "zero-trigger cancellation",
+    "Stop cancels waiting start",
+    "loop restart delay",
+    "Stop cancels waiting loop",
+    "independent instances",
+    "row fits existing 240px bpatchers"
+  ],
+  "limitations": [
+    "Executes saved patchcords with a modeled message scheduler; no native Max GUI, scheduler or audio execution."
+  ]
+}
+

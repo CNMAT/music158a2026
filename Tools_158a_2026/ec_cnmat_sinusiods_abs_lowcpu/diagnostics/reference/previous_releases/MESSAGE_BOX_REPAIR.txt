@@ -1,0 +1,47 @@
+Preset message-box wiring repair 1.6 — 2026-10-16
+
+CAUSE
+The supplied help patch connected abstraction outlet 14 to the RIGHT inlet of
+the preset message box. That inlet stores the complete incoming message,
+including the leading word set. Clicking the box consequently sends set to
+the abstraction, which correctly reports Unknown message set.
+
+REPAIR
+Connect outlet 14 to the LEFT inlet of the message box. That inlet processes
+set by silently storing the following preset message. The message box outlet
+still connects to inlet 1 of the abstraction. After dump, the box must begin:
+  preset 1 h... p... p...
+Clicking it recalls the preset; send trigger to start the envelopes.
+A previously saved message beginning set preset can be repaired by removing
+only its first word set and the following space. Preserve every encoded chunk.
+Fix the inlet connection as well so future dumps populate the box correctly.
+
+CHANGES
+Only one help patch cord and its explanatory comment changed in the Max files.
+The presentation layout, added keyboard, abstraction and all 28 dependencies
+are preserved. Both isolation examples already had correct preset wiring.
+No controller set handler is added. Runtime startup still reports build 1.5.
+Preset format remains version 1.
+
+VERIFICATION
+The submitted payload decodes to 176308 bytes across 460 chunks. Its checksum
+h7fd06128 matches. It contains all 195 controls, 25 engines and 14 stores.
+The full simulated controller accepts and recalls this exact payload without
+errors or rollback, restoring every UI value, saved UI attribute, user store
+and global gain checked by the harness.
+The regression now reads the actual help and isolation patch connections,
+models silent set storage, and dispatches the resulting preset selector back
+to the controller. Reinstating the original right-inlet cord makes it fail.
+The instrument and every runtime dependency are byte-identical to release 1.5.
+
+Run from the top-level folder:
+  node diagnostics/validate.cjs
+Optionally append a saved preset text-file path to verify that snapshot too:
+  node diagnostics/validate.cjs "/absolute/path/to/preset.txt"
+
+Tests simulate Max UI, messages, dictionaries and tasks. Native Max GUI/DSP
+execution was unavailable. In Max: dump, change a control, click the filled
+preset message, verify recalled on outlet 15, then trigger.
+
+Reference: https://docs.cycling74.com/reference/message/
+See the right-inlet behavior and the set message documentation.

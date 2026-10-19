@@ -1,0 +1,23 @@
+{
+  "release": "1.5 preset serialization repair",
+  "patches_and_help_byte_identical": true,
+  "changed_scripts": [
+    "ec_cnmat_sinusoids_add_remove.js",
+    "ec_cnmat_sinusoids_auto_level.js",
+    "ec_cnmat_sinusoids_detune_shapes.js",
+    "ec_cnmat_sinusoids_envelope_memory.js",
+    "ec_cnmat_sinusoids_groups.js",
+    "ec_cnmat_sinusoids_model.js",
+    "ec_cnmat_sinusoids_offset.js",
+    "ec_cnmat_sinusoids_partial_memory.js",
+    "ec_cnmat_sinusoids_random.js",
+    "ec_cnmat_sinusoids_retuning.js",
+    "ec_cnmat_sinusoids_shapes.js",
+    "ec_cnmat_sinusoids_stops.js",
+    "ec_cnmat_sinusoids_transform.js",
+    "ec_cnmat_sinusoids_controller.js"
+  ],
+  "wire": "ASCII Base64, 480 encoded characters per chunk, length and Adler-32 checks",
+  "snapshot_format": 1,
+  "limitation": "Failure source not determined by the three generic JSON.parse lines; native verification required."
+}

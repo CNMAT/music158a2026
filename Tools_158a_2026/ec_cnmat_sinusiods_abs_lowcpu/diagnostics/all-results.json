@@ -1,0 +1,96 @@
+{
+  "build": "2.4",
+  "result": "PASS",
+  "date": "2026-10-19T20:49:17.260Z",
+  "node": "v24.19.0",
+  "suites": [
+    {
+      "name": "paths",
+      "result": "PASS",
+      "seconds": 0.42,
+      "exit_code": 0,
+      "assertions": 26357
+    },
+    {
+      "name": "core",
+      "result": "PASS",
+      "seconds": 0.15,
+      "exit_code": 0,
+      "assertions": 745
+    },
+    {
+      "name": "validate",
+      "result": "PASS",
+      "seconds": 6.35,
+      "exit_code": 0,
+      "assertions": 26628,
+      "final_build_label_recheck": "PASS after metadata-only change to 2.4-lowcpu"
+    },
+    {
+      "name": "lane-delay",
+      "result": "PASS",
+      "seconds": 0.09,
+      "exit_code": 0,
+      "assertions": 469
+    },
+    {
+      "name": "lowcpu",
+      "result": "PASS",
+      "seconds": 9.36,
+      "exit_code": 0,
+      "assertions": 6560
+    },
+    {
+      "name": "count-ceiling",
+      "result": "PASS",
+      "seconds": 9.44,
+      "exit_code": 0,
+      "assertions": 225
+    },
+    {
+      "name": "keyboard-trigger",
+      "result": "PASS",
+      "seconds": 6.5,
+      "exit_code": 0,
+      "assertions": 185
+    },
+    {
+      "name": "partial-offset",
+      "result": "PASS",
+      "seconds": 9.2,
+      "exit_code": 0,
+      "assertions": 86
+    },
+    {
+      "name": "offset-preset",
+      "result": "PASS",
+      "seconds": 7.47,
+      "exit_code": 0,
+      "assertions": 33
+    },
+    {
+      "name": "adsr-startup",
+      "result": "PASS",
+      "seconds": 0.61,
+      "exit_code": 0,
+      "assertions": 2807
+    },
+    {
+      "name": "saved-preset-01",
+      "result": "PASS",
+      "seconds": 6,
+      "exit_code": 0,
+      "assertions": 26626,
+      "locations": [
+        "_ec_cnmat_sinusoids_lowcpu_abs~.maxhelp:obj-3/obj-9",
+        "_ec_cnmat_sinusoids_lowcpu_abs~.maxhelp:obj-3/preset"
+      ]
+    }
+  ],
+  "saved_presets": 1,
+  "limitations": [
+    "Offline source, graph and simulated Max message/Task/Dict checks.",
+    "Native Max loading, save/reopen, DSP, CPU usage and audio listening were not executed."
+  ],
+  "final_metadata_check_date": "2026-10-19T20:51:41.023121+00:00"
+}

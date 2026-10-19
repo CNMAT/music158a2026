@@ -1,0 +1,99 @@
+{
+  "result": "PASS",
+  "assertions": 26627,
+  "patch_boxes": 3921,
+  "cord_endpoints": 6500,
+  "scoped_connections": 569,
+  "local_dependencies": 29,
+  "preset_controls": 209,
+  "preset_engines": 25,
+  "user_stores": 14,
+  "dump_atoms": 309,
+  "message_box_connections_checked": 3,
+  "supplied_preset": {
+    "bytes": 182126,
+    "chunks": 475,
+    "checksum": "h3ddbb3dd",
+    "original_version": 2,
+    "source_controls": 207,
+    "restored_controls": 209,
+    "engines": 25,
+    "stores": 14,
+    "simulated_recall": "PASS"
+  },
+  "adsr_control_flow": {
+    "scenarios": [
+      "cold-state supplied snapshot",
+      "repeat recall",
+      "mixed loops and durations",
+      "individual smoothing overrides",
+      "directly edited function and cached playback message",
+      "capture after recall",
+      "v2 nonzero delay capture",
+      "legacy v1 resets delays to zero",
+      "malformed delay rejection"
+    ],
+    "fanouts": 16,
+    "programUpdates": 420,
+    "loopUpdates": 96
+  },
+  "message_requests": 1350,
+  "dictionary_operations": 37611,
+  "transport_tests": [
+    "Actual help and isolation patch cords route outlet 14 to the message LEFT inlet",
+    "Dump stores silently; click sends preset to inlet 1 and completes simulated recall",
+    "Right-inlet fault reproduces literal set selector",
+    "Toggle bang flips state in the model; explicit numeric recall preserves ON and OFF",
+    "ADSR global fanout, loop gates and function playback-cache effects simulated",
+    "Dictionary text atoms limited to 481 characters and Base64-safe characters",
+    "Single-atom dictionary results wrapped in lists",
+    "Container-only JSON parser with direct scalar copying",
+    "Large escaped/Unicode payload roundtrip",
+    "Truncated and checksum-corrupt chunks rejected",
+    "Exact UI context and no incomplete dump on capture failure"
+  ],
+  "limitations": [
+    "Simulated Max UI/messages/Tasks/Dict; Maxobj.js access is deliberately blocked. Native host verification is still required.",
+    "The stress-test behaviors are fault models, not verified explanations of the user's generic JSON.parse error.",
+    "No native sinusoids~ DSP, audio playback or listening test was available."
+  ]
+}
+{
+  "result": "PASS",
+  "assertions": 469,
+  "lanes": 12,
+  "scenarios": [
+    "zero bypass",
+    "positive delay",
+    "manual and addressed trigger",
+    "pending-time edits",
+    "latest-trigger replacement",
+    "zero-trigger cancellation",
+    "Stop cancels waiting start",
+    "loop restart delay",
+    "Stop cancels waiting loop",
+    "independent instances",
+    "row fits existing 240px bpatchers"
+  ],
+  "limitations": [
+    "Executes saved patchcords with a modeled message scheduler; no native Max GUI, scheduler or audio execution."
+  ]
+}
+{
+  "result": "PASS",
+  "assertions": 185,
+  "scenarios": [
+    "keyboard pitch before common ADSR launch",
+    "all12 lanes synchronous at DEL0",
+    "addressed and repeated note-on",
+    "velocity-zero suppression",
+    "silent set/clear and preset keyboard restore",
+    "recall busy guard",
+    "independent DEL and latest-note replacement",
+    "help path has no second trigger"
+  ],
+  "limitations": [
+    "Uses saved patchcords and actual controller with modeled Max keyboard/message/timer behavior. Native Max loading, timing and audio listening remain required."
+  ]
+}
+

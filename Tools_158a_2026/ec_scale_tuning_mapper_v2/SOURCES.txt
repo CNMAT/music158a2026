@@ -1,0 +1,112 @@
+SOURCES AND INTERPRETATION -- v1.1.0
+
+TONE PROFILES
+-------------
+Krumhansl, C. L., & Kessler, E. J. (1982). Tracing the dynamic changes in
+perceived tonal organization in a spatial representation of musical keys.
+Psychological Review, 89(4), 334-368. DOI: 10.1037/0033-295X.89.4.334
+
+The numeric vectors used here were checked against the Humdrum keycor
+documentation's Krumhansl-Kessler values (and music21 implementations), not
+transcribed independently from the original experimental records.
+https://extras.humdrum.org/man/keycor/
+https://www.music21.org/music21docs/moduleReference/moduleAnalysisDiscrete.html
+
+Chromatic offsets relative to tonic, 0 through 11:
+major: 6.35 2.23 3.48 2.33 4.38 4.09 2.52 5.19 2.39 3.66 2.29 2.88
+minor: 6.33 2.68 3.52 5.38 2.60 3.53 2.54 4.75 3.98 2.69 3.34 3.17
+
+These are probe-tone fit ratings. We select the nominal scale degrees and
+normalize their ratings to obtain a generative distribution. This conversion,
+transfer of degree weights to a different tuning, and any geometric or motion
+modification are compositional modelling decisions, not verified next-note
+statistics. The kk_minor profile has its own 12-class data; it is not a rotation
+of kk_major. The default profile for all other named/imported scales is uniform.
+Custom weights are labelled user_supplied; uniform is labelled uniform_model.
+
+NON-WESTERN PITCH MODELS
+-----------------------
+Chinese 12-TET modal pentatonics: the supplied CNMAT Pedagogy tuner provides
+the teaching context for gong, shang, jue, zhi and yu. The mapper names each
+with _12tet to distinguish the chromatic pitch template from an assertion of
+historically or regionally universal tuning. No melodic grammar is implemented.
+
+Rast/Bayati/Hijaz: pedagogical approximations corresponding to familiar
+maqam pitch representations. Rast uses neutral third/seventh at 350/1050 cents;
+Bayati uses a 150-cent second with Nahawand upper material; Hijaz uses a
+12-TET Hijaz/Nahawand model. The identifiers explicitly say model and 24edo or
+12tet. The pitch sets do not encode sayr, modulation, regional intonation,
+ornamentation or a full maqam identity.
+https://www.maqamworld.com/en/maqam/rast.php
+https://www.maqamworld.com/en/maqam/bayati.php
+https://www.maqamworld.com/en/maqam/hijaz.php
+
+Specific documented tuning models were read from the Huygens-Fokker Scala
+archive. The original small .scl files are included with their attributions:
+https://www.huygens-fokker.org/scala/downloads.html
+https://www.huygens-fokker.org/docs/scales.zip
+
+hirajoshi_ellis_112 <- hirajoshi.scl:
+  archive attribution: Helmholtz/Ellis, p.519, example 112.
+  0,185,337,683,790 cents; period 1200.
+hirajoshi_ellis_111 <- hirajoshi3.scl:
+  archive attribution: Helmholtz/Ellis, p.519, example 111.
+  0,193,357,719,801 cents; period 1199 (preserved, not forced to 1200).
+pelog_ksatria <- pelog1.scl:
+  named ensemble/location: Ksatria, Den Pasar, South Bali; saih pitu.
+  0,153,315,552,706,848,1058 cents; period 1200.
+  Archive reference tonic 312.5 Hz is contextual, not an automatic setting.
+slendro_kanyut_mesem <- slendro_ky1.scl:
+  named ensemble/location: Kyahi Kanyut Me`sem, Mangku Nagaran, Solo.
+  0,222.974,475.590,711.842,937.091 cents; period 1200.
+  Archive reference tonic 291 Hz is contextual, not an automatic setting.
+
+These archive values are not independently re-measured here. They are specific
+pitch models, not universal pelog/slendro/Japanese scales. Their archival
+historical citations are reproduced as provenance, not claimed as independently
+consulted primary measurement reports.
+
+Future empirical non-Western profile work must identify the exact stimuli,
+listener groups, context and numeric vectors. Relevant studies reviewed during
+planning include Castellano, Bharucha & Krumhansl (1984), North Indian music,
+DOI 10.1037/0096-3445.113.3.394, and Kessler, Hansen & Shepard (1984), Music
+Perception 2(2), 131-165, Balinese/Western listeners. This release does not
+invent numeric profiles from their qualitative conclusions.
+
+OTHER DATA / IMPLEMENTATION
+--------------------------
+Western entries are explicitly enumerated pitch collections (with aliases for
+the prior supplied midi-to-pitchclasss-mapper). Just-tuning ratios are fully
+listed in README.txt. The minor tuning's seventh is 9/5, an explicit choice;
+other minor-seventh variants can be supplied through ratios or tuningcents.
+The minor tuning is not presented as the only just minor system.
+
+Scala format and its implicit degree 0 / period conventions:
+https://www.huygens-fokker.org/scala/scl_format.html
+Importer restrictions are documented in README.txt.
+
+Cycling '74 official references:
+https://docs.cycling74.com/reference/nodes/
+https://docs.cycling74.com/legacy/max8/vignettes/jsbasic
+https://docs.cycling74.com/apiref/js/file/
+The supplied nodes.maxhelp was reviewed directly, including basic, messages,
+fun, appearance, preset connection, dump-get and pattrstorage examples.
+
+CNMAT adapter wiring was derived from the supplied one_string_ped.maxpat and
+reso-string~_ped abstraction chain. No claim of local Max or audio testing is
+made. The original CNMAT-Pedagogy-Apps archive and mapper archive were not edited.
+
+V1.1 MELODIC PREFERENCES / MENU
+- Melodic preferences implement Edmund Campion's requested compositional rules.
+  Parameter values are engineering defaults, not measured transition statistics.
+  Existing source-labelled tone profiles remain unchanged.
+- Max umenu reference (accessed 2026-10-16):
+  https://docs.cycling74.com/reference/umenu/
+  Middle outlet sends selection text; set updates the displayed index silently.
+
+2026-10-16 v1.2 UI reference checks (Cycling '74 primary documentation):
+https://docs.cycling74.com/reference/nodes/
+https://docs.cycling74.com/reference/kslider/
+https://docs.cycling74.com/reference/stripnote/
+Modal ordinal interpolation, uniform modal profiles, and octave-shift
+probabilities are compositional design choices, not empirical music models.
