@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 1856.0, 124.0, 1749.0, 755.0 ],
+        "rect": [ 34.0, 104.0, 1532.0, 755.0 ],
         "boxes": [
             {
                 "box": {
@@ -96,7 +96,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1520.0, 256.5, 215.0, 87.0 ],
-                    "presentation_linecount": 6,
                     "text": "Order specifies how many previous steps are considered significant in predicting the next step (default = 1).\n\nTry 2 or 3 and see how the generated sequences change!"
                 }
             },
@@ -134,7 +133,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1368.0, 186.5, 144.0, 52.0 ],
-                    "presentation_linecount": 2,
                     "text": "1. Provide training data (notes, here)"
                 }
             },
@@ -146,7 +144,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1365.0, 232.5, 125.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "0 7 9 9 7 5 5 4 4 2 2 0"
                 }
             },
@@ -169,7 +166,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1515.0, 182.5, 215.0, 60.0 ],
-                    "presentation_linecount": 4,
                     "text": "Feed it sequences of numbers (integers representing discrete states) and ml.markov will build a Markov Chain."
                 }
             },
@@ -338,7 +334,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1124.0, 524.0, 283.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "record binaural stereo out to stereo_track_recorder patch found in MMJ_Depot"
                 }
             },
@@ -431,7 +426,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1235.0, 478.0, 184.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "2- stereo binaural retaining and modeling 8-chan spatialization"
                 }
             },
@@ -713,7 +707,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 886.0, 462.0, 69.0, 60.0 ],
-                    "presentation_linecount": 4,
                     "text": "spatialized 8-chan out\nfor CNMAT\nMainRoom"
                 }
             },
@@ -725,7 +718,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 969.0, 580.0, 72.0, 60.0 ],
-                    "presentation_linecount": 4,
                     "text": "binaural spatial headphone mix!"
                 }
             },
@@ -1735,19 +1727,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 450.42857142857144, 464.0, 71.0, 47.0 ],
-                    "presentation_linecount": 3,
                     "text": "13: \nmono \nsum            "
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-11",
-                    "linecount": 4,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 223.0, 624.0, 72.0, 60.0 ],
-                    "text": "binaural spatial headphone mix!"
                 }
             },
             {
