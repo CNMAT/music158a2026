@@ -1,0 +1,7 @@
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+key=60                   // Play only MIDI 60; also set the root to 60.
+loop_mode=one_shot       // Play once; ignore note-off.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-6                // Set sample gain offset to -6 dB.
+pan=0                    // Center the sound in the stereo field.

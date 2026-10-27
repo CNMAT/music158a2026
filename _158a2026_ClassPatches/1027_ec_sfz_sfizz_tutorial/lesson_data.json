@@ -1,0 +1,1159 @@
+[
+  {
+    "title": "01  A text recipe + a sound file",
+    "concept": "An SFZ file contains rules, not recorded sound. sample= points to a WAV; a <region> says when and how that WAV plays. An opcode is a name=value instruction.\n\nHere, key=60 permits exactly MIDI note 60 and sets its original pitch. Other notes are intentionally silent. Numeric MIDI notes avoid octave-name differences between applications.\n\nMax sends performance events; sfizz~ reads the recipe and produces audio. You do not send SFZ opcodes as ordinary Max messages.",
+    "steps": "1. Turn audio on below; click demo.\n2. Play 60, then 62. Only 60 belongs to this region.\n3. Find sample= and key= in the source at right.\n4. Keep the samples folder beside all the SFZ files.",
+    "question": "Predict: if key=60 becomes key=62, which key plays the sample at its original pitch?",
+    "variants": [
+      {
+        "file": "01_recipe.sfz",
+        "label": "A - one sample / one key",
+        "code": "// One region; paths are relative to THIS SFZ file.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
+        "expected": "Demo: MIDI 60 sounds; MIDI 62 is silent. Note-off starts a short fade.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ],
+          [
+            1100,
+            "note",
+            62,
+            100
+          ],
+          [
+            1450,
+            "note",
+            62,
+            0
+          ]
+        ],
+        "finish": 3950
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "02  A root pitch is not a key range",
+    "concept": "lokey and hikey choose which incoming notes may trigger a region. pitch_keycenter identifies the sample's original pitch. A note above the root speeds playback up; one below slows it down.\n\nA: one sample covers 48-84. B: two regions split the keyboard at 65/66. Every matching region can sound: overlapping ranges create layers, not an automatic choice.\n\n<group> supplies shared values to following regions. A region can override an inherited value.",
+    "steps": "1. Compare A and B with demo (48, 60, 65, 66, 72, 84).\n2. In A, compare the length of notes 48 and 72.\n3. In B, listen for the timbre change at 65/66.\n4. Edit hikey=65 to 66, reload, then test 66.",
+    "question": "Predict: what happens at 66 if both regions include it?",
+    "variants": [
+      {
+        "file": "02a_range.sfz",
+        "label": "A - one sample across three octaves",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Same sample transposed. High notes are faster and shorter.",
+        "events": [
+          [
+            0,
+            "note",
+            48,
+            100
+          ],
+          [
+            350,
+            "note",
+            48,
+            0
+          ],
+          [
+            900,
+            "note",
+            60,
+            100
+          ],
+          [
+            1250,
+            "note",
+            60,
+            0
+          ],
+          [
+            1800,
+            "note",
+            65,
+            100
+          ],
+          [
+            2150,
+            "note",
+            65,
+            0
+          ],
+          [
+            2700,
+            "note",
+            66,
+            100
+          ],
+          [
+            3050,
+            "note",
+            66,
+            0
+          ],
+          [
+            3600,
+            "note",
+            72,
+            100
+          ],
+          [
+            3950,
+            "note",
+            72,
+            0
+          ],
+          [
+            4500,
+            "note",
+            84,
+            100
+          ],
+          [
+            4850,
+            "note",
+            84,
+            0
+          ]
+        ],
+        "finish": 8500
+      },
+      {
+        "file": "02b_split.sfz",
+        "label": "B - two sample regions / split keyboard",
+        "code": "<group>                  // Shared defaults for this group of regions.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=65                 // Highest triggering MIDI note: 65 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\n\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/bright_C5.wav // Load bright C5 WAV; path relative to this SFZ.\nlokey=66                 // Lowest triggering MIDI note: 66 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=72       // MIDI 72 plays at the sample's original pitch.\n",
+        "expected": "Notes 48-65 use soft_C4; 66-84 use bright_C5.",
+        "events": [
+          [
+            0,
+            "note",
+            48,
+            100
+          ],
+          [
+            350,
+            "note",
+            48,
+            0
+          ],
+          [
+            900,
+            "note",
+            60,
+            100
+          ],
+          [
+            1250,
+            "note",
+            60,
+            0
+          ],
+          [
+            1800,
+            "note",
+            65,
+            100
+          ],
+          [
+            2150,
+            "note",
+            65,
+            0
+          ],
+          [
+            2700,
+            "note",
+            66,
+            100
+          ],
+          [
+            3050,
+            "note",
+            66,
+            0
+          ],
+          [
+            3600,
+            "note",
+            72,
+            100
+          ],
+          [
+            3950,
+            "note",
+            72,
+            0
+          ],
+          [
+            4500,
+            "note",
+            84,
+            100
+          ],
+          [
+            4850,
+            "note",
+            84,
+            0
+          ]
+        ],
+        "finish": 8500
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "03  What does note-off actually do?",
+    "concept": "Note-off is an event, not an instruction to erase all audio instantly. Its result depends on loop_mode and the amplitude envelope.\n\nCompare the SAME waveform in four modes. no_loop reads once and obeys note-off. one_shot reads once and ignores note-off. loop_continuous repeats through release. loop_sustain leaves the loop on release.\n\nA finite sample can end before an envelope does. Loop points are sample-frame indices, not milliseconds; loop_end is inclusive.",
+    "steps": "1. Run demo for each variant: short press, then long hold.\n2. Listen for the brighter tail after the steady body.\n3. Use hold, wait 4 seconds, then release.\n4. Compare C and D with ampeg_release=2 seconds.",
+    "question": "Explain why a 10-second release cannot extend an unlooped 2.45-second WAV.",
+    "variants": [
+      {
+        "file": "03a_no_loop.sfz",
+        "label": "A - no_loop",
+        "code": "// A/B/C/D use the same sound and envelope.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nloop_start=23484         // First loop frame (0-based). Inactive in no_loop.\nloop_end=46967           // Last loop frame (inclusive). Inactive in no_loop.\nampeg_attack=0.005       // Amplitude rise to peak: 0.005 seconds.\nampeg_release=2          // Fade after note release: 2 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Note-off starts a fade; a held note still ends at the WAV end.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            450,
+            "note",
+            60,
+            0
+          ],
+          [
+            4000,
+            "note",
+            60,
+            100
+          ],
+          [
+            8200,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 11000
+      },
+      {
+        "file": "03b_one_shot.sfz",
+        "label": "B - one_shot",
+        "code": "// A/B/C/D use the same sound and envelope.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=one_shot       // Play once; ignore note-off.\nloop_start=23484         // First loop frame (0-based). Inactive in one_shot.\nloop_end=46967           // Last loop frame (inclusive). Inactive in one_shot.\nampeg_attack=0.005       // Amplitude rise to peak: 0.005 seconds.\nampeg_release=2          // Release: 2 seconds; note-off ignored in one_shot.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Note-off is ignored; the sample runs into its bright tail and finishes.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            450,
+            "note",
+            60,
+            0
+          ],
+          [
+            4000,
+            "note",
+            60,
+            100
+          ],
+          [
+            8200,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 11000
+      },
+      {
+        "file": "03c_loop_continuous.sfz",
+        "label": "C - loop_continuous",
+        "code": "// A/B/C/D use the same sound and envelope.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_attack=0.005       // Amplitude rise to peak: 0.005 seconds.\nampeg_release=2          // Fade after note release: 2 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Held note repeats the body. The body also loops during the release fade.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            450,
+            "note",
+            60,
+            0
+          ],
+          [
+            4000,
+            "note",
+            60,
+            100
+          ],
+          [
+            8200,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 11000
+      },
+      {
+        "file": "03d_loop_sustain.sfz",
+        "label": "D - loop_sustain",
+        "code": "// A/B/C/D use the same sound and envelope.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=loop_sustain   // Loop while held or pedaled; exit on release.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_attack=0.005       // Amplitude rise to peak: 0.005 seconds.\nampeg_release=2          // Fade after note release: 2 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Held note repeats the body. Releasing exits the loop and reaches the bright tail.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            450,
+            "note",
+            60,
+            0
+          ],
+          [
+            4000,
+            "note",
+            60,
+            100
+          ],
+          [
+            8200,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 11000
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 450
+  },
+  {
+    "title": "04  Shape time with an amplitude envelope",
+    "concept": "ampeg_attack is the rise time; ampeg_decay moves from the peak toward ampeg_sustain. Sustain is a LEVEL (0-100%), not a duration. ampeg_release is the fade after note-off.\n\nSFZ envelope times are seconds. The timed-note duration control below is in milliseconds: 1000 ms = 1 second.\n\nBoth examples loop the same body. A pluck can decay to silence while its key is still held; a swell needs a long enough held note to reach its peak.",
+    "steps": "1. Run A: a 3-second hold makes a short pluck.\n2. Run B: the same hold makes a slow swell and release.\n3. In B set duration to 200 ms; try timed.\n4. Edit ampeg_sustain only. Predict the held level.",
+    "question": "Why can a long MIDI note produce a short sound?",
+    "variants": [
+      {
+        "file": "04a_pluck.sfz",
+        "label": "A - envelope pluck",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_attack=0.003       // Amplitude rise to peak: 0.003 seconds.\nampeg_decay=0.35         // Fade from peak to sustain level: 0.35 seconds.\nampeg_sustain=0          // Held envelope level: 0% of peak; not seconds.\nampeg_release=0.08       // Fade after note release: 0.08 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
+        "expected": "The decay reaches zero even though the key is held for 3 seconds.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            3000,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 4500
+      },
+      {
+        "file": "04b_swell.sfz",
+        "label": "B - envelope swell",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_attack=1.2         // Amplitude rise to peak: 1.2 seconds.\nampeg_decay=0.5          // Fade from peak to sustain level: 0.5 seconds.\nampeg_sustain=65         // Held envelope level: 65% of peak; not seconds.\nampeg_release=1.5        // Fade after note release: 1.5 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
+        "expected": "A 1.2-second attack, held level, then a 1.5-second release.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            3000,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 6000
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 3000
+  },
+  {
+    "title": "05  Velocity: loudness versus sample selection",
+    "concept": "MIDI note-on velocity is 1-127. Velocity 0 means note-off in this patch, not a very quiet attack.\n\namp_veltrack=100 scales amplitude with velocity; 0 removes that scaling. lovel/hivel instead select which region plays. Layers can change timbre as well as loudness.\n\nThe layer example deliberately uses amp_veltrack=0 and equal-peak samples to isolate the timbre switch. Real instruments often combine layers with velocity tracking.",
+    "steps": "1. Run demo: velocities 30, 63, 64, 100, 127.\n2. Compare A (level change) and B (fixed level).\n3. In C, focus on the boundary at 63/64.\n4. Try velocity 0 via a MIDI note-off: no new attack.",
+    "question": "Can two notes have equal peak level but different timbre?",
+    "variants": [
+      {
+        "file": "05a_velocity_gain.sfz",
+        "label": "A - velocity controls amplitude",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=100         // Full velocity response: harder notes are louder.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Low velocities are much quieter; the same WAV is used each time.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            30
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ],
+          [
+            1600,
+            "note",
+            60,
+            63
+          ],
+          [
+            1950,
+            "note",
+            60,
+            0
+          ],
+          [
+            3200,
+            "note",
+            60,
+            64
+          ],
+          [
+            3550,
+            "note",
+            60,
+            0
+          ],
+          [
+            4800,
+            "note",
+            60,
+            100
+          ],
+          [
+            5150,
+            "note",
+            60,
+            0
+          ],
+          [
+            6400,
+            "note",
+            60,
+            127
+          ],
+          [
+            6750,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 9500
+      },
+      {
+        "file": "05b_fixed_gain.sfz",
+        "label": "B - velocity scaling disabled",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Five velocities, similar level and identical timbre.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            30
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ],
+          [
+            1600,
+            "note",
+            60,
+            63
+          ],
+          [
+            1950,
+            "note",
+            60,
+            0
+          ],
+          [
+            3200,
+            "note",
+            60,
+            64
+          ],
+          [
+            3550,
+            "note",
+            60,
+            0
+          ],
+          [
+            4800,
+            "note",
+            60,
+            100
+          ],
+          [
+            5150,
+            "note",
+            60,
+            0
+          ],
+          [
+            6400,
+            "note",
+            60,
+            127
+          ],
+          [
+            6750,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 9500
+      },
+      {
+        "file": "05c_velocity_layers.sfz",
+        "label": "C - velocity selects timbre",
+        "code": "<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n\n<region>                 // Begin a playable region; inherit shared settings.\nlovel=1                  // Lowest triggering note-on velocity: 1 (inclusive).\nhivel=63                 // Highest triggering note-on velocity: 63 (inclusive).\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\n\n<region>                 // Begin a playable region; inherit shared settings.\nlovel=64                 // Lowest triggering note-on velocity: 64 (inclusive).\nhivel=127                // Highest triggering note-on velocity: 127 (inclusive).\nsample=samples/bright_C4.wav // Load bright C4 WAV; path relative to this SFZ.\n",
+        "expected": "The timbre changes at 64. There is no gap or overlap in the velocity zones.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            30
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ],
+          [
+            1600,
+            "note",
+            60,
+            63
+          ],
+          [
+            1950,
+            "note",
+            60,
+            0
+          ],
+          [
+            3200,
+            "note",
+            60,
+            64
+          ],
+          [
+            3550,
+            "note",
+            60,
+            0
+          ],
+          [
+            4800,
+            "note",
+            60,
+            100
+          ],
+          [
+            5150,
+            "note",
+            60,
+            0
+          ],
+          [
+            6400,
+            "note",
+            60,
+            127
+          ],
+          [
+            6750,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 9500
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "06  Gain, layers, and stereo position",
+    "concept": "SFZ volume is a per-region gain offset in decibels. 0 dB preserves the level; negative values attenuate. It does not mean silence. -6 dB is roughly half the signal amplitude, not necessarily half perceived loudness.\n\nThe output dB control below changes the whole sfizz~ engine. Keep it constant when comparing instruments.\n\nC uses two matching regions. Both play on one note; pan places them left/right, and tune offsets pitch in cents (100 cents = one semitone).",
+    "steps": "1. At fixed velocity, compare A (-6 dB) and B (-18 dB).\n2. Compare the meters without changing output dB.\n3. Run C: one MIDI note produces two sample voices.\n4. In C, change pan values to 0; listen again.",
+    "question": "If region volume=-6 and output volume=-12, what is their combined dB offset?",
+    "variants": [
+      {
+        "file": "06a_gain.sfz",
+        "label": "A - region volume -6 dB",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\npan=0                    // Center the sound in the stereo field.\n",
+        "expected": "Centered sample at -6 dB region gain.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 2850
+      },
+      {
+        "file": "06b_gain.sfz",
+        "label": "B - region volume -18 dB",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-18               // Set sample gain offset to -18 dB.\npan=0                    // Center the sound in the stereo field.\n",
+        "expected": "Same sound 12 dB below A: about one quarter of A's amplitude.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 2850
+      },
+      {
+        "file": "06c_stereo_layers.sfz",
+        "label": "C - two regions / pan / detune",
+        "code": "<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-12               // Set sample gain offset to -12 dB.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\n\n<region>                 // Begin a playable region; inherit shared settings.\npan=-70                  // Pan 70 toward left (-100 left, +100 right).\ntune=-7                  // Detune down by 7 cents; 100 cents = 1 semitone.\n<region>                 // Begin a playable region; inherit shared settings.\npan=70                   // Pan 70 toward right (-100 left, +100 right).\ntune=7                   // Detune up by 7 cents; 100 cents = 1 semitone.\n",
+        "expected": "Both regions trigger together; stereo detuning creates a wider sound.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 2850
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "07  A release tail is not a release sample",
+    "concept": "ampeg_release fades the voice already playing. trigger=release starts a NEW sample when the note is released, or when the sustain pedal finally releases it.\n\ntrigger=release_key starts at physical key release even with sustain down. The examples keep an attack voice alive so that the comparison is unambiguous. Release-trigger details can differ across SFZ players.\n\nCC64 values 64-127 hold the sustain pedal; 0-63 release it. These demos use 127 and 0.",
+    "steps": "1. Compare A (envelope only), B, and C.\n2. Demo: note on; pedal down; key up; pedal up.\n3. Watch event status. When does the bright click occur?\n4. Repeat manually with hold, pedal, and release.",
+    "question": "Which opcode would you use for a key-release mechanical noise?",
+    "variants": [
+      {
+        "file": "07a_envelope_only.sfz",
+        "label": "A - existing voice fades / no new sample",
+        "code": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_release=0.5        // Fade after note release: 0.5 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-12               // Set sample gain offset to -12 dB.\n",
+        "expected": "No click. Sustain keeps the body alive after key-up; pedal-up releases it.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            500,
+            "cc",
+            64,
+            127
+          ],
+          [
+            1400,
+            "note",
+            60,
+            0
+          ],
+          [
+            3000,
+            "cc",
+            64,
+            0
+          ]
+        ],
+        "finish": 4500
+      },
+      {
+        "file": "07b_release.sfz",
+        "label": "B - release sample at pedal-up",
+        "code": "<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\n\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=attack           // Start this region on note-on.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_release=0.5        // Fade after note release: 0.5 seconds.\nvolume=-12               // Set sample gain offset to -12 dB.\n\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=release          // Start on note release; sustain pedal can defer it.\nsample=samples/release_click.wav // Load release-click WAV; path relative to this SFZ.\nloop_mode=one_shot       // Play once; ignore note-off.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
+        "expected": "Bright release click at pedal-up, about 3 seconds into demo.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            500,
+            "cc",
+            64,
+            127
+          ],
+          [
+            1400,
+            "note",
+            60,
+            0
+          ],
+          [
+            3000,
+            "cc",
+            64,
+            0
+          ]
+        ],
+        "finish": 4500
+      },
+      {
+        "file": "07c_release_key.sfz",
+        "label": "C - release sample at key-up",
+        "code": "<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\n\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=attack           // Start this region on note-on.\nsample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.\nloop_mode=loop_continuous // Repeat the loop through the release fade.\nloop_start=23484         // First loop frame (0-based).\nloop_end=46967           // Last loop frame (inclusive).\nampeg_release=0.5        // Fade after note release: 0.5 seconds.\nvolume=-12               // Set sample gain offset to -12 dB.\n\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=release_key      // Start on key-up, even with the sustain pedal down.\nsample=samples/release_click.wav // Load release-click WAV; path relative to this SFZ.\nloop_mode=one_shot       // Play once; ignore note-off.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
+        "expected": "Bright release click at key-up, about 1.4 seconds into demo; body remains sustained.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            500,
+            "cc",
+            64,
+            127
+          ],
+          [
+            1400,
+            "note",
+            60,
+            0
+          ],
+          [
+            3000,
+            "cc",
+            64,
+            0
+          ]
+        ],
+        "finish": 4500
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "08  First notes and legato notes",
+    "concept": "trigger=first selects a region at the start of a phrase when no other key is held. trigger=legato selects a region when another key is already held.\n\nThese opcodes CHOOSE samples. They do not automatically make a monophonic synthesizer, a pitch glide, or a recorded interval transition.\n\nThis example makes the difference obvious: a soft first note and bright overlapping notes. Pedal is off for this exercise.",
+    "steps": "1. Run demo: detached 60/64, then overlapping 60/64.\n2. Listen to the changed timbre of the overlapping 64.\n3. Use an external keyboard to vary overlap length.\n4. Keep the first key held as you add a second.",
+    "question": "Would pitch gliding necessarily happen just because trigger=legato is present?",
+    "variants": [
+      {
+        "file": "08_legato.sfz",
+        "label": "A - first versus overlapping note",
+        "code": "<group>                  // Shared defaults for this group of regions.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=first            // Start on note-on when no other key is held.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\n<region>                 // Begin a playable region; inherit shared settings.\ntrigger=legato           // Start on note-on while another key is held.\nsample=samples/bright_C4.wav // Load bright C4 WAV; path relative to this SFZ.\n",
+        "expected": "Detached pair: both soft. Overlapping pair: second note bright.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            350,
+            "note",
+            60,
+            0
+          ],
+          [
+            1000,
+            "note",
+            64,
+            100
+          ],
+          [
+            1350,
+            "note",
+            64,
+            0
+          ],
+          [
+            2500,
+            "note",
+            60,
+            100
+          ],
+          [
+            4500,
+            "note",
+            60,
+            0
+          ],
+          [
+            3500,
+            "note",
+            64,
+            100
+          ],
+          [
+            4800,
+            "note",
+            64,
+            0
+          ]
+        ],
+        "finish": 6500
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "09  Repetition and one sound stopping another",
+    "concept": "seq_length and seq_position rotate through a fixed sequence of matching regions. This round robin is deterministic; it is not random or machine learning.\n\nFor a choke, off_by on the OLD voice names the group number of a NEW voice that will stop it. Example: open hat off_by=2; closed hat group=2.\n\nThe <group> header supplies shared opcodes. The group=2 opcode is a voice-lifecycle number. They are different uses of the word group.",
+    "steps": "1. A: run demo; identify the repeating 1-2-3 pattern.\n2. B: hear an open hat alone, then open followed by closed.\n3. In B use pitch 46 (open), then 42 (closed).\n4. Remove off_by=2 in a copy; compare the result.",
+    "question": "Where does off_by go: on the sound to be stopped, or the sound doing the stopping?",
+    "variants": [
+      {
+        "file": "09a_round_robin.sfz",
+        "label": "A - three-step round robin",
+        "code": "<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=one_shot       // Play once; ignore note-off.\nseq_length=3             // Repeat a 3-step round-robin sequence.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n<region>                 // Begin a playable region; inherit shared settings.\nseq_position=1           // Play this region on round-robin step 1.\nsample=samples/wood_1.wav // Load wood hit 1 WAV; path relative to this SFZ.\n<region>                 // Begin a playable region; inherit shared settings.\nseq_position=2           // Play this region on round-robin step 2.\nsample=samples/wood_2.wav // Load wood hit 2 WAV; path relative to this SFZ.\n<region>                 // Begin a playable region; inherit shared settings.\nseq_position=3           // Play this region on round-robin step 3.\nsample=samples/wood_3.wav // Load wood hit 3 WAV; path relative to this SFZ.\n",
+        "expected": "Nine taps cycle through three distinct percussion timbres.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            80,
+            "note",
+            60,
+            0
+          ],
+          [
+            450,
+            "note",
+            60,
+            100
+          ],
+          [
+            530,
+            "note",
+            60,
+            0
+          ],
+          [
+            900,
+            "note",
+            60,
+            100
+          ],
+          [
+            980,
+            "note",
+            60,
+            0
+          ],
+          [
+            1350,
+            "note",
+            60,
+            100
+          ],
+          [
+            1430,
+            "note",
+            60,
+            0
+          ],
+          [
+            1800,
+            "note",
+            60,
+            100
+          ],
+          [
+            1880,
+            "note",
+            60,
+            0
+          ],
+          [
+            2250,
+            "note",
+            60,
+            100
+          ],
+          [
+            2330,
+            "note",
+            60,
+            0
+          ],
+          [
+            2700,
+            "note",
+            60,
+            100
+          ],
+          [
+            2780,
+            "note",
+            60,
+            0
+          ],
+          [
+            3150,
+            "note",
+            60,
+            100
+          ],
+          [
+            3230,
+            "note",
+            60,
+            0
+          ],
+          [
+            3600,
+            "note",
+            60,
+            100
+          ],
+          [
+            3680,
+            "note",
+            60,
+            0
+          ]
+        ],
+        "finish": 4700
+      },
+      {
+        "file": "09b_choke.sfz",
+        "label": "B - open and closed hat choke",
+        "code": "<group>                  // Shared defaults for this group of regions.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n\n<region>                 // Begin a playable region; inherit shared settings.\nkey=46                   // Play only MIDI 46; also set the root to 46.\nsample=samples/hat_open.wav // Load open hi-hat WAV; path relative to this SFZ.\n// This old voice is stopped by a new group-2 voice.\noff_by=2                 // A new group-2 voice chokes this voice.\noff_mode=fast            // Choke quickly; bypass the normal release time.\n\n<region>                 // Begin a playable region; inherit shared settings.\nkey=42                   // Play only MIDI 42; also set the root to 42.\nsample=samples/hat_closed.wav // Load closed hi-hat WAV; path relative to this SFZ.\ngroup=2                  // Assign voice group 2; choke voices with off_by=2.\n",
+        "expected": "Open hat alone, then a second open hat cut short by closed hat.",
+        "events": [
+          [
+            0,
+            "note",
+            46,
+            100
+          ],
+          [
+            80,
+            "note",
+            46,
+            0
+          ],
+          [
+            2800,
+            "note",
+            46,
+            100
+          ],
+          [
+            2880,
+            "note",
+            46,
+            0
+          ],
+          [
+            3200,
+            "note",
+            42,
+            100
+          ],
+          [
+            3280,
+            "note",
+            42,
+            0
+          ]
+        ],
+        "finish": 5000
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  },
+  {
+    "title": "10  Build and explain your own instrument",
+    "concept": "The finished example combines a keyboard split, velocity layers, and a release marker. <global> supplies defaults; each new <group> starts a fresh set of group values; regions refine those choices.\n\nUse B as your editable working file. Open it as plain text (or double-click sfizz~), save, then reload. The source preview is read-only and refreshes from disk.\n\nBuild a short composition that makes the rules audible. Your SFZ file is a performable design, not just a sample list.",
+    "steps": "1. A: compare low notes, soft high notes, and hard high notes.\n2. Choose B and edit 10b_student_instrument.sfz.\n3. Add one velocity layer and one note-off behavior.\n4. Explain each region and demonstrate a 30-second study.",
+    "question": "What evidence would convince a listener that your mapping behaves as intended?",
+    "variants": [
+      {
+        "file": "10a_complete_instrument.sfz",
+        "label": "A - combined instrument",
+        "code": "<global>                 // Global defaults for the following groups and regions.\namp_veltrack=100         // Full velocity response: harder notes are louder.\nvolume=-9                // Set sample gain offset to -9 dB.\nampeg_release=0.25       // Fade after note release: 0.25 seconds.\n\n<group>                  // Shared defaults for this group of regions.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=59                 // Highest triggering MIDI note: 59 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=one_shot       // Play once; ignore note-off.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\n\n<group>                  // Shared defaults for this group of regions.\nlokey=60                 // Lowest triggering MIDI note: 60 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\n<region>                 // Begin a playable region; inherit shared settings.\nlovel=1                  // Lowest triggering note-on velocity: 1 (inclusive).\nhivel=79                 // Highest triggering note-on velocity: 79 (inclusive).\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\n<region>                 // Begin a playable region; inherit shared settings.\nlovel=80                 // Lowest triggering note-on velocity: 80 (inclusive).\nhivel=127                // Highest triggering note-on velocity: 127 (inclusive).\nsample=samples/bright_C4.wav // Load bright C4 WAV; path relative to this SFZ.\n\n<group>                  // Shared defaults for this group of regions.\nkey=60                   // Play only MIDI 60; also set the root to 60.\ntrigger=release          // Start on note release; sustain pedal can defer it.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nloop_mode=one_shot       // Play once; ignore note-off.\nvolume=-18               // Set sample gain offset to -18 dB.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/release_click.wav // Load release-click WAV; path relative to this SFZ.\n",
+        "expected": "Low one-shots; high soft/bright layers. MIDI 60 also has a quiet release click.",
+        "events": [
+          [
+            0,
+            "note",
+            48,
+            100
+          ],
+          [
+            150,
+            "note",
+            48,
+            0
+          ],
+          [
+            1800,
+            "note",
+            60,
+            60
+          ],
+          [
+            2350,
+            "note",
+            60,
+            0
+          ],
+          [
+            3400,
+            "note",
+            60,
+            110
+          ],
+          [
+            3950,
+            "note",
+            60,
+            0
+          ],
+          [
+            5000,
+            "note",
+            67,
+            110
+          ],
+          [
+            5550,
+            "note",
+            67,
+            0
+          ]
+        ],
+        "finish": 7500
+      },
+      {
+        "file": "10b_student_instrument.sfz",
+        "label": "B - editable student instrument",
+        "code": "// Edit this file, save, then click reload in Max.\n// Start with one playable region. Add your own rules.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_attack=0.01        // Amplitude rise to peak: 0.01 seconds.\nampeg_release=0.5        // Fade after note release: 0.5 seconds.\namp_veltrack=100         // Full velocity response: harder notes are louder.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+        "expected": "Your starting point: one mapped sample, velocity response, and a release fade.",
+        "events": [
+          [
+            0,
+            "note",
+            60,
+            100
+          ],
+          [
+            700,
+            "note",
+            60,
+            0
+          ],
+          [
+            2000,
+            "note",
+            67,
+            65
+          ],
+          [
+            2700,
+            "note",
+            67,
+            0
+          ]
+        ],
+        "finish": 4500
+      }
+    ],
+    "pitch": 60,
+    "velocity": 100,
+    "duration": 350
+  }
+]

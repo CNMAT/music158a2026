@@ -1,0 +1,33 @@
+INSTRUCTOR LISTENING CHECKS
+
+01 / Recipe
+key=62 maps the same recorded pitch to MIDI 62; it does not retune the WAV to D.
+
+02 / Mapping
+Overlapping regions both trigger. Pitch shifting by playback speed also changes duration.
+
+03 / Note-off
+An envelope only scales existing audio. It cannot play beyond a sample end without looping.
+
+04 / Envelope
+ampeg_sustain=0 can make a held note silent. Short key holds can interrupt a long attack.
+
+05 / Velocity
+Selection (lovel/hivel), amplitude scaling (amp_veltrack), and recorded timbre are separate.
+
+06 / Gain
+-6 dB plus -12 dB = -18 dB gain offset before other factors. This is not an absolute loudness.
+
+07 / Release
+release_key fits key-release noise; release follows pedal-held note release in this comparison.
+
+08 / Legato
+A legato trigger selects a region. It alone provides neither a glide nor monophonic behavior.
+
+09 / Choke
+off_by belongs on the old voice being stopped; the new voice carries the matching group.
+
+10 / Workshop
+Test boundaries, low/high velocities, short/long holds, overlaps and pedal behavior.
+
+Assessment: mapping 25%; dynamics 25%; note-off design 25%; demonstration and portability 25%.

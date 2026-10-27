@@ -1,0 +1,165 @@
+EC SFZ Builder v2 — annotated opcode index
+
+<control>
+// File-level settings such as default_path.
+// Place before the instrument regions. Headers are not opcodes.
+
+<global>
+// Defaults inherited by following groups and regions.
+
+<group>
+// Shared settings for following regions, until the next group.
+// A new group resets the previous group settings; global defaults remain.
+
+<region>
+// Begin a playable region; inherit global and group settings.
+// Every matching region can sound. Overlapping regions create layers.
+
+sample=My Sound.wav
+// Audio file path, relative to the SFZ file.
+// Spaces in filenames are allowed; do not add surrounding quotes.
+
+default_path=samples/
+// Prefix added to sample paths; place under <control>.
+// Use the trailing slash. Generated folder-list paths already include subfolders.
+
+key=60
+// Set lokey, hikey and pitch_keycenter to the same note.
+// MIDI 60 alone triggers this sample at its original pitch.
+
+lokey=48
+// Lowest triggering MIDI note, inclusive; normally 0-127.
+
+hikey=84
+// Highest triggering MIDI note, inclusive; normally 0-127.
+
+pitch_keycenter=60
+// Root: MIDI note that plays the sample at original pitch.
+// Root pitch does not restrict the playable key range.
+
+pitch_keytrack=100
+// Pitch change in cents per key; 100 = normal semitones.
+// 0 disables keyboard transposition.
+
+transpose=12
+// Transpose the sample by semitones; 12 = one octave up.
+
+tune=-7
+// Fine tuning in cents; 100 cents = one semitone.
+
+bend_up=200
+// Pitch-wheel upward range in cents; 200 = two semitones.
+
+bend_down=-200
+// Pitch-wheel downward range in cents; negative values bend down.
+
+trigger=attack
+// Choose when a region starts.
+// attack = note-on; first = first held key; legato = overlapping key. release waits for pedal-up when sustained; release_key starts at key-up.
+
+loop_mode=no_loop
+// Choose looping and response to note-off.
+// no_loop = play once, obey release; one_shot = ignore note-off. loop_continuous repeats through release; loop_sustain exits at release.
+
+loop_start=0
+// First frame of the sample loop, counted from zero.
+// Frames, not milliseconds. Inactive when looping is disabled.
+
+loop_end=47999
+// Last frame of the loop, inclusive.
+// Example: frames 0-47999 make a one-second loop at 48 kHz; verify your sample length.
+
+offset=0
+// Start playback at this zero-based sample-frame offset.
+
+end=47999
+// Last sample frame to play, inclusive.
+// Omit to use the whole soundfile; values must fit the sample.
+
+delay=0.1
+// Delay the start of the region by this many seconds.
+
+count=2
+// Play the sample this many times; implies one_shot.
+// Envelopes do not restart for each repetition.
+
+ampeg_delay=0
+// Envelope delay before attack, in seconds.
+
+ampeg_attack=0.01
+// Envelope rise from its starting level to peak, in seconds.
+
+ampeg_hold=0
+// Time at the envelope peak before decay, in seconds.
+
+ampeg_decay=0.3
+// Time from peak toward the sustain level, in seconds.
+
+ampeg_sustain=70
+// Held amplitude level, 0-100 percent; not a duration.
+
+ampeg_release=0.5
+// Fade time after note release, in seconds.
+// A finite sample may end first; one_shot ignores note-off.
+
+lovel=1
+// Lowest triggering note-on velocity, inclusive; 1-127.
+
+hivel=63
+// Highest triggering note-on velocity, inclusive; 1-127.
+// Adjacent layers could use 1-63 and 64-127.
+
+amp_veltrack=100
+// Velocity-to-amplitude amount: 100 normal, 0 fixed level.
+// This is separate from velocity-based region selection.
+
+volume=-6
+// Gain offset in dB; 0 unchanged, negative quieter.
+// -6 dB is about half the signal amplitude, not half perceived loudness.
+
+pan=0
+// Stereo position: -100 left, 0 center, +100 right.
+
+seq_length=3
+// Number of steps in a repeating round-robin sequence.
+
+seq_position=1
+// Step at which this region plays; steps start at 1.
+
+group=2
+// Assign a voice group number for choking other voices.
+// The group opcode is different from the <group> header.
+
+off_by=2
+// Stop this voice when a new voice in group 2 starts.
+// Put off_by on the sound to be stopped, such as an open hi-hat.
+
+off_mode=fast
+// How a choked voice ends: fast or normal envelope release.
+
+lorand=0
+// Low random-selection boundary, inclusive, between 0 and 1.
+
+hirand=0.5
+// High random-selection boundary, exclusive.
+// Use 0-0.5 and 0.5-1 for two equal random zones; unlike fixed round robin.
+
+fil_type=lpf_2p
+// Filter type; lpf_2p is a two-pole low-pass filter.
+
+cutoff=5000
+// Filter cutoff frequency in Hz.
+
+resonance=3
+// Filter resonance amount in dB; raise cautiously.
+
+cutoff_oncc1=2400
+// Mod-wheel (CC1) cutoff modulation depth in cents.
+// 2400 cents spans two octaves of cutoff frequency.
+
+locc64=64
+// Minimum CC64 value to allow a new note to trigger.
+// 64-127 is normally sustain pedal down; this selects regions, not pedal behavior.
+
+hicc64=127
+// Maximum CC64 value to allow a new note to trigger.

@@ -1,0 +1,8 @@
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+lokey=48                 // Lowest triggering MIDI note: 48 (inclusive).
+hikey=84                 // Highest triggering MIDI note: 84 (inclusive).
+pitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.
+loop_mode=one_shot       // Play once; ignore note-off.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-9                // Set sample gain offset to -9 dB.

@@ -1,0 +1,9 @@
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.
+key=60                   // Play only MIDI 60; also set the root to 60.
+loop_mode=loop_continuous // Repeat the loop through the release fade.
+loop_start=23484         // First loop frame (0-based).
+loop_end=46967           // Last loop frame (inclusive).
+ampeg_release=0.5        // Fade after note release: 0.5 seconds.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-12               // Set sample gain offset to -12 dB.

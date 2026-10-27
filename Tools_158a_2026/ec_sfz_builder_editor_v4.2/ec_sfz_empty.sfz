@@ -1,0 +1,6 @@
+// Internal silent reset instrument; not part of the builder's editable model.
+// sfizz requires a region to load successfully. No sample file is needed.
+<region>
+sample=*silence
+end=0
+volume=-144

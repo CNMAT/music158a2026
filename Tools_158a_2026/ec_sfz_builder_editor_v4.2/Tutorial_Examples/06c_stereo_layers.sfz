@@ -1,0 +1,13 @@
+<group>                  // Shared defaults for this group of regions.
+key=60                   // Play only MIDI 60; also set the root to 60.
+loop_mode=one_shot       // Play once; ignore note-off.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-12               // Set sample gain offset to -12 dB.
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+
+<region>                 // Begin a playable region; inherit shared settings.
+pan=-70                  // Pan 70 toward left (-100 left, +100 right).
+tune=-7                  // Detune down by 7 cents; 100 cents = 1 semitone.
+<region>                 // Begin a playable region; inherit shared settings.
+pan=70                   // Pan 70 toward right (-100 left, +100 right).
+tune=7                   // Detune up by 7 cents; 100 cents = 1 semitone.

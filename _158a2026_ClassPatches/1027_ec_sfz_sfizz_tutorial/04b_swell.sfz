@@ -1,0 +1,14 @@
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.
+lokey=48                 // Lowest triggering MIDI note: 48 (inclusive).
+hikey=84                 // Highest triggering MIDI note: 84 (inclusive).
+pitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.
+loop_mode=loop_continuous // Repeat the loop through the release fade.
+loop_start=23484         // First loop frame (0-based).
+loop_end=46967           // Last loop frame (inclusive).
+ampeg_attack=1.2         // Amplitude rise to peak: 1.2 seconds.
+ampeg_decay=0.5          // Fade from peak to sustain level: 0.5 seconds.
+ampeg_sustain=65         // Held envelope level: 65% of peak; not seconds.
+ampeg_release=1.5        // Fade after note release: 1.5 seconds.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-6                // Set sample gain offset to -6 dB.

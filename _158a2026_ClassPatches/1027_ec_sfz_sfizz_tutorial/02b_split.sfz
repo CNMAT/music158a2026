@@ -1,0 +1,16 @@
+<group>                  // Shared defaults for this group of regions.
+loop_mode=one_shot       // Play once; ignore note-off.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-9                // Set sample gain offset to -9 dB.
+
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+lokey=48                 // Lowest triggering MIDI note: 48 (inclusive).
+hikey=65                 // Highest triggering MIDI note: 65 (inclusive).
+pitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.
+
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/bright_C5.wav // Load bright C5 WAV; path relative to this SFZ.
+lokey=66                 // Lowest triggering MIDI note: 66 (inclusive).
+hikey=84                 // Highest triggering MIDI note: 84 (inclusive).
+pitch_keycenter=72       // MIDI 72 plays at the sample's original pitch.

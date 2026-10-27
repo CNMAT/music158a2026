@@ -1,0 +1,16 @@
+<group>                  // Shared defaults for this group of regions.
+loop_mode=one_shot       // Play once; ignore note-off.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-6                // Set sample gain offset to -6 dB.
+
+<region>                 // Begin a playable region; inherit shared settings.
+key=46                   // Play only MIDI 46; also set the root to 46.
+sample=samples/hat_open.wav // Load open hi-hat WAV; path relative to this SFZ.
+// This old voice is stopped by a new group-2 voice.
+off_by=2                 // A new group-2 voice chokes this voice.
+off_mode=fast            // Choke quickly; bypass the normal release time.
+
+<region>                 // Begin a playable region; inherit shared settings.
+key=42                   // Play only MIDI 42; also set the root to 42.
+sample=samples/hat_closed.wav // Load closed hi-hat WAV; path relative to this SFZ.
+group=2                  // Assign voice group 2; choke voices with off_by=2.

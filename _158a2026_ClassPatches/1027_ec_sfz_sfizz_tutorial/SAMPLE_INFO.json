@@ -1,0 +1,97 @@
+{
+  "samples": [
+    {
+      "file": "soft_C4.wav",
+      "frames": 144000,
+      "sample_rate": 48000,
+      "seconds": 3.0,
+      "root_midi": 60,
+      "description": "Soft harmonic pluck; nominal MIDI 60.",
+      "peak": 0.45
+    },
+    {
+      "file": "bright_C4.wav",
+      "frames": 144000,
+      "sample_rate": 48000,
+      "seconds": 3.0,
+      "root_midi": 60,
+      "description": "Bright harmonic pluck; same peak as soft sample.",
+      "peak": 0.45
+    },
+    {
+      "file": "bright_C5.wav",
+      "frames": 144000,
+      "sample_rate": 48000,
+      "seconds": 3.0,
+      "root_midi": 72,
+      "description": "Bright pluck recorded synthetically one octave higher.",
+      "peak": 0.45
+    },
+    {
+      "file": "sustain_tail_C4.wav",
+      "frames": 117420,
+      "sample_rate": 48000,
+      "seconds": 2.44625,
+      "root_midi": 60,
+      "description": "Periodic body followed by a brighter fading tail. Explicit loop indices in SFZ.",
+      "peak": 0.45
+    },
+    {
+      "file": "wood_1.wav",
+      "frames": 21600,
+      "sample_rate": 48000,
+      "seconds": 0.45,
+      "root_midi": null,
+      "description": "Synthetic percussion variation 1; unpitched.",
+      "peak": 0.45
+    },
+    {
+      "file": "wood_2.wav",
+      "frames": 21600,
+      "sample_rate": 48000,
+      "seconds": 0.45,
+      "root_midi": null,
+      "description": "Synthetic percussion variation 2; unpitched.",
+      "peak": 0.45
+    },
+    {
+      "file": "wood_3.wav",
+      "frames": 21600,
+      "sample_rate": 48000,
+      "seconds": 0.45,
+      "root_midi": null,
+      "description": "Synthetic percussion variation 3; unpitched.",
+      "peak": 0.45
+    },
+    {
+      "file": "release_click.wav",
+      "frames": 15360,
+      "sample_rate": 48000,
+      "seconds": 0.32,
+      "root_midi": null,
+      "description": "Bright short release marker; unpitched.",
+      "peak": 0.45
+    },
+    {
+      "file": "hat_open.wav",
+      "frames": 115200,
+      "sample_rate": 48000,
+      "seconds": 2.4,
+      "root_midi": null,
+      "description": "Synthetic noise percussion for choke comparison; unpitched.",
+      "peak": 0.45
+    },
+    {
+      "file": "hat_closed.wav",
+      "frames": 9600,
+      "sample_rate": 48000,
+      "seconds": 0.2,
+      "root_midi": null,
+      "description": "Synthetic noise percussion for choke comparison; unpitched.",
+      "peak": 0.45
+    }
+  ],
+  "loop_start": 23484,
+  "loop_end": 46967,
+  "notice": "All WAVs generated for this tutorial. Mono 48 kHz / 16 bit. No third-party sample library required."
+}

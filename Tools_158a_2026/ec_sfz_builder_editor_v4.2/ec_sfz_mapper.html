@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SFZ Graphic Keyboard Sample Mapper</title>
+<style>
+:root{color-scheme:light;--ink:#172622;--muted:#52615b;--green:#246849;--line:#ced7cf;--paper:#f7f8f4}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:13px Arial,sans-serif;height:100vh;display:flex;flex-direction:column;min-width:800px;overflow:hidden}
+button,input,select{font:inherit}button,select,input{border:1px solid #aebdb3;border-radius:4px;background:#fff;color:var(--ink);padding:6px 8px}button{cursor:pointer;white-space:nowrap}button:hover{background:#e5eee6}button:disabled{opacity:.45;cursor:default}button.primary{background:var(--green);color:white;border-color:var(--green)}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #22734d;outline-offset:2px}input[type=number]{width:64px}input[type=checkbox]{accent-color:var(--green)}
+header{padding:15px 18px 10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px}h1{font-size:21px;letter-spacing:-.5px;margin:0 0 5px}p{margin:0;color:var(--muted);line-height:1.4}.actions,.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.toolbar{padding:9px 16px;border-bottom:1px solid var(--line)}.toolbar label{display:flex;align-items:center;gap:6px}#instrument{font-size:12px;white-space:normal}header>div:first-child{min-width:0;flex:1}#addSample{width:280px;max-width:38vw}
+main{display:grid;grid-template-columns:238px minmax(0,1fr);flex:1;min-height:0}aside{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:#edf1e9}.asidehead{padding:8px}.asidehead strong{display:block;margin-bottom:8px}.asidehead input{width:100%}.tabs{display:flex;gap:4px;margin-bottom:6px}.tabs button{flex:1;font-size:12px}.tabs .current{background:var(--green);color:#fff}#list{overflow:auto;flex:1;padding:0 7px 7px}.item{display:block;width:100%;height:26px;text-align:left;padding:1px 6px;margin-bottom:2px;border-left:4px solid #a5bbae;white-space:nowrap;overflow:hidden;line-height:12px;font-size:12px}.item span,.item small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.item small{color:var(--muted);margin-top:0;font-size:10px;line-height:10px}.item.selected{background:#dbeadb;border-color:#246849;font-weight:bold}.asidefoot{font-size:11px;padding:10px 12px;line-height:1.5;border-top:1px solid var(--line)}
+.workspace{display:flex;flex-direction:column;min-width:0;min-height:0}.mapbar{padding:10px 13px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}.mapbar strong{font-size:12px}.map-position{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}.map-position label{display:flex;align-items:center;gap:5px;white-space:nowrap}#keyVelocityReadout{white-space:nowrap;font-variant-numeric:tabular-nums}.mapbar span{font-size:11px;color:var(--muted)}.plotrow{display:flex;min-height:230px;flex:1;margin-right:13px}#axis{width:40px;flex-shrink:0}#viewport{overflow-x:auto;overflow-y:hidden;flex:1;border:1px solid #aebbb0;background:#fafbf8;position:relative}#map{display:block;touch-action:none;user-select:none}#warning{padding:0 14px 7px;color:#805616;font-size:12px;min-height:7px}
+.inspector{margin:10px 13px;padding:11px 13px;background:#fff;border:1px solid var(--line);border-radius:5px}#selection{font-weight:bold;margin-bottom:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.fields{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.fields label{display:flex;flex-direction:column;font-size:11px;gap:4px}.fields input{font-size:13px}.fields .buttons{display:flex;gap:6px}footer{border-top:1px solid var(--line);padding:9px 16px;background:#fff;display:flex;gap:12px;align-items:center;min-height:37px}#status{flex:1;font-size:12px}#busy{color:var(--green);font-size:11px}.hint{font-size:11px;color:var(--muted);padding:0 13px 10px;line-height:1.45}#cursor{font:11px Menlo,monospace;color:var(--muted);min-width:65px;text-align:right;white-space:nowrap}
+::-webkit-scrollbar{height:12px;width:12px}::-webkit-scrollbar-track{background:#e5e9e1}::-webkit-scrollbar-thumb{background:#a6b3a7;border:2px solid #e5e9e1;border-radius:6px}
+#tooltip{position:fixed;z-index:20;max-width:330px;padding:9px 11px;background:#233b2e;color:#fff;border-radius:5px;box-shadow:0 3px 12px #0003;font:12px/1.4 Arial,sans-serif;pointer-events:none}
+</style></head><body>
+<header><div><h1>SFZ Graphic Keyboard Sample Mapper</h1><p id="instrument">Connecting to the SFZ builder…</p></div><div class="actions"><button id="undo" title="Undo the last applied table, text, or mapper edit.">Undo</button><button id="panic" title="Stop all sounding notes.">Panic</button></div></header>
+<div class="toolbar"><label>Add sample <select id="addSample" aria-label="Add sample" title="Choose a sound from the home-page sample list. Adds it to the group selected in View. All groups uses the first group in the instrument (creates one if needed). Uses the first unused MIDI key from 0 upward, checking all groups. Uses the home-page velocity range; one-shot playback. Choose the same sound again to add another region."><option value="">Select a sample…</option></select></label><label>View <select id="filter" title="Show every group, or isolate a group for overlapping layers. Add sample uses the selected group; All groups adds to the first group in the instrument. No group keeps samples ungrouped."><option value="all">All groups</option></select></label><button id="fit" title="Zoom to the visible regions.">Fit regions</button><button id="all" title="Show MIDI notes 0 through 127.">All keys</button><label>Zoom <input id="zoom" type="range" min="1" max="8" step=".25" value="1" title="Enlarge keys; scroll horizontally to move across the keyboard."></label></div>
+<main><aside><div class="asidehead"><div class="tabs"><button id="regionsTab" title="Select a region to edit it. Use this list to reach overlapping samples." class="current">Regions</button><button id="samplesTab" title="View sounds from the folder loaded on the home page.">Folder samples</button></div><input id="search" title="Filter the visible list by sample name or region ID. This does not change the instrument." placeholder="Filter by name or ID" aria-label="Filter samples or regions"></div><div id="list" title="Regions: click to edit. Folder samples: view the loaded sound catalog."></div><div class="asidefoot" id="listhelp">Select a region here to reach overlapping layers. Colors identify groups.</div></aside>
+<section class="workspace"><div class="mapbar"><div><strong id="keyVelocityReadout" aria-live="polite" aria-atomic="true" title="Last key pressed on the mapper keyboard: MIDI note and note-on velocity. Values remain after release.">KEY × VELOCITY</strong> <span>127 at top · 1 at bottom</span></div><div class="map-position"><label><input id="moveRoot" title="When checked, moving a region also moves its root note. Uncheck to keep the original sample pitch reference fixed." type="checkbox" checked> Move root with region</label><span id="cursor" title="MIDI key under the pointer. Drag the orange root marker to change the region’s root key.">Key —</span></div></div><div id="warning"></div><div class="plotrow"><canvas id="axis" title="Velocity increases from 1 at the bottom to 127 at the top."></canvas><div id="viewport"><canvas id="map" title="Drag a region to move it. Drag square handles to resize its range; drag the orange triangle to change its root. Click piano keys to audition." tabindex="0" aria-label="Sample key and velocity map; precise accessible edits are available below"></canvas></div></div>
+<div class="inspector"><div id="selection" title="Selected region, its group, and its sample. The IDs match the main Region Table.">Select a region to edit its mapping.</div><div class="fields"><label>Low key<input id="lokey" title="Lowest MIDI note that triggers this region (0–127). Changes apply on Return or when you leave the field." type="number" min="0" max="127" step="1"></label><label>High key<input id="hikey" title="Highest MIDI note that triggers this region (0–127). Changes apply on Return or when you leave the field." type="number" min="0" max="127" step="1"></label><label>Low velocity<input id="lovel" title="Lowest playing velocity that triggers this region (1–127). Changes apply automatically when you finish editing." type="number" min="1" max="127" step="1"></label><label>High velocity<input id="hivel" title="Highest playing velocity that triggers this region (1–127). Changes apply automatically when you finish editing." type="number" min="1" max="127" step="1"></label><label>Root key<input id="pitch_keycenter" title="MIDI note that plays this sample at its original pitch (0–127). Changes apply automatically when you finish editing." type="number" min="0" max="127" step="1"></label><div class="buttons"><button id="duplicate" title="Duplicate the selected region, including all its opcodes.">Duplicate</button><button id="delete" title="Remove this region mapping; the soundfile is kept. Undo restores it.">Delete region</button></div></div></div>
+<div class="hint">Drag a region to move it. Drag square handles to resize. Drag the orange root marker above the keyboard to set its root. Edit numbers, then press Return or leave the field. Applied edits update playback.</div></section></main>
+<footer><span id="status"></span><span id="busy"></span><button id="refresh" title="Refresh from the applied model. Table and text drafts must be applied in the builder.">Refresh</button></footer>
+<div id="tooltip" role="tooltip" hidden></div>
+<script>
+// Observe the mapper's existing note messages; forward every message unchanged.
+// Kept in this HTML so ec_sfz_mapper_ui.js does not need to be replaced.
+(function(){
+'use strict';
+var readout=document.getElementById('keyVelocityReadout');
+function showNote(key,velocity){
+ key=Number(key);velocity=Number(velocity);
+ if(!isFinite(key)||Math.floor(key)!==key||key<0||key>127||
+    !isFinite(velocity)||Math.floor(velocity)!==velocity||velocity<1||velocity>127)return;
+ readout.textContent='KEY '+key+' × VELOCITY '+velocity;
+}
+function observeNotes(){
+ var bridge=window.max;
+ if(!bridge||typeof bridge.outlet!=='function'){setTimeout(observeNotes,250);return;}
+ var original=bridge.outlet;
+ bridge.outlet=function(){
+  if(arguments[0]==='note')showNote(arguments[1],arguments[2]);
+  return original.apply(this,arguments);
+ };
+}
+observeNotes();
+// Keep the existing UI script compatible while displaying only its cursor key.
+// Cursor text is informational; it is not used to set mapping or playback values.
+var cursor=document.getElementById('cursor');
+function showCursorKey(){
+ var text=cursor.textContent,keyOnly=text.replace(/\s*·\s*vel\s+.*$/i,'');
+ if(keyOnly!==text)cursor.textContent=keyOnly;
+}
+new MutationObserver(showCursorKey).observe(cursor,{childList:true,characterData:true,subtree:true});
+showCursorKey();
+})();
+</script>
+<script src="ec_sfz_mapper_ui.js"></script></body></html>

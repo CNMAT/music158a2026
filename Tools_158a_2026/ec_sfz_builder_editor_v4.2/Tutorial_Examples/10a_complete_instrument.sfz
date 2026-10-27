@@ -1,0 +1,35 @@
+<global>                 // Global defaults for the following groups and regions.
+amp_veltrack=100         // Full velocity response: harder notes are louder.
+volume=-9                // Set sample gain offset to -9 dB.
+ampeg_release=0.25       // Fade after note release: 0.25 seconds.
+
+<group>                  // Shared defaults for this group of regions.
+lokey=48                 // Lowest triggering MIDI note: 48 (inclusive).
+hikey=59                 // Highest triggering MIDI note: 59 (inclusive).
+pitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.
+loop_mode=one_shot       // Play once; ignore note-off.
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+
+<group>                  // Shared defaults for this group of regions.
+lokey=60                 // Lowest triggering MIDI note: 60 (inclusive).
+hikey=84                 // Highest triggering MIDI note: 84 (inclusive).
+pitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.
+loop_mode=no_loop        // Play without looping; note release starts a fade.
+<region>                 // Begin a playable region; inherit shared settings.
+lovel=1                  // Lowest triggering note-on velocity: 1 (inclusive).
+hivel=79                 // Highest triggering note-on velocity: 79 (inclusive).
+sample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.
+<region>                 // Begin a playable region; inherit shared settings.
+lovel=80                 // Lowest triggering note-on velocity: 80 (inclusive).
+hivel=127                // Highest triggering note-on velocity: 127 (inclusive).
+sample=samples/bright_C4.wav // Load bright C4 WAV; path relative to this SFZ.
+
+<group>                  // Shared defaults for this group of regions.
+key=60                   // Play only MIDI 60; also set the root to 60.
+trigger=release          // Start on note release; sustain pedal can defer it.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+loop_mode=one_shot       // Play once; ignore note-off.
+volume=-18               // Set sample gain offset to -18 dB.
+<region>                 // Begin a playable region; inherit shared settings.
+sample=samples/release_click.wav // Load release-click WAV; path relative to this SFZ.

@@ -1,0 +1,132 @@
+V4 PREVIEW REFERENCES
+Cycling '74 sfizz~ reference: SFZ file sample paths are relative to the SFZ
+location; read accepts a filename; readagain follows the previously loaded file.
+https://docs.cycling74.com/reference/sfizz~/
+
+Cycling '74 Max JavaScript File: foldername is the absolute parent folder;
+File.close closes the file after writing.
+https://docs.cycling74.com/apiref/js/file/
+
+Engine rendering used the official sfizz 1.2.3 source release (not redistributed
+in this package):
+https://github.com/sfztools/sfizz/releases/tag/1.2.3
+
+----- PREVIOUS SOURCE NOTES -----
+
+Implementation and opcode references (checked October 21, 2026)
+
+Cycling 74 Max reference:
+https://docs.cycling74.com/reference/sfizz~/
+https://docs.cycling74.com/reference/textedit/
+https://docs.cycling74.com/reference/opendialog/
+https://docs.cycling74.com/legacy/max8/vignettes/jsfolderobject
+https://docs.cycling74.com/legacy/max8/vignettes/jsfileobject
+
+SFZ specification and opcode reference:
+https://sfzformat.com/legacy/
+https://sfzformat.com/opcodes/
+https://sfzformat.com/opcodes/key/
+https://sfzformat.com/opcodes/loopmode/
+https://sfzformat.com/opcodes/trigger/
+https://sfzformat.com/opcodes/amp_veltrack/
+https://sfzformat.com/opcodes/off_mode/
+https://sfzformat.com/opcodes/loop_end/
+https://sfzformat.com/opcodes/default_path/
+https://sfzformat.com/opcodes/offset/
+https://sfzformat.com/opcodes/end/
+https://sfzformat.com/opcodes/pitch_keytrack/
+https://sfzformat.com/opcodes/fil_type/
+https://sfzformat.com/opcodes/loccN/
+https://sfztools.github.io/sfizz/faq/
+
+Included lesson sources and sounds:
+SFZ_sfizz_Tutorial_02.zip, annotated edition supplied in this conversation.
+The 23 SFZ templates and 10 WAV samples are copied unchanged.
+
+V2 table/compiler additions
+https://docs.cycling74.com/reference/jit.cellblock/
+https://docs.cycling74.com/learn/articles/datachapter04/
+https://docs.cycling74.com/reference/savedialog/
+https://sfzformat.com/headers/global/
+https://sfzformat.com/headers/region/
+
+Design references supplied by the user:
+Bjoerns Sample Mapper 0.7.03 macOS/Windows distributions (static inspection).
+soundfile_descriptor_name_builder.js and companion parser (table/formatter pattern).
+The SFZ model/compiler/controller are newly written for this package.
+No Bjoern application binaries or code are redistributed.
+
+v2.1 UI fixes — primary Cycling '74 references
+https://docs.cycling74.com/reference/jweb/
+https://docs.cycling74.com/legacy/max8/vignettes/jwebcommunication
+https://docs.cycling74.com/reference/textedit/
+https://docs.cycling74.com/reference/jit.cellblock/
+https://docs.cycling74.com/learn/articles/datachapter04/
+https://docs.cycling74.com/reference/kslider/
+
+Table sizing API: https://docs.cycling74.com/legacy/max8/vignettes/jsmaxobj
+
+Graphic mapper v3 primary references (October 22, 2026):
+https://docs.cycling74.com/reference/jweb/
+https://docs.cycling74.com/legacy/max8/vignettes/jwebcommunication
+https://docs.cycling74.com/reference/pcontrol/
+https://docs.cycling74.com/reference/active/
+https://sfzformat.com/opcodes/lokey/
+https://sfzformat.com/opcodes/lovel/
+https://sfzformat.com/opcodes/pitch_keycenter/
+
+v3.2 save-dialog update (October 23, 2026):
+https://docs.cycling74.com/reference/savedialog/
+  name sets the default filename; setpath sets the initial folder; bang opens;
+  the right outlet reports cancellation.
+https://docs.cycling74.com/reference/sfizz~/
+  read loads the saved SFZ for keyboard audition.
+
+
+v3.3 sample clearing (October 23, 2026):
+https://docs.cycling74.com/reference/sfizz~/
+  The documented read message loads a new instrument. The builder requests
+  its bundled sample-free ec_sfz_empty.sfz when clearing. Native engine memory
+  release is not measurable in the build environment and remains a Max test.
+
+
+v3.4 audition and MIDI selection (October 23, 2026):
+https://docs.cycling74.com/userguide/search_path/
+  Tempfolder: addresses Max's temporary folder, emptied when Max quits.
+https://docs.cycling74.com/reference/conformpath/
+  slash/boot conversion; non-boot-volume paths can be returned unchanged.
+https://sfzformat.com/opcodes/default_path/
+  sfizz permits absolute default_path values for the temporary audition copy.
+https://docs.cycling74.com/reference/midiinfo/
+  -1 in the right inlet lists inputs without selecting; autopollinput updates.
+https://docs.cycling74.com/reference/notein/
+  port chooses a device; none disables input; matchport prevents fallback.
+https://docs.cycling74.com/reference/kslider/
+  Default offset 36/range 48 excluded new maps beginning at MIDI 0. This build
+  explicitly uses offset 0/range 128 and preserves touchscreen note-offs.
+
+V3.6 MIDI route: Cycling 74 reference checked October 23, 2026
+https://docs.cycling74.com/reference/gate/
+https://docs.cycling74.com/reference/kslider/
+https://docs.cycling74.com/reference/notein/
+https://docs.cycling74.com/reference/midiinfo/
+
+V3.7 native MIDI/monitor references checked October 23, 2026
+https://docs.cycling74.com/reference/sfizz~/
+https://docs.cycling74.com/reference/meter~/
+https://docs.cycling74.com/reference/umenu/
+https://docs.cycling74.com/reference/gate/
+
+V3.9 playback repair (October 23, 2026)
+https://github.com/sfztools/sfizz/releases/tag/1.2.3
+https://github.com/sfztools/sfizz/blob/1.2.3/src/sfizz/Synth.cpp
+  loadSfzFile/loadSfzString reject a model with no layers.
+https://github.com/sfztools/sfizz/blob/1.2.3/src/sfizz/Region.cpp
+  sample prepends default_path; resonance creates a filter.
+https://github.com/sfztools/sfizz/blob/1.2.3/src/sfizz/Defaults.cpp
+  Filter cutoff defaults to 0 Hz. Confirmed by before/after rendered audio.
+https://docs.cycling74.com/reference/line~/
+  Multi-segment signal ramp used for the bounded Test output tone.
+https://docs.cycling74.com/reference/meter~/
+https://docs.cycling74.com/reference/sfizz~/
+https://sfzformat.com/opcodes/sample/

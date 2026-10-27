@@ -1,0 +1,18 @@
+// EC SFZ Builder — table/compiler test instrument
+// MIDI 60: velocity 1-127 
+
+<global>
+volume=0.0 // Shared gain in dB
+ampeg_attack=0.01 // Attack in seconds
+
+<group> // Group ID 1
+ // Imported samples
+
+<region> // Region ID 1; Group ID 1
+sample=human-gliss.wav
+key=60 // Play only MIDI 60; root pitch is also 60
+lovel=1
+hivel=127
+amp_veltrack=100 // Higher note-on velocity plays louder
+
+loop_mode=one_shot

@@ -1,0 +1,18 @@
+<group>                  // Shared defaults for this group of regions.
+key=60                   // Play only MIDI 60; also set the root to 60.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+
+<region>                 // Begin a playable region; inherit shared settings.
+trigger=attack           // Start this region on note-on.
+sample=samples/sustain_tail_C4.wav // Load C4 sustain-and-tail WAV; path relative to this SFZ.
+loop_mode=loop_continuous // Repeat the loop through the release fade.
+loop_start=23484         // First loop frame (0-based).
+loop_end=46967           // Last loop frame (inclusive).
+ampeg_release=0.5        // Fade after note release: 0.5 seconds.
+volume=-12               // Set sample gain offset to -12 dB.
+
+<region>                 // Begin a playable region; inherit shared settings.
+trigger=release_key      // Start on key-up, even with the sustain pedal down.
+sample=samples/release_click.wav // Load release-click WAV; path relative to this SFZ.
+loop_mode=one_shot       // Play once; ignore note-off.
+volume=-6                // Set sample gain offset to -6 dB.

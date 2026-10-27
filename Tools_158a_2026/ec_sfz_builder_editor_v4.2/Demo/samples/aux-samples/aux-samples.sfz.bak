@@ -1,0 +1,8 @@
+// New SFZ instrument
+// Blank table values inherit settings or use sampler defaults.
+
+<global>
+volume=-12
+ampeg_release=0.2
+
+<group>

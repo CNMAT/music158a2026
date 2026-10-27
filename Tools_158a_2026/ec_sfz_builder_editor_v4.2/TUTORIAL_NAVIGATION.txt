@@ -1,0 +1,59 @@
+SINGLE-SAMPLE TUTORIAL NAVIGATION
+
+Install
+Replace ec_sfz_builder.js and _ec_sfz_builder_editor.maxpat in your existing
+builder folder with these two updated files. Keep your other JavaScript,
+HTML, demo and audio files in place. Reopen the main patch.
+
+Files
+Keep these files together inside Demo/single-sample-demo/:
+  human-gliss.wav
+  single-sample-demo.sfz       (lesson 01, your existing instrument)
+  single-sample-demo02.sfz     (lesson 02)
+  single-sample-demo03.sfz     (lesson 03)
+  single-sample-demo04.sfz     (lesson 04)
+  ...
+
+Each SFZ is a complete instrument you author for that feature. It can refer
+to the same sample with sample=human-gliss.wav. You need only one WAV copy.
+No SFZ lesson content or audio is included or replaced by this update.
+
+Use
+Click Single-sample tutorial... in the main patch. The menu discovers the
+SFZ files in the folder and sorts by lesson number. Select a lesson, or use
+Previous / Next. Missing numbers are skipped; the ends do not wrap.
+Reload lesson rereads its file. Refresh list finds files you add or rename.
+Loading a lesson changes the editor, filename, playback request and sample
+menu together. The sample menu contains only human-gliss.wav.
+Apply or revert text drafts before changing lessons. Save keeps edits on
+disk; Undo can recover the previous applied document after a lesson change.
+
+Messages to js ec_sfz_builder.js, left inlet
+  go tutorial 1          original single-sample-demo.sfz
+  go tutorial 2          single-sample-demo02.sfz
+  go tutorial 3          single-sample-demo03.sfz
+  go tutorial_next       next file present
+  go tutorial_prev       previous file present
+  go tutorial_reload     reload the current lesson from disk
+  go tutorial_scan       refresh the lesson menu without loading a file
+  go demo2               compatibility: load lesson 01
+  go demo2 4             compatibility: load lesson 04
+
+Use one file per lesson number, 1 through 9999. Numbered 01 is also accepted
+instead of the unnumbered first file, but do not keep both as lesson 01.
+The alternate spelling single-sample-sample-demo03.sfz is accepted; the
+normal single-sample-demo03.sfz prefix is recommended for consistency.
+Duplicate numbers produce an error instead of silently choosing a file.
+
+Possible teaching sequence
+01: original sample and note mapping
+02: transpose and key tracking
+03: amplitude envelope
+04: filter cutoff and resonance
+05: pitch LFO
+06: effect sends and reverb
+These are suggestions for your authored lessons, not included SFZ files.
+
+Validation
+JavaScript syntax, simulated Max command flow and patch connections were
+checked. Max audio playback was not available for runtime testing.

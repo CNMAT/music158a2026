@@ -1,0 +1,29 @@
+// EC SFZ Builder — table/compiler test instrument
+// MIDI 60-71: velocity 1-63 soft, velocity 64-127 bright.
+// MIDI 72-84: bright C5. Root pitch and playable range are separate.
+// Table values are local overrides. Empty cells inherit from group/global.
+
+<global>
+volume=0.0 // Shared gain in dB
+ampeg_attack=0.01 // Attack in seconds
+ampeg_release=0.3 // Release in seconds
+
+<group> // Low-velocity layer
+lovel=1
+hivel=63
+<region> sample=samples/soft_C4.wav pitch_keycenter=60 lokey=60 hikey=71
+
+resonance=3 // Filter resonance amount in dB; raise cautiously.
+cutoff=20000 // Keep the filter open; lower this value to darken the sound.
+<group> // High-velocity layer
+lovel=64
+hivel=127
+<region> sample=samples/bright_C4.wav pitch_keycenter=60 lokey=60 hikey=71
+
+<group> // Upper range, all velocities
+lovel=1
+hivel=127
+<region> sample=samples/bright_C5.wav pitch_keycenter=72 lokey=72 hikey=84
+resonance=0 // Filter resonance amount in dB; raise cautiously.
+cutoff=20000 // A resonance opcode creates a filter; give it an audible cutoff.
+

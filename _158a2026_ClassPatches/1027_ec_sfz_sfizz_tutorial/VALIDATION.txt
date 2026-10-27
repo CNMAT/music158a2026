@@ -1,0 +1,13 @@
+VALIDATION - annotated source edition
+
+PASS: 23 SFZ files; 237 opcode assignments each on its own line with a concise // explanation.
+PASS: all headers carry scope comments; all original opcode tokens, values and order are unchanged.
+PASS: all 10 WAV files are byte-identical to the supplied SFZ_sfizz_Tutorial_02.zip.
+PASS: source copies in lesson_data.json and ec_sfz_tutorial.js match the annotated files.
+PASS: source snapshot updated in the main patch; existing window geometry and patch wiring preserved.
+PASS: lesson content, scheduled events and JavaScript performance logic unchanged.
+PASS: 23 demos exercised with a mocked Max JavaScript API, including source readback,
+      balanced note events, pedal release, manual hold/release, cancellation and file paths.
+PASS: ZIP integrity check; Max patchers and JSON parse correctly.
+
+Not tested: native Max/sfizz playback or native source-panel rendering.

@@ -1,0 +1,15 @@
+<group>                  // Shared defaults for this group of regions.
+key=60                   // Play only MIDI 60; also set the root to 60.
+loop_mode=one_shot       // Play once; ignore note-off.
+seq_length=3             // Repeat a 3-step round-robin sequence.
+amp_veltrack=0           // Disable velocity-based amplitude scaling.
+volume=-6                // Set sample gain offset to -6 dB.
+<region>                 // Begin a playable region; inherit shared settings.
+seq_position=1           // Play this region on round-robin step 1.
+sample=samples/wood_1.wav // Load wood hit 1 WAV; path relative to this SFZ.
+<region>                 // Begin a playable region; inherit shared settings.
+seq_position=2           // Play this region on round-robin step 2.
+sample=samples/wood_2.wav // Load wood hit 2 WAV; path relative to this SFZ.
+<region>                 // Begin a playable region; inherit shared settings.
+seq_position=3           // Play this region on round-robin step 3.
+sample=samples/wood_3.wav // Load wood hit 3 WAV; path relative to this SFZ.

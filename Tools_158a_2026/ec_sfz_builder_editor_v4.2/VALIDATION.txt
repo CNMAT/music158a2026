@@ -1,0 +1,390 @@
+V4.1 VALIDATION — October 23, 2026
+
+Based on the supplied ec_sfz_builder_editor_v4(1).zip, not the earlier delivery.
+- Uploaded Max patch preserved in full except the v4.1 title label: all object
+  positions/colors, nested patchers, live.gain~ settings and signal wiring.
+- Both current demo global volumes and blank/New default checked as 0.0.
+- Explicit View group overrides the selected region and home opcode scope.
+- All groups uses the first group in document order, not the lowest block ID.
+- Blank documents create a first group and reuse it on subsequent additions.
+- Repeated sample additions preserve View and keep the new region visible.
+- Group inheritance/default_path, Unicode names, first-free-key allocation,
+  No group, Undo, invalid/stale groups and protected drafts checked.
+- Chromium mapper tests exercise actual menu selections and Max bridge messages.
+- Compiler/scope tests, 23 tutorial examples, saving/backup behavior, clearing
+  and sample-menu/MIDI regressions pass with the uploaded patch as the baseline.
+- Original sample bytes and uploaded My_Demo.sfz.bak preserved.
+Native Max/CEF, physical MIDI and DAC/audio output were not run for v4.1.
+Prior-version test records below describe their respective versions.
+
+----- EARLIER VALIDATION -----
+
+V4 VALIDATION — October 23, 2026
+
+AUTOMATIC PREVIEW
+- No SFZ load on startup. Editable model stays blank <global>; New/Clear stop
+  the old instrument with a valid silent internal SFZ.
+- File.foldername resolves the physical preview/sample parent folders.
+  No conformpath callback, Tempfolder: load argument, absolute sample opcode
+  or readagain is used by the automatic preview.
+- Explicit read is emitted only after the UTF-8 file is closed and verified.
+- Every effective file sample is made relative to the preview's actual folder.
+  Built-in samples remain literal. Inherited sample/default_path combinations
+  are resolved without changing the source model or saved files.
+- Simulated Mac boot/external volumes, Windows same/other drives, POSIX paths,
+  spaces/Unicode/commas, read-only sample folders on the same volume, unavailable
+  temp folder, fallback sidecars, and missing sample failure all pass.
+- Missing sample / write failure stops the stale instrument; retry succeeds.
+- Full Max patch graph remains connected; existing layout and colors preserved.
+
+REGRESSION
+Controller/patch tests: tables/compiler, all 23 tutorial examples / 24 tutorial
+opcodes / 47 reference entries, scope inheritance, text drafts, region IDs,
+New/Clear/Undo, sample import/menu, saving/backups and keyboard/MIDI routing pass.
+Chromium mapper tests pass: import then piano events without saving, drag/resize,
+root/value edits, compact lists, scrolling/zoom, clear/undo, draft protection,
+hover help, blocked import drops and front-page-only saving. Browser tests use a
+simulated Max bridge. Native MIDI patchline tests use simulated Max objects.
+
+ACTUAL AUDIO ENGINE
+sfizz 1.2.3, Linux C API, 44.1 kHz, 256-frame blocks, output -18 dB,
+freewheeling; GCC C build uses -fno-strict-aliasing. Rendered 90 blocks/case.
+Preview files were tested from the same folder used by the controller so their
+relative sample paths were actually exercised. No Max wrapper was substituted
+by this test: it is a separate reference-engine verification.
+
+PASS silent reset: 1 regions, MIDI 60, velocity 100, peak silence.
+PASS fixed-demo-soft: 3 regions, MIDI 60, velocity 63, peak -53.3 dBFS.
+PASS fixed-demo-bright: 3 regions, MIDI 60, velocity 100, peak -45.3 dBFS.
+PASS fixed-demo-upper: 3 regions, MIDI 72, velocity 100, peak -45.3 dBFS.
+PASS my-demo-soft: 4 regions, MIDI 60, velocity 63, peak -53.3 dBFS.
+PASS my-demo-upper: 4 regions, MIDI 72, velocity 100, peak -45.3 dBFS.
+PASS my-demo-bassdrum: 4 regions, MIDI 48, velocity 100, peak -38.4 dBFS.
+PASS demo-table-edit-preview: 3 regions, MIDI 60, velocity 63, peak -52.4 dBFS.
+PASS folder-added-key-0: 6 regions, MIDI 0, velocity 100, peak -38.4 dBFS.
+PASS folder-added-key-1: 6 regions, MIDI 1, velocity 100, peak -43.4 dBFS.
+PASS folder-added-key-2: 6 regions, MIDI 2, velocity 100, peak -39.8 dBFS.
+PASS folder-added-key-3: 6 regions, MIDI 3, velocity 100, peak -45.2 dBFS.
+PASS folder-added-key-4: 6 regions, MIDI 4, velocity 100, peak -45.2 dBFS.
+PASS folder-added-key-5: 6 regions, MIDI 5, velocity 100, peak -45.2 dBFS.
+PASS unicode-preview: 1 regions, MIDI 0, velocity 100, peak -45.2 dBFS.
+PASS manual-save-and-load: 1 regions, MIDI 0, velocity 100, peak -45.2 dBFS.
+PASS edit-after-save-preview: 1 regions, MIDI 0, velocity 100, peak -44.1 dBFS.
+PASS inherited-path-preview: 2 regions, MIDI 60, velocity 100, peak -33.2 dBFS.
+PASS absolute-source-preview: 2 regions, MIDI 61, velocity 100, peak -33.2 dBFS.
+PASS generator-preview: 1 regions, MIDI 60, velocity 100, peak -38.3 dBFS.
+
+All 19 audible cases had nonzero output on both channels; reset was exactly
+silent. The original 16 audio assets and corrected Table_Compiler_Demo.sfz are
+byte-for-byte unchanged. My_Demo.sfz has only the two missing cutoff lines added;
+its historical .bak remains unchanged.
+
+NOT AVAILABLE HERE: native Max's sfizz~ wrapper, Max UI rendering, physical
+MIDI devices and DAC/audio driver. User confirmation of automatic playback on
+Max is still required. Earlier v3.9 demo playback was confirmed by the user.
+
+----- EARLIER VALIDATION RECORDS -----
+
+V3.9 validation
+
+Actual sfizz 1.2.3 engine test (Linux C API, 44.1 kHz, 256-frame blocks,
+master volume -18 dB, freewheeling; GCC C build uses -fno-strict-aliasing):
+- old empty reset rejected: load=False, regions=0, peak=silence.
+- new silent reset accepted: load=True, regions=1, peak=silence.
+- old soft demo is near silent: load=True, regions=3, peak=-127.5 dBFS.
+- original demo: load=True, regions=3, peak=-53.3 dBFS.
+- demo edit preview: load=True, regions=3, peak=-53.3 dBFS.
+- new folder add preview: load=True, regions=6, peak=-38.4 dBFS.
+- old absolute path silent: load=True, regions=0, peak=silence.
+- fixed absolute path audible: load=True, regions=1, peak=-33.2 dBFS.
+
+These tests reproduce the old reset-file failure, near-silent demo filter,
+and doubled absolute sample path. Their corrected cases pass. Both channels
+render nonzero signal for the demo, edited preview, AIFF import at MIDI 0, and
+absolute-path preview. The audio engine test is separate from Max: it does NOT
+verify Max's sfizz~ wrapper, physical MIDI hardware, DAC or Presentation drawing.
+
+Controller/patch tests passed: original-file load exactly once, no startup read,
+automatic playable Note selection, temporary preview/save isolation, silent
+reset separate from the empty editable model, inherited and absolute paths,
+toggle/port/native-note routing, integer messages, timed note-off, all patchline
+endpoints, shared stereo sinks for Test output, and no new UI overlaps.
+Regression tests cover table compilation, opcode comments, mapping/undo,
+New/Clear, Unicode paths, Save As and file preservation. Chromium mapper tests
+also passed; this is not a native Max runtime test.
+
+V3.8 validation
+- Verified only the existing sampler's Presentation attributes/annotation changed.
+- The sfizz~ object appears below the opcode index without overlapping another
+  Presentation object, within the existing patcher window.
+- All patch cords, scripts, instruments and sample assets match v3.7 byte for
+  byte (patch cords compared as JSON).
+- Native Max rendering and audio playback are not available in this environment.
+
+EC SFZ BUILDER v3.7 — VALIDATION
+
+V3.7 NATIVE MIDI GATE / KEYBOARD PATH AND AUDIO METERS — TESTS PASS
+- Reproduced the toggle reset with no device selected in the previous source;
+  new toggle remains on/off as requested. It controls the native gate directly.
+- Menu names pass through tosymbol and prepend port into notein. The placeholder
+  selects port none. Status follows the same name instead of a second index map.
+- Physical note route: notein -> pack -> gate -> unpack -> main kslider ->
+  pack -> prepend midievent 144 -> sfizz~. The JS keyboard callback reports
+  status/velocity and emits no duplicate audio event.
+- Tests disable the controller's JS message handling: native device selection,
+  toggle, pitch/velocity, chords, note-offs, keyboard highlights, Note and panic
+  still work through the actual shipped patchline graph in the simulation.
+- Off closes the gate before native note-off/clear and the JS notification.
+- MIDI received is wired before the enable gate. It flashes for incoming notes
+  while the gate is closed, without sending them to the sampler.
+- Controller-generated midievent bytes pass through native integer unpack/pack
+  before sfizz~. File/readagain/control messages bypass this normalization.
+- Both meter~ inputs connect directly to sfizz~ left/right outputs, which retain
+  their ezdac~ connections. 50 ms updates and 20 LEDs; no synthetic meter input.
+- Presentation overlap check passes for toggle, MIDI indicator and both meters.
+- Normal device refresh retains selection/enable state; disconnect closes input.
+- Browser mapper, first-free-key menu, sample clear/import, saving, audition,
+  model/table and all 23 tutorial regressions pass against this build.
+NOT RUN: Native Max/CEF, actual meter rendering, hardware MIDI or sfizz~ audio.
+No audio-output success is claimed. Follow the quick check in READ_ME_FIRST.txt.
+
+EARLIER VERSION RECORDS FOLLOW (v3.7 supersedes prior MIDI route descriptions)
+
+V3.6 MIDI KEYBOARD ROUTING AND SAMPLE MENU — TESTS PASS
+- External notein pitch/velocity are packed, gated and routed into the front
+  kslider with velocity first. Its existing output updates Note and sfizz~.
+- Tests traverse the shipped patchline graph using simulated native objects:
+  toggle off/on, selected-port filtering, chords, note-offs, Note/velocity,
+  one playback event per incoming note, panic and device disconnection.
+- Switching MIDI input off leaves both onscreen keyboards usable.
+- A real Chromium test connects the shipped mapper to the Max-controller mock:
+  new menu contents match the home-page catalog, choices add at 0/1/2,
+  deleted gaps are reused, repeated sample choices work, and a new region is
+  brought into view at high zoom. Header wording and absence of old prompts pass.
+- Allocation checks include inherited/group ranges, hidden groups, Unicode and
+  default_path, MIDI 127, all keys full, stale requests, scanning and text drafts.
+- Mapping edits, automatic audition, clearing, saving, all 23 tutorial files,
+  MIDI device enumeration and previous regression checks continue to pass.
+- Main patch layout/colors/reference and all original sound assets preserved.
+
+V3.6 NATIVE MAX ACCEPTANCE TEST (not run here)
+1. Close older builders and open this complete v3.6 folder's maxpat.
+2. Load a sound folder on the home page. Open the mapper; select two sounds
+   from Add sample. Confirm MIDI 0 and 1, then delete one and refill the gap.
+3. Enable Audio. Choose an external MIDI device, then turn MIDI input on.
+   Play mapped notes (transpose your controller if needed for 0/1). The home
+   keyboard must highlight them, Note must follow and sfizz~ should sound.
+4. Hold notes and switch MIDI input off. Voices/highlights should clear; further
+   controller notes should do nothing. Mouse-playing the keyboard should work.
+5. Re-enable MIDI, test chords/releases, change device, and disconnect it.
+Native Max/CEF, hardware MIDI and sfizz~ audio cannot be exercised here.
+
+EARLIER VERSION RECORDS FOLLOW
+v3.6 supersedes the earlier mapper-import and external-MIDI route descriptions.
+
+V3.5 MAPPER SIMPLIFICATION — AUTOMATED TESTS PASS
+- Mapper Save SFZ, New samples go to, and its New group controls removed.
+- Catalog rows are read-only: dragging a name onto the grid creates no region.
+- External file/folder/URI drops are cancelled without page navigation.
+- Removed mapper add/save commands are rejected by the Max controller.
+- No visible import-drag instructions remain in the mapper or its hover help.
+- Front-page Save SFZ inst as opens the named dialog; UTF-8 saving/rebasing pass.
+- Region moving/resizing, root dragging, numeric edits and automatic audition
+  pass in the real Chromium interface connected to the simulated Max bridge.
+- Duplicate/Delete/Undo, protected drafts, compact lists and piano MIDI pass.
+- Model, sample clearing/import, saving and audition/MIDI regressions pass.
+- Main patch differs only in four hover-help strings removing mapper drops.
+  Its layout, colors, wiring, teaching patch and all audio assets are unchanged.
+Native Max/CEF and sfizz~ audio were not run here.
+
+V3.5 SHORT MAX TEST
+1. Close the previous builder, extract this entire folder and open the maxpat.
+2. On the front page: Load sound folder, Add all samples, enable Audio.
+3. Open the mapper: header contains Undo/Panic, with no Save or import target.
+4. Move/resize a region; verify SFZ Program and audition update. Try Duplicate,
+   Delete region and Undo. Dragging a Folder samples name must add nothing.
+5. Save with Save SFZ inst as… on the front page and reopen the saved file.
+
+EARLIER VALIDATION HISTORY
+The records below describe earlier versions. Mapper import/drop and mapper
+Save tests from those versions have been replaced by the v3.5 checks above.
+
+PASS — automated model/controller/file tests in Node with Max API mocks
+- All 23 tutorial SFZ files parse and round-trip exactly before formatting.
+- All 24 tutorial opcodes are covered by the 43-opcode / 4-header reference.
+- Formatting is idempotent; every tutorial's parsed values survive unchanged.
+- Stable region IDs, inherited values, key-alias expansion, unknown opcodes.
+- Compile tables, opcode removal, conflicting-draft rollback, invalid values.
+- Handwritten edits are protected until Apply text / Revert text; model Undo.
+- Recursive folder scans, spaced/Unicode filenames, WAV root metadata.
+- Single-key and full-range pitched imports, no destructive audio changes.
+- UTF-8 save/readback, backup preservation, same-drive Save As path rebasing.
+- Includes/macros remain source-preserving text mode.
+- 100-region table, >50-opcode table, edit/compile of row 100.
+- Explicit table horizontal/vertical overflow attributes and consistent viewports.
+- Main keyboard pitch/velocity packing and complete route to sfizz~ inlet.
+- MIDI note-on / zero-velocity note-off, timed notes, panic cancellation.
+- Actual HTML pane script used by controller tests, with a simulated DOM/Max bridge.
+- Chunked text roundtrip including empty buffers, newlines, Unicode, punctuation
+  and a long multiline program; stale-reply rejection and timeout recovery.
+- Missing Demo folder opens a valid blank document; no absolute user folder needed.
+- All patchline IDs and declared inlet/outlet indexes validated recursively.
+- Every original presentation rectangle and every explicit UI color preserved.
+- Every action button has both hint and annotation text.
+
+PASS — real Chromium tests of the shipped HTML pane, isolated from Max
+- Typed program edits survive focus/blur and keep all line breaks.
+- SFZ editor wraps long lines and scrolls vertically with its visible scrollbar.
+- Sample list keeps one physical line per sample; both scroll axes work.
+- Annotated index is read-only, wraps comments, and scrolls by mouse wheel.
+- Full text selection, literal Unicode transfer and editor unlock after snapshot.
+- No JavaScript page errors. Rendered program/reference panes visually inspected.
+
+NOT RUN — native Max 8/9 on macOS/Windows and sfizz~ audio
+The tests above cannot prove the behavior of Max's embedded Chromium process,
+jit.cellblock rendering/events, tooltips, folder dialogs, or the sfizz~ external.
+There is no Max installation in the build environment. No native audio or UI
+success is claimed. The local text pane has no network resources/dependencies.
+
+SHORT ACCEPTANCE TEST IN MAX
+1. Extract the entire folder, open _ec_sfz_builder_editor.maxpat and lock the
+   patch / use Presentation Mode. Wait for the local text panes to load.
+2. Compile tables. Section 4 should show separate headers/opcodes and remain
+   readable after clicking elsewhere. Click in it, type a comment, Apply text.
+3. Add enough regions/opcodes to overflow each table. Drag the horizontal and
+   vertical scrollbars. Edit a cell near the bottom, press Return, Compile.
+4. Load a folder containing many samples. Scroll/copy sample= lines. Filter the
+   opcode index and scroll its comments. Verify the program pane scrolls too.
+5. Save + load the demo, enable Audio. Hold/release MIDI 60 and MIDI 72 on the
+   main keyboard. Try different click heights for velocity layers. Repeat in
+   the Graphic Keyboard Sample Mapper; Panic should stop voices and clear key highlights.
+6. Hover over Save, Save As, Save + load, Load saved, Check, Graphic Mapper, Compile
+   tables, Revert tables and Edit selected to read their popup explanations.
+7. New blank SFZ file, Load a different sound folder, Add selected/all, Save + load.
+   Reopen the saved SFZ. Its sample paths should remain correct. Move the whole
+   instrument folder with its samples to another machine to check portability.
+
+The README begins with the user's reuploaded READ_ME_FIRST(1).txt. Necessary
+filename/behavior corrections and the update section are documented there.
+
+OPCODE WIDTH / ID COMMENT UPDATE — AUTOMATED TESTS PASS
+- 900-pixel table: widths 42 / 150 / 170 / 518, reserving 20 pixels for border
+  and scrollbar. A simulated 1100-pixel resize adjusts the last column to 718.
+- Add region pan: corresponding Region Table cell updates immediately.
+- Edit pan in scope table and Compile: Region Table cell updates correctly.
+- Add/edit ampeg_attack: retained in scope/model/SFZ; fixed overview unchanged.
+- Group pan inheritance does not create a local value in the region row.
+- Region/group ID comments match current table IDs and parent-group relations.
+- Duplication, deletion/reparse, no-parent regions, and repeated compilation.
+- User comments and opcode values survive; includes/macros remain unchanged.
+- All earlier model/controller/file regressions still pass (23 tutorials).
+Native Max resizing/scrollbar rendering and sfizz~ audio remain local tests.
+
+
+GRAPHIC MAPPER v3 — CURRENT AUTOMATED TESTS PASS
+- Full earlier source/controller/file regression suite re-run on v3.
+- Actual Max controller connected to the shipped mapper UI in Chromium.
+- Drag region in key and velocity axes; resize right/high boundaries; drag root.
+- Precise numeric edits and Return; inverted ranges reject transactionally.
+- Selection of covered layers; duplicate/delete/Undo across the shared model.
+- Pointer-based catalog drag onto a key, including Unicode and spaced filenames.
+- Group-aware default_path, portable Save As, UTF-8 save/readback and load request.
+- Inherited values drawn without converting untouched values to local opcodes.
+- Local key shorthand expands correctly; metadata root preserved on range edit.
+- Pending table/text drafts protected; stale mapper writes rejected.
+- Keyboard updates Note integer, note-on/off, focus loss, close and timeout.
+- Zoom, horizontal scroll, long catalog scrolling, compact viewport layout.
+- 1200-path chunk transfer, including Unicode and punctuation.
+- Text-mode programs and non-keyboard mappings retained without conversion.
+- Uploaded patch: every original box position, color and nested reference kept.
+- New patchline graph checked recursively; no JavaScript page errors.
+- Mapper render visually inspected in Chromium (not a native Max screenshot).
+Native Max 9 and sfizz~ audio remain untested. See GRAPHIC_MAPPER_README.txt
+for the focused local acceptance test.
+
+
+V3.2 SIMPLIFICATION — TESTS PASS
+- Current uploaded v3.1 package used as the source for this update.
+- Save and Save As: default name with .sfz, default folder, cancellation,
+  renamed paths, extension normalization, verified writes and failure recovery.
+- Mapper Save SFZ: one dialog, save then audition load; cancellation clears the
+  load flag so a later plain Save does not accidentally reload.
+- Native dialog name/setpath messages checked in order before bang.
+- Numeric edits apply on Return and blur; rapid Save waits for the latest edit.
+- Invalid paired bounds remain editable; correction applies both atomically.
+- Additional typing during a delayed Max reply survives that reply.
+- All mapper controls have mouseover help; in-page tooltip display tested.
+- Exact title, removal of Apply mapping/local-assignment message, renamed group
+  destination, retained Duplicate/Delete, RGB 40% darkening checked in Chromium.
+- Full drag/resize/root/drop/Undo/MIDI/preservation regressions pass.
+- Sample jweb aligns to Region Table width, and both jweb rectangles agree.
+- Existing colors, other presentation positions, nested reference kept.
+- Added audio samples, existing SFZ programs and backups preserved byte for byte.
+Native Max Save dialog presentation and sfizz~ audio still require local testing.
+
+
+V3.3 SAMPLE CLEARING AND COMPACT LIST — AUTOMATED TESTS
+- Current attached maxpat used; all existing positions, colors and nested
+  teaching/mapper patches preserved. Added Clear all samples beside Add all.
+- New/Clear empty catalog, both mapper tabs, regions, selection/fields and
+  program sample assignments. Clear keeps other global/group settings.
+- Cancel pending scans and scheduled notes; later scan ticks cannot refill.
+- Audition note-ons are blocked after reset; a bundled sample-free SFZ read
+  replaces playback. Actual sfizz~ unloading/audio requires native testing.
+- Undo restores exact prior catalog/mappings without automatically rescanning.
+- Add all overrides prior mapping/metadata/start settings: keys/root 0..127,
+  one-shot playback, chosen velocity range. More than 128 rejects atomically.
+- Add selected retains filename/WAV-root, unmapped and pitched choices.
+- Original audio bytes unchanged; no disk writes occur during New/Clear/import.
+- Browser checks: compact row density, full-path hover, both empty tabs,
+  numeric draft/timer reset, search/zoom reset, undo and subsequent selection.
+- All tutorial/model/controller, save, mapper drag/drop and MIDI regression
+  checks run against this build; no native Max/audio testing is claimed.
+
+V3.3 FOCUSED MAX TEST
+1. Load sounds and use Add all samples. Confirm key/root 0, 1, 2... in the
+   Region Table and mapper. Enable Audio and Save and load for testing.
+2. While a sample sounds, Clear all samples. Catalog, tables, program sample
+   lines and both mapper tabs should empty; playback must stop and stay silent.
+3. Undo: samples/mappings return. Save and load restores auditioning.
+4. New blank SFZ file also empties both tabs. Then Load sound folder again.
+5. Hover Mapping, Roots, Start, Step, Velocity and to; check compact mapper
+   rows and full-path hover text with long sample names.
+
+
+V3.4 AUDITION AND MIDI INPUT — AUTOMATED TESTS PASS
+- Exact reported workflow reproduced: New -> folder -> Add all, without Save.
+- An audition read is emitted before note-on from either keyboard; front
+  pitch/velocity packing and mapper bridge both reach the sfizz~ inlet.
+- Native kslider offset 0/range 128; test pitch 0 after chromatic import.
+- Both sfizz~ signal outlets connect to the correct ezdac~ stereo inputs.
+- Temporary audition SFZ resolves real sample paths from a different folder;
+  Unicode/spaces, inherited samples and multiple default_path controls tested.
+- Path conversion checks cover boot/external macOS volumes and Windows drives.
+  The native conformpath object is mocked: verify on your actual machines.
+- Named SFZ remains unchanged by audition edits; explicit Save keeps relative
+  paths. Unapplied handwritten text is not auditioned until Apply text.
+- Empty startup despite the included Demo; only the basic global block remains.
+- MIDI device selection and toggle gating; exact port names, no auto-selection,
+  reordering, disconnect, no devices and panic on device changes tested.
+- MIDI menu is populated via midiinfo's RIGHT inlet (input-device enumeration).
+- Actual browser piano immediately after Add all sends MIDI 0 on/off through
+  the controller without requiring Save. Mapper regression suite passes.
+- A preview failure stops stale playback and reports the problem.
+- Existing 44 audio/SFZ/backup assets are unchanged; all prior regression tests
+  pass with expectations updated for blank startup and automatic audition.
+
+V3.4 FIRST NATIVE MAX TEST (not run in this environment)
+1. Close older builders. Extract the complete v3.4 folder and open its maxpat.
+   Confirm no demo, samples or regions appear at startup.
+2. Load a folder with two sounds, Add all samples, enable Audio. Click the
+   far-left main key (MIDI 0) or Note at 0. Try note 1 for the second sample.
+3. Open Graphic Mapper and play MIDI 0 and 1 on its piano. No Save is required.
+4. Resize a mapped region; test the newly added keys immediately.
+5. Choose a device in the front-page MIDI menu and enable MIDI input. Transpose
+   the physical keyboard if necessary to transmit 0/1. Try disabling input,
+   changing devices and unplugging the selected device while a note is held.
+6. Save the SFZ; reopen it to check paths. Clear/New must empty and silence it.
+If silent, inspect Max Console for sfizz~ file/decoding errors and confirm
+Audio Status has an active output device. Native Max audio/CEF/MIDI hardware
+and engine load acknowledgement cannot be verified in the build environment.

@@ -1,0 +1,58 @@
+// New SFZ instrument
+// Blank table values inherit settings or use sampler defaults.
+
+<control>
+
+<global>
+volume=-12
+ampeg_release=0.2
+
+<group> // Group ID 2
+<group> // Group ID 12
+ // New group
+count=2 // Play the sample this many times; implies one_shot.
+
+<group> // Group ID 14
+ // Imported samples
+
+<region> // Region ID 15; Group ID 14
+sample=bassdrum.aif
+lovel=1
+hivel=98
+
+lokey=70
+
+hikey=70
+
+pitch_keycenter=82
+
+<region> // Region ID 16; Group ID 14
+sample=bird.aif
+lovel=1
+hivel=127
+
+hikey=49
+
+lokey=42
+pitch_keycenter=42
+
+<region> // Region ID 17; Group ID 14
+sample=knock.aif
+lovel=1
+hivel=127
+
+hikey=0
+
+pitch_keycenter=0
+
+<region> // Region ID 18; Group ID 14
+sample=knock.aif
+lovel=1
+hivel=127
+
+hikey=7
+
+pitch_keycenter=7
+
+lokey=7
+
