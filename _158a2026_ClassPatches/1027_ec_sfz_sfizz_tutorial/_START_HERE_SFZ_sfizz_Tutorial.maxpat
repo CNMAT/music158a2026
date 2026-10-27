@@ -229,7 +229,7 @@
             {
                 "box": {
                     "id": "obj-8",
-                    "items": [ "A - one sample across three octaves", ",", "B - two sample regions / split keyboard" ],
+                    "items": "A - one sample / one key",
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -265,7 +265,7 @@
                     "patching_rect": [ 20.0, 114.0, 545.0, 27.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 20.0, 114.0, 418.0, 27.0 ],
-                    "text": "02  A root pitch is not a key range",
+                    "text": "01  A text recipe + a sound file",
                     "varname": "lesson_title"
                 }
             },
@@ -288,15 +288,15 @@
                     "fontface": 0,
                     "fontsize": 13.0,
                     "id": "obj-12",
-                    "linecount": 9,
+                    "linecount": 8,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 20.0, 150.0, 543.0, 137.0 ],
+                    "patching_rect": [ 20.0, 150.0, 543.0, 123.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 11,
-                    "presentation_rect": [ 20.0, 150.0, 362.0, 166.0 ],
-                    "text": "lokey and hikey choose which incoming notes may trigger a region. pitch_keycenter identifies the sample's original pitch. A note above the root speeds playback up; one below slows it down.\n\nA: one sample covers 48-84. B: two regions split the keyboard at 65/66. Every matching region can sound: overlapping ranges create layers, not an automatic choice.\n\n<group> supplies shared values to following regions. A region can override an inherited value.",
+                    "presentation_linecount": 12,
+                    "presentation_rect": [ 20.0, 150.0, 366.0, 181.0 ],
+                    "text": "An SFZ file contains rules, not recorded sound. sample= points to a WAV; a <region> says when and how that WAV plays. An opcode is a name=value instruction.\n\nHere, key=60 permits exactly MIDI note 60 and sets its original pitch. Other notes are intentionally silent. Numeric MIDI notes avoid octave-name differences between applications.\n\nMax sends performance events; sfizz~ reads the recipe and produces audio. You do not send SFZ opcodes as ordinary Max messages.",
                     "varname": "concept"
                 }
             },
@@ -310,7 +310,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 337.0, 540.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 20.0, 318.0, 147.0, 20.0 ],
+                    "presentation_rect": [ 20.0, 325.0, 147.0, 20.0 ],
                     "text": "TRY / LISTEN / EXPLAIN"
                 }
             },
@@ -325,9 +325,9 @@
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 365.0, 491.0, 94.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 6,
-                    "presentation_rect": [ 20.0, 339.0, 348.0, 94.0 ],
-                    "text": "1. Compare A and B with demo (48, 60, 65, 66, 72, 84).\n2. In A, compare the length of notes 48 and 72.\n3. In B, listen for the timbre change at 65/66.\n4. Edit hikey=65 to 66, reload, then test 66.\n\nPredict: what happens at 66 if both regions include it?",
+                    "presentation_linecount": 7,
+                    "presentation_rect": [ 20.0, 339.0, 348.0, 108.0 ],
+                    "text": "1. Turn audio on below; click demo.\n2. Play 60, then 62. Only 60 belongs to this region.\n3. Find sample= and key= in the source at right.\n4. Keep the samples folder beside all the SFZ files.\n\nPredict: if key=60 becomes key=62, which key plays the sample at its original pitch?",
                     "varname": "exercise"
                 }
             },
@@ -349,7 +349,7 @@
                     "presentation_linecount": 8,
                     "presentation_rect": [ 387.0, 150.0, 769.0, 315.0 ],
                     "readonly": 1,
-                    "text": "<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nlokey=48                 // Lowest triggering MIDI note: 48 (inclusive).\nhikey=84                 // Highest triggering MIDI note: 84 (inclusive).\npitch_keycenter=60       // MIDI 60 plays at the sample's original pitch.\nloop_mode=one_shot       // Play once; ignore note-off.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-9                // Set sample gain offset to -9 dB.\n",
+                    "text": "// One region; paths are relative to THIS SFZ file.\n<region>                 // Begin a playable region; inherit shared settings.\nsample=samples/soft_C4.wav // Load soft C4 WAV; path relative to this SFZ.\nkey=60                   // Play only MIDI 60; also set the root to 60.\nloop_mode=no_loop        // Play without looping; note release starts a fade.\nampeg_release=0.15       // Fade after note release: 0.15 seconds.\namp_veltrack=0           // Disable velocity-based amplitude scaling.\nvolume=-6                // Set sample gain offset to -6 dB.\n",
                     "varname": "source"
                 }
             },
@@ -364,7 +364,7 @@
                     "patching_rect": [ 585.0, 447.0, 565.0, 20.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 387.0, 477.0, 200.0, 20.0 ],
-                    "text": "02a_range.sfz",
+                    "text": "01_recipe.sfz",
                     "varname": "filename"
                 }
             },
@@ -395,7 +395,7 @@
                     "presentation": 1,
                     "presentation_linecount": 3,
                     "presentation_rect": [ 16.0, 550.0, 195.0, 47.0 ],
-                    "text": "Load requested: 02a_range.sfz. Check the Max Console for errors; then click demo.",
+                    "text": "Load requested: 01_recipe.sfz. Check the Max Console for errors; then click demo.",
                     "varname": "status"
                 }
             },
@@ -783,7 +783,7 @@
                     "patching_rect": [ 776.0, 616.0, 123.0, 20.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 271.0, 550.0, 147.0, 20.0 ],
-                    "text": "midievent 144 59 0",
+                    "text": "midievent 144 60 0",
                     "varname": "last_message"
                 }
             },
