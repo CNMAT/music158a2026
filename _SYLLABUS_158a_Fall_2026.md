@@ -381,7 +381,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <br><br>
 <!-- wk.10 lesson -->
 <strong>(tu)</strong> 10/27 — Advanced Sampling, Event Morphology with Soundfile Descriptors, <code>vst~</code> plug-ins, <code>sfz~</code> samplers PT. 1, Max nodes object for interpolation with trackpad interface control <br><br>
-  Students can present results from Homework 04 in class today.
+  Students can present results from Homework 03 in class today.
 <br><br>
    <!-- homework assignment 5 -->
 <em>Assignment: Homework_5. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
@@ -403,6 +403,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <!-- wk.11 lesson -->
 <strong>(tu)</strong> 11/03 — Advanced Synthesis, Subtractive Synthesis with Inharmonicity and Noise PT. 1
 <br><br>
+    Students can present results from Homework 04 in class today.
   <!-- homework assignment 6 -->
 <em>Assignment: Homework_6. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
