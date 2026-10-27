@@ -386,10 +386,11 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
    <!-- homework assignment 5 -->
 <em>Assignment: Homework_5. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
+
+<!-- wk.10 lesson -->
 <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_4 due today by start of classtime. </em>
 <br><br>
-<!-- wk.10 lesson -->
 <strong>(th)</strong> 10/29 — Advanced Sampling, Event Morphology, <code>vst~</code> plug-ins, <code>sfz~</code> samplers PT. 2
 </td>
 </tr>
@@ -407,12 +408,13 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
   <!-- homework assignment 6 -->
 <em>Assignment: Homework_6. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
-<!-- DUE -->
-<em style="color: #C75C5C;">DUE: Homework_5 due today by start of classtime. </em>
-<br><br>
+
 <!-- wk.11 lesson -->
 <strong>(th)</strong> 11/05 — Advanced synthesis, Subtractive Synthesis with Inharmonicity and Noise PT. 2
 <!-- homework assignment 5 -->
+<!-- DUE -->
+<em style="color: #C75C5C;">DUE: Homework_5 due today by start of classtime. </em>
+<br><br>
 </td>
 </tr>
 <!-- WEEK 12 -->
@@ -429,12 +431,13 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
   <!-- homework assignment 7 -->
 <em>Assignment: Homework_7. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
-<!-- DUE -->
-<em style="color: #C75C5C;">DUE: Homework_6 due today by start of classtime. </em>
-<br><br>
+
 <!-- wk.12 lesson -->
 <strong>(th)</strong> 11/12 — Advanced Spatial Audio with automation, MAX/MSP MC objects PT. 2 <br>
   Students can present results from Homework 06 in class today.
+  <!-- DUE -->
+<em style="color: #C75C5C;">DUE: Homework_6 due today by start of classtime. </em>
+<br><br>
 </td>
 </tr>
 <!-- WEEK 13 -->
@@ -451,13 +454,13 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
   <!-- homework assignment 8 -->
 <em>Assignment: Homework_8. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
-<!-- DUE -->
-<em style="color: #C75C5C;">DUE: Homework_7 due today by start of classtime. </em>
-<br><br>
 <!-- wk.13 lesson -->
 <strong>(th)</strong> 11/19 — Composing with Computers (organization, aesthetics, forms, and production) PT. 2 and Adobe Audition multi-channel mixing<br>  
   Students can present results from Homework 08 in class today.
   <br><br>
+  <!-- DUE -->
+<em style="color: #C75C5C;">DUE: Homework_7 due today by start of classtime. </em>
+<br><br>
   <!-- contextual listening -->
 <strong>Contextual Listening: Phoebe Bridgers — The Outside from Lost Weekend</strong>
 <br><br>
@@ -480,9 +483,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
   SPECIAL GUEST:  Joseph Bohigian,
 <a href="https://www.otherminds.org/festivals/">Other Minds Bay Area Festival of New Music</a>
 <br><br>
-<!-- DUE -->
-<em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
-<br><br>
+
 <!-- wk.14 lesson -->
 <strong>(th)</strong> 11/26 (Thanksgiving Break)
 </td>
@@ -498,6 +499,9 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <br><br>
 <!-- wk.15 lesson -->
 <strong>(tu)</strong> 12/1— TBD
+<br><br>
+  <!-- DUE -->
+<em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
 <br><br>
 <!-- wk.15 lesson -->
 <strong>(th)</strong> 12/3 Final Project Support (demonstrations)
