@@ -405,6 +405,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <strong>(tu)</strong> 11/03 — Advanced Synthesis, Subtractive Synthesis with Inharmonicity and Noise PT. 1
 <br><br>
     Students can present results from Homework 04 in class today.
+  <br><br>
   <!-- homework assignment 6 -->
 <em>Assignment: Homework_6. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
