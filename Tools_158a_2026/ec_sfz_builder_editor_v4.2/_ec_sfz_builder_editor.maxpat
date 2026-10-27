@@ -9,10 +9,38 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 100.0, 1483.0, 926.0 ],
+        "rect": [ 34.0, 87.0, 1483.0, 926.0 ],
         "openinpresentation": 1,
         "description": "SFZ builder with a numbered single-sample tutorial navigator.",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-180",
+                    "linecount": 5,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 304.0, 882.0, 150.0, 74.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 284.9707943925233, 823.0, 281.0, 33.0 ],
+                    "text": "SCALA = library of scales/tuning for sfizz~place \nscale name minus .SCL  in the filed that says none "
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-178",
+                    "linecount": 3,
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "bang", "int" ],
+                    "patching_rect": [ 392.0, 956.0, 100.0, 49.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 560.0, 844.5, 190.0, 22.0 ],
+                    "text": "text SCALA_scale-list_for_SFZ.txt"
+                }
+            },
             {
                 "box": {
                     "id": "obj-174",
@@ -23,7 +51,7 @@
                     "patching_rect": [ 301.0, 819.0, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 292.33411214953276, 807.0, 150.0, 33.0 ],
+                    "presentation_rect": [ 284.9707943925233, 786.0, 150.0, 33.0 ],
                     "text": "Check performs analysis\nreports error in code"
                 }
             },
@@ -34,9 +62,9 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 466.0, 482.0, 150.0, 33.0 ],
+                    "patching_rect": [ 466.0, 482.0, 152.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0, 471.0, 264.0, 20.0 ],
+                    "presentation_rect": [ 284.0, 451.0, 264.0, 20.0 ],
                     "text": "Alter values, then Compile tables to write SFZ."
                 }
             },
@@ -50,7 +78,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 992.0, 1794.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 818.0, 878.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 818.0, 869.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -61,7 +89,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1030.0, 1821.0, 55.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 843.5, 880.9626168224299, 55.0, 22.0 ],
+                    "presentation_rect": [ 843.5, 872.0, 55.0, 22.0 ],
                     "text": "dac~ 1 2"
                 }
             },
@@ -123,7 +151,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 416.0, 240.0, 710.0, 19.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 564.0, 237.0, 413.0, 19.0 ],
+                    "presentation_rect": [ 564.0, 228.0, 413.0, 19.0 ],
                     "text": "Place a ? in an empty cell and select \"Check SFZ inst\" to see opcode value options",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
@@ -136,7 +164,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1142.0, 880.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1142.0, 867.0, 22.0, 20.0 ],
+                    "presentation_rect": [ 1142.0, 861.0, 22.0, 20.0 ],
                     "text": "48"
                 }
             },
@@ -148,7 +176,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 507.0, 505.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 500.0, 500.1588785046729, 90.0, 20.0 ],
+                    "presentation_rect": [ 500.0, 480.0, 90.0, 20.0 ],
                     "text": "choose opcode"
                 }
             },
@@ -163,8 +191,11 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 1030.0, 1680.0, 48.0, 136.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 758.0, 848.0, 48.0, 74.0 ],
+                    "presentation_rect": [ 758.0, 844.0, 48.0, 74.0 ],
                     "saved_attribute_attributes": {
+                        "textcolor": {
+                            "expression": ""
+                        },
                         "valueof": {
                             "parameter_initial": [ -80 ],
                             "parameter_initial_enable": 1,
@@ -177,6 +208,7 @@
                             "parameter_unitstyle": 4
                         }
                     },
+                    "textcolor": [ 0.8705882352941177, 0.050980392156862744, 0.050980392156862744, 1.0 ],
                     "varname": "live.gain~"
                 }
             },
@@ -188,7 +220,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1287.0, 905.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1191.0, 867.0, 22.0, 20.0 ],
+                    "presentation_rect": [ 1191.0, 861.0, 22.0, 20.0 ],
                     "text": "60"
                 }
             },
@@ -292,7 +324,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 375.0, 449.0, 1065.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 725.752336448598, 550.1588785046729, 453.0, 18.0 ],
+                    "presentation_rect": [ 728.698598130841, 530.0, 453.0, 18.0 ],
                     "text": "delete a row in the scope by placing a \"0\" in the Use column, hitting return, and then Compile Tables ",
                     "varname": "scope_details[1]"
                 }
@@ -905,7 +937,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 808.0, 886.0, 525.0, 34.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 837.0, 525.0, 34.0 ],
+                    "presentation_rect": [ 951.0, 831.0, 525.0, 34.0 ],
                     "range": 128,
                     "varname": "main_keyboard"
                 }
@@ -968,7 +1000,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 850.0, 20.0, 472.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 417.6074766355139, 178.57009345794393, 554.0, 20.0 ],
+                    "presentation_rect": [ 417.6074766355139, 170.0, 554.0, 20.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -1143,7 +1175,7 @@
                     "presentation": 1,
                     "presentation_rect": [ 522.0, 70.0, 274.9439252336448, 25.0 ],
                     "tabmode": 0,
-                    "text": "single-sample-demo.sfz",
+                    "text": "My_Instrument.sfz",
                     "varname": "filename_input",
                     "wordwrap": 0
                 }
@@ -1290,7 +1322,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1137.0, 51.0, 75.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 285.33411214953276, 782.0, 149.27336448598112, 25.0 ],
+                    "presentation_rect": [ 285.33411214953276, 762.0, 149.27336448598112, 25.0 ],
                     "text": "Check SFZ inst",
                     "texton": "Check SFZ inst",
                     "textoncolor": [ 1.0, 1.0, 1.0, 1.0 ]
@@ -1443,7 +1475,6 @@
                     "fontname": "Menlo",
                     "fontsize": 10.0,
                     "id": "obj-32",
-                    "linecount": 4,
                     "maxclass": "textedit",
                     "nosymquotes": 1,
                     "numinlets": 1,
@@ -1453,7 +1484,6 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 20.0, 181.0, 255.0, 39.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 4,
                     "presentation_rect": [ 3.6074766355140184, 157.01869158878503, 255.5, 63.10280373831776 ],
                     "readonly": 1,
                     "saved_attribute_attributes": {
@@ -1462,7 +1492,7 @@
                         }
                     },
                     "tabmode": 0,
-                    "text": "Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/music158a2026/Tools_158a_2026/ec_sfz_builder_editor_v4.2/Demo/single-sample-demo",
+                    "text": "Choose a sound folder",
                     "varname": "folder_path"
                 }
             },
@@ -1536,7 +1566,7 @@
                     "bgfillcolor_type": "color",
                     "fontsize": 12.0,
                     "id": "obj-37",
-                    "items": "human-gliss.wav",
+                    "items": "<empty>",
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -1573,7 +1603,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 319.0, 901.817757009346, 78.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.6074766355139, 98.57009345794393, 901.817757009346, 78.0 ],
+                    "presentation_rect": [ 282.6074766355139, 98.57009345794393, 901.7149532710284, 67.0 ],
                     "rendermode": 0,
                     "url": "file://ec_sfz_textpane.html",
                     "varname": "sample_text"
@@ -2092,7 +2122,7 @@
                     "patching_rect": [ 295.0, 119.0, 350.0, 85.0 ],
                     "presentation": 1,
                     "presentation_linecount": 4,
-                    "presentation_rect": [ 282.6074766355139, 179.0, 133.0, 85.0 ],
+                    "presentation_rect": [ 282.6074766355139, 170.0, 133.0, 85.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2113,7 +2143,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 650.0, 122.0, 710.0, 19.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 417.6074766355139, 200.5, 551.0, 19.0 ],
+                    "presentation_rect": [ 417.6074766355139, 192.0, 551.0, 19.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2155,7 +2185,7 @@
                     "patching_rect": [ 295.0, 149.0, 900.0, 256.0747663551402 ],
                     "precision": 4,
                     "presentation": 1,
-                    "presentation_rect": [ 284.0, 265.0, 896.7500000000002, 208.0 ],
+                    "presentation_rect": [ 284.0, 256.0, 896.7500000000002, 192.0 ],
                     "rowhead": 1,
                     "rowheight": 23,
                     "rows": 2,
@@ -2182,7 +2212,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 295.0, 346.0, 138.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 564.0, 475.0, 138.0, 25.0 ],
+                    "presentation_rect": [ 564.0, 455.0, 138.0, 25.0 ],
                     "text": "Compile tables",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Compile tables",
@@ -2215,7 +2245,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 441.0, 346.0, 119.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1059.0, 475.0, 119.0, 25.0 ],
+                    "presentation_rect": [ 1059.0, 459.0, 119.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2253,7 +2283,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 568.0, 346.0, 120.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 826.0, 475.0, 120.0, 25.0 ],
+                    "presentation_rect": [ 826.0, 458.0, 120.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2291,7 +2321,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 696.0, 346.0, 95.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 954.0, 475.0, 95.0, 25.0 ],
+                    "presentation_rect": [ 954.0, 459.0, 95.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2329,7 +2359,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 799.0, 346.0, 117.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 703.0, 475.0, 117.0, 25.0 ],
+                    "presentation_rect": [ 703.0, 455.0, 117.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2367,7 +2397,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 924.0, 346.0, 106.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 818.0, 520.6588785046729, 106.0, 25.0 ],
+                    "presentation_rect": [ 818.0, 504.0, 106.0, 25.0 ],
                     "text": "Add new group",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Add new group",
@@ -2400,7 +2430,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1038.0, 346.0, 72.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 933.2009345794393, 520.6588785046729, 114.30841121495325, 25.0 ],
+                    "presentation_rect": [ 933.2009345794393, 505.0, 114.30841121495325, 25.0 ],
                     "text": "Add new global",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Add new global",
@@ -2433,7 +2463,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1118.0, 346.0, 77.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1061.357476635514, 520.6588785046729, 118.0, 25.0 ],
+                    "presentation_rect": [ 1061.357476635514, 505.0, 118.0, 25.0 ],
                     "text": "Add new control",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Add new control",
@@ -2462,7 +2492,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 295.0, 382.0, 186.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0607476635515, 500.1588785046729, 186.0, 20.0 ],
+                    "presentation_rect": [ 284.0607476635515, 480.0, 186.0, 20.0 ],
                     "text": "3  OPCODES FOR SCOPE"
                 }
             },
@@ -2477,7 +2507,7 @@
                     "bgfillcolor_type": "gradient",
                     "fontsize": 12.0,
                     "id": "obj-90",
-                    "items": [ "<global> #1", ",", "<group> #1", ",", "<region> #1  human-gliss.wav" ],
+                    "items": "<global> #1",
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -2485,7 +2515,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 485.0, 378.0, 410.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0607476635515, 522.1588785046729, 203.0, 22.0 ],
+                    "presentation_rect": [ 284.0607476635515, 502.0, 203.0, 22.0 ],
                     "varname": "scope_menu"
                 }
             },
@@ -2520,7 +2550,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 904.0, 378.0, 251.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 496.0, 522.1588785046729, 120.0, 22.0 ],
+                    "presentation_rect": [ 496.0, 502.0, 120.0, 22.0 ],
                     "varname": "opcode_menu"
                 }
             },
@@ -2550,7 +2580,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1163.0, 378.0, 197.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 625.0, 520.6588785046729, 148.0, 25.0 ],
+                    "presentation_rect": [ 625.0, 501.0, 148.0, 25.0 ],
                     "text": "Add opcode + comment",
                     "texton": "Add opcode + comment"
                 }
@@ -2577,8 +2607,8 @@
                     "numoutlets": 0,
                     "patching_rect": [ 295.0, 408.0, 1065.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0607476635515, 550.1588785046729, 435.0, 18.0 ],
-                    "text": "<region> #1  human-gliss.wav | Blank cells inherit. Use=0 removes a local opcode.",
+                    "presentation_rect": [ 284.0607476635515, 530.0, 435.0, 18.0 ],
+                    "text": "<global> #1 | Blank cells inherit. Use=0 removes a local opcode.",
                     "varname": "scope_details"
                 }
             },
@@ -2605,10 +2635,10 @@
                     "patching_rect": [ 295.0, 433.0, 900.0, 257.0093457943925 ],
                     "precision": 4,
                     "presentation": 1,
-                    "presentation_rect": [ 285.33411214953276, 571.0, 896.3644859813082, 210.0 ],
+                    "presentation_rect": [ 285.33411214953276, 551.0, 896.3644859813082, 210.0 ],
                     "rowhead": 1,
                     "rowheight": 23,
-                    "rows": 9,
+                    "rows": 3,
                     "selmode": 5,
                     "varname": "opcodes"
                 }
@@ -2745,7 +2775,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 295.0, 636.0, 1065.0, 159.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1190.0, 194.0, 286.0, 587.0 ],
+                    "presentation_rect": [ 1190.0, 194.0, 286.0, 567.0 ],
                     "rendermode": 0,
                     "url": "file://ec_sfz_textpane.html",
                     "varname": "editor"
@@ -2763,7 +2793,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 295.0, 804.0, 635.0, 53.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 436.6074766355139, 782.5, 513.0, 56.0 ],
+                    "presentation_rect": [ 436.6074766355139, 763.0, 513.0, 56.0 ],
                     "rendermode": 0,
                     "url": "file://ec_sfz_textpane.html",
                     "varname": "report"
@@ -2779,7 +2809,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 947.0, 804.0, 95.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 787.5, 95.0, 20.0 ],
+                    "presentation_rect": [ 951.0, 782.0, 95.0, 20.0 ],
                     "text": "AUDITION"
                 }
             },
@@ -2793,7 +2823,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 947.0, 837.0, 33.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 814.5, 33.0, 18.0 ],
+                    "presentation_rect": [ 951.0, 809.0, 33.0, 18.0 ],
                     "text": "Note"
                 }
             },
@@ -2810,7 +2840,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 981.0, 831.0, 48.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 984.0, 812.5, 48.0, 22.0 ],
+                    "presentation_rect": [ 984.0, 807.0, 48.0, 22.0 ],
                     "varname": "pitch_num"
                 }
             },
@@ -2836,7 +2866,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1038.0, 837.0, 26.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1041.0, 814.5, 26.0, 18.0 ],
+                    "presentation_rect": [ 1041.0, 809.0, 26.0, 18.0 ],
                     "text": "Vel"
                 }
             },
@@ -2853,7 +2883,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1065.0, 831.0, 48.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1069.0, 812.5, 48.0, 22.0 ],
+                    "presentation_rect": [ 1069.0, 807.0, 48.0, 22.0 ],
                     "varname": "velocity_num"
                 }
             },
@@ -2882,7 +2912,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1123.0, 831.0, 58.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1126.0, 812.5, 58.0, 22.0 ],
+                    "presentation_rect": [ 1126.0, 807.0, 58.0, 22.0 ],
                     "varname": "duration_num"
                 }
             },
@@ -2908,7 +2938,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1186.0, 837.0, 22.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1189.0, 814.5, 22.0, 18.0 ],
+                    "presentation_rect": [ 1189.0, 809.0, 22.0, 18.0 ],
                     "text": "ms"
                 }
             },
@@ -2925,7 +2955,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1215.0, 830.0, 63.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1219.0, 811.5, 63.0, 25.0 ],
+                    "presentation_rect": [ 1219.0, 806.0, 63.0, 25.0 ],
                     "text": "Note",
                     "texton": "Note"
                 }
@@ -2955,7 +2985,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1287.0, 830.0, 73.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1208.0, 785.5, 73.0, 25.0 ],
+                    "presentation_rect": [ 1208.0, 780.0, 73.0, 25.0 ],
                     "text": "Panic",
                     "texton": "Panic"
                 }
@@ -2984,7 +3014,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1054.0, 806.0, 18.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1215.0, 876.0, 18.0, 18.0 ],
+                    "presentation_rect": [ 1215.0, 870.0, 18.0, 18.0 ],
                     "varname": "midi_toggle"
                 }
             },
@@ -3012,7 +3042,7 @@
                     "patching_rect": [ 1079.0, 806.0, 97.0, 40.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 1235.3878504672898, 875.0, 33.0, 40.0 ],
+                    "presentation_rect": [ 1235.3878504672898, 869.0, 33.0, 40.0 ],
                     "text": "MIDI \ninput\non/off"
                 }
             },
@@ -3054,7 +3084,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1340.0, 804.0, 39.0, 17.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 899.0, 883.4626168224299, 39.0, 17.0 ],
+                    "presentation_rect": [ 899.0, 874.0, 39.0, 17.0 ],
                     "text": "Audio"
                 }
             },
@@ -3177,21 +3207,6 @@
             {
                 "box": {
                     "fontface": 0,
-                    "fontsize": 12.0,
-                    "id": "obj-133",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 20.0, 866.0, 1340.0, 20.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 282.2429906542056, 843.0, 419.0, 20.0 ],
-                    "text": "Action stopped: pan expects a number -100 to 100.",
-                    "varname": "status"
-                }
-            },
-            {
-                "box": {
-                    "fontface": 0,
                     "fontsize": 10.0,
                     "id": "obj-134",
                     "maxclass": "comment",
@@ -3199,8 +3214,8 @@
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 902.0, 1340.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.2429906542056, 865.0, 461.0, 18.0 ],
-                    "text": "Preview load requested. Enable Audio and play a mapped key.",
+                    "presentation_rect": [ 282.2429906542056, 880.0, 461.0, 18.0 ],
+                    "text": "No samples yet. Load a sound folder, then Add samples.",
                     "varname": "loaded_label"
                 }
             },
@@ -3263,9 +3278,9 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 920.0, 1400.0, 215.0, 22.0 ],
+                    "patching_rect": [ 668.0, 1672.0, 215.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.2429906542056, 884.0, 252.0, 22.0 ],
+                    "presentation_rect": [ 282.2429906542056, 858.0, 252.0, 22.0 ],
                     "text": "sfizz~ @volume -18",
                     "varname": "sampler"
                 }
@@ -3567,9 +3582,8 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 427.0, 130.0, 1192.0, 790.0 ],
+                        "rect": [ 374.0, 130.0, 1192.0, 790.0 ],
                         "openinpresentation": 1,
-                        "visible": 1,
                         "boxes": [
                             {
                                 "box": {
@@ -3773,7 +3787,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1100.0, 1535.0, 230.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1266.8971962616824, 874.0, 148.0, 22.0 ],
+                    "presentation_rect": [ 1266.8971962616824, 868.0, 148.0, 22.0 ],
                     "varname": "midi_device_menu"
                 }
             },
@@ -3791,7 +3805,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1340.0, 1535.0, 58.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1417.3224299065423, 874.0, 57.0, 22.0 ],
+                    "presentation_rect": [ 1417.3224299065423, 868.0, 57.0, 22.0 ],
                     "text": "Refresh",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Refresh",
@@ -4001,7 +4015,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 245.0, 1470.0, 16.0, 16.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1062.0, 787.5, 16.0, 16.0 ]
+                    "presentation_rect": [ 1062.0, 782.0, 16.0, 16.0 ]
                 }
             },
             {
@@ -4013,7 +4027,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 270.0, 1470.0, 110.0, 19.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1084.0, 787.5, 110.0, 19.0 ],
+                    "presentation_rect": [ 1084.0, 782.0, 110.0, 19.0 ],
                     "text": "MIDI received"
                 }
             },
@@ -4124,7 +4138,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 285.0, 1795.0, 100.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 844.0, 852.4626168224299, 94.0, 25.0 ],
+                    "presentation_rect": [ 844.0, 843.0, 94.0, 25.0 ],
                     "text": "Test output",
                     "texton": "Test output"
                 }
@@ -4208,7 +4222,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 650.0, 1865.0, 16.0, 16.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 954.0, 877.0, 16.0, 16.0 ]
+                    "presentation_rect": [ 954.0, 871.0, 16.0, 16.0 ]
                 }
             },
             {
@@ -4220,7 +4234,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 675.0, 1865.0, 85.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 976.0, 875.0, 85.0, 20.0 ],
+                    "presentation_rect": [ 976.0, 869.0, 85.0, 20.0 ],
                     "text": "Note sent"
                 }
             },
@@ -4307,9 +4321,10 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 760.0, 521.0, 820.0, 548.0 ],
+                        "rect": [ 746.0, 521.0, 820.0, 548.0 ],
                         "default_fontsize": 13.0,
                         "enablehscroll": 0,
+                        "visible": 1,
                         "boxes": [
                             {
                                 "box": {
@@ -4525,7 +4540,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 26.0, 261.0, 760.0, 21.0 ],
-                                    "text": "Tutorial 1 requested: single-sample-demo.sfz. Enable Audio, then play MIDI 60.",
+                                    "text": "1 tutorial lessons found. Shared sample: human-gliss.wav.",
                                     "textcolor": [ 0.13, 0.17, 0.23, 1.0 ],
                                     "varname": "tutorial_status"
                                 }
@@ -4699,6 +4714,20 @@
                     },
                     "text": "p Single_sample_tutorial",
                     "varname": "tutorial_window"
+                }
+            },
+            {
+                "box": {
+                    "attr": "scalename",
+                    "id": "obj-176",
+                    "maxclass": "attrui",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 668.0, 1642.0, 150.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 559.0, 820.5, 283.0, 22.0 ]
                 }
             }
         ],
@@ -5367,6 +5396,12 @@
                 "patchline": {
                     "destination": [ "obj-172", 0 ],
                     "source": [ "obj-170", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-140", 0 ],
+                    "source": [ "obj-176", 0 ]
                 }
             },
             {
