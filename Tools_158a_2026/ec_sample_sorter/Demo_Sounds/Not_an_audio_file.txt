@@ -1,0 +1,1 @@
+This non-audio file is deliberately ignored by the scanner and never exported.

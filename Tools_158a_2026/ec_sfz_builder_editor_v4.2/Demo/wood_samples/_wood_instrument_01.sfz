@@ -1,0 +1,211 @@
+// New SFZ instrument
+// Blank table values inherit settings or use sampler defaults.
+
+<global>
+volume=0.0
+ampeg_release=0.2
+
+<group> // Group ID 1
+ // Imported samples
+
+<region> // Region ID 1; Group ID 1
+sample=wood_00wb_Sol2_FF_roll_h.wav
+key=0
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=2 // Envelope rise from its starting level to peak, in seconds.
+ // Time from peak toward the sustain level, in seconds.
+
+ // Fade time after note release, in seconds.
+
+ // Fade time after note release, in seconds.
+
+ // Envelope delay before attack, in seconds.
+ // Held amplitude level, 0-100 percent; not a duration.
+
+ // Time at the envelope peak before decay, in seconds.
+
+ampeg_decay=3 // Time from peak toward the sustain level, in seconds.
+ampeg_sustain=0 // Held amplitude level, 0-100 percent; not a duration.
+
+<region> // Region ID 2; Group ID 1
+sample=wood_00wb_Sol2_FF_roll_s.wav
+key=1
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 3; Group ID 1
+sample=wood_00wb_Sol2_flam_h.wav
+key=2
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 4; Group ID 1
+sample=wood_00wb_Sol2_flam_s.wav
+key=3
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 5; Group ID 1
+sample=wood_00wb_Sol2s.wav
+key=4
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 6; Group ID 1
+sample=wood_03wb_Fa3_FF_roll_h.wav
+key=5
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 7; Group ID 1
+sample=wood_03wb_Fa3_FF_roll_s.wav
+key=6
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 8; Group ID 1
+sample=wood_03wb_Fa3_flam_h.wav
+key=7
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 9; Group ID 1
+sample=wood_03wb_Fa3_flam_s.wav
+key=8
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 10; Group ID 1
+sample=wood_03wb_Fa3_h.wav
+key=9
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 11; Group ID 1
+sample=wood_03wb_Fa3_s.wav
+key=10
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 12; Group ID 1
+sample=wood_06wb_Mi4_FF_roll_h.wav
+key=11
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 13; Group ID 1
+sample=wood_06wb_Mi4_FF_roll_s.wav
+key=12
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 14; Group ID 1
+sample=wood_06wb_Mi4_flam_h.wav
+key=13
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 15; Group ID 1
+sample=wood_06wb_Mi4_h.wav
+key=14
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 16; Group ID 1
+sample=wood_09wb_Fa5_FF_roll_h.wav
+key=15
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 17; Group ID 1
+sample=wood_09wb_Fa5_flam_h.wav
+key=16
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 18; Group ID 1
+sample=wood_09wb_Fa5_h.wav
+key=17
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 19; Group ID 1
+sample=wood_wb_high_FF_roll_h.wav
+key=18
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 20; Group ID 1
+sample=wood_wb_high_flam_h.wav
+key=19
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 21; Group ID 1
+sample=wood_wb_high_h.wav
+key=20
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 22; Group ID 1
+sample=wood_wb_vaughncraft9_h.wav
+key=21
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+<region> // Region ID 23; Group ID 1
+sample=wood_wb_vcraft9_5_ffroll_h.wav
+key=22
+lovel=1
+hivel=127
+loop_mode=one_shot
+
+ampeg_attack=1 // Envelope rise from its starting level to peak, in seconds.
+ampeg_decay=1 // Time from peak toward the sustain level, in seconds.
+
+<region> // Region ID 24; Group ID 1
+sample=wood_wb_vcraft9_5_ffroll_s.wav
+key=23
+lovel=1
+hivel=127
+loop_mode=one_shot
+
