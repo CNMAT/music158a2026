@@ -1,3 +1,14 @@
+<strong>ONLINE RESOURCES FOR MATERIALS</strong><br>
+
+
+<div>
+<strong>Freesound</strong><br>
+Freesound is a collaborative library of sound recordings and samples; downloading sounds requires a free account and login.<br>
+<a href="https://freesound.org/">Visit Freesound</a>
+</div>
+<br><br>
+
+<strong>RESOURCES FOR LEARNING MAX/MSP</strong><br>
 <strong>Andrew Blanton, Max in 20 Objects Videos</strong><br>
 1) From Max 9 (top menu), choose <kbd>Extras</kbd> → <kbd>CNMAT-Pedagogy_Overview</kbd> to open the CNMAT Pedagogy Overview patch.<br>
 2) From <strong>CNMAT-Pedagogy_Overview</strong>, select <kbd>Courses</kbd> from the top menu tab, then double-click <kbd>blanton-course</kbd>.
