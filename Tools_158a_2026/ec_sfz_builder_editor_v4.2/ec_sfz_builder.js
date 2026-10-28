@@ -251,12 +251,12 @@ function dispatch(action,args,text){
             scopeId=found.id;renderAll();return;
         }
         if(action==='duplicate'){
-            assertModel();if(!selectedRegion)throw new Error('Select a region row.');snapshot();var n=C.node(doc,selectedRegion);var copy=C.create(doc,'region',n.body,doc.nodes.indexOf(n)+1);selectedRegion=copy.id;scopeId=copy.id;renderAll();status('Region duplicated. Adjust its key or velocity range to avoid an unintended layer.');return;
+            assertModel();if(!selectedRegion)throw new Error('Select a region row.');var next=C.clone(doc),copy=C.duplicateRegion(next,selectedRegion);snapshot();doc=next;selectedRegion=copy.id;scopeId=copy.id;renderAll();status('Region duplicated into the lowest available range in its group.');return;
         }
         if(action==='delete'){
             assertModel();if(!selectedRegion)throw new Error('Select a region row.');snapshot();doc.nodes.splice(doc.nodes.indexOf(C.node(doc,selectedRegion)),1);selectedRegion=C.regions(doc).length?C.regions(doc)[0].id:0;scopeId=selectedRegion||(doc.nodes.length?doc.nodes[0].id:0);renderAll();status('Region removed. Undo restores it.');return;
         }
-        if(action==='import_one'||action==='import_all'){importSamples(action==='import_one'?[files[selectedSample]]:files.slice(),action==='import_all');return;}
+        if(action==='import_one'||action==='import_all'){importSamples(action==='import_one'?[files[selectedSample]]:files.slice());return;}
         if(action==='add_opcode'){
             assertModel();if(!scopeId)throw new Error('Select or create a scope first.');var ref=referenceItems[selectedRef];if(!ref)throw new Error('Choose an opcode.');
             var target=C.node(doc,scopeId);if(ref.name==='default_path'&&target.type!=='control')throw new Error('default_path belongs under <control>. Use Control first.');
@@ -368,37 +368,37 @@ function scanStep(){
 }
 function finishScan(){
     scanBusy=false;scanTask=null;files.sort(function(a,b){var aa=a.toLowerCase(),bb=b.toLowerCase();return aa<bb?-1:aa>bb?1:a<b?-1:a>b?1:0;});
-    renderSampleMenu();showSampleLines();settext('sample_count',files.length+' sounds — paths relative to the SFZ folder');status(files.length?'Folder ready. Add all samples maps from MIDI 0 upward; Add selected uses the mapping options.':'No supported sounds found in this folder.');mapperSync();
+    renderSampleMenu();showSampleLines();settext('sample_count',files.length+' sounds — paths relative to the SFZ folder');status(files.length?'Folder ready. Add selected and Add all use the lowest free MIDI keys in the destination group.':'No supported sounds found in this folder.');mapperSync();
 }
 function showSampleLines(){var lines=[];for(var i=0;i<files.length;i++){var p=C.resolve(catalogDir,files[i]);try{p=C.relative(baseDir,p);}catch(e){}lines.push('sample='+p);}settext('sample_text',lines.join('\n'));}
-function importSamples(list,chromatic){
+// Both home-page add buttons use the same allocation policy as the mapper.
+function importSamples(list){
     assertModel();if(scanBusy)throw new Error('Wait for the folder scan.');if(!list.length||!list[0])throw new Error('Choose a sound folder with samples.');
+    if(!baseDir||!catalogDir)throw new Error('Load the sound folder on the home page first.');
     if(lowVelocity>highVelocity)throw new Error('Low velocity exceeds high velocity.');
-    if(chromatic&&list.length>128)throw new Error('Add all samples supports up to 128 sounds (MIDI 0–127). Choose a smaller folder or use Add selected. No samples were added.');
-    var mode=chromatic?1:importMode;
-    var roots=[],i,p,r,values,next=C.clone(doc),rel=C.relations(doc),target=scopeId?C.node(doc,scopeId):null,groupId=target?(target.type==='group'?target.id:target.type==='region'?rel[target.id].group:null):null;
-    if(!groupId)groupId=C.create(next,'group',' // Imported samples\n').id;
-    for(i=0;i<list.length;i++){
-        p=C.resolve(catalogDir,list[i]);
-        r=chromatic?i:mode===0?NaN:rootMode===0?startRoot+i*rootStep:rootMode===1?C.filenameRoot(list[i]):wavRoot(p);
-        if(mode!==0&&(!isFinite(r)||r<0||r>127))throw new Error('No valid root for '+list[i]+'. Change root source or starting note/step.');
-        roots.push(r);
-    }
-    var ranges=mode===2?C.splitRanges(roots):null;
-    // Newly imported paths are relative to active default_path, if any.
-    var controlId=C.relations(next)[groupId].control,prefix=controlId?C.own(C.node(next,controlId)).default_path||'':'';
+    var next=C.clone(doc),rel=C.relations(next),target=scopeId?C.node(next,scopeId):null,groupId=0,anchor=null,i;
+    if(target&&target.type==='group')groupId=target.id;
+    else if(target&&target.type==='region'){
+        groupId=rel[target.id].group||0;
+        if(!groupId){i=next.nodes.indexOf(target);anchor=target;while(i+1<next.nodes.length&&next.nodes[i+1].type==='region')anchor=next.nodes[++i];}
+    }else for(i=0;i<next.nodes.length;i++)if(next.nodes[i].type==='group'){groupId=next.nodes[i].id;break;}
+    if(!groupId&&!anchor)groupId=C.create(next,'group',' // Imported samples\n').id;
+    // Reserve the entire batch before committing anything. Repeated Add all
+    // fills holes/continues upward rather than restarting on occupied keys.
+    var keys=C.freeKeys(next,groupId,list.length);
+    var controlId=C.relations(next)[groupId||(anchor&&anchor.id)].control,prefix=controlId?C.own(C.node(next,controlId)).default_path||'':'';
     if(prefix && !/[\\/]$/.test(prefix))throw new Error('End default_path with / before using folder import.');
     var sampleBase=prefix?C.resolve(baseDir,prefix):baseDir,last;
     for(i=0;i<list.length;i++){
-        values={sample:C.relative(sampleBase,C.resolve(catalogDir,list[i])),lovel:String(lowVelocity),hivel:String(highVelocity)};
-        if(mode===1){values.key=String(roots[i]);values.loop_mode='one_shot';}
-        if(mode===2){values.pitch_keycenter=String(roots[i]);values.lokey=String(ranges[roots[i]].lo);values.hikey=String(ranges[roots[i]].hi);values.loop_mode='no_loop';}
-        last=C.insertRegion(next,groupId,values);
+        last=C.insertRegion(next,groupId,{sample:C.relative(sampleBase,C.resolve(catalogDir,list[i])),
+            key:String(keys[i]),lovel:String(lowVelocity),hivel:String(highVelocity),loop_mode:'one_shot'});
+        if(anchor){next.nodes.pop();next.nodes.splice(next.nodes.indexOf(anchor)+1,0,last);anchor=last;}
     }
     snapshot();doc=next;scopeId=last.id;selectedRegion=last.id;
-    chooseTestNote();
-    if(chromatic){importMode=1;rootMode=0;startRoot=0;rootStep=1;setvalue('import_mode',1);setvalue('root_mode',0);setvalue('start_root',0);setvalue('root_step',1);}
-    renderAll();checkProject();status('Added '+list.length+' regions to group '+C.displayId(doc,groupId)+'. '+(chromatic?'MIDI 0–'+(list.length-1)+', one sample per key. Enable Audio and play from MIDI 0.':mode===0?'Unmapped regions use inherited/default key ranges; edit before auditioning.':'Enable Audio and play a mapped key. Save keeps your SFZ.'));
+    testPitch=keys[0];setvalue('pitch_num',testPitch);
+    renderAll();checkProject();
+    status('Added '+list.length+' '+(list.length===1?'sample':'samples')+' to '+(groupId?'group '+C.displayId(doc,groupId):'No group')+
+        ' at the lowest free MIDI '+(list.length===1?'key '+keys[0]:'keys (first '+keys[0]+', last '+keys[keys.length-1]+')')+'. One sample per key.');
 }
 function wavRoot(path){
     if(!/\.wav(e)?$/i.test(path))throw new Error('WAV root mode requires a WAV file: '+basename(path));

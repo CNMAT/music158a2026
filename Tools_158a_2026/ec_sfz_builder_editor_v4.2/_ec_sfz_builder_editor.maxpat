@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 87.0, 1483.0, 926.0 ],
+        "rect": [ 35.0, 100.0, 1483.0, 926.0 ],
         "openinpresentation": 1,
         "description": "SFZ builder with a numbered single-sample tutorial navigator.",
         "boxes": [
@@ -151,7 +151,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 416.0, 240.0, 710.0, 19.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 564.0, 228.0, 413.0, 19.0 ],
+                    "presentation_rect": [ 565.0, 228.0, 413.0, 19.0 ],
                     "text": "Place a ? in an empty cell and select \"Check SFZ inst\" to see opcode value options",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
@@ -1310,10 +1310,10 @@
             },
             {
                 "box": {
-                    "annotation": "Check opcode values, key/velocity ranges and sample paths. Results appear in the scrolling report pane.",
+                    "annotation": "Check the current SFZ for errors, missing samples and shared key ranges within each group. Shared keys may be intentional layers; the checker does not move or remove them.",
                     "bgcolor": [ 0.7764705882352941, 0.47843137254901963, 0.01568627450980392, 1.0 ],
                     "fontsize": 18.0,
-                    "hint": "Check opcode values, key/velocity ranges and sample paths. Results appear in the scrolling report pane.",
+                    "hint": "Check the current SFZ for errors, missing samples and shared key ranges within each group. Shared keys may be intentional layers; the checker does not move or remove them.",
                     "id": "obj-23",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -1368,7 +1368,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 86.0, 1340.0, 19.0 ],
-                    "text": "SFZ folder: Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/music158a2026/Tools_158a_2026/ec_sfz_builder_editor_v4.2/Demo/single-sample-demo",
+                    "text": "SFZ folder: Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/CNMAT-MMJ-Depot/media/Audio/mixing_sounds",
                     "varname": "project_path"
                 }
             },
@@ -1646,25 +1646,27 @@
             },
             {
                 "box": {
-                    "annotation": "Mapping for Add selected: Single key / one shot = one key, sample plays to its end. Unmapped / edit later = add now, assign keys later. Pitched splits / full range = play the sample across the keyboard at different pitches. Add all samples always uses one key per sample from MIDI 0 upward.",
+                    "annotation": "Add selected, Add all and the mapper sample menu share this rule. Existing key ranges are reserved regardless of velocity; deleted keys are reused. Change ranges or roots after adding in the Region Table or Graphic Mapper.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontface": 0,
                     "fontsize": 11.0,
-                    "hint": "Mapping for Add selected: Single key / one shot = one key, sample plays to its end. Unmapped / edit later = add now, assign keys later. Pitched splits / full range = play the sample across the keyboard at different pitches. Add all samples always uses one key per sample from MIDI 0 upward.",
+                    "hint": "Add selected, Add all and the mapper sample menu share this rule. Existing key ranges are reserved regardless of velocity; deleted keys are reused. Change ranges or roots after adding in the Region Table or Graphic Mapper.",
                     "id": "obj-42",
+                    "linecount": 3,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 20.0, 460.0, 65.0, 19.0 ],
+                    "patching_rect": [ 20.0, 460.0, 176.0, 43.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 4.803738317757009, 372.0, 65.0, 19.0 ],
-                    "text": "Mapping",
+                    "presentation_linecount": 3,
+                    "presentation_rect": [ 4.803738317757009, 372.0, 176.0, 43.0 ],
+                    "text": "Automatic placement\nLowest free MIDI key in the group.\nOne sample per key, starting at 0.",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
             {
                 "box": {
-                    "annotation": "Mapping for Add selected: Single key / one shot = one key, sample plays to its end. Unmapped / edit later = add now, assign keys later. Pitched splits / full range = play the sample across the keyboard at different pitches. Add all samples always uses one key per sample from MIDI 0 upward.",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "bgfillcolor_angle": 270.0,
                     "bgfillcolor_autogradient": 0.0,
@@ -1674,7 +1676,7 @@
                     "bgfillcolor_proportion": 0.39,
                     "bgfillcolor_type": "color",
                     "fontsize": 12.0,
-                    "hint": "Mapping for Add selected: Single key / one shot = one key, sample plays to its end. Unmapped / edit later = add now, assign keys later. Pitched splits / full range = play the sample across the keyboard at different pitches. Add all samples always uses one key per sample from MIDI 0 upward.",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-43",
                     "items": [ "Unmapped / edit later", ",", "Single key / one shot", ",", "Pitched splits / full range" ],
                     "maxclass": "umenu",
@@ -1683,8 +1685,6 @@
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 89.0, 457.0, 186.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 73.80373831775701, 372.0, 186.0, 22.0 ],
                     "textcolor": [ 0.0, 0.227, 1.0, 1.0 ],
                     "varname": "import_mode"
                 }
@@ -1703,25 +1703,23 @@
             },
             {
                 "box": {
-                    "annotation": "Roots sets the note that plays a sample at its original pitch: use Start + step, a note at the end of its filename (C4 or 60), or root information stored in a WAV file. Applies to Add selected; Add all uses MIDI 0, 1, 2…",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontface": 0,
                     "fontsize": 11.0,
-                    "hint": "Roots sets the note that plays a sample at its original pitch: use Start + step, a note at the end of its filename (C4 or 60), or root information stored in a WAV file. Applies to Add selected; Add all uses MIDI 0, 1, 2…",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-45",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 491.0, 65.0, 19.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 4.803738317757009, 403.0, 65.0, 19.0 ],
                     "text": "Roots",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
             {
                 "box": {
-                    "annotation": "Roots sets the note that plays a sample at its original pitch: use Start + step, a note at the end of its filename (C4 or 60), or root information stored in a WAV file. Applies to Add selected; Add all uses MIDI 0, 1, 2…",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "bgfillcolor_angle": 270.0,
                     "bgfillcolor_autogradient": 0.0,
@@ -1731,7 +1729,7 @@
                     "bgfillcolor_proportion": 0.39,
                     "bgfillcolor_type": "color",
                     "fontsize": 12.0,
-                    "hint": "Roots sets the note that plays a sample at its original pitch: use Start + step, a note at the end of its filename (C4 or 60), or root information stored in a WAV file. Applies to Add selected; Add all uses MIDI 0, 1, 2…",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-46",
                     "items": [ "Start + step", ",", "Filename suffix (C4 / 60)", ",", "WAV smpl metadata" ],
                     "maxclass": "umenu",
@@ -1740,8 +1738,6 @@
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 89.0, 488.0, 186.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 73.80373831775701, 401.0, 186.0, 22.0 ],
                     "textcolor": [ 0.0, 0.227, 1.0, 1.0 ],
                     "varname": "root_mode"
                 }
@@ -1760,28 +1756,26 @@
             },
             {
                 "box": {
-                    "annotation": "Start is the MIDI root/key used by Add selected when Roots is Start + step. MIDI notes run from 0 to 127; 60 is middle C. Add all always starts at 0.",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontface": 0,
                     "fontsize": 11.0,
-                    "hint": "Start is the MIDI root/key used by Add selected when Roots is Start + step. MIDI notes run from 0 to 127; 60 is middle C. Add all always starts at 0.",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-48",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 523.0, 39.0, 19.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 4.803738317757009, 428.0, 39.0, 19.0 ],
                     "text": "Start",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
             {
                 "box": {
-                    "annotation": "Start is the MIDI root/key used by Add selected when Roots is Start + step. MIDI notes run from 0 to 127; 60 is middle C. Add all always starts at 0.",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Start is the MIDI root/key used by Add selected when Roots is Start + step. MIDI notes run from 0 to 127; 60 is middle C. Add all always starts at 0.",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-49",
                     "maxclass": "number",
                     "maximum": 127,
@@ -1791,8 +1785,6 @@
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 60.0, 518.0, 48.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 44.80373831775701, 426.0, 48.0, 22.0 ],
                     "textcolor": [ 0.0, 0.227, 1.0, 1.0 ],
                     "varname": "start_root"
                 }
@@ -1811,28 +1803,26 @@
             },
             {
                 "box": {
-                    "annotation": "Step is the gap between successive root notes, in half-steps: 1 = the next key, 12 = an octave. Add all always uses 1. Add selected adds one sample at Start, so Step has no effect on that single import.",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontface": 0,
                     "fontsize": 11.0,
-                    "hint": "Step is the gap between successive root notes, in half-steps: 1 = the next key, 12 = an octave. Add all always uses 1. Add selected adds one sample at Start, so Step has no effect on that single import.",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-51",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 119.0, 523.0, 39.0, 19.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 103.80373831775701, 428.0, 39.0, 19.0 ],
                     "text": "Step",
                     "textcolor": [ 0.0, 0.0, 0.0, 1.0 ]
                 }
             },
             {
                 "box": {
-                    "annotation": "Step is the gap between successive root notes, in half-steps: 1 = the next key, 12 = an octave. Add all always uses 1. Add selected adds one sample at Start, so Step has no effect on that single import.",
+                    "annotation": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Step is the gap between successive root notes, in half-steps: 1 = the next key, 12 = an octave. Add all always uses 1. Add selected adds one sample at Start, so Step has no effect on that single import.",
+                    "hint": "Legacy import setting. New sample additions now use the lowest free MIDI key in the destination group. Edit key ranges and roots in the Region Table or Graphic Mapper after adding.",
                     "id": "obj-52",
                     "maxclass": "number",
                     "maximum": 127,
@@ -1842,8 +1832,6 @@
                     "outlettype": [ "", "bang" ],
                     "parameter_enable": 0,
                     "patching_rect": [ 160.0, 518.0, 48.0, 22.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 144.803738317757, 426.0, 48.0, 22.0 ],
                     "textcolor": [ 0.0, 0.227, 1.0, 1.0 ],
                     "varname": "root_step"
                 }
@@ -1964,10 +1952,10 @@
             },
             {
                 "box": {
-                    "annotation": "Add the sample selected in the menu using the mapping, root and velocity settings.",
+                    "annotation": "Add the selected sample to the lowest free MIDI key in the selected scope’s group. If the scope is global/control, use the first group; create one if needed. Uses the Velocity range and one-shot playback.",
                     "bgcolor": [ 1.0, 0.69, 0.702, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Add the sample selected in the menu using the mapping, root and velocity settings.",
+                    "hint": "Add the selected sample to the lowest free MIDI key in the selected scope’s group. If the scope is global/control, use the first group; create one if needed. Uses the Velocity range and one-shot playback.",
                     "id": "obj-60",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -1997,10 +1985,10 @@
             },
             {
                 "box": {
-                    "annotation": "Add the sorted sample list at MIDI 0, 1, 2… (up to 128 sounds), one key per sample with one-shot playback. Uses the Velocity range; sets Mapping to Single key, Roots to Start + step, Start to 0 and Step to 1. Audio files stay on disk.",
+                    "annotation": "Add all listed samples to the lowest free MIDI keys in the selected scope’s group. Fills holes from 0 upward and skips existing key ranges. Uses the Velocity range and one-shot playback. If the whole batch will not fit, no samples are added.",
                     "bgcolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Add the sorted sample list at MIDI 0, 1, 2… (up to 128 sounds), one key per sample with one-shot playback. Uses the Velocity range; sets Mapping to Single key, Roots to Start + step, Start to 0 and Step to 1. Audio files stay on disk.",
+                    "hint": "Add all listed samples to the lowest free MIDI keys in the selected scope’s group. Fills holes from 0 upward and skips existing key ranges. Uses the Velocity range and one-shot playback. If the whole batch will not fit, no samples are added.",
                     "id": "obj-62",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -2038,15 +2026,15 @@
                     "fontface": 0,
                     "fontsize": 10.0,
                     "id": "obj-64",
-                    "linecount": 4,
+                    "linecount": 5,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 20.0, 610.0, 185.0, 51.0 ],
+                    "patching_rect": [ 20.0, 610.0, 185.0, 62.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
                     "presentation_rect": [ 4.857476635514018, 222.1214953271028, 264.25, 40.0 ],
-                    "text": "Folder loaded is placed in the selected scope’s group.\nTo load into a different layer, choose  'Add new group' before loading."
+                    "text": "Additions use the selected scope’s group.\nGlobal/control uses the first group.\nUse Add new group to start another layer."
                 }
             },
             {
@@ -2309,10 +2297,10 @@
             },
             {
                 "box": {
-                    "annotation": "Duplicate the selected region. Adjust its key/velocity range if you do not want a simultaneous layer.",
+                    "annotation": "Duplicate into the lowest free range in the same group, preserving its width, velocity range and other opcodes. The root moves with the range. Stops if no suitable space remains.",
                     "bgcolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Duplicate the selected region. Adjust its key/velocity range if you do not want a simultaneous layer.",
+                    "hint": "Duplicate into the lowest free range in the same group, preserving its width, velocity range and other opcodes. The root moves with the range. Stops if no suitable space remains.",
                     "id": "obj-78",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -3582,7 +3570,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 374.0, 130.0, 1192.0, 790.0 ],
+                        "rect": [ 398.0, 134.0, 1192.0, 790.0 ],
                         "openinpresentation": 1,
                         "boxes": [
                             {

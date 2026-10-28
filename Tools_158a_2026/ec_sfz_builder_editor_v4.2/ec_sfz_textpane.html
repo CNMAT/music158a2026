@@ -3,31 +3,137 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'">
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:white}
-textarea{display:block;box-sizing:border-box;width:100%;height:100%;margin:0;padding:5px 6px;border:1px solid #777;border-radius:0;outline:none;resize:none;overflow:scroll;white-space:pre-wrap;overflow-wrap:break-word;font:12px/1.4 Menlo,Consolas,monospace;tab-size:4;scrollbar-gutter:stable;color:#000;background:#fff}
+#pane{position:relative;width:100%;height:100%;--text-color:#000}
+textarea{position:relative;z-index:1;display:block;box-sizing:border-box;width:100%;height:100%;margin:0;padding:5px 6px;border:1px solid #777;border-radius:0;outline:none;resize:none;overflow:scroll;white-space:pre-wrap;overflow-wrap:break-word;font:12px/1.4 Menlo,Consolas,monospace;tab-size:4;scrollbar-gutter:stable;color:#000;background:#fff}
 textarea:focus{border-color:#72728f}
 textarea::-webkit-scrollbar{width:13px;height:13px}
 textarea::-webkit-scrollbar-track,textarea::-webkit-scrollbar-corner{background:#e4e4e4}
 textarea::-webkit-scrollbar-thumb{background:#777;border:3px solid #e4e4e4;border-radius:6px}
-</style></head><body><textarea id="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="SFZ text" wrap="soft">Loading…</textarea>
+#paintClip{position:absolute;z-index:0;overflow:hidden;pointer-events:none;user-select:none}
+#paint{box-sizing:border-box;margin:0;padding:5px 6px;border:0;font:12px/1.4 Menlo,Consolas,monospace;tab-size:4;white-space:pre-wrap;overflow-wrap:break-word;transform-origin:0 0}
+.sfz-line{min-height:1.4em;white-space:inherit;overflow-wrap:inherit}
+.sfz-line.header-control{background:#e8eff5}
+.sfz-line.header-global{background:#eee7f8}
+.sfz-line.header-effect{background:#fbeadd}
+.sfz-line.header-group{background:#e5f2e5}
+.sfz-line.header-region{background:#e4f0fb}
+.sfz-line.header-master{background:#eeeaf3}
+.sfz-line.header-curve{background:#f6f0d8}
+.sfz-line.header-other{background:#edf0f2}
+/* Extra ink makes headers bold-looking without changing caret/wrap metrics. */
+.sfz-header{text-shadow:.35px 0 currentColor,-.2px 0 currentColor;color:#334754}
+.sfz-header.token-control{color:#364f67}.sfz-header.token-global{color:#614080}
+.sfz-header.token-effect{color:#814b26}.sfz-header.token-group{color:#2d633e}
+.sfz-header.token-region{color:#285c88}.sfz-comment{color:#626b75}
+.syntax #text{background:transparent!important;color:transparent!important;caret-color:var(--text-color)}
+.syntax #text::selection{background:rgba(88,140,220,.35);color:transparent}
+@media (forced-colors:active){.syntax #text{background:Canvas!important;color:CanvasText!important;caret-color:auto}#paintClip{display:none}}
+</style></head><body>
+<div id="pane"><div id="paintClip" aria-hidden="true" hidden><div id="paint"></div></div><textarea id="text" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="SFZ text" wrap="soft">Loading…</textarea></div>
 <script>
 (function(){
 'use strict';
-var field=document.getElementById('text'),config={readonly:1},transfer=null,busy=false;
+var field=document.getElementById('text'),pane=document.getElementById('pane'),clip=document.getElementById('paintClip'),paint=document.getElementById('paint');
+var config={readonly:1},transfer=null,busy=false,highlight=false,composing=false,paintQueued=false,lineCache=[];
+var knownHeaders={control:1,global:1,effect:1,group:1,region:1,master:1,curve:1};
 function send(){if(window.max&&window.max.outlet)window.max.outlet.apply(window.max,arguments);}
 function fail(e){send('error','x'+encodeURIComponent(String(e.message||e)));}
 function rgba(a){return 'rgba('+a.slice(0,3).map(function(v){return Math.round(v*255);}).concat(a[3]).join(',')+')';}
+function append(row,text,kind){
+ if(!text)return;
+ if(!kind){row.appendChild(document.createTextNode(text));return;}
+ var span=document.createElement('span');span.className=kind;span.textContent=text;row.appendChild(span);
+}
+function paintLine(text,inBlock){
+ var row=document.createElement('div'),i=0,end,m,firstHeader='',block=inBlock;
+ var tokens=/\/\/|\/\*|<([A-Za-z_][A-Za-z_0-9]*)>/g;
+ row.className='sfz-line';
+ while(i<text.length){
+  if(block){
+   end=text.indexOf('*/',i);
+   if(end<0){append(row,text.slice(i),'sfz-comment');i=text.length;break;}
+   append(row,text.slice(i,end+2),'sfz-comment');i=end+2;block=false;continue;
+  }
+  tokens.lastIndex=i;m=tokens.exec(text);
+  if(!m){append(row,text.slice(i));break;}
+  append(row,text.slice(i,m.index));i=m.index;
+  if(m[0]==='//'){append(row,text.slice(i),'sfz-comment');break;}
+  if(m[0]==='/*'){
+   end=text.indexOf('*/',i+2);
+   if(end<0){append(row,text.slice(i),'sfz-comment');block=true;break;}
+   append(row,text.slice(i,end+2),'sfz-comment');i=end+2;continue;
+  }
+  var type=m[1].toLowerCase(),kind=Object.prototype.hasOwnProperty.call(knownHeaders,type)?type:'other';
+  if(!firstHeader)firstHeader=kind;
+  append(row,m[0],'sfz-header token-'+kind);i+=m[0].length;
+ }
+ if(firstHeader)row.className+=' header-'+firstHeader;
+ return {text:text,inBlock:inBlock,outBlock:block,row:row};
+}
+function syncGeometry(){
+ if(!highlight||composing)return;
+ // clientWidth/Height exclude native borders and scrollbars, but include padding.
+ clip.style.left=field.clientLeft+'px';clip.style.top=field.clientTop+'px';
+ clip.style.width=field.clientWidth+'px';clip.style.height=field.clientHeight+'px';
+ paint.style.width=(config.wrap?field.clientWidth:Math.max(field.clientWidth,field.scrollWidth))+'px';
+ paint.style.transform='translate('+(-field.scrollLeft)+'px,'+(-field.scrollTop)+'px)';
+}
+function refreshHighlight(){
+ if(!highlight||composing)return;
+ var lines=field.value.split('\n'),block=false,i,entry;
+ for(i=0;i<lines.length;i++){
+  entry=lineCache[i];
+  if(!entry||entry.text!==lines[i]||entry.inBlock!==block)entry=paintLine(lines[i],block);
+  block=entry.outBlock;lineCache[i]=entry;
+  if(paint.childNodes[i]!==entry.row){
+   if(paint.childNodes[i])paint.replaceChild(entry.row,paint.childNodes[i]);else paint.appendChild(entry.row);
+  }
+ }
+ while(paint.childNodes.length>lines.length)paint.removeChild(paint.lastChild);
+ lineCache.length=lines.length;syncGeometry();
+}
+function schedulePaint(){
+ if(paintQueued)return;paintQueued=true;
+ var frame=window.requestAnimationFrame||function(f){return setTimeout(f,16);};
+ frame(function(){paintQueued=false;refreshHighlight();});
+}
+function showHighlight(){
+ var visible=highlight&&!composing;
+ pane.classList.toggle('syntax',visible);clip.hidden=!visible;
+ if(visible)refreshHighlight();
+}
+function configure(encoded){
+ config=JSON.parse(decodeURIComponent(String(encoded).substring(1)));
+ field.readOnly=busy||!!config.readonly;field.wrap=config.wrap?'soft':'off';
+ field.style.whiteSpace=config.wrap?'pre-wrap':'pre';
+ field.style.fontFamily='"'+config.font.replace(/[^\w -]/g,'')+'", Consolas, monospace';
+ field.style.fontSize=config.fontsize+'px';field.style.background=rgba(config.background);field.style.color=rgba(config.foreground);
+ field.setAttribute('aria-label',config.label);
+ pane.style.background=field.style.background;pane.style.setProperty('--text-color',field.style.color);
+ paint.style.whiteSpace=field.style.whiteSpace;paint.style.fontFamily=field.style.fontFamily;paint.style.fontSize=field.style.fontSize;paint.style.color=field.style.color;
+ // The builder uses this same HTML for its read-only lists and reports.
+ highlight=!config.readonly;showHighlight();
+}
 var handlers={
- ec_config:function(encoded){try{config=JSON.parse(decodeURIComponent(String(encoded).substring(1)));field.readOnly=!!config.readonly;field.wrap=config.wrap?'soft':'off';field.style.whiteSpace=config.wrap?'pre-wrap':'pre';field.style.fontFamily='"'+config.font.replace(/[^\w -]/g,'')+'", Consolas, monospace';field.style.fontSize=config.fontsize+'px';field.style.background=rgba(config.background);field.style.color=rgba(config.foreground);field.setAttribute('aria-label',config.label);}catch(e){fail(e);}},
+ ec_config:function(encoded){try{configure(encoded);}catch(e){fail(e);}},
  ec_begin:function(id,count){transfer={id:id,count:count,parts:[]};},
  ec_chunk:function(id,index,text){if(transfer&&transfer.id===id)transfer.parts[index]=String(text).substring(1);},
- ec_end:function(id){try{if(!transfer||transfer.id!==id)return;for(var i=0;i<transfer.count;i++)if(typeof transfer.parts[i]!=='string')throw Error('Incomplete text update.');var value=decodeURIComponent(transfer.parts.join(''));transfer=null;if(value!==field.value){var top=field.scrollTop,left=field.scrollLeft;field.value=value;field.scrollTop=top;field.scrollLeft=left;}}catch(e){transfer=null;fail(e);}},
+ ec_end:function(id){try{if(!transfer||transfer.id!==id)return;for(var i=0;i<transfer.count;i++)if(typeof transfer.parts[i]!=='string')throw Error('Incomplete text update.');var value=decodeURIComponent(transfer.parts.join(''));transfer=null;if(value!==field.value){var top=field.scrollTop,left=field.scrollLeft;field.value=value;field.scrollTop=top;field.scrollLeft=left;}refreshHighlight();}catch(e){transfer=null;fail(e);}},
+ // Only the textarea value is sent to Max. Highlight nodes never enter the SFZ.
  ec_get:function(id){try{busy=true;field.readOnly=true;var s=encodeURIComponent(field.value.replace(/\r\n?/g,'\n')),count=Math.ceil(s.length/512);send('begin',id,count);for(var i=0;i<count;i++)send('chunk',id,i,'x'+s.substr(i*512,512));send('end',id);}catch(e){fail(e);}},
  ec_release:function(){busy=false;field.readOnly=!!config.readonly;},
  select:function(){field.focus();field.select();}
 };
 field.addEventListener('keydown',function(e){
- if(e.key==='Tab'&&!field.readOnly&&!e.ctrlKey&&!e.metaKey&&!e.altKey){e.preventDefault();document.execCommand('insertText',false,'    ');}
+ if(e.key==='Tab'&&!field.readOnly&&!e.ctrlKey&&!e.metaKey&&!e.altKey){e.preventDefault();document.execCommand('insertText',false,'    ');schedulePaint();}
 });
+field.addEventListener('input',schedulePaint);
+field.addEventListener('scroll',syncGeometry);
+field.addEventListener('compositionstart',function(){composing=true;showHighlight();});
+field.addEventListener('compositionend',function(){composing=false;showHighlight();});
+window.addEventListener('resize',syncGeometry);
+if(typeof ResizeObserver==='function')new ResizeObserver(syncGeometry).observe(field);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(syncGeometry);
 // Expose handlers for isolated browser regression tests; production uses Max's documented bridge.
 window.ecPane={handlers:handlers,field:field};
 function connect(){if(window.max&&window.max.bindInlet){Object.keys(handlers).forEach(function(n){window.max.bindInlet(n,handlers[n]);});send('ready');}else setTimeout(connect,50);}

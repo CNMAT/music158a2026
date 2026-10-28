@@ -10,12 +10,39 @@ function send(){if(window.max&&window.max.outlet)window.max.outlet.apply(window.
 function status(s){$('status').textContent=s;}
 function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
 function noteName(n){return ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'][n%12]+(Math.floor(n/12)-1);}
-function color(g,a){return 'hsla('+((g*67+120)%360)+',38%,46%,'+a+')';}
+// Candycane colors repeat every octave and follow the sample's root pitch.
+var PITCH_NAMES=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+function pitchClass(r){
+ var root=r.pitch_keycenter;
+ return Number.isFinite(root)&&Number.isInteger(root)?((root%12)+12)%12:null;
+}
+function pitchColor(r,part){
+ var pc=pitchClass(r),hue=pc===null?0:pc*30,saturation=pc===null?0:62;
+ return 'hsla('+hue+','+saturation+'%,'+(part==='edge'?48:86)+'%,'+(part==='fill'?.82:1)+')';
+}
+function renderPitchLegend(){
+ var legend=$('pitchLegend');if(!legend)return;legend.textContent='';
+ var label=document.createElement('span');label.className='pitch-legend-label';label.textContent='Root pitch class';legend.appendChild(label);
+ PITCH_NAMES.forEach(function(name,pc){
+  var swatch=document.createElement('span');swatch.className='pitch-swatch';swatch.textContent=name;
+  swatch.style.backgroundColor=pitchColor({pitch_keycenter:pc},'solid');swatch.style.borderColor=pitchColor({pitch_keycenter:pc},'edge');
+  swatch.title='Pitch class '+pc+' ('+name+'): the same sample-region color in every octave.';legend.appendChild(swatch);
+ });
+}
 // Only labels use display IDs. Commands, selection and group values keep private IDs.
 function numberOf(r){return r.displayId===undefined?r.id:r.displayId;}
 function groupNumber(r){return r.groupDisplayId===undefined?r.group:r.groupDisplayId;}
 function current(){return state&&state.regions.find(function(r){return r.id===selected;});}
 function visible(){return state?state.regions.filter(function(r){return $('filter').value==='all'||String(r.group)===$('filter').value;}):[];}
+function renderAllocation(){
+ var el=$('allocation');if(!el||!state)return;
+ var view=$('filter').value,gid=view==='all'?(state.groups.length?state.groups[0].id:null):Number(view);
+ var group=state.groups.find(function(g){return g.id===gid;}),u=state.allocation&&state.allocation[gid];
+ var label=gid===null?'New group':gid===0?'No group':'Group '+(group?numberOf(group):gid);
+ if(state.blocked){el.textContent='Automatic placement is unavailable in text mode.';return;}
+ if(!u)u={free:128,next:0,shared:0,invalid:false};
+ el.textContent='Adding to '+label+' · '+(u.invalid?'Correct invalid key ranges':u.free+' free keys · '+(u.next===null?'Full':'Next: MIDI '+u.next))+(u.shared?' · '+u.shared+' shared keys':'');
+}
 function editing(){return !state||busy||!!state.blocked;}
 function controls(){
  var r=current(),locked=busy&&!activeSubmission;
@@ -71,7 +98,7 @@ function accept(next){
  var priorRevision=state&&state.revision,draft=!reset&&selected===next.selected?fieldDraft():null;state=next;selected=next.selected;
  if(drag&&priorRevision!==next.revision){drag=null;preview=null;status('Instrument changed during drag. Try the edit again.');}
  options('filter',next.groups.concat(next.regions.some(function(r){return !r.group;})?[{id:0}]:[]),['all','All groups']);
- renderSampleChoices();
+ renderSampleChoices();renderAllocation();
  $('instrument').textContent=next.filename+' : Before using this editor, make sure the samples are loaded from the home page.';
  $('warning').textContent=next.blocked?'TEXT MODE — '+next.blocked:(next.auditionIssue||next.warnings.slice(0,2).join(' ')||'');
  if(next.status)status(next.status);renderList();fillFields(draft);resize();
@@ -87,12 +114,12 @@ function renderList(){
  var rows=tab==='regions'?visible().map(function(r){return {r:r,label:r.sample,search:numberOf(r)+' '+groupNumber(r)+' '+r.sample};}):state.files.map(function(f,i){return {index:i,label:f,search:f};});
  rows=rows.filter(function(o){return o.search.toLowerCase().includes(q);});
  rows.slice(0,500).forEach(function(o){var el=document.createElement(o.r?'button':'div');el.className='item';var title=document.createElement('span');title.textContent=o.r?'#'+numberOf(o.r)+'  '+o.label.replace(/^.*[\\/]/,''):o.label.replace(/^.*[\\/]/,'');el.appendChild(title);var small=document.createElement('small');
- if(o.r){var r=o.r;el.dataset.region=r.id;el.title='Region '+numberOf(r)+' · '+(r.group?'Group '+groupNumber(r):'No group')+' · '+r.sample+' · keys '+r.lokey+'–'+r.hikey+' · velocity '+r.lovel+'–'+r.hivel+'. Click to edit.';el.style.borderLeftColor=color(r.group,1);el.classList.toggle('selected',r.id===selected);small.textContent=(r.group?'Group '+groupNumber(r):'No group')+' · keys '+r.lokey+'–'+r.hikey+' · vel '+r.lovel+'–'+r.hivel;el.onclick=function(){action('select',[r.id]);};}
+ if(o.r){var r=o.r;el.dataset.region=r.id;el.title='Region '+numberOf(r)+' · '+(r.group?'Group '+groupNumber(r):'No group')+' · '+r.sample+' · keys '+r.lokey+'–'+r.hikey+' · velocity '+r.lovel+'–'+r.hivel+(pitchClass(r)!==null?' · root '+r.pitch_keycenter+' ('+PITCH_NAMES[pitchClass(r)]+')':'')+'. Click to edit.';el.style.borderLeftColor=pitchColor(r,'edge');el.style.backgroundColor=pitchColor(r,'solid');el.classList.toggle('selected',r.id===selected);small.textContent=(r.group?'Group '+groupNumber(r):'No group')+' · keys '+r.lokey+'–'+r.hikey+' · vel '+r.lovel+'–'+r.hivel;el.onclick=function(){action('select',[r.id]);};}
  else{el.title=o.label;el.draggable=false;el.dataset.sample=o.index;small.textContent=o.label.replace(/[^\\/]+$/,'')||'Folder sample';}
  el.appendChild(small);list.appendChild(el);
  });
  if(!rows.length){var p=document.createElement('p');p.style.padding='10px';p.textContent=tab==='samples'?(state.scanning?'Scanning folder…':'No matches. Use Load folder in the builder.'):'No matching regions.';list.appendChild(p);}
- $('listhelp').textContent=(rows.length>500?'Showing 500 of '+rows.length+'. Filter to narrow the list. ':rows.length+' '+(tab==='regions'?'regions. ':'sounds. '))+(tab==='regions'?'Select here to reach overlapping layers. Colors identify groups.':'');
+ $('listhelp').textContent=(rows.length>500?'Showing 500 of '+rows.length+'. Filter to narrow the list. ':rows.length+' '+(tab==='regions'?'regions. ':'sounds. '))+(tab==='regions'?'Select here to reach overlapping layers. Colors show root pitch class.':'');
 }
 function resize(){
  var oldcw=cw,center=(viewport.scrollLeft+viewport.clientWidth/2)/oldcw;
@@ -108,11 +135,11 @@ function square(x,y){ctx.fillStyle='#fff';ctx.strokeStyle='#205b40';ctx.lineWidt
 function handles(b){return [{x:b.x,y:b.y+b.h/2,kind:'left'},{x:b.x+b.w,y:b.y+b.h/2,kind:'right'},{x:b.x+b.w/2,y:b.y,kind:'top'},{x:b.x+b.w/2,y:b.y+b.h,kind:'bottom'}];}
 function draw(){
  var w=cw*128;ctx.clearRect(0,0,w,height);ctx.fillStyle='#fafbf8';ctx.fillRect(0,0,w,height);ctx.font='10px Arial';ctx.textAlign='left';
- for(var k=0;k<128;k++){if([1,3,6,8,10].includes(k%12)){ctx.fillStyle='#8e908c';ctx.fillRect(k*cw,top,cw,gh); // Black-key bands: original RGB multiplied by 0.60.
+ for(var k=0;k<128;k++){if([1,3,6,8,10].includes(k%12)){ctx.fillStyle='rgba(142,144,140,0.5)';ctx.fillRect(k*cw,top,cw,gh); // Black-key bands: 50% strength against the grid background.
 }ctx.strokeStyle=k%12===0?'#b6c3b6':'#dde3d9';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(k*cw,top);ctx.lineTo(k*cw,top+gh);ctx.stroke();if(k%12===0){ctx.fillStyle='#52615b';ctx.fillText(noteName(k)+' / '+k,k*cw+3,15);}}
  [1,32,64,96,127].forEach(function(v){var y=top+(127-v)/127*gh;ctx.strokeStyle='#c9d3c5';ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();});
  regionHits=[];rootHits=[];var rows=visible().filter(function(r){return r.editable;});rows.sort(function(a,b){return (a.id===selected?1:0)-(b.id===selected?1:0);});
- rows.forEach(function(original){var r=preview&&preview.id===original.id?preview:original,b=rect(r),sel=r.id===selected;ctx.fillStyle=color(r.group,sel?.48:.23);ctx.fillRect(b.x+.5,b.y+.5,Math.max(1,b.w-1),Math.max(1,b.h-1));ctx.strokeStyle=sel?'#16472f':color(r.group,.95);ctx.lineWidth=sel?2:1;ctx.strokeRect(b.x+.5,b.y+.5,Math.max(1,b.w-1),Math.max(1,b.h-1));
+ rows.forEach(function(original){var r=preview&&preview.id===original.id?preview:original,b=rect(r),sel=r.id===selected;ctx.fillStyle=pitchColor(r,'fill');ctx.fillRect(b.x+.5,b.y+.5,Math.max(1,b.w-1),Math.max(1,b.h-1));ctx.strokeStyle=sel?'#24352f':pitchColor(r,'edge');ctx.lineWidth=sel?2.5:1;ctx.strokeRect(b.x+.5,b.y+.5,Math.max(1,b.w-1),Math.max(1,b.h-1));
  ctx.save();ctx.beginPath();ctx.rect(b.x+2,b.y+2,Math.max(0,b.w-4),Math.max(0,b.h-4));ctx.clip();ctx.fillStyle='#173d27';ctx.font=(sel?'bold ':'')+'11px Arial';var sx=Math.max(b.x+6,viewport.scrollLeft+6);ctx.fillText('#'+numberOf(r)+' '+r.sample.replace(/^.*[\\/]/,''),sx,b.y+17);ctx.restore();regionHits.push({r:r,b:b});
  if(sel){handles(b).forEach(function(h){square(h.x,h.y);});if(Number.isFinite(r.pitch_keycenter)){var x=(r.pitch_keycenter+.5)*cw;ctx.setLineDash([4,3]);ctx.strokeStyle='#aa5a12';ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,top+gh+12);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#b96916';ctx.beginPath();ctx.moveTo(x,top+gh+2);ctx.lineTo(x-7,top+gh+15);ctx.lineTo(x+7,top+gh+15);ctx.closePath();ctx.fill();rootHits.push({x:x,y:top+gh+9,id:r.id});}}
  });
@@ -169,7 +196,7 @@ $('undo').onclick=function(){action('command',['undo']);};
 $('panic').onclick=function(){cancel();send('panic');};
 $('addSample').onchange=function(){var index=Number(this.value),name=state&&state.files[index],group=$('filter').value;if(this.value===''||name===undefined)return;this.value='';$('search').value='';changeTab('regions');action('add_sample',[index,'x'+encodeURIComponent(name),group]);};
 $('refresh').onclick=function(){cancel();commitFields(function(){send('refresh');});};
-$('filter').onchange=function(){renderList();draw();};$('search').oninput=renderList;
+$('filter').onchange=function(){renderAllocation();renderList();draw();};$('search').oninput=renderList;
 function changeTab(next){tab=next;$('regionsTab').classList.toggle('current',tab==='regions');$('samplesTab').classList.toggle('current',tab==='samples');renderList();}
 $('regionsTab').onclick=function(){changeTab('regions');};$('samplesTab').onclick=function(){changeTab('samples');};
 $('zoom').oninput=function(){zoom=Number(this.value);resize();};
@@ -198,5 +225,5 @@ document.addEventListener('pointerover',function(e){
 });
 document.addEventListener('pointerout',function(e){if(helpTarget&&!helpTarget.contains(e.relatedTarget))hideHelp();});
 document.addEventListener('pointerdown',hideHelp);window.addEventListener('blur',hideHelp);
-resize();controls();bind();
+renderPitchLegend();resize();controls();bind();
 })();

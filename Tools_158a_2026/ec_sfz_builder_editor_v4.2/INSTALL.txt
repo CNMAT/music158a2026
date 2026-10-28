@@ -1,0 +1,53 @@
+EC SFZ Builder — automatic sample placement
+
+INSTALL
+Close the builder. Copy the six included code/patch files into your existing
+builder folder, replacing the same-named files. Open the included
+_ec_sfz_builder_editor.maxpat, based on your latest attached patch.
+Keep the other supporting files, tutorials and soundfiles in that folder.
+
+PLACEMENT
+Add selected, Add all, and the mapper Add sample menu now use the lowest free
+MIDI key in the destination group. An empty group starts at 0. If 0, 1 and 3
+are occupied, the next sample uses 2. Entire existing key ranges are reserved,
+regardless of velocity. New samples use one-shot playback and the home-page
+velocity range; their root matches their assigned key.
+
+On the home page, select a group or one of its regions in Opcodes for Scope.
+A global/control scope uses the first group, creating one if needed. Selecting
+an ungrouped region keeps additions ungrouped. Add new group creates and
+selects a fresh destination.
+
+In the mapper, View chooses the destination. All groups uses the first group.
+The new line below View shows the destination, free-key count and next note.
+
+Add all reserves space for the entire batch. If it will not fit, nothing is
+added. MIDI 127 never wraps back onto an occupied key. Duplicate finds the
+lowest available contiguous range in the same group, retaining its width,
+velocity range and other opcodes; its root moves with the range. It stops
+if no suitable range remains.
+
+Deletion, mapping edits, loading another instrument and Undo are reflected
+automatically in the next allocation. No separate allocation memory is saved.
+
+EXISTING MAPPINGS AND LAYERS
+Existing regions are not moved. Check SFZ inst reports keys shared by multiple
+regions within a group; the mapper also shows a shared-key count. Manual table,
+text and graphical edits can still create intentional layers or velocity splits.
+Different groups allocate independently and may share MIDI keys. View filters
+the display; it does not solo a group for playback.
+
+All new sample additions use automatic single-key placement. The old Mapping,
+Roots, Start and Step controls are hidden from presentation. Edit key ranges,
+roots and loop_mode afterward in the Region Table or Graphic Mapper.
+
+VALIDATION
+26 automated allocation/controller checks passed, including mixed additions,
+inherited ranges, note names, duplicates, full groups, atomic batch rejection,
+deletion and Undo. Patch colors, wiring and unrelated subpatchers are preserved.
+Native Max rendering and sfizz audio were not available for testing here.
+
+QUICK MAX TEST
+Load a folder and Add all. Add one more sample from the mapper: it should take
+the next free key. Delete MIDI 1, then add again: it should reuse 1. Create a
+new group and add a sample there: it should start at MIDI 0.

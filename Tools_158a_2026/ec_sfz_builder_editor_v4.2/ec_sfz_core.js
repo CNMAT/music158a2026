@@ -184,6 +184,62 @@ var SfzCore = (function () {
         for(k in values)if(values.hasOwnProperty(k)){v=validValue(k,values[k]);if(v!=='')parts.push(k+'='+v);}
         return create(d,'region','\n'+parts.join('\n')+'\n\n',at);
     }
+    // Rebuild from the applied model: deletes, edits, Undo and imports cannot
+    // leave a stale allocation map. Velocity layers still reserve the whole key.
+    function keyUsageAll(d) {
+        var out={},global=null,group=null,gid=0,i,j,n,o,lo,hi,u;
+        function bucket(id) {
+            if(!out[id])out[id]={group:id,used:[],free:[],regions:0,shared:0,invalid:[]};
+            return out[id];
+        }
+        bucket(0);
+        for(i=0;i<d.nodes.length;i++) {
+            n=d.nodes[i];
+            if(n.type==='global'){global=n;group=null;gid=0;}
+            if(n.type==='group'){group=n;gid=n.id;bucket(gid);}
+            if(n.type!=='region')continue;
+            u=bucket(gid);u.regions++;o={};
+            if(global)applied(global,o);if(group)applied(group,o);applied(n,o);
+            lo=midi(o.lokey===undefined?'0':o.lokey);hi=midi(o.hikey===undefined?'127':o.hikey);
+            if(!isFinite(lo)||!isFinite(hi)||Math.floor(lo)!==lo||Math.floor(hi)!==hi||lo<0||hi>127||lo>hi){u.invalid.push(n.id);continue;}
+            for(j=lo;j<=hi;j++)u.used[j]=(u.used[j]||0)+1;
+        }
+        for(i in out)if(out.hasOwnProperty(i)) {
+            u=out[i];
+            for(j=0;j<128;j++){if(!u.used[j])u.free.push(j);else if(u.used[j]>1)u.shared++;}
+        }
+        return out;
+    }
+    function keyUsage(d,groupId) {
+        if(d.blocked.length)throw new Error(d.blocked.join(' '));
+        var u=keyUsageAll(d)[Number(groupId)||0];
+        if(!u)throw new Error('Choose an existing group.');
+        if(u.invalid.length)throw new Error('Correct invalid key ranges in the destination group before adding samples.');
+        return u;
+    }
+    function freeKeys(d,groupId,count) {
+        var free=keyUsage(d,groupId).free;
+        if(count<1||Math.floor(count)!==count)throw new Error('Sample count must be a positive integer.');
+        if(count>free.length)throw new Error('Destination group has '+free.length+' free MIDI keys; '+count+' needed. No samples were added. Free keys or choose another group.');
+        return free.slice(0,count);
+    }
+    function duplicateRegion(d,id) {
+        var original=node(d,id);if(original.type!=='region')throw new Error('Select a region.');
+        var gid=relations(d)[id].group||0,u=keyUsage(d,gid),o=effective(d,id);
+        var lo=midi(o.lokey===undefined?'0':o.lokey),hi=midi(o.hikey===undefined?'127':o.hikey);
+        var root=midi(o.pitch_keycenter===undefined?'60':o.pitch_keycenter),width=hi-lo+1,k,j,found=-1;
+        if(!isFinite(root)||root<0||root>127)throw new Error('Correct the root key before duplicating this region.');
+        for(k=0;k+width<=128;k++) {
+            if(root+k-lo<0||root+k-lo>127)continue;
+            for(j=0;j<width&&!u.used[k+j];j++){}
+            if(j===width){found=k;break;}
+        }
+        if(found<0)throw new Error('No free range of '+width+' keys fits this duplicate in its group. Free a range first.');
+        // Prepare all values before insertion, preserving non-mapping opcodes.
+        var copy=clone(original);mapset(copy,'lokey',String(found));mapset(copy,'hikey',String(found+width-1));
+        mapset(copy,'pitch_keycenter',String(root+found-lo));
+        return create(d,'region',copy.body,d.nodes.indexOf(original)+1);
+    }
     function check(d) {
         var errors=[],warnings=[],i,j,ts,n,o,ids=regions(d),numbers=displayIds(d);
         for(i=0;i<d.nodes.length;i++) {
@@ -204,6 +260,13 @@ var SfzCore = (function () {
             if(o.resonance!==undefined&&o.cutoff===undefined)warnings.push(label+'resonance is set without cutoff; this can silence the filter in sfizz. Set cutoff (for example 20000 Hz).');
         }
         if(!ids.length)warnings.push('No regions yet.');
+        if(!d.blocked.length){
+            var usage=keyUsageAll(d),gid,u;
+            for(gid in usage)if(usage.hasOwnProperty(gid)){
+                u=usage[gid];
+                if(u.shared)warnings.push((Number(gid)?'Group '+numbers[gid]:'No group')+': '+u.shared+' MIDI keys are shared by multiple regions. This may be an intentional layer; automatic additions skip these keys.');
+            }
+        }
         return {errors:errors,warnings:warnings};
     }
     function norm(p) {
@@ -249,6 +312,6 @@ var SfzCore = (function () {
             map[sorted[i]]={lo:i?Math.floor((sorted[i-1]+sorted[i])/2)+1:0,hi:i<sorted.length-1?Math.floor((sorted[i]+sorted[i+1])/2):127};
         }return map;
     }
-    return {trim:trim,clone:clone,mask:mask,tokens:tokens,parse:parse,source:source,pretty:pretty,labelBlocks:labelBlocks,displayIds:displayIds,displayId:displayId,node:node,own:own,local:local,relations:relations,effective:effective,regions:regions,midi:midi,set:set,mapset:mapset,create:create,insertRegion:insertRegion,check:check,validValue:validValue,norm:norm,absolute:absolute,resolve:resolve,relative:relative,samplePath:samplePath,rebase:rebase,filenameRoot:filenameRoot,splitRanges:splitRanges};
+    return {trim:trim,clone:clone,mask:mask,tokens:tokens,parse:parse,source:source,pretty:pretty,labelBlocks:labelBlocks,displayIds:displayIds,displayId:displayId,node:node,own:own,local:local,relations:relations,effective:effective,regions:regions,midi:midi,set:set,mapset:mapset,create:create,insertRegion:insertRegion,keyUsageAll:keyUsageAll,keyUsage:keyUsage,freeKeys:freeKeys,duplicateRegion:duplicateRegion,check:check,validValue:validValue,norm:norm,absolute:absolute,resolve:resolve,relative:relative,samplePath:samplePath,rebase:rebase,filenameRoot:filenameRoot,splitRanges:splitRanges};
 }());
 if(typeof module!=='undefined' && module.exports)module.exports=SfzCore;
