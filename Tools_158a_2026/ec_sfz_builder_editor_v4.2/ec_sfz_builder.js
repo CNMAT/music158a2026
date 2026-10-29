@@ -4,11 +4,14 @@
    Tutorial folder: Demo/single-sample-demo/; shared sample: human-gliss.wav.
    go demo2 / go tutorial 1 opens single-sample-demo.sfz.
    go tutorial N opens numbered lessons; go tutorial_next / tutorial_prev
-   follows the files present. go tutorial_scan refreshes the lesson menu. */
+   follows the files present. go tutorial_scan refreshes the lesson menu.
+   go duplicate_group copies the scope's entire group; go import_newgroup
+   adds the current folder catalog to a new group without rescanning. */
 autowatch=1;inlets=5;outlets=1;
 include('ec_sfz_core.js');include('ec_sfz_catalog.js');include('ec_sfz_panes.js');include('ec_sfz_mapper.js');include('ec_sfz_audition.js');
 var C=SfzCore,doc=null,baseDir='',catalogDir='',fileName='My_Instrument.sfz';
 var scopeId=0,selectedRegion=0,scopeIds=[],regionIds=[],regionBaseline={},opcodeRows=[],opcodeBaseline={};
+var selectedOpcode='',selectedOpcodeScope=0,selectedOpcodeDoc=null;
 var files=[],selectedSample=0,scanBusy=false,scanQueue=[],scanFolder=null,scanRel='',scanDepth=0,scanTask=null,scanSeen={};
 var recursive=1,importMode=1,rootMode=0,startRoot=0,rootStep=1,lowVelocity=1,highVelocity=127;
 var selectedRef=0,referenceItems=[],categoryIndex=0,initialized=false,pending=null,collecting='',capture={},rendering=false;
@@ -16,6 +19,7 @@ var lastEditor='',lastSaved='',undoStack=[],loadedPath='',testPitch=60,testVeloc
 var MAX_TEXT_BYTES=2*1024*1024;
 var saveDialogOpen=false,saveDialogLoad=false;
 var tutorialLessons=[],tutorialStep=0;
+var tableRedrawTask=null,tableRedrawNames={},tableRepainting=false;
 var COLS=['ID','Group','sample','pitch_keycenter','lokey','hikey','lovel','hivel','tune','volume','pan','loop_mode'];
 var WIDTHS=[38,48,230,116,52,52,50,50,48,53,45,112];
 function ui(n){return this.patcher.getnamed(n);}
@@ -49,6 +53,8 @@ function anything(){
 function go(action){
     if(!initialized||pending)return;
     pending={action:String(action),args:arr(arguments).slice(1)};
+    // Capture the row identity before the asynchronous Program-pane reply.
+    if(action==='copy_opcode_regions'||action==='delete_opcode')pending.args=[selectedOpcodeDoc===doc?selectedOpcodeScope:0,selectedOpcode];
     msg('filename_input','bang');requestProgram();
 }
 function tutorialDir(){return C.norm(patchDir()+'/Demo/single-sample-demo');}
@@ -145,13 +151,46 @@ function beginSaveDialog(load){
 }
 function scopeindex(n){if(!rendering)go('scope',Number(n));}
 function tableInput(a){
-    if(rendering||a.length<2)return;
+    if(rendering||tableRepainting||a.length<2)return;
     var col=Number(a[0]),row=Number(a[1]),v=a.slice(2).join(' ');
     if(collecting){capture[col+','+row]=v;return;}
+    if(inlet===2||inlet===3)queueTableRedraw(inlet===2?'regions':'opcodes');
     if(inlet===2 && row>0 && regionIds[row-1]){
         selectedRegion=regionIds[row-1];settext('selected_label','Selected region '+C.displayId(doc,selectedRegion)+' — use Edit selected for its opcodes.');mapperSync();
     }
+    if(inlet===3)selectOpcodeCell(col,row);
 }
+function clearOpcodeSelection(){selectedOpcode='';selectedOpcodeScope=0;selectedOpcodeDoc=null;}
+function renderOpcodeSelection(){settext('selected_opcode_label',selectedOpcode?'Selected opcode: '+selectedOpcode:'Select an opcode row to copy/delete.');}
+function selectOpcodeCell(col,row){
+    if(rendering||collecting||tableRepainting)return;
+    col=Number(col);row=Number(row);
+    if(doc&&scopeId&&col>=0&&col<4&&Math.floor(col)===col&&row>0&&Math.floor(row)===row&&opcodeRows[row-1]){
+        selectedOpcode=opcodeRows[row-1];selectedOpcodeScope=scopeId;selectedOpcodeDoc=doc;
+    }else clearOpcodeSelection();
+    renderOpcodeSelection();
+}
+function opcode_selection(){
+    // jit.cellblock's third outlet emits "sync select column row".
+    var a=arr(arguments);if(a[0]==='sync')a.shift();
+    if(a[0]==='select')selectOpcodeCell(a[1],a[2]);
+    queueTableRedraw('opcodes');
+}
+function table_view(name){queueTableRedraw(String(name));}
+function queueTableRedraw(name){
+    if(rendering||collecting||tableRepainting||(name!=='regions'&&name!=='opcodes'))return;
+    tableRedrawNames[name]=true;
+    if(!tableRedrawTask)tableRedrawTask=new Task(redrawTableViews,this);
+    // Leave the native click/Return/scroll callback before repainting.
+    tableRedrawTask.cancel();tableRedrawTask.schedule(30);
+}
+function redrawTableViews(){
+    if(rendering||collecting){if(tableRedrawTask)tableRedrawTask.schedule(30);return;}
+    var names=tableRedrawNames;tableRedrawNames={};tableRepainting=true;
+    try{for(var name in names)if(names.hasOwnProperty(name))msg(name,'refresh');}
+    finally{tableRepainting=false;}
+}
+function cancelTableRedraw(){if(tableRedrawTask)tableRedrawTask.cancel();tableRedrawTask=null;tableRedrawNames={};}
 function tableDump(name){collecting=name;capture={};msg(name,'dump');collecting='';return capture;}
 function diffTables(){
     var reg=tableDump('regions'),ops=tableDump('opcodes'),changes=[],i,j,k,v,b,enabled;
@@ -169,18 +208,63 @@ function diffTables(){
     return changes;
 }
 function snapshot(){undoStack.push({doc:C.clone(doc),base:baseDir,catalog:catalogDir,files:files.slice(),name:fileName,scope:scopeId,selected:selectedRegion,lesson:tutorialStep});if(undoStack.length>40)undoStack.shift();}
-function applyChanges(changes){
-    if(!changes.length)return false;
-    if(doc.blocked.length)throw new Error(doc.blocked.join(' '));
-    var next=C.clone(doc),seen={},i,ch,key;
+function applyTableChangesTo(next,changes){
+    var seen={},i,ch,key;
     for(i=0;i<changes.length;i++){
         ch=changes[i];key=ch.id+':'+ch.key;
         if(seen.hasOwnProperty(key)&&seen[key]!==ch.value)throw new Error('Conflicting table edits for '+ch.key+'. Revert tables and edit one view at a time.');
         seen[key]=ch.value;
         if(ch.map)C.mapset(C.node(next,ch.id),ch.key,ch.value);else C.set(C.node(next,ch.id),ch.key,ch.value);
     }
+}
+function applyChanges(changes){
+    if(!changes.length)return false;
+    if(doc.blocked.length)throw new Error(doc.blocked.join(' '));
+    var next=C.clone(doc);applyTableChangesTo(next,changes);
     var result=C.check(next);if(result.errors.length)throw new Error(result.errors.join('\n'));
-    snapshot();doc=next;return true;
+    snapshot();if(selectedOpcodeDoc===doc)selectedOpcodeDoc=next;doc=next;return true;
+}
+function copyRegionOpcode(region,key,value){
+    var ref=referenceFor(key);
+    if(/^(lokey|hikey|pitch_keycenter)$/.test(key))C.mapset(region,key,value);
+    else{
+        // key is shorthand for all three mapping fields. Later local fields
+        // must not silently defeat the requested key assignment.
+        if(key==='key'){
+            var own=C.own(region);
+            if(own.key===value&&!own.hasOwnProperty('lokey')&&!own.hasOwnProperty('hikey')&&!own.hasOwnProperty('pitch_keycenter'))return;
+            C.set(region,'key','');C.set(region,'lokey','');C.set(region,'hikey','');C.set(region,'pitch_keycenter','');
+        }
+        C.set(region,key,value,ref?ref.comment:'');
+    }
+}
+function opcodeRowAction(action,changes,args){
+    assertModel();
+    var id=args.length>=2?Number(args[0]):selectedOpcodeScope;
+    var key=args.length>=2?String(args[1]):selectedOpcode;
+    if((args.length<2&&selectedOpcodeDoc!==doc)||!id||id!==scopeId||!key||!C.own(C.node(doc,id)).hasOwnProperty(key))
+        throw new Error('Click an opcode row in section 3 first.');
+    var source=C.node(doc,id),copying=action==='copy_opcode_regions',next=C.clone(doc),i,n,count=0,value;
+    if(copying&&source.type!=='group')throw new Error('For Copy opcode to regions, choose a <group> scope and select its opcode row.');
+    // Deleting a row also discards any draft for that row, even an invalid
+    // value; other drafts join this single undoable operation.
+    var drafts=[];
+    for(i=0;i<changes.length;i++)if(copying||changes[i].id!==id||changes[i].key!==key)drafts.push(changes[i]);
+    applyTableChangesTo(next,drafts);
+    if(copying){
+        var own=C.own(C.node(next,id));
+        if(!own.hasOwnProperty(key)||C.trim(own[key])==='')throw new Error('The selected opcode is disabled or empty. Set Use to 1 and enter its Value before copying.');
+        value=own[key];var rel=C.relations(next),regs=C.regions(next);
+        for(i=0;i<regs.length;i++)if(rel[regs[i].id].group===id){copyRegionOpcode(regs[i],key,value);count++;}
+        if(!count)throw new Error('This group has no regions to receive the opcode.');
+        var valid=C.check(next);if(valid.errors.length)throw new Error(valid.errors.join('\n'));
+    }else C.set(C.node(next,id),key,'');
+    if(C.source(next)===C.source(doc)){status('All regions in this group already contain '+key+'='+value+'.');return;}
+    snapshot();doc=next;
+    if(copying){selectedOpcode=key;selectedOpcodeScope=id;selectedOpcodeDoc=doc;}else clearOpcodeSelection();
+    renderAll();checkProject();
+    status(copying?'Copied '+key+'='+value+' to all '+count+' regions in group '+C.displayId(doc,id)+'. Local values replaced; Undo restores them.':
+        'Deleted '+key+' from '+scopeLabel(id)+'. Inherited/default settings now apply; Undo restores it.');
 }
 function dispatch(action,args,text){
     if(action==='mapper'){mapperDispatch(args,text);return;}
@@ -201,6 +285,11 @@ function dispatch(action,args,text){
             renderAll();checkProject();status(doc.blocked.length?'Text applied in TEXT MODE: '+doc.blocked.join(' '):'Text applied. Tables now reflect the program.');return;
         }
         if(textChanged)throw new Error('Program text has unapplied edits. Click Apply text or Revert text before using tables or saving.');
+        if(action==='copy_opcode_regions'||action==='delete_opcode'){opcodeRowAction(action,changes,args);return;}
+        if(action==='import_selected'){
+            var selectedFiles=validateSampleSelection(args[0],JSON.parse(String(args[1])));
+            importSamples(selectedFiles,false,Number(args[2]),changes);return;
+        }
         changed=applyChanges(changes);
         if(changed)renderAll();
         if(action==='demo2'||action==='tutorial'||action==='tutorial_next'||action==='tutorial_prev'||action==='tutorial_previous'||action==='tutorial_reload'||action==='tutorial_scan'){
@@ -244,6 +333,12 @@ function dispatch(action,args,text){
         if(action==='newgroup'){
             assertModel();snapshot();scopeId=C.create(doc,'group',' // New group\n').id;renderAll();status('New group selected. Imports will go into this group.');return;
         }
+        if(action==='duplicate_group'){
+            duplicateScopeGroup();return;
+        }
+        if(action==='import_newgroup'){
+            importSamples(files.slice(),true);return;
+        }
         if(action==='addglobal'||action==='addcontrol'){
             assertModel();var type=action==='addglobal'?'global':'control',found=null;
             for(var f=0;f<doc.nodes.length;f++)if(doc.nodes[f].type===type){found=doc.nodes[f];break;}
@@ -277,6 +372,7 @@ function dispatch(action,args,text){
         if(action==='load_saved'){if(!baseDir)throw new Error('Choose an SFZ folder or Open SFZ first.');var saved=baseDir+'/'+safeName(fileName);if(!exists(saved))throw new Error('Save the SFZ first.');loadInstrument(saved);return;}
         throw new Error('Unknown action: '+action);
     }catch(e){status('Action stopped: '+e.message);report(String(e.message));if(action==='demo2'||action.indexOf('tutorial')===0)tutorialMsg('tutorial_status','set',String(e.message));}
+    finally{if(action==='import_selected')msg('sample_text','ec_samples_done');}
 }
 function assertModel(){if(doc.blocked.length)throw new Error(doc.blocked.join(' '));}
 function scopeLabel(id,numbers){
@@ -298,6 +394,7 @@ function opcodeWidths(){
     return [42,150,170,Math.max(60,Math.floor(width)-20-362)];
 }
 function renderTables(){
+    if(selectedOpcodeDoc!==doc||selectedOpcodeScope!==scopeId)clearOpcodeSelection();
     rendering=true;msg('regions','hscroll',1);msg('regions','vscroll',1);msg('opcodes','hscroll',1);msg('opcodes','vscroll',1);var regs=C.regions(doc),rels=C.relations(doc),numbers=C.displayIds(doc),i,j,n,o,key,value;
     regionIds=[];regionBaseline={};msg('regions','clear','all');msg('regions','rows',Math.max(2,regs.length+1));msg('regions','cols',COLS.length);
     msg('regions','readonly',doc.blocked.length?1:0);
@@ -316,10 +413,16 @@ function renderTables(){
         for(i=0;i<opcodeRows.length;i++){
             key=opcodeRows[i];var ref=referenceFor(key);cell('opcodes',0,i+1,1);cell('opcodes',1,i+1,key);cell('opcodes',2,i+1,o[key]);cell('opcodes',3,i+1,ref?ref.comment:'Custom opcode: retained exactly; consult sfizz documentation.');opcodeBaseline['2,'+(i+1)]=o[key];
         }
-        var eff=C.effective(doc,scopeId);settext('scope_details',scopeLabel(scopeId)+' | Blank cells inherit. Use=0 removes a local opcode.');
+        var eff=C.effective(doc,scopeId);settext('scope_details',scopeLabel(scopeId)+' | Blank cells inherit. Click an opcode row for Copy/Delete.');
     }else{msg('opcodes','rows',2);settext('scope_details','Create a group or import a sample.');}
     settext('selected_label',selectedRegion?'Selected region '+numbers[selectedRegion]:'Select a region row, then Edit selected.');
-    msg('regions','refresh');msg('opcodes','refresh');rendering=false;mapperSync();
+    var selectedRow=opcodeRows.indexOf(selectedOpcode);
+    // Preserve the logical row selection without moving the native inline
+    // editor onto the read-only Opcode label during a table rebuild.
+    if(selectedRow<0)clearOpcodeSelection();
+    renderOpcodeSelection();
+    msg('regions','refresh');msg('opcodes','refresh');rendering=false;
+    queueTableRedraw('regions');queueTableRedraw('opcodes');mapperSync();
 }
 function renderAll(){C.labelBlocks(doc,false);auditionSync();renderPaths();renderScopeMenu();renderTables();lastEditor=C.source(doc);settext('editor',lastEditor);settext('model_count',C.regions(doc).length+' regions  |  '+(doc.blocked.length?'TEXT MODE':'TABLE MODE'));}
 function category(n){
@@ -348,7 +451,7 @@ function clearSampleMemory(skipReset){
 }
 
 function startScan(){
-    cancelscan();files=[];selectedSample=0;renderSampleMenu();settext('sample_text',catalogDir?'Scanning…':'');
+    cancelscan();files=[];selectedSample=0;renderSampleMenu();paneSampleList([],[],catalogDir,catalogDir?'Scanning…':'Load a sound folder to choose samples.');
     if(!catalogDir){mapperSync();return;}scanQueue=[{rel:'',depth:0}];scanSeen={};scanBusy=true;scanTask=new Task(scanStep,this);scanTask.schedule(1);mapperSync();
 }
 function scanStep(){
@@ -370,14 +473,39 @@ function finishScan(){
     scanBusy=false;scanTask=null;files.sort(function(a,b){var aa=a.toLowerCase(),bb=b.toLowerCase();return aa<bb?-1:aa>bb?1:a<b?-1:a>b?1:0;});
     renderSampleMenu();showSampleLines();settext('sample_count',files.length+' sounds — paths relative to the SFZ folder');status(files.length?'Folder ready. Add selected and Add all use the lowest free MIDI keys in the destination group.':'No supported sounds found in this folder.');mapperSync();
 }
-function showSampleLines(){var lines=[];for(var i=0;i<files.length;i++){var p=C.resolve(catalogDir,files[i]);try{p=C.relative(baseDir,p);}catch(e){}lines.push('sample='+p);}settext('sample_text',lines.join('\n'));}
+function showSampleLines(){var lines=[];for(var i=0;i<files.length;i++){var p=C.resolve(catalogDir,files[i]);try{p=C.relative(baseDir,p);}catch(e){}lines.push('sample='+p);}paneSampleList(files,lines,catalogDir,'');}
+function validateSampleSelection(version,indices){
+    if(scanBusy)throw new Error('Wait for the folder scan.');
+    if(Number(version)!==samplePaneVersion||samplePaneSignature!==JSON.stringify([catalogDir,files]))throw new Error('The sound folder changed. Select samples from the current list.');
+    if(Object.prototype.toString.call(indices)!=='[object Array]'||!indices.length||indices.length>10000)throw new Error('Select one or more samples from the soundfile list.');
+    var seen={},ordered=[],i,index;
+    for(i=0;i<indices.length;i++){
+        index=indices[i];
+        if(typeof index!=='number'||!isFinite(index)||Math.floor(index)!==index||index<0||index>=files.length)throw new Error('Invalid sample selection. Select samples again.');
+        if(!seen.hasOwnProperty(index)){seen[index]=1;ordered.push(index);}
+    }
+    ordered.sort(function(a,b){return a-b;});
+    return ordered.map(function(n){return files[n];});
+}
+function addSelectedSamples(version,indices){
+    try{
+        if(!initialized)throw new Error('The builder is still loading.');
+        if(pending)throw new Error('Wait for the current action, then add the selected samples.');
+        validateSampleSelection(version,indices);
+        go('import_selected',Number(version),JSON.stringify(indices),scopeId);
+        if(!pending)msg('sample_text','ec_samples_done');
+    }catch(e){msg('sample_text','ec_samples_done');status('Action stopped: '+e.message);}
+}
 // Both home-page add buttons use the same allocation policy as the mapper.
-function importSamples(list){
+function importSamples(list,newGroup,destinationScope,draftChanges){
     assertModel();if(scanBusy)throw new Error('Wait for the folder scan.');if(!list.length||!list[0])throw new Error('Choose a sound folder with samples.');
     if(!baseDir||!catalogDir)throw new Error('Load the sound folder on the home page first.');
     if(lowVelocity>highVelocity)throw new Error('Low velocity exceeds high velocity.');
-    var next=C.clone(doc),rel=C.relations(next),target=scopeId?C.node(next,scopeId):null,groupId=0,anchor=null,i;
-    if(target&&target.type==='group')groupId=target.id;
+    var next=C.clone(doc),destination=typeof destinationScope==='number'?destinationScope:scopeId;
+    if(draftChanges&&draftChanges.length){applyTableChangesTo(next,draftChanges);var checked=C.check(next);if(checked.errors.length)throw new Error(checked.errors.join('\n'));}
+    var rel=C.relations(next),target=destination?C.node(next,destination):null,groupId=0,anchor=null,i;
+    if(newGroup)groupId=C.create(next,'group',' // Imported samples\n').id;
+    else if(target&&target.type==='group')groupId=target.id;
     else if(target&&target.type==='region'){
         groupId=rel[target.id].group||0;
         if(!groupId){i=next.nodes.indexOf(target);anchor=target;while(i+1<next.nodes.length&&next.nodes[i+1].type==='region')anchor=next.nodes[++i];}
@@ -394,11 +522,23 @@ function importSamples(list){
             key:String(keys[i]),lovel:String(lowVelocity),hivel:String(highVelocity),loop_mode:'one_shot'});
         if(anchor){next.nodes.pop();next.nodes.splice(next.nodes.indexOf(anchor)+1,0,last);anchor=last;}
     }
-    snapshot();doc=next;scopeId=last.id;selectedRegion=last.id;
+    snapshot();doc=next;scopeId=newGroup?groupId:last.id;selectedRegion=last.id;
     testPitch=keys[0];setvalue('pitch_num',testPitch);
     renderAll();checkProject();
     status('Added '+list.length+' '+(list.length===1?'sample':'samples')+' to '+(groupId?'group '+C.displayId(doc,groupId):'No group')+
         ' at the lowest free MIDI '+(list.length===1?'key '+keys[0]:'keys (first '+keys[0]+', last '+keys[keys.length-1]+')')+'. One sample per key.');
+}
+function duplicateScopeGroup(){
+    assertModel();
+    var target=scopeId?C.node(doc,scopeId):null,groupId=0;
+    if(target&&target.type==='group')groupId=target.id;
+    else if(target&&target.type==='region')groupId=C.relations(doc)[target.id].group||0;
+    if(!groupId)throw new Error('Choose a <group> in Opcodes for Scope, or use Edit selected on a region in that group.');
+    var sourceNumber=C.displayId(doc,groupId),next=C.clone(doc),copy=C.duplicateGroup(next,groupId);
+    var result=C.check(next);if(result.errors.length)throw new Error(result.errors.join('\n'));
+    snapshot();doc=next;scopeId=copy.group.id;selectedRegion=copy.regions.length?copy.regions[0].id:0;
+    renderAll();checkProject();
+    status('Copied group '+sourceNumber+' to new group '+C.displayId(doc,copy.group.id)+' ('+copy.regions.length+' regions). Mappings and settings retained; both groups can play together.');
 }
 function wavRoot(path){
     if(!/\.wav(e)?$/i.test(path))throw new Error('WAV root mode requires a WAV file: '+basename(path));
@@ -466,8 +606,8 @@ function initialize(){
     status('Blank instrument. Load a sound folder, Add samples, enable Audio, then play.');
     report('Add all samples maps MIDI 0 upward. Audition updates automatically.\nCompile table edits; Apply text for handwritten edits. Save keeps your SFZ.');
 }
-function close(){if(midiListTask)midiListTask.cancel();panic();cancelscan();if(paneTimer)paneTimer.cancel();}
-function notifydeleted(){if(midiListTask)midiListTask.cancel();if(mapperWatchdog)mapperWatchdog.cancel();if(paneTimer)paneTimer.cancel();for(var i=0;i<noteJobs.length;i++)noteJobs[i].cancel();cancelscan();}
+function close(){cancelTableRedraw();if(midiListTask)midiListTask.cancel();panic();cancelscan();if(paneTimer)paneTimer.cancel();}
+function notifydeleted(){cancelTableRedraw();if(midiListTask)midiListTask.cancel();if(mapperWatchdog)mapperWatchdog.cancel();if(paneTimer)paneTimer.cancel();for(var i=0;i<noteJobs.length;i++)noteJobs[i].cancel();cancelscan();}
 
 // UTF-8 file transport: literal bytes, independent of Max message punctuation.
 function encodeUTF8(s) {

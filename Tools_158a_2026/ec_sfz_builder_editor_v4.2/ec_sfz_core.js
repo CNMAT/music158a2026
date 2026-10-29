@@ -240,6 +240,26 @@ var SfzCore = (function () {
         mapset(copy,'pitch_keycenter',String(root+found-lo));
         return create(d,'region',copy.body,d.nodes.indexOf(original)+1);
     }
+    // A group copy is a new layer: preserve mappings and every local opcode.
+    // Insert beside the source so its global/control inheritance stays intact.
+    function duplicateGroup(d,id) {
+        if(d.blocked.length)throw new Error(d.blocked.join(' '));
+        var original=node(d,id);
+        if(original.type!=='group')throw new Error('Choose a group in Opcodes for Scope, or Edit selected on one of its regions.');
+        var start=d.nodes.indexOf(original),end=start+1,i,copy,groupCopy,regionCopies=[];
+        while(end<d.nodes.length&&d.nodes[end].type!=='group'&&d.nodes[end].type!=='global'){
+            if(d.nodes[end].type!=='region')throw new Error('This group crosses a <'+d.nodes[end].type+'> block. Duplicate it in SFZ Program to preserve its path context.');
+            end++;
+        }
+        // Capture before inserting, including custom opcodes and user comments.
+        var originals=d.nodes.slice(start,end);
+        for(i=0;i<originals.length;i++){
+            copy=create(d,originals[i].type,originals[i].body,end+i);
+            if(i===0)groupCopy=copy;else regionCopies.push(copy);
+        }
+        labelBlocks(d,false);
+        return {group:groupCopy,regions:regionCopies};
+    }
     function check(d) {
         var errors=[],warnings=[],i,j,ts,n,o,ids=regions(d),numbers=displayIds(d);
         for(i=0;i<d.nodes.length;i++) {
@@ -312,6 +332,6 @@ var SfzCore = (function () {
             map[sorted[i]]={lo:i?Math.floor((sorted[i-1]+sorted[i])/2)+1:0,hi:i<sorted.length-1?Math.floor((sorted[i]+sorted[i+1])/2):127};
         }return map;
     }
-    return {trim:trim,clone:clone,mask:mask,tokens:tokens,parse:parse,source:source,pretty:pretty,labelBlocks:labelBlocks,displayIds:displayIds,displayId:displayId,node:node,own:own,local:local,relations:relations,effective:effective,regions:regions,midi:midi,set:set,mapset:mapset,create:create,insertRegion:insertRegion,keyUsageAll:keyUsageAll,keyUsage:keyUsage,freeKeys:freeKeys,duplicateRegion:duplicateRegion,check:check,validValue:validValue,norm:norm,absolute:absolute,resolve:resolve,relative:relative,samplePath:samplePath,rebase:rebase,filenameRoot:filenameRoot,splitRanges:splitRanges};
+    return {trim:trim,clone:clone,mask:mask,tokens:tokens,parse:parse,source:source,pretty:pretty,labelBlocks:labelBlocks,displayIds:displayIds,displayId:displayId,node:node,own:own,local:local,relations:relations,effective:effective,regions:regions,midi:midi,set:set,mapset:mapset,create:create,insertRegion:insertRegion,keyUsageAll:keyUsageAll,keyUsage:keyUsage,freeKeys:freeKeys,duplicateRegion:duplicateRegion,duplicateGroup:duplicateGroup,check:check,validValue:validValue,norm:norm,absolute:absolute,resolve:resolve,relative:relative,samplePath:samplePath,rebase:rebase,filenameRoot:filenameRoot,splitRanges:splitRanges};
 }());
 if(typeof module!=='undefined' && module.exports)module.exports=SfzCore;

@@ -9,9 +9,9 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 35.0, 100.0, 1483.0, 926.0 ],
+        "rect": [ 74.0, 100.0, 1483.0, 926.0 ],
         "openinpresentation": 1,
-        "description": "SFZ builder with a numbered single-sample tutorial navigator.",
+        "description": "SFZ builder with opcode row selection, copying group opcodes to regions, immediate opcode deletion, and undoable group tools.",
         "boxes": [
             {
                 "box": {
@@ -20,11 +20,10 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 304.0, 882.0, 150.0, 74.0 ],
+                    "patching_rect": [ 304.0, 882.0, 151.0, 74.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 2,
-                    "presentation_rect": [ 284.9707943925233, 823.0, 281.0, 33.0 ],
-                    "text": "SCALA = library of scales/tuning for sfizz~place \nscale name minus .SCL  in the filed that says none "
+                    "presentation_rect": [ 284.9707943925233, 818.0, 597.0, 20.0 ],
+                    "text": "SCALA = library of scales/tuning for sfizz~ place  scale name minus .SCL  in the filed that says 'none' "
                 }
             },
             {
@@ -37,7 +36,7 @@
                     "outlettype": [ "", "bang", "int" ],
                     "patching_rect": [ 392.0, 956.0, 100.0, 49.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 560.0, 844.5, 190.0, 22.0 ],
+                    "presentation_rect": [ 696.0, 797.0, 190.0, 22.0 ],
                     "text": "text SCALA_scale-list_for_SFZ.txt"
                 }
             },
@@ -58,14 +57,14 @@
             {
                 "box": {
                     "id": "obj-171",
-                    "linecount": 2,
+                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 466.0, 482.0, 152.0, 33.0 ],
+                    "patching_rect": [ 466.0, 482.0, 152.0, 60.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0, 451.0, 264.0, 20.0 ],
-                    "text": "Alter values, then Compile tables to write SFZ."
+                    "presentation_rect": [ 284.0, 432.0, 424.0, 20.0 ],
+                    "text": "Alter values in 2 and 3, add new values in 3, then Compile tables to write SFZ."
                 }
             },
             {
@@ -76,21 +75,21 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 992.0, 1794.0, 24.0, 24.0 ],
+                    "patching_rect": [ 805.0, 1880.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 818.0, 869.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 989.5, 859.0, 24.0, 24.0 ]
                 }
             },
             {
                 "box": {
                     "id": "obj-172",
                     "maxclass": "newobj",
-                    "numinlets": 2,
+                    "numinlets": 8,
                     "numoutlets": 0,
-                    "patching_rect": [ 1030.0, 1821.0, 55.0, 22.0 ],
+                    "patching_rect": [ 842.0857142857143, 1918.0, 156.33333333333326, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 843.5, 872.0, 55.0, 22.0 ],
-                    "text": "dac~ 1 2"
+                    "presentation_rect": [ 993.0, 887.0, 134.5, 22.0 ],
+                    "text": "dac~ 1 2 3 4 5 6 7 8"
                 }
             },
             {
@@ -119,7 +118,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 219.0, 77.0, 122.0, 28.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 857.0, 39.0, 180.0, 25.0 ],
+                    "presentation_rect": [ 905.0, 39.0, 148.0, 25.0 ],
                     "text": "Load tutorial lesson 01",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Load tutorial lesson 01",
@@ -128,15 +127,16 @@
             },
             {
                 "box": {
-                    "fontsize": 14.0,
+                    "bgcolor": [ 0.8, 0.0, 0.0, 1.0 ],
+                    "fontsize": 18.0,
                     "id": "obj-88",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "", "", "" ],
-                    "patching_rect": [ 35.0, 527.0, 210.0, 24.0 ],
+                    "patching_rect": [ 35.0, 527.0, 267.0, 29.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 8.107476635514018, 527.0, 210.0, 24.0 ],
+                    "presentation_rect": [ 8.107476635514018, 527.0, 267.0, 29.0 ],
                     "text": "sfizz~_Opcode_Browser.maxpat"
                 }
             },
@@ -144,15 +144,15 @@
                 "box": {
                     "bgcolor": [ 0.776, 0.478, 0.016, 1.0 ],
                     "fontface": 0,
-                    "fontsize": 11.0,
+                    "fontsize": 14.0,
                     "id": "obj-164",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 416.0, 240.0, 710.0, 19.0 ],
+                    "patching_rect": [ 416.0, 240.0, 900.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 565.0, 228.0, 413.0, 19.0 ],
-                    "text": "Place a ? in an empty cell and select \"Check SFZ inst\" to see opcode value options",
+                    "presentation_rect": [ 419.0, 250.0, 564.0, 22.0 ],
+                    "text": "Place a ? in an empty cell and select \"Check SFZ inst\" below to see opcode value options",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
             },
@@ -164,7 +164,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1142.0, 880.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1142.0, 861.0, 22.0, 20.0 ],
+                    "presentation_rect": [ 1144.3224299065423, 804.0, 22.0, 20.0 ],
                     "text": "48"
                 }
             },
@@ -176,22 +176,23 @@
                     "numoutlets": 0,
                     "patching_rect": [ 507.0, 505.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 500.0, 480.0, 90.0, 20.0 ],
+                    "presentation_rect": [ 500.0, 484.0, 90.0, 20.0 ],
                     "text": "choose opcode"
                 }
             },
             {
                 "box": {
+                    "channels": 8,
                     "id": "obj-160",
                     "lastchannelcount": 0,
                     "maxclass": "live.gain~",
-                    "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "signal", "signal", "", "float", "list" ],
+                    "numinlets": 8,
+                    "numoutlets": 11,
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 1030.0, 1680.0, 48.0, 136.0 ],
+                    "patching_rect": [ 835.0, 1741.0, 227.0, 130.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 758.0, 844.0, 48.0, 74.0 ],
+                    "presentation_rect": [ 864.0, 842.0, 136.0, 74.0 ],
                     "saved_attribute_attributes": {
                         "textcolor": {
                             "expression": ""
@@ -220,7 +221,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1287.0, 905.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1191.0, 861.0, 22.0, 20.0 ],
+                    "presentation_rect": [ 1190.3224299065423, 804.0, 22.0, 20.0 ],
                     "text": "60"
                 }
             },
@@ -316,17 +317,19 @@
             },
             {
                 "box": {
+                    "annotation": "The opcode selected in section 3. Click any cell in its row. Copy requires a group scope; Delete removes the local assignment from the current scope.",
                     "fontface": 0,
                     "fontsize": 10.0,
+                    "hint": "The opcode selected in section 3. Click any cell in its row. Copy requires a group scope; Delete removes the local assignment from the current scope.",
                     "id": "obj-157",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 375.0, 449.0, 1065.0, 18.0 ],
+                    "patching_rect": [ 375.0, 449.0, 1275.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 728.698598130841, 530.0, 453.0, 18.0 ],
-                    "text": "delete a row in the scope by placing a \"0\" in the Use column, hitting return, and then Compile Tables ",
-                    "varname": "scope_details[1]"
+                    "presentation_rect": [ 950.0, 531.0, 230.0, 18.0 ],
+                    "text": "Selected opcode: ampeg_release",
+                    "varname": "selected_opcode_label"
                 }
             },
             {
@@ -937,7 +940,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 808.0, 886.0, 525.0, 34.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 831.0, 525.0, 34.0 ],
+                    "presentation_rect": [ 954.0, 766.0, 525.0, 34.0 ],
                     "range": 128,
                     "varname": "main_keyboard"
                 }
@@ -990,31 +993,9 @@
             },
             {
                 "box": {
-                    "bgcolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
-                    "fontface": 1,
-                    "fontsize": 12.0,
-                    "id": "obj-4",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 850.0, 20.0, 472.0, 33.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 417.6074766355139, 170.0, 554.0, 20.0 ],
-                    "saved_attribute_attributes": {
-                        "bgcolor": {
-                            "expression": "themecolor.live_midi_assignment"
-                        }
-                    },
-                    "text": "Load sounds → Add samples → Enable Audio → Play. Compile table edits; Save keeps the SFZ.",
-                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
-                }
-            },
-            {
-                "box": {
                     "annotation": "Start a blank SFZ instrument and clear the sample lists, region table, mapper and playback. Files on disk are unchanged. Undo restores the previous instrument and sample list.",
                     "bgcolor": [ 0.611764705882353, 0.5490196078431373, 0.058823529411764705, 1.0 ],
-                    "fontsize": 12.0,
+                    "fontsize": 14.0,
                     "hint": "Start a blank SFZ instrument and clear the sample lists, region table, mapper and playback. Files on disk are unchanged. Undo restores the previous instrument and sample list.",
                     "id": "obj-5",
                     "maxclass": "textbutton",
@@ -1024,7 +1005,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 20.0, 51.0, 58.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 6.607476635514018, 42.990654205607484, 117.0, 25.0 ],
+                    "presentation_rect": [ 6.607476635514018, 42.990654205607484, 179.0, 25.0 ],
                     "text": "New blank SFZ file",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "New blank SFZ file",
@@ -1046,8 +1027,8 @@
             {
                 "box": {
                     "annotation": "Choose an SFZ file. Its containing folder becomes the SFZ folder; samples resolve from there.",
-                    "bgcolor": [ 0.611764705882353, 0.5490196078431373, 0.058823529411764705, 1.0 ],
-                    "fontsize": 12.0,
+                    "bgcolor": [ 0.19215686274509805, 0.611764705882353, 0.058823529411764705, 1.0 ],
+                    "fontsize": 14.0,
                     "hint": "Choose an SFZ file. Its containing folder becomes the SFZ folder; samples resolve from there.",
                     "id": "obj-7",
                     "maxclass": "textbutton",
@@ -1057,7 +1038,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 85.0, 51.0, 105.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 127.60747663551399, 42.990654205607484, 150.0, 25.0 ],
+                    "presentation_rect": [ 524.0303738317757, 39.0, 182.0, 25.0 ],
                     "text": "Open SFZ file from disk",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Open SFZ file from disk",
@@ -1090,7 +1071,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 197.0, 51.0, 66.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1040.035046728972, 39.0, 140.71495327102804, 25.0 ],
+                    "presentation_rect": [ 1062.0, 39.0, 140.71495327102804, 25.0 ],
                     "text": "Load demo example",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Load demo example",
@@ -1154,7 +1135,7 @@
                     "patching_rect": [ 354.0, 55.0, 75.0, 93.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 523.0, 36.0, 318.0, 31.0 ],
+                    "presentation_rect": [ 310.0, 36.0, 210.0, 31.0 ],
                     "text": "Filename: include .sfz suffix.\nSave your instrument in its sample folder."
                 }
             },
@@ -1368,7 +1349,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 86.0, 1340.0, 19.0 ],
-                    "text": "SFZ folder: Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/CNMAT-MMJ-Depot/media/Audio/mixing_sounds",
+                    "text": "SFZ folder: Macintosh HD:/Users/edmundcampionm1/Documents/GitHub/music158a2026/Tools_158a_2026/ec_sfz_builder_editor_v4.2/Demo/wood_samples",
                     "varname": "project_path"
                 }
             },
@@ -1395,10 +1376,10 @@
             },
             {
                 "box": {
-                    "annotation": "Choose a sound folder to list its samples. To start over, use New blank SFZ file first, then load your folder.",
+                    "annotation": "Choose the folder for the Sound Files catalog. Then Add all samples to the selected scope’s group, or Add loaded samples to new group. Loading a folder alone does not create regions.",
                     "bgcolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Choose a sound folder to list its samples. To start over, use New blank SFZ file first, then load your folder.",
+                    "hint": "Choose the folder for the Sound Files catalog. Then Add all samples to the selected scope’s group, or Add loaded samples to new group. Loading a folder alone does not create regions.",
                     "id": "obj-28",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -1603,7 +1584,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 319.0, 901.817757009346, 78.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.6074766355139, 98.57009345794393, 901.7149532710284, 67.0 ],
+                    "presentation_rect": [ 282.6074766355139, 98.57009345794393, 883.7149532710284, 129.0 ],
                     "rendermode": 0,
                     "url": "file://ec_sfz_textpane.html",
                     "varname": "sample_text"
@@ -2023,8 +2004,10 @@
             },
             {
                 "box": {
+                    "annotation": "Add loaded samples to new group reuses the loaded folder. Duplicate to new group copies an existing group’s settings and mappings. These buttons are below the scope selector.",
                     "fontface": 0,
                     "fontsize": 10.0,
+                    "hint": "Add loaded samples to new group reuses the loaded folder. Duplicate to new group copies an existing group’s settings and mappings. These buttons are below the scope selector.",
                     "id": "obj-64",
                     "linecount": 5,
                     "maxclass": "comment",
@@ -2034,7 +2017,7 @@
                     "presentation": 1,
                     "presentation_linecount": 3,
                     "presentation_rect": [ 4.857476635514018, 222.1214953271028, 264.25, 40.0 ],
-                    "text": "Additions use the selected scope’s group.\nGlobal/control uses the first group.\nUse Add new group to start another layer."
+                    "text": "Load folder fills the sound catalog.\nAdd all uses the selected scope’s group.\nTo reuse the catalog, use the group buttons below."
                 }
             },
             {
@@ -2103,20 +2086,18 @@
                     "fontface": 1,
                     "fontsize": 14.0,
                     "id": "obj-69",
-                    "linecount": 4,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 295.0, 119.0, 350.0, 85.0 ],
+                    "patching_rect": [ 295.0, 119.0, 350.0, 38.0 ],
                     "presentation": 1,
-                    "presentation_linecount": 4,
-                    "presentation_rect": [ 282.6074766355139, 170.0, 133.0, 85.0 ],
+                    "presentation_rect": [ 284.74299065420564, 228.0, 133.0, 38.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
                         }
                     },
-                    "text": "2  REGION TABLE\n\n\n\n",
+                    "text": "2  REGION TABLE\n",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
             },
@@ -2124,20 +2105,20 @@
                 "box": {
                     "bgcolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
                     "fontface": 0,
-                    "fontsize": 11.0,
+                    "fontsize": 14.0,
                     "id": "obj-70",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 650.0, 122.0, 710.0, 19.0 ],
+                    "patching_rect": [ 650.0, 122.0, 901.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 417.6074766355139, 192.0, 551.0, 19.0 ],
+                    "presentation_rect": [ 417.5, 228.0, 703.0, 22.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
                         }
                     },
-                    "text": "Permanent menu with common local opcodes. (Add additional opcodes in section 3.) Blank cell = default values",
+                    "text": "<region> samples with common local opcodes. (Add additional opcodes in section 3.) Blank cell = default values",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
             },
@@ -2146,18 +2127,18 @@
                     "annotation": "Fixed overview of common local opcodes. Other opcodes appear in section 3 and SFZ text. Blank cells inherit group/global settings.",
                     "bordercolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
                     "coldef": [
-                        [ 0, 38, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 1 ],
-                        [ 1, 48, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 1 ],
-                        [ 2, 230, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 3, 116, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 4, 52, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 5, 52, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 6, 50, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 7, 50, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 8, 48, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 9, 53, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 10, 45, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 11, 112, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ]
+                        [ 0, 38, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ],
+                        [ 1, 48, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ],
+                        [ 2, 230, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 3, 116, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 4, 52, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 5, 52, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 6, 50, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 7, 50, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 8, 48, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 9, 53, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 10, 45, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 11, 112, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ]
                     ],
                     "cols": 12,
                     "colwidth": 80,
@@ -2170,12 +2151,12 @@
                     "numinlets": 2,
                     "numoutlets": 4,
                     "outlettype": [ "list", "", "", "" ],
-                    "patching_rect": [ 295.0, 149.0, 900.0, 256.0747663551402 ],
+                    "patching_rect": [ 295.0, 149.0, 900.3224299065423, 154.0 ],
                     "precision": 4,
                     "presentation": 1,
-                    "presentation_rect": [ 284.0, 256.0, 896.7500000000002, 192.0 ],
+                    "presentation_rect": [ 284.0, 274.0, 900.3224299065423, 154.0 ],
                     "rowhead": 1,
-                    "rowheight": 23,
+                    "rowheight": 26,
                     "rows": 2,
                     "saved_attribute_attributes": {
                         "bordercolor": {
@@ -2200,7 +2181,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 295.0, 346.0, 138.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 564.0, 455.0, 138.0, 25.0 ],
+                    "presentation_rect": [ 282.24299065420564, 454.0, 138.0, 25.0 ],
                     "text": "Compile tables",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "Compile tables",
@@ -2233,7 +2214,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 441.0, 346.0, 119.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1059.0, 459.0, 119.0, 25.0 ],
+                    "presentation_rect": [ 1060.857476635514, 432.0, 119.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2271,7 +2252,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 568.0, 346.0, 120.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 826.0, 458.0, 120.0, 25.0 ],
+                    "presentation_rect": [ 840.0, 432.0, 93.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2309,7 +2290,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 696.0, 346.0, 95.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 954.0, 459.0, 95.0, 25.0 ],
+                    "presentation_rect": [ 948.0, 432.0, 95.0, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2347,7 +2328,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 799.0, 346.0, 117.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 703.0, 455.0, 117.0, 25.0 ],
+                    "presentation_rect": [ 727.0, 432.0, 93.94392523364479, 25.0 ],
                     "saved_attribute_attributes": {
                         "bgcolor": {
                             "expression": "themecolor.live_midi_assignment"
@@ -2373,10 +2354,10 @@
             },
             {
                 "box": {
-                    "annotation": "Add and select a new group. Future imports use that group.",
+                    "annotation": "Create and select an empty group. Add all samples reuses the current Sound Files catalog and fills this group from MIDI 0 upward. No folder reload is needed.",
                     "bgcolor": [ 0.0392156862745098, 0.6039215686274509, 0.7411764705882353, 1.0 ],
                     "fontsize": 12.0,
-                    "hint": "Add and select a new group. Future imports use that group.",
+                    "hint": "Create and select an empty group. Add all samples reuses the current Sound Files catalog and fills this group from MIDI 0 upward. No folder reload is needed.",
                     "id": "obj-82",
                     "maxclass": "textbutton",
                     "numinlets": 1,
@@ -2480,7 +2461,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 295.0, 382.0, 186.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0607476635515, 480.0, 186.0, 20.0 ],
+                    "presentation_rect": [ 284.0607476635515, 484.0, 186.0, 20.0 ],
                     "text": "3  OPCODES FOR SCOPE"
                 }
             },
@@ -2521,6 +2502,7 @@
             },
             {
                 "box": {
+                    "annotation": "Choose an opcode, then Add opcode + comment. output inserts output=0. With sfizz~ @outputs 8: 0 routes to channels 1/2, 1 to 3/4, 2 to 5/6, 3 to 7/8. Available under All opcodes and Velocity, gain and pan.",
                     "bgfillcolor_angle": 270.0,
                     "bgfillcolor_autogradient": 0.0,
                     "bgfillcolor_color": [ 0.051, 0.592, 0.871, 1.0 ],
@@ -2529,8 +2511,9 @@
                     "bgfillcolor_proportion": 0.5,
                     "bgfillcolor_type": "gradient",
                     "fontsize": 12.0,
+                    "hint": "Choose an opcode, then Add opcode + comment. output inserts output=0. With sfizz~ @outputs 8: 0 routes to channels 1/2, 1 to 3/4, 2 to 5/6, 3 to 7/8. Available under All opcodes and Velocity, gain and pan.",
                     "id": "obj-92",
-                    "items": [ "sample", ",", "default_path", ",", "key", ",", "lokey", ",", "hikey", ",", "pitch_keycenter", ",", "pitch_keytrack", ",", "transpose", ",", "tune", ",", "bend_up", ",", "bend_down", ",", "trigger", ",", "loop_mode", ",", "loop_start", ",", "loop_end", ",", "offset", ",", "end", ",", "delay", ",", "count", ",", "ampeg_delay", ",", "ampeg_attack", ",", "ampeg_hold", ",", "ampeg_decay", ",", "ampeg_sustain", ",", "ampeg_release", ",", "lovel", ",", "hivel", ",", "amp_veltrack", ",", "volume", ",", "pan", ",", "seq_length", ",", "seq_position", ",", "group", ",", "off_by", ",", "off_mode", ",", "lorand", ",", "hirand", ",", "fil_type", ",", "cutoff", ",", "resonance", ",", "cutoff_oncc1", ",", "locc64", ",", "hicc64" ],
+                    "items": [ "sample", ",", "default_path", ",", "key", ",", "lokey", ",", "hikey", ",", "pitch_keycenter", ",", "pitch_keytrack", ",", "transpose", ",", "tune", ",", "bend_up", ",", "bend_down", ",", "trigger", ",", "loop_mode", ",", "loop_start", ",", "loop_end", ",", "offset", ",", "end", ",", "delay", ",", "count", ",", "ampeg_delay", ",", "ampeg_attack", ",", "ampeg_hold", ",", "ampeg_decay", ",", "ampeg_sustain", ",", "ampeg_release", ",", "lovel", ",", "hivel", ",", "amp_veltrack", ",", "volume", ",", "pan", ",", "output", ",", "seq_length", ",", "seq_position", ",", "group", ",", "off_by", ",", "off_mode", ",", "lorand", ",", "hirand", ",", "fil_type", ",", "cutoff", ",", "resonance", ",", "cutoff_oncc1", ",", "locc64", ",", "hicc64" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
@@ -2595,37 +2578,37 @@
                     "numoutlets": 0,
                     "patching_rect": [ 295.0, 408.0, 1065.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 284.0607476635515, 530.0, 435.0, 18.0 ],
-                    "text": "<global> #1 | Blank cells inherit. Use=0 removes a local opcode.",
+                    "presentation_rect": [ 284.0607476635515, 531.0, 661.9392523364485, 18.0 ],
+                    "text": "<global> #1 | Blank cells inherit. Click an opcode row for Copy/Delete.",
                     "varname": "scope_details"
                 }
             },
             {
                 "box": {
-                    "annotation": "Columns fit this table width. Double-click a Value, press Return, then Compile tables. Scroll vertically for additional opcodes.",
+                    "annotation": "Click an opcode row to select it for Copy/Delete. Double-click a Value and press Return to finish editing. Copy opcode to regions uses the selected group; Delete selected opcode applies immediately. Other table edits can still use Compile tables.",
                     "coldef": [
-                        [ 0, 42, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 1, 150, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 1 ],
-                        [ 2, 170, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 0 ],
-                        [ 3, 514, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, -1, -1, 1 ]
+                        [ 0, 42, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 1, 150, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ],
+                        [ 2, 170, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
+                        [ 3, 514, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ]
                     ],
                     "cols": 4,
                     "colwidth": 110,
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
-                    "hint": "Columns fit this table width. Double-click a Value, press Return, then Compile tables. Scroll vertically for additional opcodes.",
+                    "hint": "Click an opcode row to select it for Copy/Delete. Double-click a Value and press Return to finish editing. Copy opcode to regions uses the selected group; Delete selected opcode applies immediately. Other table edits can still use Compile tables.",
                     "id": "obj-97",
                     "maxclass": "jit.cellblock",
                     "numinlets": 2,
                     "numoutlets": 4,
                     "outlettype": [ "list", "", "", "" ],
-                    "patching_rect": [ 295.0, 433.0, 900.0, 257.0093457943925 ],
+                    "patching_rect": [ 295.0, 433.0, 896.3644859813082, 177.0 ],
                     "precision": 4,
                     "presentation": 1,
-                    "presentation_rect": [ 285.33411214953276, 551.0, 896.3644859813082, 210.0 ],
+                    "presentation_rect": [ 285.33411214953276, 584.0, 896.3644859813082, 177.0 ],
                     "rowhead": 1,
-                    "rowheight": 23,
+                    "rowheight": 26,
                     "rows": 3,
                     "selmode": 5,
                     "varname": "opcodes"
@@ -2781,7 +2764,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 295.0, 804.0, 635.0, 53.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 436.6074766355139, 763.0, 513.0, 56.0 ],
+                    "presentation_rect": [ 436.6074766355139, 763.0, 513.0, 37.0 ],
                     "rendermode": 0,
                     "url": "file://ec_sfz_textpane.html",
                     "varname": "report"
@@ -2797,7 +2780,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 947.0, 804.0, 95.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 782.0, 95.0, 20.0 ],
+                    "presentation_rect": [ 954.0, 804.0, 95.0, 20.0 ],
                     "text": "AUDITION"
                 }
             },
@@ -2811,7 +2794,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 947.0, 837.0, 33.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 951.0, 809.0, 33.0, 18.0 ],
+                    "presentation_rect": [ 1144.3224299065423, 833.0, 33.0, 18.0 ],
                     "text": "Note"
                 }
             },
@@ -2828,7 +2811,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 981.0, 831.0, 48.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 984.0, 807.0, 48.0, 22.0 ],
+                    "presentation_rect": [ 1177.3224299065423, 831.0, 48.0, 22.0 ],
                     "varname": "pitch_num"
                 }
             },
@@ -2854,7 +2837,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1038.0, 837.0, 26.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1041.0, 809.0, 26.0, 18.0 ],
+                    "presentation_rect": [ 1234.3224299065423, 833.0, 26.0, 18.0 ],
                     "text": "Vel"
                 }
             },
@@ -2871,7 +2854,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1065.0, 831.0, 48.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1069.0, 807.0, 48.0, 22.0 ],
+                    "presentation_rect": [ 1262.3224299065423, 831.0, 48.0, 22.0 ],
                     "varname": "velocity_num"
                 }
             },
@@ -2900,7 +2883,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1123.0, 831.0, 58.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1126.0, 807.0, 58.0, 22.0 ],
+                    "presentation_rect": [ 1319.3224299065423, 831.0, 58.0, 22.0 ],
                     "varname": "duration_num"
                 }
             },
@@ -2926,7 +2909,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1186.0, 837.0, 22.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1189.0, 809.0, 22.0, 18.0 ],
+                    "presentation_rect": [ 1382.3224299065423, 833.0, 22.0, 18.0 ],
                     "text": "ms"
                 }
             },
@@ -2943,7 +2926,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1215.0, 830.0, 63.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1219.0, 806.0, 63.0, 25.0 ],
+                    "presentation_rect": [ 1412.3224299065423, 830.0, 63.0, 25.0 ],
                     "text": "Note",
                     "texton": "Note"
                 }
@@ -2973,7 +2956,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1287.0, 830.0, 73.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1208.0, 780.0, 73.0, 25.0 ],
+                    "presentation_rect": [ 1401.3224299065423, 804.0, 73.0, 25.0 ],
                     "text": "Panic",
                     "texton": "Panic"
                 }
@@ -3064,16 +3047,20 @@
             },
             {
                 "box": {
+                    "annotation": "Add output in section 3. Use a group scope to route all its regions, or a region scope to route one sample. The value is a zero-based stereo-pair index, not an individual channel number.",
                     "fontface": 0,
-                    "fontsize": 9.0,
+                    "fontsize": 12.0,
+                    "hint": "Add output in section 3. Use a group scope to route all its regions, or a region scope to route one sample. The value is a zero-based stereo-pair index, not an individual channel number.",
                     "id": "obj-129",
+                    "linecount": 17,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1340.0, 804.0, 39.0, 17.0 ],
+                    "patching_rect": [ 1340.0, 804.0, 45.0, 234.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 899.0, 874.0, 39.0, 17.0 ],
-                    "text": "Audio"
+                    "presentation_linecount": 2,
+                    "presentation_rect": [ 460.9439252336447, 852.5, 360.0, 33.0 ],
+                    "text": "@outputs 16 = 8 stereo pairs. output=0 → ch 1/2\noutput=1 → 3/4; output=2 → 5/6; output=3 → 7/8"
                 }
             },
             {
@@ -3202,7 +3189,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 20.0, 902.0, 1340.0, 18.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.2429906542056, 880.0, 461.0, 18.0 ],
+                    "presentation_rect": [ 282.2429906542056, 885.0, 592.2570093457944, 18.0 ],
                     "text": "No samples yet. Load a sound folder, then Add samples.",
                     "varname": "loaded_label"
                 }
@@ -3264,12 +3251,12 @@
                     "id": "obj-140",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "signal", "signal" ],
-                    "patching_rect": [ 668.0, 1672.0, 215.0, 22.0 ],
+                    "numoutlets": 16,
+                    "outlettype": [ "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal" ],
+                    "patching_rect": [ 835.0, 1612.0, 215.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 282.2429906542056, 858.0, 252.0, 22.0 ],
-                    "text": "sfizz~ @volume -18",
+                    "presentation_rect": [ 282.2429906542056, 858.0, 176.5, 22.0 ],
+                    "text": "sfizz~ @outputs 16",
                     "varname": "sampler"
                 }
             },
@@ -3572,6 +3559,7 @@
                         "classnamespace": "box",
                         "rect": [ 398.0, 134.0, 1192.0, 790.0 ],
                         "openinpresentation": 1,
+                        "visible": 1,
                         "boxes": [
                             {
                                 "box": {
@@ -4003,7 +3991,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 245.0, 1470.0, 16.0, 16.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1062.0, 782.0, 16.0, 16.0 ]
+                    "presentation_rect": [ 1255.3224299065423, 806.0, 16.0, 16.0 ]
                 }
             },
             {
@@ -4015,7 +4003,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 270.0, 1470.0, 110.0, 19.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1084.0, 782.0, 110.0, 19.0 ],
+                    "presentation_rect": [ 1277.3224299065423, 806.0, 110.0, 19.0 ],
                     "text": "MIDI received"
                 }
             },
@@ -4026,58 +4014,8 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 763.0, 1700.0, 120.0, 20.0 ],
+                    "patching_rect": [ 704.0, 1694.0, 120.0, 20.0 ],
                     "text": "Audio output"
-                }
-            },
-            {
-                "box": {
-                    "annotation": "Actual left builder output: sfizz~ plus the brief Test output tone. Enable Audio. Moving bars confirm signal; red indicates clipping.",
-                    "hint": "Actual left builder output: sfizz~ plus the brief Test output tone. Enable Audio. Moving bars confirm signal; red indicates clipping.",
-                    "id": "audio-meter-l",
-                    "maxclass": "meter~",
-                    "numinlets": 1,
-                    "numleds": 20,
-                    "numoutlets": 1,
-                    "orientation": 1,
-                    "outlettype": [ "float" ],
-                    "patching_rect": [ 893.0, 1700.0, 130.0, 14.0 ]
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 11.0,
-                    "id": "audio-meter-l-label",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 873.0, 1700.0, 18.0, 19.0 ],
-                    "text": "L"
-                }
-            },
-            {
-                "box": {
-                    "annotation": "Actual right builder output: sfizz~ plus the brief Test output tone. Enable Audio. Moving bars confirm signal; red indicates clipping.",
-                    "hint": "Actual right builder output: sfizz~ plus the brief Test output tone. Enable Audio. Moving bars confirm signal; red indicates clipping.",
-                    "id": "audio-meter-r",
-                    "maxclass": "meter~",
-                    "numinlets": 1,
-                    "numleds": 20,
-                    "numoutlets": 1,
-                    "orientation": 1,
-                    "outlettype": [ "float" ],
-                    "patching_rect": [ 893.0, 1724.0, 130.0, 14.0 ]
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 11.0,
-                    "id": "audio-meter-r-label",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 873.0, 1724.0, 18.0, 19.0 ],
-                    "text": "R"
                 }
             },
             {
@@ -4124,9 +4062,9 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 285.0, 1795.0, 100.0, 25.0 ],
+                    "patching_rect": [ 430.0, 1568.0, 100.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 844.0, 843.0, 94.0, 25.0 ],
+                    "presentation_rect": [ 1033.5, 856.0, 94.0, 25.0 ],
                     "text": "Test output",
                     "texton": "Test output"
                 }
@@ -4160,7 +4098,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 285.0, 1830.0, 100.0, 22.0 ],
+                    "patching_rect": [ 430.0, 1603.0, 100.0, 22.0 ],
                     "text": "cycle~ 440"
                 }
             },
@@ -4171,7 +4109,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 285.0, 1865.0, 100.0, 22.0 ],
+                    "patching_rect": [ 430.0, 1638.0, 100.0, 22.0 ],
                     "text": "*~"
                 }
             },
@@ -4210,7 +4148,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 650.0, 1865.0, 16.0, 16.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 954.0, 871.0, 16.0, 16.0 ]
+                    "presentation_rect": [ 1050.0, 806.0, 16.0, 16.0 ]
                 }
             },
             {
@@ -4222,7 +4160,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 675.0, 1865.0, 85.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 976.0, 869.0, 85.0, 20.0 ],
+                    "presentation_rect": [ 1072.0, 804.0, 60.0, 20.0 ],
                     "text": "Note sent"
                 }
             },
@@ -4241,7 +4179,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1500.0, 1600.0, 222.0, 25.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 285.0, 42.0, 222.0, 25.0 ],
+                    "presentation_rect": [ 713.0, 39.0, 186.0, 25.0 ],
                     "text": "LOAD single-sample tutorial…",
                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                     "texton": "LOAD single-sample tutorial…",
@@ -4713,9 +4651,171 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 668.0, 1642.0, 150.0, 22.0 ],
+                    "patching_rect": [ 590.0, 1588.0, 150.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 559.0, 820.5, 283.0, 22.0 ]
+                    "presentation_rect": [ 437.0, 797.0, 251.0, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "annotation": "Choose a <group> in Opcodes for Scope, or Edit selected on one of its regions. Copies the whole group, all regions, mappings, local opcodes and comments into a new group beside it. Selects the copy. Both groups can play together. Undo removes the copy.",
+                    "bgcolor": [ 0.0392156862745098, 0.6039215686274509, 0.7411764705882353, 1.0 ],
+                    "fontsize": 12.0,
+                    "hint": "Choose a <group> in Opcodes for Scope, or Edit selected on one of its regions. Copies the whole group, all regions, mappings, local opcodes and comments into a new group beside it. Selects the copy. Both groups can play together. Undo removes the copy.",
+                    "id": "duplicate-group-button",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 284.0, 1910.0, 188.0, 25.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 284.0, 553.0, 188.0, 25.0 ],
+                    "text": "Duplicate to new group",
+                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                    "texton": "Duplicate to new group",
+                    "textoncolor": [ 1.0, 1.0, 1.0, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 12.0,
+                    "id": "duplicate-group-button-command",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 284.0, 1950.0, 220.0, 22.0 ],
+                    "text": "go duplicate_group"
+                }
+            },
+            {
+                "box": {
+                    "annotation": "Use the sounds already listed under Sound Files. Creates a new group and adds all of them at MIDI 0 upward, one sample per key. No folder reload is needed. Uses the current velocity range and one-shot playback. Undo removes the new group and its regions.",
+                    "bgcolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
+                    "fontsize": 12.0,
+                    "hint": "Use the sounds already listed under Sound Files. Creates a new group and adds all of them at MIDI 0 upward, one sample per key. No folder reload is needed. Uses the current velocity range and one-shot playback. Undo removes the new group and its regions.",
+                    "id": "folder-newgroup-button",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 480.0, 1910.0, 246.0, 25.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 480.0, 553.0, 246.0, 25.0 ],
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.live_record"
+                        }
+                    },
+                    "text": "Add loaded samples to new group",
+                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                    "texton": "Add loaded samples to new group",
+                    "textoncolor": [ 1.0, 1.0, 1.0, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 12.0,
+                    "id": "folder-newgroup-button-command",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 480.0, 1950.0, 220.0, 22.0 ],
+                    "text": "go import_newgroup"
+                }
+            },
+            {
+                "box": {
+                    "annotation": "Select a <group> scope and click an opcode row below. Copy its value to every region in that group, replacing local values for that opcode. After editing a Value, press Return first. Applies immediately and supports Undo.",
+                    "bgcolor": [ 0.027450980392156862, 0.3215686274509804, 0.4745098039215686, 1.0 ],
+                    "fontsize": 12.0,
+                    "hint": "Select a <group> scope and click an opcode row below. Copy its value to every region in that group, replacing local values for that opcode. After editing a Value, press Return first. Applies immediately and supports Undo.",
+                    "id": "copy-opcode-regions-button",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 734.0, 2020.0, 209.0, 25.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 734.0, 553.0, 209.0, 25.0 ],
+                    "text": "Copy opcode to regions",
+                    "texton": "Copy opcode to regions"
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 12.0,
+                    "id": "copy-opcode-regions-button-command",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 734.0, 2060.0, 225.0, 22.0 ],
+                    "text": "go copy_opcode_regions"
+                }
+            },
+            {
+                "box": {
+                    "annotation": "Click an opcode row below, then delete its local assignment from the selected scope. Inherited/global values or SFZ defaults can take effect. Applies immediately; no Compile step is needed. Undo restores it.",
+                    "bgcolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
+                    "fontsize": 12.0,
+                    "hint": "Click an opcode row below, then delete its local assignment from the selected scope. Inherited/global values or SFZ defaults can take effect. Applies immediately; no Compile step is needed. Undo restores it.",
+                    "id": "delete-opcode-button",
+                    "maxclass": "textbutton",
+                    "numinlets": 1,
+                    "numoutlets": 3,
+                    "outlettype": [ "", "", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 980.0, 2020.0, 230.0, 25.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 951.0, 553.0, 230.0, 25.0 ],
+                    "saved_attribute_attributes": {
+                        "bgcolor": {
+                            "expression": "themecolor.live_midi_assignment"
+                        }
+                    },
+                    "text": "Delete selected opcode",
+                    "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                    "texton": "Delete selected opcode",
+                    "textoncolor": [ 1.0, 1.0, 1.0, 1.0 ]
+                }
+            },
+            {
+                "box": {
+                    "fontsize": 12.0,
+                    "id": "delete-opcode-button-command",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 980.0, 2060.0, 225.0, 22.0 ],
+                    "text": "go delete_opcode"
+                }
+            },
+            {
+                "box": {
+                    "id": "opcode-selection-events",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1230.0, 2020.0, 190.0, 22.0 ],
+                    "text": "prepend opcode_selection"
+                }
+            },
+            {
+                "box": {
+                    "id": "region-view-events",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1400.0, 1710.0, 165.0, 22.0 ],
+                    "text": "prepend table_view regions"
                 }
             }
         ],
@@ -4734,29 +4834,57 @@
             },
             {
                 "patchline": {
-                    "destination": [ "audio-meter-l", 0 ],
-                    "order": 3,
-                    "source": [ "audio-test-gain", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "audio-meter-r", 0 ],
-                    "order": 2,
-                    "source": [ "audio-test-gain", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-160", 1 ],
+                    "destination": [ "obj-160", 7 ],
                     "order": 0,
                     "source": [ "audio-test-gain", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-160", 0 ],
+                    "destination": [ "obj-160", 6 ],
                     "order": 1,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 5 ],
+                    "order": 2,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 4 ],
+                    "order": 3,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 3 ],
+                    "order": 4,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 2 ],
+                    "order": 5,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 1 ],
+                    "order": 6,
+                    "source": [ "audio-test-gain", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 0 ],
+                    "order": 7,
                     "source": [ "audio-test-gain", 0 ]
                 }
             },
@@ -4782,6 +4910,54 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "clear-samples-command", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "copy-opcode-regions-button-command", 0 ],
+                    "source": [ "copy-opcode-regions-button", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "copy-opcode-regions-button-command", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "delete-opcode-button-command", 0 ],
+                    "source": [ "delete-opcode-button", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "delete-opcode-button-command", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "duplicate-group-button-command", 0 ],
+                    "source": [ "duplicate-group-button", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "duplicate-group-button-command", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "folder-newgroup-button-command", 0 ],
+                    "source": [ "folder-newgroup-button", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "folder-newgroup-button-command", 0 ]
                 }
             },
             {
@@ -5206,29 +5382,49 @@
             },
             {
                 "patchline": {
-                    "destination": [ "audio-meter-l", 0 ],
-                    "order": 1,
-                    "source": [ "obj-140", 0 ]
+                    "destination": [ "obj-160", 7 ],
+                    "source": [ "obj-140", 14 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "audio-meter-r", 0 ],
-                    "order": 1,
-                    "source": [ "obj-140", 1 ]
+                    "destination": [ "obj-160", 6 ],
+                    "source": [ "obj-140", 12 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 5 ],
+                    "source": [ "obj-140", 10 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 4 ],
+                    "source": [ "obj-140", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 3 ],
+                    "source": [ "obj-140", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 2 ],
+                    "source": [ "obj-140", 4 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-160", 1 ],
-                    "order": 0,
-                    "source": [ "obj-140", 1 ]
+                    "source": [ "obj-140", 2 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-160", 0 ],
-                    "order": 0,
                     "source": [ "obj-140", 0 ]
                 }
             },
@@ -5350,15 +5546,49 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-172", 7 ],
+                    "source": [ "obj-160", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 6 ],
+                    "source": [ "obj-160", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 5 ],
+                    "source": [ "obj-160", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 4 ],
+                    "source": [ "obj-160", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 3 ],
+                    "source": [ "obj-160", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 2 ],
+                    "source": [ "obj-160", 2 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-172", 1 ],
-                    "order": 0,
-                    "source": [ "obj-160", 0 ]
+                    "source": [ "obj-160", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-172", 0 ],
-                    "order": 1,
                     "source": [ "obj-160", 0 ]
                 }
             },
@@ -5646,6 +5876,12 @@
             },
             {
                 "patchline": {
+                    "destination": [ "region-view-events", 0 ],
+                    "source": [ "obj-71", 2 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-73", 0 ],
                     "source": [ "obj-72", 0 ]
                 }
@@ -5792,6 +6028,24 @@
                 "patchline": {
                     "destination": [ "obj-1", 3 ],
                     "source": [ "obj-97", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "opcode-selection-events", 0 ],
+                    "source": [ "obj-97", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "opcode-selection-events", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 0 ],
+                    "source": [ "region-view-events", 0 ]
                 }
             },
             {
