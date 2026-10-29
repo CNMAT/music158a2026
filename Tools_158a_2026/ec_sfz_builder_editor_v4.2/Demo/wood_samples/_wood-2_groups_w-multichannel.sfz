@@ -19,6 +19,8 @@ loop_mode=one_shot
 
 output=0 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
 
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
+
 <region> // Region ID 2; Group ID 1
 sample=wood_00wb_Sol2_FF_roll_s.wav
 key=1
@@ -27,6 +29,8 @@ hivel=127
 loop_mode=one_shot
 
 output=1 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
 
 <region> // Region ID 3; Group ID 1
 sample=wood_00wb_Sol2_flam_h.wav
@@ -64,6 +68,8 @@ loop_mode=one_shot
 
 output=5 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
 
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
+
 <region> // Region ID 7; Group ID 1
 sample=wood_03wb_Fa3_FF_roll_s.wav
 key=6
@@ -72,6 +78,8 @@ hivel=127
 loop_mode=one_shot
 
 output=6 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
 
 <region> // Region ID 8; Group ID 1
 sample=wood_03wb_Fa3_flam_h.wav
@@ -118,6 +126,8 @@ loop_mode=one_shot
 
 output=11 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
 
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
+
 <region> // Region ID 13; Group ID 1
 sample=wood_06wb_Mi4_FF_roll_s.wav
 key=12
@@ -126,6 +136,8 @@ hivel=127
 loop_mode=one_shot
 
 output=12 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
 
 <region> // Region ID 14; Group ID 1
 sample=wood_06wb_Mi4_flam_h.wav
@@ -154,6 +166,8 @@ loop_mode=one_shot
 
 output=15 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
 
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
+
 <region> // Region ID 17; Group ID 1
 sample=wood_09wb_Fa5_flam_h.wav
 key=16
@@ -180,6 +194,8 @@ hivel=127
 loop_mode=one_shot
 
 output=1 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
 
 <region> // Region ID 20; Group ID 1
 sample=wood_wb_high_flam_h.wav
@@ -217,6 +233,8 @@ loop_mode=one_shot
 
 output=5 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
 
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
+
 <region> // Region ID 24; Group ID 1
 sample=wood_wb_vcraft9_5_ffroll_s.wav
 key=23
@@ -225,6 +243,8 @@ hivel=127
 loop_mode=one_shot
 
 output=6 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+ampeg_attack=3.5 // Envelope rise from its starting level to peak, in seconds.
 
 <group> // Group ID 2
  // Imported samples
