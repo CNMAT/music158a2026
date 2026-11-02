@@ -434,7 +434,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <br><br>
 
 <!-- wk.12 lesson -->
-<strong>(th)</strong> 11/12 — Advanced Spatial Audio with automation, MAX/MSP MC objects PT. 2 <br>
+<strong>(th)</strong> 11/12 — Final Project Discussion and Preparation 1 (complete Tool review) <br>
   Students can present results from Homework 06 in class today.
   <!-- DUE -->
 <em style="color: #C75C5C;">DUE: Homework_6 due today by start of classtime. </em>
@@ -446,11 +446,12 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
 <td><strong>Week 13</strong><br>Nov. 16-20</td>
 <td>
 <!-- Lesson Plan Week 13 -->
-<strong>Lesson Plan Week 13 (New Module 8: Composing with Computers)</strong> <br>  
+<strong>Lesson Plan Week 13 Final Project Discussion and Preparation 2 (cont. tool review and techniques)</strong> <br>  
   Students can present results from Homework 07 in class today.
 <br><br>
 <!-- wk.13 lesson -->
-<strong>(tu)</strong> 11/17 — Composing with Computers (organization, aesthetics, forms) PT.1
+<strong>(tu)</strong> 11/17 — Composing with Computers (organization, aesthetics, forms, and production) PT. 1 <br>  
+  Students can present results from Homework 07 in class today.
 <br><br>
   <!-- homework assignment 8 -->
 <em>Assignment: Homework_8. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
