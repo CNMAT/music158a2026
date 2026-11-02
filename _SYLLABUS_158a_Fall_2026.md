@@ -450,14 +450,14 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
   Students can present results from Homework 07 in class today.
 <br><br>
 <!-- wk.13 lesson -->
-<strong>(tu)</strong> 11/17 — Composing with Computers (organization, aesthetics, forms, and production) PT. 1 <br>  
+<strong>(tu)</strong> 11/17 — Final Project 3: Composing with Computers (organization, aesthetics, forms, and production) PT. 1 <br>  
   Students can present results from Homework 07 in class today.
 <br><br>
   <!-- homework assignment 8 -->
 <em>Assignment: Homework_8. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
 <br><br>
 <!-- wk.13 lesson -->
-<strong>(th)</strong> 11/19 — Composing with Computers (organization, aesthetics, forms, and production) PT. 2 and Adobe Audition multi-channel mixing<br>  
+<strong>(th)</strong> 11/19 — Final Project 4: Composing with Computers (organization, aesthetics, forms, and production) PT. 2 and Adobe Audition multi-channel mixing<br>  
   Students can present results from Homework 08 in class today.
   <br><br>
   <!-- DUE -->
