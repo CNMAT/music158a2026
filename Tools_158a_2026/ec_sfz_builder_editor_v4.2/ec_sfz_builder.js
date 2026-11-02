@@ -8,7 +8,7 @@
    go duplicate_group copies the scope's entire group; go import_newgroup
    adds the current folder catalog to a new group without rescanning. */
 autowatch=1;inlets=5;outlets=1;
-include('ec_sfz_core.js');include('ec_sfz_catalog.js');include('ec_sfz_panes.js');include('ec_sfz_mapper.js');include('ec_sfz_audition.js');
+include('ec_sfz_core.js');include('ec_sfz_catalog.js');include('ec_sfz_panes.js');include('ec_sfz_tables.js');include('ec_sfz_mapper.js');include('ec_sfz_audition.js');
 var C=SfzCore,doc=null,baseDir='',catalogDir='',fileName='My_Instrument.sfz';
 var scopeId=0,selectedRegion=0,scopeIds=[],regionIds=[],regionBaseline={},opcodeRows=[],opcodeBaseline={};
 var selectedOpcode='',selectedOpcodeScope=0,selectedOpcodeDoc=null;
@@ -19,7 +19,6 @@ var lastEditor='',lastSaved='',undoStack=[],loadedPath='',testPitch=60,testVeloc
 var MAX_TEXT_BYTES=2*1024*1024;
 var saveDialogOpen=false,saveDialogLoad=false;
 var tutorialLessons=[],tutorialStep=0;
-var tableRedrawTask=null,tableRedrawNames={},tableRepainting=false;
 var COLS=['ID','Group','sample','pitch_keycenter','lokey','hikey','lovel','hivel','tune','volume','pan','loop_mode'];
 var WIDTHS=[38,48,230,116,52,52,50,50,48,53,45,112];
 function ui(n){return this.patcher.getnamed(n);}
@@ -151,10 +150,9 @@ function beginSaveDialog(load){
 }
 function scopeindex(n){if(!rendering)go('scope',Number(n));}
 function tableInput(a){
-    if(rendering||tableRepainting||a.length<2)return;
+    if(rendering||a.length<2)return;
     var col=Number(a[0]),row=Number(a[1]),v=a.slice(2).join(' ');
     if(collecting){capture[col+','+row]=v;return;}
-    if(inlet===2||inlet===3)queueTableRedraw(inlet===2?'regions':'opcodes');
     if(inlet===2 && row>0 && regionIds[row-1]){
         selectedRegion=regionIds[row-1];settext('selected_label','Selected region '+C.displayId(doc,selectedRegion)+' — use Edit selected for its opcodes.');mapperSync();
     }
@@ -163,7 +161,7 @@ function tableInput(a){
 function clearOpcodeSelection(){selectedOpcode='';selectedOpcodeScope=0;selectedOpcodeDoc=null;}
 function renderOpcodeSelection(){settext('selected_opcode_label',selectedOpcode?'Selected opcode: '+selectedOpcode:'Select an opcode row to copy/delete.');}
 function selectOpcodeCell(col,row){
-    if(rendering||collecting||tableRepainting)return;
+    if(rendering||collecting)return;
     col=Number(col);row=Number(row);
     if(doc&&scopeId&&col>=0&&col<4&&Math.floor(col)===col&&row>0&&Math.floor(row)===row&&opcodeRows[row-1]){
         selectedOpcode=opcodeRows[row-1];selectedOpcodeScope=scopeId;selectedOpcodeDoc=doc;
@@ -174,23 +172,9 @@ function opcode_selection(){
     // jit.cellblock's third outlet emits "sync select column row".
     var a=arr(arguments);if(a[0]==='sync')a.shift();
     if(a[0]==='select')selectOpcodeCell(a[1],a[2]);
-    queueTableRedraw('opcodes');
 }
-function table_view(name){queueTableRedraw(String(name));}
-function queueTableRedraw(name){
-    if(rendering||collecting||tableRepainting||(name!=='regions'&&name!=='opcodes'))return;
-    tableRedrawNames[name]=true;
-    if(!tableRedrawTask)tableRedrawTask=new Task(redrawTableViews,this);
-    // Leave the native click/Return/scroll callback before repainting.
-    tableRedrawTask.cancel();tableRedrawTask.schedule(30);
-}
-function redrawTableViews(){
-    if(rendering||collecting){if(tableRedrawTask)tableRedrawTask.schedule(30);return;}
-    var names=tableRedrawNames;tableRedrawNames={};tableRepainting=true;
-    try{for(var name in names)if(names.hasOwnProperty(name))msg(name,'refresh');}
-    finally{tableRepainting=false;}
-}
-function cancelTableRedraw(){if(tableRedrawTask)tableRedrawTask.cancel();tableRedrawTask=null;tableRedrawNames={};}
+// Compatibility with older patches: view events never repaint an active editor.
+function table_view(name){}
 function tableDump(name){collecting=name;capture={};msg(name,'dump');collecting='';return capture;}
 function diffTables(){
     var reg=tableDump('regions'),ops=tableDump('opcodes'),changes=[],i,j,k,v,b,enabled;
@@ -388,7 +372,7 @@ function renderScopeMenu(){
 function cell(name,col,row,value){msg(name,'set',col,row,String(value));}
 function referenceFor(key){for(var i=0;i<REFERENCE.length;i++)if(REFERENCE[i].name===key)return REFERENCE[i];return null;}
 function opcodeWidths(){
-    var width=900,o=ui('opcodes');
+    var width=900,o=ui('opcodes_view')||ui('opcodes');
     try{var rect=o.getboxattr('presentation_rect');if(rect&&Number(rect[2])>0)width=Number(rect[2]);}catch(e){}
     // Reserve room for the vertical scrollbar and border, even before overflow.
     return [42,150,170,Math.max(60,Math.floor(width)-20-362)];
@@ -421,8 +405,7 @@ function renderTables(){
     // editor onto the read-only Opcode label during a table rebuild.
     if(selectedRow<0)clearOpcodeSelection();
     renderOpcodeSelection();
-    msg('regions','refresh');msg('opcodes','refresh');rendering=false;
-    queueTableRedraw('regions');queueTableRedraw('opcodes');mapperSync();
+    rendering=false;tableGridPublish();mapperSync();
 }
 function renderAll(){C.labelBlocks(doc,false);auditionSync();renderPaths();renderScopeMenu();renderTables();lastEditor=C.source(doc);settext('editor',lastEditor);settext('model_count',C.regions(doc).length+' regions  |  '+(doc.blocked.length?'TEXT MODE':'TABLE MODE'));}
 function category(n){
@@ -598,7 +581,7 @@ function incoming(p,v){if(Number(v)>0)auditionHint(Number(p),Number(v));if(loade
 function timed(){panic();if(!loadedPath){status(auditionIssue||'Load a sound folder and Add samples before auditioning.');return;}var p=testPitch;note(p,testVelocity);var t=new Task(function(){note(p,0);},this);noteJobs.push(t);t.schedule(testDuration);}
 function panic(){mapperNotesOff();msg('main_keyboard','clear');var kw=ui('keyboard_window');if(kw&&kw.subpatcher){var kb=kw.subpatcher().getnamed('popup_keyboard');if(kb)kb.message('clear');}for(var i=0;i<noteJobs.length;i++)noteJobs[i].cancel();noteJobs=[];outlet(0,'midievent',176,64,0);outlet(0,'midievent',176,123,0);outlet(0,'midievent',176,120,0);}
 function initialize(){
-    if(initialized)return;initialized=true;loadPanes();loadMapper();
+    if(initialized)return;initialized=true;loadPanes();loadTableGrids();loadMapper();
     doc=blankDocument();baseDir='';catalogDir='';fileName='My_Instrument.sfz';scopeId=doc.nodes[0].id;selectedRegion=0;
     category(0);setvalue('import_mode',1);setvalue('root_mode',0);setvalue('start_root',0);setvalue('root_step',1);setvalue('low_velocity',1);setvalue('high_velocity',127);setvalue('recursive',1);setvalue('pitch_num',0);testPitch=0;setvalue('velocity_num',100);setvalue('duration_num',500);setvalue('midi_toggle',0);
     clearSampleMemory(true);renderAll();undoStack=[];
@@ -606,8 +589,8 @@ function initialize(){
     status('Blank instrument. Load a sound folder, Add samples, enable Audio, then play.');
     report('Add all samples maps MIDI 0 upward. Audition updates automatically.\nCompile table edits; Apply text for handwritten edits. Save keeps your SFZ.');
 }
-function close(){cancelTableRedraw();if(midiListTask)midiListTask.cancel();panic();cancelscan();if(paneTimer)paneTimer.cancel();}
-function notifydeleted(){cancelTableRedraw();if(midiListTask)midiListTask.cancel();if(mapperWatchdog)mapperWatchdog.cancel();if(paneTimer)paneTimer.cancel();for(var i=0;i<noteJobs.length;i++)noteJobs[i].cancel();cancelscan();}
+function close(){if(midiListTask)midiListTask.cancel();panic();cancelscan();if(paneTimer)paneTimer.cancel();}
+function notifydeleted(){if(midiListTask)midiListTask.cancel();if(mapperWatchdog)mapperWatchdog.cancel();if(paneTimer)paneTimer.cancel();for(var i=0;i<noteJobs.length;i++)noteJobs[i].cancel();cancelscan();}
 
 // UTF-8 file transport: literal bytes, independent of Max message punctuation.
 function encodeUTF8(s) {

@@ -12,13 +12,13 @@ function paneFlush(n){
 function paneAbort(reason){
     var fromMapper=pending&&pending.action==='mapper',fromSamples=pending&&pending.action==='import_selected';
     if(paneTimer)paneTimer.cancel();paneTimer=null;pending=null;paneReply=null;
-    msg('editor','ec_release');if(fromSamples)msg('sample_text','ec_samples_done');status(reason);if(fromMapper){mapperSync();mapperSend('map_done',0);}
+    tableGridRelease();msg('editor','ec_release');if(fromSamples)msg('sample_text','ec_samples_done');status(reason);if(fromMapper){mapperSync();mapperSend('map_done',0);}
 }
 function requestProgram(){
     if(!paneReady.editor){pending=null;status('Editor is loading. Keep ec_sfz_textpane.html beside the patch, then try again.');mapperSend('map_done',0);return;}
     pending.request=++requestSerial;paneReply=null;
     paneTimer=new Task(function(){paneAbort('Editor did not respond. Draft retained; try the action again.');},this);paneTimer.schedule(15000);
-    msg('editor','ec_get',pending.request);
+    tableGridRequest(pending.request);
 }
 function webpane(name,event){
     var a=arr(arguments).slice(2),i;
@@ -40,7 +40,7 @@ function webpane(name,event){
             var value=decodeURIComponent(paneReply.parts.join('')).replace(/\r\n?/g,'\n');
             if(encodeUTF8(value).length>MAX_TEXT_BYTES)throw new Error('Program exceeds the 2 MB limit.');
             var p=pending;pending=null;paneReply=null;if(paneTimer)paneTimer.cancel();paneTimer=null;
-            dispatch(p.action,p.args,value);msg('editor','ec_release');
+            try{dispatch(p.action,p.args,value);}finally{tableGridRelease();msg('editor','ec_release');}
         }
     }catch(e){if(name==='sample_text'){samplePaneIncoming=null;msg(name,'ec_samples_done');status('Sample selection: '+e.message);}else paneAbort('Action stopped: '+e.message);}
 }

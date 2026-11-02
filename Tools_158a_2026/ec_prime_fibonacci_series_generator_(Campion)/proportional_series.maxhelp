@@ -3,8 +3,8 @@
         "fileversion": 1,
         "appversion": {
             "major": 9,
-            "minor": 1,
-            "revision": 5,
+            "minor": 2,
+            "revision": 0,
             "architecture": "x64",
             "modernui": 1
         },
@@ -16,13 +16,55 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-85",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 434.5, 641.0, 59.0, 20.0 ],
+                    "text": "empty list"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-83",
+                    "maxclass": "button",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 408.5, 639.0, 24.0, 24.0 ]
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-81",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 376.0, 640.0, 29.5, 22.0 ],
+                    "text": "set"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-75",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 504.0, 640.0, 96.0, 22.0 ],
+                    "text": "prepend append"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-76",
                     "maxclass": "message",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 583.0, 654.0, 520.0, 22.0 ],
-                    "text": "11 13 17 19 23 29 31 37 41 43 47 53 59"
+                    "patching_rect": [ 376.0, 670.0, 520.0, 22.0 ]
                 }
             },
             {
@@ -558,7 +600,7 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 352.0, 629.0, 190.0, 22.0 ],
+                    "patching_rect": [ 358.0, 572.0, 190.0, 22.0 ],
                     "saved_object_attributes": {
                         "filename": "proportional_series.js",
                         "parameter_enable": 0
@@ -584,7 +626,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 613.0, 694.0, 235.0, 22.0 ],
+                    "patching_rect": [ 474.0, 603.0, 176.0, 22.0 ],
                     "text": "print proportional_series_status"
                 }
             },
@@ -1449,7 +1491,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-76", 1 ],
+                    "destination": [ "obj-75", 0 ],
                     "order": 0,
                     "source": [ "obj-3", 0 ]
                 }
@@ -1613,6 +1655,24 @@
                     "destination": [ "obj-3", 0 ],
                     "hidden": 1,
                     "source": [ "obj-72", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-76", 0 ],
+                    "source": [ "obj-75", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-76", 0 ],
+                    "source": [ "obj-81", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-81", 0 ],
+                    "source": [ "obj-83", 0 ]
                 }
             }
         ],

@@ -20,7 +20,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 547.0, 133.0, 471.0, 36.0 ],
-                    "presentation_linecount": 3,
                     "text": "reset source presence fade in multiples of the radius-1 circle\n2 = no source (reverb continues) by 2X distance, 4 = no source by 4X distance"
                 }
             },
@@ -34,7 +33,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 461.0, 146.0, 84.0, 23.0 ],
-                    "presentation_linecount": 2,
                     "text": "sourcepres 4"
                 }
             },
@@ -1160,11 +1158,11 @@
                     "numinlets": 1,
                     "numoutlets": 4,
                     "outlettype": [ "", "", "", "" ],
-                    "patching_rect": [ 37.0, 260.0, 653.0, 23.0 ],
+                    "patching_rect": [ 37.0, 260.0, 660.0, 23.0 ],
                     "saved_object_attributes": {
                         "parameter_enable": 0
                     },
-                    "text": "spat5.oper @internals 8 @initwith \"/source/number 1, /room/number 1, /speaker/number 2, /speakers/az -45 45\""
+                    "text": "spat5.oper @internals 8 @initwith \"/source/number 32, /room/number 1, /speaker/number 2, /speakers/az -45 45\""
                 }
             },
             {
@@ -1271,6 +1269,186 @@
                 "patchline": {
                     "destination": [ "full", 0 ],
                     "source": [ "delay", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 31 ],
+                    "source": [ "full", 31 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 30 ],
+                    "source": [ "full", 30 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 29 ],
+                    "source": [ "full", 29 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 28 ],
+                    "source": [ "full", 28 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 27 ],
+                    "source": [ "full", 27 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 26 ],
+                    "source": [ "full", 26 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 25 ],
+                    "source": [ "full", 25 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 24 ],
+                    "source": [ "full", 24 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 23 ],
+                    "source": [ "full", 23 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 22 ],
+                    "source": [ "full", 22 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 21 ],
+                    "source": [ "full", 21 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 20 ],
+                    "source": [ "full", 20 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 19 ],
+                    "source": [ "full", 19 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 18 ],
+                    "source": [ "full", 18 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 17 ],
+                    "source": [ "full", 17 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 16 ],
+                    "source": [ "full", 16 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 15 ],
+                    "source": [ "full", 15 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 14 ],
+                    "source": [ "full", 14 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 13 ],
+                    "source": [ "full", 13 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 12 ],
+                    "source": [ "full", 12 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 11 ],
+                    "source": [ "full", 11 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 10 ],
+                    "source": [ "full", 10 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 9 ],
+                    "source": [ "full", 9 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 8 ],
+                    "source": [ "full", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 7 ],
+                    "source": [ "full", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 6 ],
+                    "source": [ "full", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 5 ],
+                    "source": [ "full", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 4 ],
+                    "source": [ "full", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 3 ],
+                    "source": [ "full", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "spat", 2 ],
+                    "source": [ "full", 2 ]
                 }
             },
             {

@@ -388,3 +388,9 @@ V3.4 FIRST NATIVE MAX TEST (not run in this environment)
 If silent, inspect Max Console for sfizz~ file/decoding errors and confirm
 Audio Status has an active output device. Native Max audio/CEF/MIDI hardware
 and engine load acknowledgement cannot be verified in the build environment.
+
+
+CELL EDITOR ALIGNMENT UPDATE — 2026-10-31
+12 controller and 14 browser checks passed. See CELL_EDIT_ALIGNMENT.txt.
+Browser geometry checked at 2x resolution and 80/125/150% CSS zoom.
+Native Max/jweb/sfizz execution is not available in this validation environment.

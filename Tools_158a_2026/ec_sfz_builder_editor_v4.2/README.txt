@@ -1,3 +1,13 @@
+CURRENT v4.2 UPDATE — CELL EDITOR ALIGNMENT
+
+Read CELL_EDIT_ALIGNMENT.txt for this update and installation instructions.
+Extract and use the entire package; the two tables now have embedded cell
+editors that stay inside their cells. New required files: ec_sfz_table.html
+and ec_sfz_tables.js. The existing compiler and SFZ data are retained.
+
+The earlier display-update notes below are retained as history; their
+forced-redraw approach has been replaced by this update.
+
 EC SFZ Builder — jit.cellblock display update
 
 INSTALL

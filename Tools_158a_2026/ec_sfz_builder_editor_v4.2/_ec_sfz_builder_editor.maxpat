@@ -2124,7 +2124,7 @@
             },
             {
                 "box": {
-                    "annotation": "Fixed overview of common local opcodes. Other opcodes appear in section 3 and SFZ text. Blank cells inherit group/global settings.",
+                    "annotation": "Draft storage for the visible regions grid. The controller uses set/dump; inline editing is disabled.",
                     "bordercolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
                     "coldef": [
                         [ 0, 38, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ],
@@ -2145,15 +2145,15 @@
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
-                    "hint": "Fixed overview of common local opcodes. Other opcodes appear in section 3 and SFZ text. Blank cells inherit group/global settings.",
+                    "hint": "Draft storage for the visible regions grid. The controller uses set/dump; inline editing is disabled.",
                     "id": "obj-71",
                     "maxclass": "jit.cellblock",
                     "numinlets": 2,
                     "numoutlets": 4,
                     "outlettype": [ "list", "", "", "" ],
-                    "patching_rect": [ 295.0, 149.0, 900.3224299065423, 154.0 ],
+                    "patching_rect": [ 1650.0, 2200.0, 900.3224299065423, 154.0 ],
                     "precision": 4,
-                    "presentation": 1,
+                    "presentation": 0,
                     "presentation_rect": [ 284.0, 274.0, 900.3224299065423, 154.0 ],
                     "rowhead": 1,
                     "rowheight": 26,
@@ -2163,8 +2163,9 @@
                             "expression": "themecolor.live_midi_assignment"
                         }
                     },
-                    "selmode": 5,
-                    "varname": "regions"
+                    "selmode": 1,
+                    "varname": "regions",
+                    "hidden": 1
                 }
             },
             {
@@ -2585,7 +2586,7 @@
             },
             {
                 "box": {
-                    "annotation": "Click an opcode row to select it for Copy/Delete. Double-click a Value and press Return to finish editing. Copy opcode to regions uses the selected group; Delete selected opcode applies immediately. Other table edits can still use Compile tables.",
+                    "annotation": "Draft storage for the visible opcodes grid. The controller uses set/dump; inline editing is disabled.",
                     "coldef": [
                         [ 0, 42, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 0 ],
                         [ 1, 150, 1, 0.0, 0.0, 0.0, 1.0, 1, 0.0, 0.0, 0.0, 1.0, 0, -1, 1 ],
@@ -2597,21 +2598,22 @@
                     "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
-                    "hint": "Click an opcode row to select it for Copy/Delete. Double-click a Value and press Return to finish editing. Copy opcode to regions uses the selected group; Delete selected opcode applies immediately. Other table edits can still use Compile tables.",
+                    "hint": "Draft storage for the visible opcodes grid. The controller uses set/dump; inline editing is disabled.",
                     "id": "obj-97",
                     "maxclass": "jit.cellblock",
                     "numinlets": 2,
                     "numoutlets": 4,
                     "outlettype": [ "list", "", "", "" ],
-                    "patching_rect": [ 295.0, 433.0, 896.3644859813082, 177.0 ],
+                    "patching_rect": [ 1650.0, 2390.0, 896.3644859813082, 177.0 ],
                     "precision": 4,
-                    "presentation": 1,
+                    "presentation": 0,
                     "presentation_rect": [ 285.33411214953276, 584.0, 896.3644859813082, 177.0 ],
                     "rowhead": 1,
                     "rowheight": 26,
                     "rows": 3,
-                    "selmode": 5,
-                    "varname": "opcodes"
+                    "selmode": 1,
+                    "varname": "opcodes",
+                    "hidden": 1
                 }
             },
             {
@@ -4817,6 +4819,64 @@
                     "patching_rect": [ 1400.0, 1710.0, 165.0, 22.0 ],
                     "text": "prepend table_view regions"
                 }
+            },
+            {
+                "box": {
+                    "id": "table-regions-view",
+                    "maxclass": "jweb",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 295.0, 149.0, 900.3224299065423, 154.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 284.0, 274.0, 900.3224299065423, 154.0 ],
+                    "varname": "regions_view",
+                    "rendermode": 0,
+                    "disablefind": 1,
+                    "url": "file://ec_sfz_table.html",
+                    "hint": "Click a cell and type. Return finishes editing; Tab moves to the next editable cell. Escape restores the value from before this edit. Compile tables applies drafts. ID and Group are read-only.",
+                    "annotation": "Click a cell and type. Return finishes editing; Tab moves to the next editable cell. Escape restores the value from before this edit. Compile tables applies drafts. ID and Group are read-only."
+                }
+            },
+            {
+                "box": {
+                    "id": "table-regions-bridge",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1650.0, 2580.0, 210.0, 22.0 ],
+                    "text": "prepend webtable regions"
+                }
+            },
+            {
+                "box": {
+                    "id": "table-opcodes-view",
+                    "maxclass": "jweb",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 295.0, 433.0, 896.3644859813082, 177.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 285.33411214953276, 584.0, 896.3644859813082, 177.0 ],
+                    "varname": "opcodes_view",
+                    "rendermode": 0,
+                    "disablefind": 1,
+                    "url": "file://ec_sfz_table.html",
+                    "hint": "Click a cell and type. Return finishes editing; Tab moves to the next editable cell. Escape restores the value from before this edit. Compile tables applies drafts. Use and Value are editable. Click any opcode row to select it for Copy/Delete.",
+                    "annotation": "Click a cell and type. Return finishes editing; Tab moves to the next editable cell. Escape restores the value from before this edit. Compile tables applies drafts. Use and Value are editable. Click any opcode row to select it for Copy/Delete."
+                }
+            },
+            {
+                "box": {
+                    "id": "table-opcodes-bridge",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1650.0, 2620.0, 210.0, 22.0 ],
+                    "text": "prepend webtable opcodes"
+                }
             }
         ],
         "lines": [
@@ -6180,6 +6240,30 @@
                 "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "web-sample_text", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "source": [ "table-regions-view", 0 ],
+                    "destination": [ "table-regions-bridge", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "source": [ "table-regions-bridge", 0 ],
+                    "destination": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "source": [ "table-opcodes-view", 0 ],
+                    "destination": [ "table-opcodes-bridge", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "source": [ "table-opcodes-bridge", 0 ],
+                    "destination": [ "obj-1", 0 ]
                 }
             }
         ],
