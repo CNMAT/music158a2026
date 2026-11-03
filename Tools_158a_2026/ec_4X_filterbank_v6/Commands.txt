@@ -1,4 +1,4 @@
-COMMANDS: parameters are examples; edit values in your own message boxes.
+COMMANDS: values are examples. Send messages to the RIGHT inlet.
 
 PRESETS / FILTERS
 1 Recall preset 1
@@ -25,11 +25,11 @@ q 6 1000 Q 6 in 1 s
 q 200 2000 Ultra Q 200 in 2 s
 type peak Peak boost / cut
 type lowpass Lowpass
-type bandpass Serial bandpass
-type ultra Parallel Ultra bandpass
-enable 1 0 Bypass filter 1
+type bandpass Bandpass
+type ultra Ultra-narrow bandpass
+enable 1 0 Filter 1 OFF
 enable 1 1 Enable filter 1
-filters 0 Bypass all filters
+filters 0 All filters OFF
 filters 1 Enable first filter
 filters 2 Enable first two
 filters 3 Enable first three
@@ -37,6 +37,10 @@ filters 4 Enable all four
 fade 1500 On/off fade 1.5 s
 interp 1000 Parameter glide 1 s
 band 2 q 2 2000 Filter 2 Q 2 in 2 s
+type highpass Pass above cutoff
+type resonant Resonant bandpass
+type notch Reject center band
+band 2 level -12 2000 Filter 2 output -12 dB in 2 s
 
 MOTION / GLOBALS / STORAGE
 once One motion trip
@@ -57,8 +61,8 @@ band 4 loop 1 Loop filter 4
 stop Stop selected motion
 stop 2 Stop filter 2 motion
 stopall Stop all motion
-amp 0.8 1000 Master level 0.8 in 1 s
-amp 0 1000 Silence in 1 s
+level -6 1000 Selected output -6 dB in 1 s
+filters 0 All outputs OFF
 gainout 0. Unity output in 2 s
 gainout -6. Output -6 dB in 2 s
 normalize 1 Peak ceiling -6 dBFS
@@ -74,12 +78,15 @@ dumpstate Capture full state message
 restorestate Restore last capture
 boot Reset to silent startup
 
-restorestate <packet> Restore the complete captured state.
-band N <command> <arguments> Address one filter explicitly.
+level <dB> [ms] Output trim for the selected filter: -24 to +12 dB.
+band N level <dB> [ms] Output trim for filter N (1-4).
+enable N 0 Filter N OFF: fade to silence, without dry signal.
+filters 0 All four outputs OFF. Input meters remain active.
+restorestate <packet> Restore current settings and the entire preset bank.
+band N <command> <arguments> Address a filter explicitly.
 
-V6 FILTER MODES
-type highpass Pass above cutoff
-type resonant Resonant bandpass
-type notch Reject center band
+Legacy: amp <0..1> maps a positive amplitude to all four output trims.
+Values below -24 dB clamp to -24 dB. amp 0 turns all four filters OFF.
+Turning a filter back ON retains its fader setting. Use filters 0 for silence.
 
 Type indices: 0 Peak; 1 Lowpass; 2 Bandpass; 3 Ultra; 4 Highpass; 5 Resonant; 6 Notch.

@@ -1,0 +1,172 @@
+EC SFZ Builder / Editor v5 — release notes
+
+CURRENT: STARTUP REPAIR 2
+The first repair delayed support includes. Max could emit jit.cellblock/list
+and opcode-selection events before those helpers were loaded, causing the
+reported "isPane is not defined" errors. This repair replaces runtime includes
+with one self-contained ec_sfz_builder_v5.js. Its helper functions are available
+as soon as the script is compiled. Early table events are ignored until the
+instrument model is ready. The prior deferred-include approach is superseded.
+
+The main patch's region-table, opcode-table, and filename connections now use
+prepend region_table_data, prepend opcode_table_data, and prepend
+instrument_filename into inlet 0. Existing compiler dump/capture behavior is
+retained. Legacy numbered inlets remain supported but have no incoming wires
+in the supplied patch. Every controller connection is safe with a single inlet.
+
+The patch references the new controller filename in both the object text and
+saved filename attribute. Its declared inlet/outlet counts are set at the start
+of global evaluation. This also avoids selecting an older ec_sfz_builder.js
+from another installed folder. Seven HTML views retain their local readfile
+loading and about:blank initial URLs.
+
+Support/ec_sfz_controller_source.js and the other host modules are editable
+sources. Run node Tests/build_controller.cjs to regenerate the root controller.
+No Node installation is needed to use the patch in Max. The mapper's browser
+script remains a separate file loaded locally by its HTML page.
+
+Validation for this repair:
+- 12 controller regression checks and 15 allocation/path checks passed.
+- 13 startup checks include pre-initialization opcode_selection/list events,
+  helper availability during global evaluation, named table/filename messages,
+  and the absence of wires to extra controller inlets.
+- Seven browser panel load/configuration checks passed.
+- A structural patchcord audit and bundle/source consistency check passed.
+- Main presentation geometry/colors, audio/MIDI wiring, HTML, mapper behavior,
+  sample files, and SFZ instruments are retained.
+
+Native Max was not available. The specific two patchcord warnings were not
+reproduced here; the connection changes remove the controller-inlet dependency,
+but native opening/playback still require confirmation on the target machine.
+
+HISTORICAL: FIRST HTML STARTUP REPAIR (superseded as described above)
+
+HTML STARTUP REPAIR
+The reorganization left invalid saved URLs such as file://Support/... and
+resolved this.patcher.filepath during global script evaluation. Max does not
+provide patcher context at that stage, so the support includes could fail
+before the controller could replace those URLs with real local files.
+
+- All seven jweb objects now start at about:blank.
+- The existing loadbang -> deferlow -> initialize sequence loads the six
+  Support scripts only after the patcher exists.
+- The existing readfile messages then open the HTML at absolute local paths.
+- Incomplete support loads report a startup error in the main status label
+  and Max Console, and can be retried without setting the initialized flag.
+- Startup failure also permits clean close/delete without undefined helpers.
+- Layout, colors, MIDI/audio routing, SFZ contents, and sample assets are retained.
+
+Repair validation: 27 controller/allocation checks, 11 lifecycle/path checks,
+and seven real-browser HTML panel load/configuration checks passed.
+The startup tests withhold patcher access during global evaluation, matching
+the Max initialization constraint that the earlier harness did not simulate.
+Native Max and sfizz~ were not executed in this environment.
+
+Primary references:
+https://docs.cycling74.com/legacy/max8/vignettes/jsbasic
+https://docs.cycling74.com/legacy/max7/vignettes/jsrequire
+https://docs.cycling74.com/reference/jweb/
+
+V5 RELEASE CONTENTS
+
+The v5 release updates the latest complete builder to v5. The package folder,
+archive name, main-patch title, Opcode Browser title, HTML titles, script
+headers, README, current release notes, and test path examples use v5.
+Stable script, patch, HTML, sample, and SFZ filenames are retained for existing
+references. Max application/file-format numbers and SFZ curve point opcodes
+are not package versions and remain unchanged.
+
+Saved folder displays are neutral until the controller supplies the current
+path. Earlier development records are explicitly labeled as historical; their
+original release numbers and dates remain historical evidence.
+
+The HTML startup repair does not change mapping, compilation, saving, MIDI, or
+playback behavior after initialization. These features and repairs are retained.
+
+Mapper selection
+- Left/right arrows traverse valid mapped regions in horizontal key order.
+- View restricts traversal to the selected group. All groups traverses all
+  visible mapped regions. The sidebar search remains a list filter only.
+- With no selection in the current View, either arrow starts at the leftmost
+  mapped region. At the ends, selection stays at the first/last region.
+- Equal ranges use stable document order, so overlapping samples are reachable.
+- Repeated presses queue while the controller replies; failures clear the queue.
+- Selection reveals the region in the keyboard viewport and sidebar.
+- Text, number, menu, slider, and modified-arrow input retains normal behavior.
+- Pending valid field edits commit before selection; invalid edits are retained.
+- Arrow selection does not audition, change mapping, or change the saved SFZ.
+
+Placement
+- A single allocator serves every sample-add route and region duplication.
+- Group numbers follow displayed order, independently of private node IDs.
+- Group 1 starts at MIDI 0 ascending; group 2 at 127 descending; group 3 at 84
+  descending to 0. Later groups start at 0 ascending.
+- Occupied key ranges are skipped within each group, independent of velocity.
+- Existing manual mappings are retained. Whole-group duplication retains all
+  copied mappings; it does not remap the copied instrument.
+- The mapper's next-key/free-key display reflects the applicable placement range.
+
+Organization and compatibility
+- The main patch, main controller, Opcode Browser, and basic README stay at root.
+- Support code and HTML views are in Support; their paths are package-relative.
+- Demo/tutorial trees are under Examples. Audio files are unchanged. The supplied
+  aux-samples.sfz referenced bassdrum.aif, bird.aif, and knock.aif, while its
+  included audio files are bassdrumz.aif, birdz.aif, and knockz.aif. Its four sample
+  assignments now use those actual filenames; other example SFZs are unchanged.
+- Scala reference is under Reference and loaded through an absolute package path.
+- Earlier notes are under Documentation/Previous_notes, each with a v5 archive
+  label. Their recorded paths, release numbers, and test results describe earlier
+  development. Use the root README for current installation and behavior.
+- Optional tests are in Tests. No browser binaries or third-party dependencies
+  are bundled in the deliverable.
+- Restored the missing inlet in the Opcode Browser's Output Channel Map
+  subpatcher so its existing pcontrol connection has a real destination inlet.
+
+Validation
+- Re-ran the 27 controller/allocation checks for the v5 package.
+- The version-label update preserved executable logic; the repair above changes
+  initialization only. Main-patch geometry, colors, and wiring are unchanged.
+- The preceding feature build completed the following checks:
+- 12 controller regression checks: table drafts, compile/revert, literal zero,
+  delete/copy/undo, asynchronous snapshots, Unicode transport, stale-edit guards.
+- 15 allocation/path checks: every add route, group directions, range skipping,
+  holes, capacity limits, atomic batches, duplicate behavior, portable paths.
+- 16 browser checks: navigation, overlapping samples, filtering, rapid presses,
+  focus handling, scrolling, field commits, action failures, and script loading.
+- Syntax and all 387 patchcords across 8 patchers pass the port audit.
+- All 118 sample references in the included example SFZs resolve to files.
+- Original sound files and example SFZs are retained unchanged in this release.
+
+These checks use a controller mock and a real browser. They do not execute
+native Max objects or sfizz~. Verify native loading and audio on the target Mac.
+
+SAVE / OPEN REPAIR
+- Fixed textedit's transport selector being accumulated into filenames on
+  every command. Literal filenames beginning with the word text are retained.
+- Default blank filename: My-Instrument.sfz.
+- Finish/release each editor/table capture before dispatching its action.
+  A synchronous native dialog callback can now create the next capture without
+  the previous capture clearing it. Repeated Open/Save no longer stalls here.
+- Connected Open cancellation feedback; Save cancellation clears its load flag.
+- File-action failures also appear in the Max Console. Existing readback
+  verification, UTF-8, relative sample paths, and overwrite backups are retained.
+- Reset seven invalid serialized jweb URLs to about:blank. Runtime initialization
+  loads the HTML files from this package's Support folder.
+- Kept the attached patch's presentation, colors, sample/example files, and
+  16-output sfizz~ audio wiring. No new performance features were added.
+
+Verification: node Tests/file_io.cjs, node Tests/startup.cjs,
+node Tests/allocation.cjs, node Tests/build_controller.cjs --check.
+These run 52 unique checks (the shared controller checks print in both suites).
+Seven local HTML panels also loaded/configured successfully in Chromium.
+Native Max UI/audio testing remains to be done on the user's machine.
+
+NO PATCH SAVE ON CLOSE
+The main patch's closebang now runs t b b: the right outlet calls the existing
+controller cleanup; the left outlet then sends clean to a main-level
+thispatcher. There is no save/write message in the new close branch. No polling
+or new JavaScript dependency is used. Explicit SFZ Save/Open behavior, the
+controller bundle, presentation layout, and audio routing are unchanged.
+Patchcord endpoints and the shutdown ordering were checked structurally.
+Native Max close-window behavior was not available for testing here.
+Reference: https://docs.cycling74.com/reference/thispatcher/ (clean)

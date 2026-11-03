@@ -1,170 +1,101 @@
-V6 CHANGES
-Built from your attached ec_filterbank_v5_8(1).zip. The compact home/editor
-layouts, captured-state subpatch, saved data and extra tutorial are retained.
-The standalone processor and primer now match your edited embedded versions.
+4X FILTER BANK v6 — PARALLEL OUTPUT UPDATE
 
-SEVEN FILTER OPTIONS
-0 Peak       Parametric boost/cut.
-1 Lowpass    Pass below the cutoff; Q adds resonance.
-2 Bandpass   Pass a band around the center.
-3 Ultra      Very narrow parallel bandpass; Q 20-200.
-4 Highpass   Pass above the cutoff; Q adds resonance.
-5 Resonant   Max's resonant bandpass mode; Q controls resonance.
-6 Notch      Reject the center frequency; Q sets the width of the dip.
+Open _ec_4X_filterbank_v6.maxpat. Keep the two included JavaScript files
+alongside it. The embedded Filter_Bank_v6 editor and the standalone
+ec_filterbank_v6~.maxpat contain the same updated processor.
 
-New commands (right/control inlet):
-  type highpass
-  type resonant
-  type notch
-  band 2 type notch          Address filter 2 without changing the target.
-All three are in each filter's menu and the home Presets/Filters menu.
-New modes have Q 0.5-20 and support both motion curves, on/off fades,
-preset transitions, slot storage and full-state capture. Gain and Gain Depth
-remain active: they scale the filtered output for these three modes.
-In Notch mode, gain is a passband level trim, not the depth of the hole.
-Use Peak with negative gain when you want an adjustable-depth dip.
-All ordinary modes are in series; Ultra alone uses parallel branches.
+PRESENTATION
+Filter 1 supplies the colors and relative control positions for all four
+columns. Each column now has an input meter at its top and a horizontal
+output fader at its bottom. Labels are shortened and no controls overlap.
+The editor remains 1030 pixels wide; it is taller to fit meters and faders.
 
-QUICK AUDITION
-Enable Max Audio, raise the listening fader, and enable local Output.
-Open the primer and click One peak. Choose one of the new types from the
-home menu, or the filter 1 menu. Adjust frequency and Q. To hear motion,
-use Triangle shapes, nonzero depths, and Once or Loop.
+ROUTING / OFF
+The mono input feeds four PARALLEL filters. Each channel is:
+input → biquad → smoothed ON/OFF gate → output trim.
+All four outputs sum into Global Gain Out, then the existing peak protection.
+OFF fades that channel to zero, using On/off time. There is no dry fallback.
+With all four OFF, the processor produces no signal after the fade completes.
+One OFF channel does not mute the other enabled channels.
+Input meters are connected before filtering and muting. Since all four
+filters receive the same input, these meters normally show the same level,
+even with every filter OFF. They do not indicate the filtered output level.
 
-GRAPH
-One combined response remains. Its coefficients now come from native
-filtergraph~ for all modes, including Resonant. Graph coefficients never
-feed audio. The existing filtercoeff~ / biquad~ signal-rate processing,
-parameter ramps and protected mode-change fades remain in place.
+OUTPUT FADERS
+Each horizontal live.gain~ control sets its own -24 to +12 dB output trim.
+Default: 0 dB, with every filter OFF and no preset recalled on opening.
+The controller sends dB ramps to native line~/dbtoa~ stages. Glide controls
+the transition time, including preset recalls. The UI fader's signal outlet
+is unused, so gain is applied exactly once. Its meter shows channel output.
+The old shared Output Level control and its hidden 0–1 multiplier are removed.
+Global Gain Out retains its -36 to +12 dB range and fixed 2-second fade.
+Peak protection may attenuate large boosts; it does not add makeup gain.
 
-COMPATIBILITY / COPY SAFETY
-New v6 exports use bank-record format 9 so older controllers do not silently
-misinterpret new filter types. v6 still imports bank formats 3-8 and complete
-format-8 state messages from v5.8. Your existing slots and saved state have
-not been rewritten. Use the v6 controller and display files supplied here.
+New right-inlet commands:
+  level -6 1000             Selected channel output -6 dB over 1 second.
+  band 2 level -12 2000     Filter 2 output -12 dB over 2 seconds.
+  enable 2 0               Filter 2 OFF, using On/off fade.
+  enable 2 1               Filter 2 ON, retaining its output fader setting.
+  filters 0                All four OFF.
+The home menus output only command atoms, without their descriptions.
+Commands.txt includes the complete menu and message list.
 
+FILTERS / MOTION
+Peak, Lowpass, Bandpass, Ultra-narrow Bandpass, Highpass, Resonant and Notch
+all use the same parallel routing. Frequency remains 60–13000 Hz, limited
+further if necessary for the current sample rate. Ordinary Q is 0.5–20;
+Ultra Q is 20–200. The graph shows the complex sum of all four channels,
+including their mute fades and output trims, before Global Gain Out.
+Parallel signals can reinforce or cancel according to their phase.
+
+Filter gain and output trim are separate. Peak gain shapes its boost/cut;
+the other modes use gain as a filtered-output scale. Gain Depth modulates
+that filter gain, not the new output fader. Frequency curve × Hz depth adds
+a frequency offset; Gain curve × dB depth adds a gain offset. Both share the
+Full Trip duration. Once plays a trip; Loop repeats. Flat curves or zero
+depth give no modulation. Mode changes still fade out, reconfigure, settle
+and fade back in.
+
+PRESETS / CAPTURE / COMPATIBILITY
+Store slots 1–10 include all four output trims. Save the containing patch
+or Write bank to keep stored changes. Capture current state / dumpstate
+exports the current sound and stored slots as one restorestate message.
+Save the MAIN patch after Capture. Send the whole message to a processor's
+right inlet to restore it. Motion restarts from the beginning of its curves.
+The attached capture and stored presets are retained and import on demand.
+Old master amplitude is translated to the same dB trim on each channel;
+old zero amplitude also switches every channel OFF. Values below -24 dB
+clamp to -24 dB. The routing change means old serial sounds can sound different.
+Legacy amp messages still work: positive values trim all channels; amp 0
+turns all four OFF. There is no remaining hidden master amplitude control.
+
+New records use format 10; old bank formats 3–9 and full-state formats 8/9
+remain readable. Use both updated JavaScript files with this patch.
+Full-state packets support eight curves of up to 64 points plus ten presets;
+maximum size is 11921 atoms including the restorestate selector.
+Snapshots exclude meter values, filter delay history, sample-accurate motion
+phase, audio-device settings and the main patch's test/listening controls.
+
+INDEPENDENT COPIES
 Copy the complete p Filter_Bank_v6 object, or create multiple
-[ec_filterbank_v6~] abstractions. Every instance owns its own parameters,
-function curves, motion tasks, gain ramps, captured-state cache and preset bank.
-There are no global send/receive buses or shared named data stores in the
-processor or its connected menus. Connect each primer/menu to its own target.
-The home Output switch now uses a local 100 ms fade, rather than commanding
-Max's global DSP engine. Enable the shared audio engine in Max Audio Status.
+[ec_filterbank_v6~] abstractions. Controls, output ramps, motion tasks,
+presets and captures are private to each instance. No named send/receive
+buses or shared data stores connect copies. Connect each menu/primer to
+its intended processor. Max's audio engine itself remains shared.
 
-V6 VALIDATION
-Controller checks passed for all 28 slot/type combinations, all 49 mode
-transitions, preset and snapshot recall, v5.8 import, malformed-packet
-rejection and maximum-sized state messages. Eight isolated controller contexts
-passed cross-instance checks for edits, motion, presets, capture, restore,
-export and deletion. Nested patchcord ports and private routing were checked.
+TESTING
+Controller checks passed for all 28 filter/type combinations, 49 type
+transitions, four output-fader bounds and ramps, preset/full-state recall,
+old-state imports, maximum packets and malformed-message rejection.
+Eight isolated controller contexts passed cross-instance checks. Nested
+patchcord ports, actual summing connections, wet-only audio paths, meter
+taps, matching presentation geometry/colors and original asset preservation
+were checked. An approximate layout render was inspected for overlaps.
 Native Max audio playback and UI interaction have not been run here.
 
-FILTER BANK v6
-
-Open _ec_filterbank_v6.maxpat with the included ec_filterbank_v6.js and
-ec_filterbank_v6_display.js alongside it. Use these updated support files;
-the earlier controller does not understand full-state messages.
-The supplied main patch and its embedded filter editor are the source for this
-version. The editor layout, colors, existing DSP stages and stored preset data remain.
-
-HOME PAGE
-Two menus replace the two columns of command buttons. Each item reads:
-  message description
-Selecting an item sends only the message to Filter_Bank_v6's right inlet.
-The small field below each menu shows the exact message sent.
-Numeric values in the menus are examples. Use your own message boxes for other
-values. Commands.txt lists the commands, including aliases.
-Lock the patch to use its controls and brief hover descriptions.
-
-FULL-STATE MESSAGE
-1. Develop a sound in the editor. Store individual presets if wanted.
-2. Click Capture current state, or send dumpstate to the right inlet.
-3. The message inside p captured-restore-state receives one restorestate message.
-4. Open p captured-restore-state and click its box, or copy/paste the
-   whole message box elsewhere. Connect its outlet to the right/control inlet
-   of any v6 Filter_Bank_v6 processor.
-5. Save the MAIN patch to preserve the captured message. Capture marks that
-   main patch as changed. Copy the message box before capturing again if you
-   want to keep multiple snapshots.
-
-A snapshot contains the current four-filter configuration, all eight function
-curves and their points, enable states, modes, Q, base frequency/gain, both
-motion depths, trip times, loop flags, currently running Once/Loop flags,
-selected filter, store slot, last loaded preset label, Level, Global Gain Out,
-parameter glide, on/off fade, output headroom, and all stored slots 1-10.
-Restoring replaces this instance's stored bank with the bank in the message.
-The initial box preserves your attached captured state and its stored bank.
-It does not run on open. A newly opened processor remains silent with no
-preset selected.
-
-Active motion restarts from each curve's beginning. Snapshots do not retain
-sample-accurate playhead phase, an in-progress ramp, filter delay history,
-meter readings, Max's audio device/settings, or the demo noise/fader/output
-switch outside Filter_Bank_v6. Restore uses the receiver's current glide time;
-it also loads the saved glide time for subsequent edits. Global Gain Out always
-fades over 2000 ms. Type changes retain the existing fade/reconfigure behavior.
-
-COMMANDS
-  dumpstate               Export full state from the new right outlet.
-  restorestate <packet>   Restore a self-contained captured message.
-  restorestate            Restore this copy's last capture or received packet.
-                         Capture once first when using this command from a menu.
-The left outlet remains processed audio. Capture outputs to the message box's
-RIGHT inlet, which stores without sending. Clicking the box sends to the
-Filter Bank's RIGHT inlet. No external dictionary or file is required by a
-captured message. Invalid/truncated packets are rejected before any mutation.
-
-Packet layout (automatic; normally do not edit numbers by hand):
-  restorestate 1 loadedSlot running1 running2 running3 running4 recordCount
-    key length encodedState ...
-Key 0 is the working sound; keys 1-10 are stored presets. New encodedState records use bank format 9.
-Format-8 captures from v5.8 remain readable by v6. Curves support up to 64 points each. The largest
-packet is 11877 atoms including its selector. Full_state_example.txt is a
-plain-text copy of the initial message.
-
-PRIMER
-Double-click p Filter_Bank_Primer on the home page. It explains biquad filters,
-frequency, gain, Q, routing, motion and capture. Its example buttons send local
-commands to the connected Filter Bank. They do not generate audio or overwrite
-stored presets. One peak sets an audible test configuration; Motion starts
-both curves; Four Ultra sets four parallel narrow bands; Quiet fades Level down.
-The separately supplied Filter_Bank_Primer.maxpat is the same guide. If used
-elsewhere, connect its outlet to the processor's control inlet. For its Capture
-button to fill a box, also wire the processor's right outlet to the right inlet
-of a message box.
-
-AUDIO / INDEPENDENT COPIES
-Enable the shared Max audio engine in Audio Status. Raise the local listening
-fader and enable Output on/off. The home Output switch fades only this copy.
-The reusable p Filter_Bank_v6 contains no source or hardware-output object.
-Copy/paste the WHOLE processor p object for independent banks, parameter state,
-functions, motion tasks and control routing. Each menu uses an unnamed local
-lookup table; control/state connections use patch cords. Keep each primer/menu
-connected to its intended processor. Max's audio engine is shared by Max itself.
-
-RANGES
-Frequency: 60-13000 Hz, additionally limited for the current sample rate.
-Gain: -24 to +24 dB. Q: 0.5-20 ordinary; 20-200 Ultra.
-Frequency Depth: 0-12940 Hz. Gain Depth: 0-48 dB.
-Full Trip: 100-600000 ms. Curves range -1 to +1 with zero endpoints.
-Frequency = base Hz + Hz depth x frequency curve.
-Gain = base dB + dB depth x gain curve, limited to +/-24 dB.
-Depth needs a non-flat curve and Once/Loop to produce motion.
-Level: 0-1. Global Gain Out: -36 to +12 dB, fixed 2-second fade.
-Protection limits sample peaks at -6 dBFS (normalize 1) or -1 dBFS
-(normalize 0); it does not add automatic makeup gain.
-
-VALIDATION
-Static nested-object/port validation; all original command examples mapped;
-brief hover descriptions; attached editor/DSP/bank preservation checks;
-eight isolated controller contexts; full-state round trips including eight
-64-point curves and all ten presets; malformed packet rejection; local menu
-routing and capture/replay wiring. Layout renders checked for text clipping.
-These are controller/structure checks, not native Max audio/UI execution.
-
-Cycling '74 documentation:
-https://docs.cycling74.com/reference/biquad~/
+The separate tutorial and the 8_Triangles_sfz assets are unchanged.
+Cycling '74 references used:
+https://docs.cycling74.com/reference/live.gain~/
+https://docs.cycling74.com/reference/meter~/
 https://docs.cycling74.com/reference/filtercoeff~/
-https://docs.cycling74.com/reference/function/
-https://docs.cycling74.com/reference/umenu/
-https://docs.cycling74.com/reference/message/
+https://docs.cycling74.com/reference/biquad~/

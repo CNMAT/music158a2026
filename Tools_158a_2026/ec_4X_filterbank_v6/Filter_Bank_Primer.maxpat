@@ -263,7 +263,7 @@
             24.0,
             311.0,
             303.0,
-            118
+            114.0
           ],
           "presentation": 1,
           "presentation_linecount": 8,
@@ -271,9 +271,9 @@
             24.0,
             219.0,
             303.0,
-            118
+            114.0
           ],
-          "text": "Peak: boost or cut around the center.\nLowpass: pass below the cutoff.\nBandpass: pass a band around the center.\nUltra: narrow parallel bandpass (Q 20–200).\nHighpass: pass above the cutoff.\nResonant: resonant bandpass, shaped by Q.\nNotch: reject the center; gain trims output.\nUltra is parallel; other modes are serial.",
+          "text": "Peak: boost or cut around the center.\nLowpass: pass below the cutoff.\nBandpass: pass a band around the center.\nUltra: narrow bandpass (Q 20\u2013200).\nHighpass: pass above the cutoff.\nResonant: resonant bandpass, shaped by Q.\nNotch: reject the center; gain trims output.\nAll four filters are parallel; OFF is silent.",
           "textcolor": [
             0.68,
             0.73,
@@ -316,10 +316,10 @@
       },
       {
         "box": {
-          "annotation": "FREQUENCY curve × Hz depth offsets the base frequency.",
+          "annotation": "FREQUENCY curve \u00d7 Hz depth offsets the base frequency.",
           "fontname": "Arial",
           "fontsize": 12.0,
-          "hint": "FREQUENCY curve × Hz depth offsets the base frequency.",
+          "hint": "FREQUENCY curve \u00d7 Hz depth offsets the base frequency.",
           "id": "s4body",
           "linecount": 5,
           "maxclass": "comment",
@@ -339,7 +339,7 @@
             324.0,
             74.0
           ],
-          "text": "Frequency curve × Hz depth = Hz offset.\nGain curve × dB depth = gain offset.\nFull Trip spans both curves once.\nOnce plays one trip; Loop repeats.\nFlat curves or zero depth: no motion.",
+          "text": "Frequency curve \u00d7 Hz depth = Hz offset.\nGain curve \u00d7 dB depth = gain offset.\nFull Trip spans both curves once.\nOnce plays one trip; Loop repeats.\nFlat curves or zero depth: no motion.",
           "textcolor": [
             0.68,
             0.73,
@@ -377,17 +377,15 @@
             0.84,
             0.78,
             1.0
-          ],
-          "linecount": 1,
-          "presentation_linecount": 1
+          ]
         }
       },
       {
         "box": {
-          "annotation": "Store saves settings into a slot 1–10. Save the patch.",
+          "annotation": "Store saves settings into a slot 1\u201310. Save the patch.",
           "fontname": "Arial",
           "fontsize": 12.0,
-          "hint": "Store saves settings into a slot 1–10. Save the patch.",
+          "hint": "Store saves settings into a slot 1\u201310. Save the patch.",
           "id": "s5body",
           "linecount": 5,
           "maxclass": "comment",
@@ -407,7 +405,7 @@
             301.0,
             74.0
           ],
-          "text": "Store saves a preset slot; save the patch.\nCapture writes a full state message.\nOpen captured-restore-state to view it.\nClick its message to restore this copy.\nCopy it to another bank’s right inlet.",
+          "text": "Store saves a preset slot; save the patch.\nCapture writes a full state message.\nOpen captured-restore-state to view it.\nClick its message to restore this copy.\nCopy it to another bank\u2019s right inlet.",
           "textcolor": [
             0.68,
             0.73,
@@ -450,10 +448,10 @@
       },
       {
         "box": {
-          "annotation": "Frequency: 60–13000 Hz. Filter gain: -24 to +24 dB.",
+          "annotation": "Frequency: 60\u201313000 Hz. Filter gain: -24 to +24 dB.",
           "fontname": "Arial",
           "fontsize": 12.0,
-          "hint": "Frequency: 60–13000 Hz. Filter gain: -24 to +24 dB.",
+          "hint": "Frequency: 60\u201313000 Hz. Filter gain: -24 to +24 dB.",
           "id": "s6body",
           "linecount": 5,
           "maxclass": "comment",
@@ -473,7 +471,7 @@
             305.0,
             74.0
           ],
-          "text": "Frequency: 60–13000 Hz. Gain: ±24 dB.\nDepth needs a curve and Once/Loop.\nLevel: 0–1. Gain Out: -36 to +12 dB.\nGain Out changes fade over 2 seconds.\nProtection limits peaks; no makeup gain.",
+          "text": "Frequency: 60\u201313000 Hz. Filter gain: \u00b124 dB.\nOutput faders: -24 to +12 dB; Glide sets fade.\nGlobal Gain Out: -36 to +12 dB; 2 s fade.\nInput meters stay active while OFF.\nProtection limits peaks; no makeup gain.",
           "textcolor": [
             0.68,
             0.73,
@@ -497,7 +495,7 @@
             24.0,
             657.0,
             540.0,
-            47.0
+            87.0
           ],
           "presentation": 1,
           "presentation_linecount": 6,
@@ -518,10 +516,10 @@
       },
       {
         "box": {
-          "annotation": "Cycling ’74 references: biquad~ / filtercoeff~ / function / umenu",
+          "annotation": "Cycling \u201974 references: biquad~ / filtercoeff~ / function / umenu",
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Cycling ’74 references: biquad~ / filtercoeff~ / function / umenu",
+          "hint": "Cycling \u201974 references: biquad~ / filtercoeff~ / function / umenu",
           "id": "sources",
           "maxclass": "comment",
           "numinlets": 1,
@@ -539,15 +537,13 @@
             313.0,
             19.0
           ],
-          "text": "Reference: Cycling ’74 filter documentation.",
+          "text": "Reference: Cycling \u201974 filter documentation.",
           "textcolor": [
             0.68,
             0.73,
             0.8,
             1.0
-          ],
-          "linecount": 1,
-          "presentation_linecount": 1
+          ]
         }
       },
       {
@@ -631,7 +627,7 @@
             858.0,
             22.0
           ],
-          "text": "stopall, filters 1, filter 1, type peak, freq 1000 1000, gain 12 1000, q 6 1000, depth 200, ampdepth 6, triangle, amptriangle, period 4000, gainout 0., amp 0.5 1000",
+          "text": "stopall, filters 1, filter 1, type peak, freq 1000 1000, gain 12 1000, q 6 1000, depth 200, ampdepth 6, triangle, amptriangle, period 4000, gainout 0., level -6 1000",
           "textcolor": [
             0.92,
             0.94,
@@ -686,10 +682,10 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1–4.",
+          "annotation": "Select target filter: 1\u20134.",
           "fontname": "Arial",
           "fontsize": 12.0,
-          "hint": "Select target filter: 1–4.",
+          "hint": "Select target filter: 1\u20134.",
           "id": "message_motion",
           "maxclass": "message",
           "numinlets": 2,
@@ -776,7 +772,7 @@
             654.0,
             49.0
           ],
-          "text": "stopall, filters 4, band 1 type ultra, band 1 freq 220, band 1 gain 12, band 2 type ultra, band 2 freq 700, band 2 gain 12, band 3 type ultra, band 3 freq 2200, band 3 gain 12, band 4 type ultra, band 4 freq 7000, band 4 gain 12, gainout 0., amp 0.5 1000",
+          "text": "stopall, filters 4, band 1 type ultra, band 1 freq 220, band 1 gain 12, band 2 type ultra, band 2 freq 700, band 2 gain 12, band 3 type ultra, band 3 freq 2200, band 3 gain 12, band 4 type ultra, band 4 freq 7000, band 4 gain 12, gainout 0., band 1 level -6 1000, band 2 level -6 1000, band 3 level -6 1000, band 4 level -6 1000",
           "textcolor": [
             0.92,
             0.94,
@@ -985,7 +981,7 @@
             650.0,
             22.0
           ],
-          "text": "stopall, amp 0 1000",
+          "text": "stopall, filters 0",
           "textcolor": [
             0.92,
             0.94,

@@ -1,4 +1,4 @@
-/* Read-only response monitor: ONE response of EQ followed by summed Ultra bands.
+/* Read-only response monitor: ONE response of the four parallel filter outputs, including fader levels.
    ES5 / legacy jsui. This file never emits controls, coefficients or audio.
    Exact center samples and extra samples around narrow bands prevent missed peaks. */
 autowatch=1;inlets=1;outlets=0;
@@ -16,7 +16,7 @@ function frame(){
  selected=clamp(Math.round(a[0])-1,0,3);sampleRate=Math.max(8000,a[1]);
  maxHz=clamp(a[2],61,Math.min(13000,sampleRate*.45));topDB=Math.max(36,a[3]);
  for(var i=0;i<4;i++){var p=4+i*7;bands[i]={on:a[p]?1:0,type:clamp(Math.round(a[p+1]),0,6),
-  f:clamp(a[p+2],60,maxHz),g:clamp(a[p+3],-24,24),q:clamp(a[p+4],.5,200),eqw:clamp(a[p+5],0,1),uw:clamp(a[p+6],0,1)};}
+  f:clamp(a[p+2],60,maxHz),g:clamp(a[p+3],-24,24),q:clamp(a[p+4],.5,200),wet:clamp(a[p+5],0,1),level:clamp(a[p+6],-24,12)};}
  hasFrame=true;mgraphics.redraw();
 }
 function bang(){mgraphics.redraw();}
@@ -37,19 +37,18 @@ function responseComplex(c,f){
 }
 function responseDB(c,f){var h=responseComplex(c,f);return 10*Math.log(Math.max(1e-30,h[0]*h[0]+h[1]*h[1]))/Math.LN10;}
 function combinedDB(f,cs){
- var er=1,ei=0,ur=0,ui=0,dry=1;
+ var re=0,im=0;
  for(var i=0;i<4;i++){
-  var b=bands[i],h=responseComplex(cs[i],f),ew=b.eqw||0,uw=b.uw||0;
-  var r=1+ew*(h[0]-1),im=ew*h[1],temp=er*r-ei*im;
-  ei=er*im+ei*r;er=temp;ur+=uw*h[0];ui+=uw*h[1];dry*=1-uw;
+  var b=bands[i],h=responseComplex(cs[i],f),w=(b.wet||0)*Math.pow(10,(b.level||0)/20);
+  re+=w*h[0];im+=w*h[1];
  }
- ur+=dry;var re=er*ur-ei*ui,imag=er*ui+ei*ur;
- return 10*Math.log(Math.max(1e-30,re*re+imag*imag))/Math.LN10;
+ return 10*Math.log(Math.max(1e-30,re*re+im*im))/Math.LN10;
 }
+
 function frequencies(width){
  var out=[],span=Math.log(maxHz/60),count=Math.max(64,Math.ceil(width)),i,j;
  for(i=0;i<=count;i++)out.push(60*Math.exp(span*i/count));
- for(i=0;i<4;i++)if(bands[i].on||bands[i].eqw>0.001||bands[i].uw>0.001){
+ for(i=0;i<4;i++)if(bands[i].on||bands[i].wet>0.001){
   var b=bands[i],bw=sampleRate*Math.sin(2*Math.PI*b.f/sampleRate)/(2*Math.PI*b.q);
   out.push(b.f);
   for(j=-32;j<=32;j++)out.push(clamp(b.f+bw*j/8,60,maxHz));
@@ -76,10 +75,10 @@ function paint(){
  color([.04,.055,.075,1]);mgraphics.rectangle(0,0,w,h);mgraphics.fill();
  var ink=[.65,.71,.77,1],grid=[.18,.22,.27,1],white=[.93,.95,.97,1];
  for(i=0;i<4;i++){
-  var b=bands[i],s=(i+1)+" "+(b.on?names[b.type]+" "+Math.round(b.f)+" Hz / Q"+(Math.round(b.q*10)/10):"BYPASSED");
+  var b=bands[i],s=(i+1)+" "+(b.on?names[b.type]+" "+Math.round(b.f)+" Hz / Q"+(Math.round(b.q*10)/10):"OFF");
   label(s,8+i*(w-175)/4,13,b.on?colors[i]:ink,10);
  }
- label("ONE FILTER RESPONSE",w-151,13,white,10);
+ label("SUM BEFORE GLOBAL",w-151,13,white,10);
  var t=hasFrame&&nativeCoeffs?traces(width):null;
  if(t)topDB=Math.max(topDB,Math.ceil((t.peak+6)/12)*12);
  var levels=[topDB,0,-30,lowDB];

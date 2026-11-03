@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>EC SFZ table v5</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'">
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}
+*{box-sizing:border-box}
+#viewport{width:100%;height:100%;overflow:scroll;border:1px solid var(--border,#777);font:12px Arial,sans-serif;background:var(--bg,#fff);color:var(--fg,#000);--row:26px}
+table{border-spacing:0;table-layout:fixed;margin:0;padding:0}
+th,td{position:relative;height:var(--row);padding:0;border:0;border-right:1px solid var(--grid,#aaa);border-bottom:1px solid var(--grid,#aaa);overflow:hidden;text-align:left;font-weight:normal}
+th{position:sticky;top:0;z-index:2;background:var(--header,#ddd);padding:0 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+td input{position:absolute;inset:0;display:block;width:100%;height:100%;margin:0;padding:0 5px;border:0;border-radius:0;outline:0;font:inherit;line-height:normal;color:inherit;background:transparent;min-width:0}
+tr.selected td{background:var(--selected,#dae3f5)}
+td input:focus{background:var(--bg,#fff);box-shadow:inset 0 0 0 2px var(--border,#62789f)}
+td input[readonly]{cursor:default}
+#empty{padding:6px;color:var(--fg,#444);opacity:.7;white-space:nowrap}
+#viewport::-webkit-scrollbar{width:13px;height:13px}
+#viewport::-webkit-scrollbar-track,#viewport::-webkit-scrollbar-corner{background:#e4e4e4}
+#viewport::-webkit-scrollbar-thumb{background:#888;border:3px solid #e4e4e4;border-radius:6px}
+</style></head><body><div id="viewport" role="region" aria-label="SFZ table"><table><colgroup id="columns"></colgroup><thead id="heads"></thead><tbody id="rows"></tbody></table><div id="empty">Loading table…</div></div>
+<script>
+(function(){
+'use strict';
+var view=document.getElementById('viewport'),table=view.querySelector('table'),columns=document.getElementById('columns'),heads=document.getElementById('heads'),body=document.getElementById('rows'),empty=document.getElementById('empty');
+var state=null,transfer=null,serial=0,drafts={},locked=false,selected=0;
+function send(){if(window.max&&window.max.outlet)window.max.outlet.apply(window.max,arguments);}
+function fail(e){send('error','x'+encodeURIComponent(String(e.message||e)));}
+function rgba(a){return 'rgba('+Math.round(a[0]*255)+','+Math.round(a[1]*255)+','+Math.round(a[2]*255)+','+a[3]+')';}
+function editable(c){return state&&!state.readonly&&state.editable.indexOf(c)>=0;}
+function payload(kind,edits,request){
+ var data={kind:kind,revision:state.revision,edits:edits};if(request!==undefined)data.request=request;
+ var s=encodeURIComponent(JSON.stringify(data)),id=++serial,count=Math.ceil(s.length/512);
+ if(count>30000)throw Error('Table edits are too large.');
+ send('begin',id,count);for(var i=0;i<count;i++)send('chunk',id,i,'x'+s.substr(i*512,512));send('end',id);
+}
+function edit(input){
+ if(!state||locked||!editable(Number(input.dataset.col)))return;
+ var e={col:Number(input.dataset.col),row:Number(input.dataset.row),value:input.value};
+ drafts[e.col+','+e.row]=e;input.title=e.value;payload('edit',[e]);
+}
+function mark(row){
+ if(selected&&body.children[selected-1])body.children[selected-1].classList.remove('selected');
+ selected=row;if(selected&&body.children[selected-1])body.children[selected-1].classList.add('selected');
+}
+function lock(value){locked=value;var fields=body.querySelectorAll('input');for(var i=0;i<fields.length;i++)fields[i].readOnly=value||!editable(Number(fields[i].dataset.col));}
+function size(){
+ if(!state)return;var widths=state.widths.slice(),sum=0;
+ if(state.name==='opcodes'){for(var i=0;i<widths.length-1;i++)sum+=widths[i];widths[widths.length-1]=Math.max(60,view.clientWidth-sum);}
+ sum=0;for(var c=0;c<widths.length;c++){columns.children[c].style.width=widths[c]+'px';sum+=widths[c];}table.style.width=sum+'px';
+}
+function render(data){
+ var top=view.scrollTop,left=view.scrollLeft,sameScope=state&&state.name===data.name&&state.scope===data.scope;
+ state=data;drafts={};selected=0;
+ var s=state.style||{};view.style.fontFamily='"'+String(s.font||'Arial').replace(/[^\w -]/g,'')+'", sans-serif';view.style.fontSize=(s.fontsize||12)+'px';view.style.setProperty('--row',(s.rowheight||26)+'px');
+ var colors={bg:s.background,fg:s.foreground,header:s.header,grid:s.grid,selected:s.selected,border:s.border};
+ Object.keys(colors).forEach(function(k){if(colors[k])view.style.setProperty('--'+k,rgba(colors[k]));});
+ view.setAttribute('aria-label',state.name==='regions'?'Region Table':'Opcodes for Scope');
+ columns.textContent='';heads.textContent='';body.textContent='';
+ var header=document.createElement('tr');
+ state.headers.forEach(function(h){columns.appendChild(document.createElement('col'));var th=document.createElement('th');th.textContent=h;th.title=h;th.scope='col';header.appendChild(th);});heads.appendChild(header);
+ var fragment=document.createDocumentFragment();
+ state.rows.forEach(function(values,r){
+  var row=document.createElement('tr');row.dataset.row=r+1;
+  values.forEach(function(value,c){
+   var cell=document.createElement('td'),input=document.createElement('input');
+   input.type='text';input.value=String(value);input.title=String(value);input.spellcheck=false;input.autocomplete='off';input.maxLength=65536;
+   input.dataset.col=c;input.dataset.row=r+1;input.readOnly=locked||!editable(c);input.tabIndex=editable(c)?0:-1;
+   input.setAttribute('aria-label',state.headers[c]+', row '+(r+1));cell.appendChild(input);row.appendChild(cell);
+  });fragment.appendChild(row);
+ });body.appendChild(fragment);empty.hidden=state.rows.length>0;empty.textContent=state.name==='regions'?'Add samples to create regions.':'No local opcodes in this scope.';
+ mark(state.selected||0);size();view.scrollTop=sameScope?top:0;view.scrollLeft=left;
+}
+body.addEventListener('focusin',function(e){
+ var input=e.target;if(input.tagName!=='INPUT'||!state)return;
+ input.dataset.before=input.value;mark(Number(input.dataset.row));send('select',state.revision,Number(input.dataset.col),Number(input.dataset.row));
+});
+body.addEventListener('input',function(e){try{edit(e.target);}catch(error){fail(error);}});
+body.addEventListener('keydown',function(e){
+ var input=e.target;if(input.tagName!=='INPUT')return;
+ if(e.key==='Enter'){e.preventDefault();input.blur();}
+ else if(e.key==='Escape'&&!input.readOnly){e.preventDefault();input.value=input.dataset.before;try{edit(input);}catch(error){fail(error);}input.blur();}
+});
+var handlers={
+ grid_begin:function(id,count){transfer={id:id,count:count,parts:[]};},
+ grid_chunk:function(id,index,text){if(transfer&&transfer.id===id)transfer.parts[index]=String(text).substring(1);},
+ grid_end:function(id){try{if(!transfer||transfer.id!==id)return;for(var i=0;i<transfer.count;i++)if(typeof transfer.parts[i]!=='string')throw Error('Incomplete table update.');var data=JSON.parse(decodeURIComponent(transfer.parts.join('')));transfer=null;render(data);}catch(e){transfer=null;fail(e);}},
+ grid_get:function(id){try{if(!state)throw Error('Table is still loading.');if(body.contains(document.activeElement))document.activeElement.blur();lock(true);payload('snapshot',Object.keys(drafts).map(function(k){return drafts[k];}),id);}catch(e){fail(e);}},
+ grid_release:function(){lock(false);}
+};
+window.addEventListener('resize',size);
+if(typeof ResizeObserver==='function')new ResizeObserver(size).observe(view);
+window.ecTable={handlers:handlers};
+function connect(){if(window.max&&window.max.bindInlet){Object.keys(handlers).forEach(function(n){window.max.bindInlet(n,handlers[n]);});send('ready');}else setTimeout(connect,50);}connect();
+})();
+</script></body></html>

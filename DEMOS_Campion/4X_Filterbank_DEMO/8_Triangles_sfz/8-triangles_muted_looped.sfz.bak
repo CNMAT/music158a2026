@@ -1,0 +1,135 @@
+// New SFZ instrument
+// Blank table values inherit settings or use sampler defaults.
+
+<global>
+volume=0.0
+ampeg_release=0.2
+
+<group> // Group ID 1
+ // Imported samples
+loop_mode=loop_continuous // Choose looping and response to note-off.
+loop_start=0 // First frame of the sample loop, counted from zero.
+loop_end=47999 // Last frame of the loop, inclusive.
+
+output=0 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 1; Group ID 1
+sample=triang-metal_250ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=4000 // Last frame of the loop, inclusive.
+
+lokey=60
+hikey=60
+pitch_keycenter=60
+
+output=0 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 2; Group ID 1
+sample=triang-metal_350ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=5333 // Last frame of the loop, inclusive.
+
+lokey=62
+hikey=62
+pitch_keycenter=62
+
+output=1 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 3; Group ID 1
+sample=triang-metal_425ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=6000 // Last frame of the loop, inclusive.
+
+lokey=64
+hikey=64
+pitch_keycenter=64
+
+output=3 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 4; Group ID 1
+sample=triang-metal_500ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=7333 // Last frame of the loop, inclusive.
+
+lokey=65
+hikey=65
+pitch_keycenter=65
+
+output=4 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 5; Group ID 1
+sample=triang-metal_650ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=8000 // Last frame of the loop, inclusive.
+
+lokey=67
+hikey=67
+pitch_keycenter=67
+
+output=5 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 6; Group ID 1
+sample=triang-metal_900ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=9333 // Last frame of the loop, inclusive.
+
+lokey=69
+hikey=69
+pitch_keycenter=69
+
+output=6 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 7; Group ID 1
+sample=triang-triangle_1000ms.wav
+
+lovel=1
+hivel=127
+
+
+loop_end=11333 // Last frame of the loop, inclusive.
+
+lokey=71
+hikey=71
+pitch_keycenter=71
+
+output=7 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
+<region> // Region ID 8; Group ID 1
+sample=triang-triangle_850ms.aif
+
+lovel=1
+hivel=127
+
+
+loop_end=12000 // Last frame of the loop, inclusive.
+
+lokey=72
+hikey=72
+pitch_keycenter=72
+
+output=8 // Stereo pair index: 0=ch1/2, 1=ch3/4, 2=ch5/6, 3=ch7/8.
+
