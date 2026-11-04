@@ -4,13 +4,104 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 451.0, 623.0, 654.0, 414.0 ],
+        "rect": [ 451.0, 633.0, 699.0, 408.0 ],
         "boxes": [
+            {
+                "box": {
+                    "hidden": 1,
+                    "id": "obj-14",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 24.0, 76.5, 70.0, 22.0 ],
+                    "text": "loadmess 1"
+                }
+            },
+            {
+                "box": {
+                    "bubble": 1,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-12",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 145.0, 136.0, 152.0, 25.0 ],
+                    "text": "2 - receive~ filterbank"
+                }
+            },
+            {
+                "box": {
+                    "bubble": 1,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-10",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 145.0, 107.0, 130.0, 25.0 ],
+                    "text": "1 - noise~"
+                }
+            },
+            {
+                "box": {
+                    "bubble": 1,
+                    "fontname": "Arial",
+                    "fontsize": 13.0,
+                    "id": "obj-11",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 145.0, 78.0, 114.0, 25.0 ],
+                    "text": "0 - all inlets off"
+                }
+            },
+            {
+                "box": {
+                    "disabled": [ 0, 0, 0 ],
+                    "flagmode": 1,
+                    "id": "obj-13",
+                    "itemtype": 0,
+                    "maxclass": "radiogroup",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "offset": 29,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 120.0, 80.0, 19.0, 89.0 ],
+                    "size": 3,
+                    "value": 1
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-4",
+                    "maxclass": "newobj",
+                    "numinlets": 3,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 49.0, 186.0, 68.0, 22.0 ],
+                    "text": "selector~ 2"
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
+                    "id": "obj-1",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 193.0, 166.0, 72.0, 22.0 ],
+                    "text": "r~ filterbank"
+                }
+            },
             {
                 "box": {
                     "hidden": 1,
@@ -19,23 +110,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "int" ],
-                    "patching_rect": [ 490.0, 329.5, 91.0, 22.0 ],
+                    "patching_rect": [ 401.0, 289.0, 91.0, 22.0 ],
                     "text": "adstatus switch"
-                }
-            },
-            {
-                "box": {
-                    "annotation": "Audio engine settings are shared by Max.",
-                    "fontsize": 10.0,
-                    "hint": "Audio engine settings are shared by Max.",
-                    "id": "obj-1",
-                    "linecount": 2,
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 425.77, 294.85, 167.0, 29.0 ],
-                    "text": "Enable audio in Max Audio Status.\nOutput switch affects only this copy.",
-                    "textcolor": [ 0.72, 0.78, 0.85, 1.0 ]
                 }
             },
             {
@@ -51,7 +127,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -123,7 +199,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 69.0, 259.0, 130.0, 22.0 ],
+                    "patching_rect": [ 69.0, 273.0, 130.0, 22.0 ],
                     "text": "p capture-restore-state"
                 }
             },
@@ -136,7 +212,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 49.0, 145.0, 60.0, 22.0 ],
+                    "patching_rect": [ 49.0, 134.5, 60.0, 22.0 ],
                     "text": "*~ 0.1"
                 }
             },
@@ -149,7 +225,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 49.0, 90.0, 60.0, 22.0 ],
+                    "patching_rect": [ 49.0, 104.0, 60.0, 22.0 ],
                     "text": "noise~"
                 }
             },
@@ -165,7 +241,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 331.9587628865979, 344.0, 30.0, 30.0 ],
+                    "patching_rect": [ 401.0, 344.0, 30.0, 30.0 ],
                     "uncheckedcolor": [ 0.027, 0.89, 0.098, 1.0 ]
                 }
             },
@@ -177,7 +253,7 @@
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 331.9587628865979, 383.0, 70.0, 22.0 ],
+                    "patching_rect": [ 398.0, 382.0, 70.0, 22.0 ],
                     "text": "dac~ 1 2"
                 }
             },
@@ -193,7 +269,7 @@
                     "numoutlets": 4,
                     "outlettype": [ "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 49.0, 317.0, 77.0, 71.0 ],
+                    "patching_rect": [ 49.0, 314.0, 77.0, 71.0 ],
                     "saved_attribute_attributes": {
                         "slidercolor": {
                             "expression": "themecolor.live_arranger_grid_tiles"
@@ -246,7 +322,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -255,6 +331,74 @@
                         "openinpresentation": 1,
                         "visible": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "annotation": "Frequency offset shape, scaled by Hz depth.",
+                                    "fontname": "Arial",
+                                    "fontsize": 9.0,
+                                    "hint": "Frequency offset shape, scaled by Hz depth.",
+                                    "id": "obj-287",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 784.0, 176.0, 89.0, 17.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 877.0, 177.5, 54.0, 17.0 ],
+                                    "text": "input meter",
+                                    "textcolor": [ 0.306, 0.816, 0.078, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "annotation": "Frequency offset shape, scaled by Hz depth.",
+                                    "fontname": "Arial",
+                                    "fontsize": 9.0,
+                                    "hint": "Frequency offset shape, scaled by Hz depth.",
+                                    "id": "obj-235",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 531.0, 176.0, 89.0, 17.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 622.0, 177.5, 54.0, 17.0 ],
+                                    "text": "input meter",
+                                    "textcolor": [ 0.306, 0.816, 0.078, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "annotation": "Frequency offset shape, scaled by Hz depth.",
+                                    "fontname": "Arial",
+                                    "fontsize": 9.0,
+                                    "hint": "Frequency offset shape, scaled by Hz depth.",
+                                    "id": "obj-234",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 279.0, 175.0, 89.0, 17.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 371.0, 177.5, 54.0, 17.0 ],
+                                    "text": "input meter",
+                                    "textcolor": [ 0.306, 0.816, 0.078, 1.0 ]
+                                }
+                            },
+                            {
+                                "box": {
+                                    "annotation": "Frequency offset shape, scaled by Hz depth.",
+                                    "fontname": "Arial",
+                                    "fontsize": 9.0,
+                                    "hint": "Frequency offset shape, scaled by Hz depth.",
+                                    "id": "obj-233",
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 17.0, 177.0, 89.0, 17.0 ],
+                                    "presentation": 1,
+                                    "presentation_rect": [ 117.0, 177.5, 54.0, 17.0 ],
+                                    "text": "input meter",
+                                    "textcolor": [ 0.306, 0.816, 0.078, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "annotation": "Control group.",
@@ -362,10 +506,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "obj-2",
                                     "linecount": 3,
                                     "maxclass": "comment",
@@ -463,7 +607,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 1200.0, 7.943282127380371, 2.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -548,8 +692,8 @@
                                     "id": "obj-11",
                                     "ignoreclick": 1,
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -608,8 +752,8 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "presentation_rect": [ 55.0, 198.0, 32.0, 20.0 ],
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -628,7 +772,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 30.0, 288.0, 124.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 75.0, 196.0, 82.5, 24.0 ],
+                                    "presentation_rect": [ 165.0, 196.0, 79.0, 24.0 ],
                                     "text": "FILTER 1",
                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ],
                                     "texton": "FILTER 1"
@@ -696,7 +840,7 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Select one of seven filter modes.",
+                                    "annotation": "Change filter type with gain, Q and motion reset.",
                                     "bgcolor": [ 0.776, 0.502, 0.18, 1 ],
                                     "bgfillcolor_angle": 270,
                                     "bgfillcolor_autogradient": 0,
@@ -706,7 +850,7 @@
                                     "bgfillcolor_proportion": 0.5,
                                     "bgfillcolor_type": "color",
                                     "fontsize": 18.0,
-                                    "hint": "Select one of seven filter modes.",
+                                    "hint": "Manual type change: briefly mute this filter, reset Gain to 0 dB and Q for the new type, stop Once/Loop and set both motion depths to 0. Output is lowered to -12 dB (quieter settings stay quieter). Frequency and drawn curves are retained. Preset recall does not perform this reset.",
                                     "id": "obj-21",
                                     "items": [ "Peak", ",", "Lowpass", ",", "Bandpass", ",", "Ultra-narrow Bandpass", ",", "Highpass", ",", "Resonant", ",", "Notch" ],
                                     "maxclass": "umenu",
@@ -731,7 +875,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 1610.0, 250.0, 185.0, 22.0 ],
-                                    "text": "prepend band 1 type"
+                                    "text": "prepend band 1 uitype"
                                 }
                             },
                             {
@@ -840,16 +984,16 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 14.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "obj-29",
                                     "linecount": 2,
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 177.0, 348.0, 98.0, 38.0 ],
+                                    "patching_rect": [ 224.0, 348.0, 98.0, 38.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 30.0, 223.0, 130.0, 22.0 ],
                                     "text": "Filter gain / dB",
@@ -858,20 +1002,20 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 14.0,
                                     "format": 6,
-                                    "hint": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "id": "obj-30",
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 177.0, 365.0, 98.0, 24.0 ],
+                                    "patching_rect": [ 172.0, 372.0, 98.0, 24.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 175.0, 222.0, 72.0, 24.0 ],
                                     "textcolor": [ 0.9450980392156862, 0.0196078431372549, 0.0196078431372549, 1.0 ],
@@ -893,10 +1037,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-32",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -910,11 +1054,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-33",
                                     "maxclass": "flonum",
                                     "maximum": 12940.0,
@@ -945,10 +1089,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-35",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -962,11 +1106,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-36",
                                     "maxclass": "flonum",
                                     "maximum": 48.0,
@@ -1134,11 +1278,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -1270,11 +1414,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2400.0, 1.0, 0, 4200.0, 1.0, 0, 7800.0, -1.0, 0, 9600.0, -1.0, 0, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -1286,7 +1430,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 30.0, 586.0, 240.0, 52.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 19.0, 529.0, 240.0, 52.0 ],
+                                    "presentation_rect": [ 16.592436974789905, 529.0, 242.4075630252101, 52.0 ],
                                     "range": [ -1.0, 1.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "acurve0"
@@ -1500,8 +1644,8 @@
                                     "id": "obj-67",
                                     "ignoreclick": 1,
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -1560,7 +1704,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 515.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 413.5, 198.0, 63.0, 20.0 ],
+                                    "presentation_rect": [ 308.0, 198.0, 32.0, 20.0 ],
                                     "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus1"
@@ -1580,7 +1724,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 310.0, 288.0, 124.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 328.0, 196.0, 82.5, 24.0 ],
+                                    "presentation_rect": [ 418.0, 196.0, 79.0, 24.0 ],
                                     "text": "FILTER 2",
                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ],
                                     "texton": "FILTER 2"
@@ -1648,7 +1792,7 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Select one of seven filter modes.",
+                                    "annotation": "Change filter type with gain, Q and motion reset.",
                                     "bgcolor": [ 0.776, 0.502, 0.18, 1 ],
                                     "bgfillcolor_angle": 270,
                                     "bgfillcolor_autogradient": 0,
@@ -1658,7 +1802,7 @@
                                     "bgfillcolor_proportion": 0.5,
                                     "bgfillcolor_type": "color",
                                     "fontsize": 18.0,
-                                    "hint": "Select one of seven filter modes.",
+                                    "hint": "Manual type change: briefly mute this filter, reset Gain to 0 dB and Q for the new type, stop Once/Loop and set both motion depths to 0. Output is lowered to -12 dB (quieter settings stay quieter). Frequency and drawn curves are retained. Preset recall does not perform this reset.",
                                     "id": "obj-77",
                                     "items": [ "Peak", ",", "Lowpass", ",", "Bandpass", ",", "Ultra-narrow Bandpass", ",", "Highpass", ",", "Resonant", ",", "Notch" ],
                                     "maxclass": "umenu",
@@ -1683,7 +1827,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 1610.0, 525.0, 185.0, 22.0 ],
-                                    "text": "prepend band 2 type"
+                                    "text": "prepend band 2 uitype"
                                 }
                             },
                             {
@@ -1792,10 +1936,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 14.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "obj-85",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1809,15 +1953,15 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 14.0,
                                     "format": 6,
-                                    "hint": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "id": "obj-86",
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -1844,10 +1988,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-88",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1861,11 +2005,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-89",
                                     "maxclass": "flonum",
                                     "maximum": 12940.0,
@@ -1896,10 +2040,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-91",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -1913,11 +2057,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-92",
                                     "maxclass": "flonum",
                                     "maximum": 48.0,
@@ -2449,8 +2593,8 @@
                                     "id": "obj-123",
                                     "ignoreclick": 1,
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -2509,7 +2653,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 795.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 666.5, 198.0, 63.0, 20.0 ],
+                                    "presentation_rect": [ 561.0, 198.0, 32.0, 20.0 ],
                                     "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus2"
@@ -2529,7 +2673,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 590.0, 288.0, 124.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 581.0, 196.0, 82.5, 24.0 ],
+                                    "presentation_rect": [ 671.0, 196.0, 79.0, 24.0 ],
                                     "text": "FILTER 3",
                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ],
                                     "texton": "FILTER 3"
@@ -2597,7 +2741,7 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Select one of seven filter modes.",
+                                    "annotation": "Change filter type with gain, Q and motion reset.",
                                     "bgcolor": [ 0.776, 0.502, 0.18, 1 ],
                                     "bgfillcolor_angle": 270,
                                     "bgfillcolor_autogradient": 0,
@@ -2607,7 +2751,7 @@
                                     "bgfillcolor_proportion": 0.5,
                                     "bgfillcolor_type": "color",
                                     "fontsize": 18.0,
-                                    "hint": "Select one of seven filter modes.",
+                                    "hint": "Manual type change: briefly mute this filter, reset Gain to 0 dB and Q for the new type, stop Once/Loop and set both motion depths to 0. Output is lowered to -12 dB (quieter settings stay quieter). Frequency and drawn curves are retained. Preset recall does not perform this reset.",
                                     "id": "obj-133",
                                     "items": [ "Peak", ",", "Lowpass", ",", "Bandpass", ",", "Ultra-narrow Bandpass", ",", "Highpass", ",", "Resonant", ",", "Notch" ],
                                     "maxclass": "umenu",
@@ -2632,7 +2776,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 1610.0, 800.0, 185.0, 22.0 ],
-                                    "text": "prepend band 3 type"
+                                    "text": "prepend band 3 uitype"
                                 }
                             },
                             {
@@ -2741,10 +2885,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 14.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "obj-141",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -2758,15 +2902,15 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 14.0,
                                     "format": 6,
-                                    "hint": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "id": "obj-142",
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -2793,10 +2937,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-144",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -2810,11 +2954,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-145",
                                     "maxclass": "flonum",
                                     "maximum": 12940.0,
@@ -2845,10 +2989,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-147",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -2862,11 +3006,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-148",
                                     "maxclass": "flonum",
                                     "maximum": 48.0,
@@ -3398,8 +3542,8 @@
                                     "id": "obj-179",
                                     "ignoreclick": 1,
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -3458,7 +3602,7 @@
                                     "numoutlets": 0,
                                     "patching_rect": [ 1075.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 919.5, 198.0, 63.0, 20.0 ],
+                                    "presentation_rect": [ 814.0, 198.0, 32.0, 20.0 ],
                                     "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus3"
@@ -3478,7 +3622,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 870.0, 288.0, 124.0, 24.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 834.0, 196.0, 82.5, 24.0 ],
+                                    "presentation_rect": [ 924.0, 196.0, 79.0, 24.0 ],
                                     "text": "FILTER 4",
                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ],
                                     "texton": "FILTER 4"
@@ -3546,7 +3690,7 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Select one of seven filter modes.",
+                                    "annotation": "Change filter type with gain, Q and motion reset.",
                                     "bgcolor": [ 0.776, 0.502, 0.18, 1 ],
                                     "bgfillcolor_angle": 270,
                                     "bgfillcolor_autogradient": 0,
@@ -3556,7 +3700,7 @@
                                     "bgfillcolor_proportion": 0.5,
                                     "bgfillcolor_type": "color",
                                     "fontsize": 18.0,
-                                    "hint": "Select one of seven filter modes.",
+                                    "hint": "Manual type change: briefly mute this filter, reset Gain to 0 dB and Q for the new type, stop Once/Loop and set both motion depths to 0. Output is lowered to -12 dB (quieter settings stay quieter). Frequency and drawn curves are retained. Preset recall does not perform this reset.",
                                     "id": "obj-189",
                                     "items": [ "Peak", ",", "Lowpass", ",", "Bandpass", ",", "Ultra-narrow Bandpass", ",", "Highpass", ",", "Resonant", ",", "Notch" ],
                                     "maxclass": "umenu",
@@ -3581,7 +3725,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 1610.0, 1075.0, 185.0, 22.0 ],
-                                    "text": "prepend band 4 type"
+                                    "text": "prepend band 4 uitype"
                                 }
                             },
                             {
@@ -3690,10 +3834,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 14.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "obj-197",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -3707,15 +3851,15 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 14.0,
                                     "format": 6,
-                                    "hint": "Peak boost/cut; other modes: filter output gain, dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB. Peak boost/cut; other modes: filter gain. GAIN motion adds its scaled curve to this value.",
                                     "id": "obj-198",
                                     "maxclass": "flonum",
-                                    "maximum": 24.0,
-                                    "minimum": -24.0,
+                                    "maximum": 36.0,
+                                    "minimum": -36.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -3742,10 +3886,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-200",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -3759,11 +3903,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency motion depth, +/-Hz.",
+                                    "annotation": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Frequency motion depth, +/-Hz.",
+                                    "hint": "Frequency = base frequency + (FREQ curve x depth). The curve runs from -1 to +1: at 1000 Hz with depth 200, -1 gives 800 Hz, 0 gives 1000 Hz, and +1 gives 1200 Hz. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. Frequency is limited to 60-13000 Hz (or the lower sample-rate limit).",
                                     "id": "obj-201",
                                     "maxclass": "flonum",
                                     "maximum": 12940.0,
@@ -3794,10 +3938,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "fontname": "Arial",
                                     "fontsize": 10.0,
-                                    "hint": "Gain motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-203",
                                     "maxclass": "comment",
                                     "numinlets": 1,
@@ -3811,11 +3955,11 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "annotation": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "bgcolor": [ 0.07, 0.085, 0.11, 1.0 ],
                                     "fontsize": 13.0,
                                     "format": 6,
-                                    "hint": "Gain-motion depth, +/-dB; needs curve playback.",
+                                    "hint": "Filter gain = base Filter gain + (GAIN curve x depth). The curve runs from -1 to +1: at -6 dB with depth 12, -1 gives -18 dB, 0 gives -6 dB, and +1 gives +6 dB. Press Once or enable Loop; Full Trip sets the duration of one complete curve. Depth 0 or a flat zero curve gives no motion. The result is limited to -36 to +36 dB. Peak varies boost/cut; other modes vary filter gain. This does not move the OUTPUT fader.",
                                     "id": "obj-204",
                                     "maxclass": "flonum",
                                     "maximum": 48.0,
@@ -4467,8 +4611,6 @@
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 385.0, 729.0, 23.0, 23.0 ],
-                                    "presentation": 1,
-                                    "presentation_rect": [ 340.0, 696.0, 23.0, 23.0 ],
                                     "varname": "normalize"
                                 }
                             },
@@ -4497,9 +4639,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 416.0, 731.0, 118.0, 47.0 ],
-                                    "presentation": 1,
-                                    "presentation_linecount": 2,
-                                    "presentation_rect": [ 366.55042016806726, 691.0, 138.0, 33.0 ],
                                     "text": "limit peaks to -6 dBFS\nheadroom",
                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ]
                                 }
@@ -5165,47 +5304,47 @@
                                         "data": [
                                             {
                                                 "key": 1,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 1, 1, 700, 0, 1, 0, 1200, 0, 2, 0, 18, 12000, 1, -5.952755905511806, 2, 0, 0, 1, 0, 6, 0, 0, 0.2, 1, 0.35, 1, 0.65, -1, 0.8, -1, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 1, 1, 700, -12, 1, 0, 1200, 0, 2, 0, 18, 12000, 1, -5.952755905511806, 2, 0, 0, 1, 0, 6, 0, 0, 0.2, 1, 0.35, 1, 0.65, -1, 0.8, -1, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 2,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 2, 1, 700, 0, 1, 1, 4100, 0, 0.70710678, 3900, 0, 16000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 2, 1, 700, -12, 1, 1, 4100, 0, 0.70710678, 3900, 0, 16000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 3,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 3, 1, 700, 0, 1, 2, 2650, 12, 6, 2350, 0, 12000, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 3, 1, 700, -12, 1, 2, 2650, 12, 6, 2350, 0, 12000, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 4,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 4, 1, 700, 0, 1, 3, 1200, 24, 100, 500, 0, 12000, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 4, 1, 700, -12, 1, 3, 1200, 24, 100, 500, 0, 12000, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 5,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 5, 1, 700, 0, 1, 4, 5060, 0, 0.70710678, 4940, 0, 16000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 5, 1, 700, -12, 1, 4, 5060, 0, 0.70710678, 4940, 0, 16000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 6,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 6, 1, 700, 0, 1, 5, 1200, 0, 16, 900, 0, 10000, 1, -6, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 6, 1, 700, -12, 1, 5, 1200, 0, 16, 900, 0, 10000, 1, -6, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 7,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 7, 1, 700, 0, 1, 6, 2000, 0, 0.75, 1600, 0, 14000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 7, 1, 700, -12, 1, 6, 2000, 0, 0.75, 1600, 0, 14000, 1, 0, 6, 0, 0, 0.2, -1, 0.3, -1, 0.7, 1, 0.8, 1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             },
                                             {
                                                 "key": 8,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 8, 1, 700, 0, 1, 0, 240, 6, 20, 60, 48, 11000, 1, -10.287034120734925, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 0, 700, 6, 20, 200, 48, 7000, 1, -10.073700787401593, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 0, 2400, 6, 20, 600, 48, 5000, 1, -8.939842519685051, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 2, 7000, 6, 20, 1200, 48, 3000, 1, -9.046509186351727, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 8, 1, 700, -12, 1, 0, 240, 6, 20, 60, 48, 11000, 1, -10.287034120734925, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 0, 700, 6, 20, 200, 48, 7000, 1, -10.073700787401593, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 0, 2400, 6, 20, 600, 48, 5000, 1, -8.939842519685051, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 1, 2, 7000, 6, 20, 1200, 48, 3000, 1, -9.046509186351727, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0 ]
                                             },
                                             {
                                                 "key": 9,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 9, 1, 700, 0, 1, 0, 180, 24, 20, 60, 8, 11000, 1, -12.0109186351706, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 700, 24, 20, 200, 8, 13000, 1, -11.977322834645665, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 2400, 24, 20, 600, 8, 17000, 1, -12.047454068241468, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 7000, 24, 20, 1200, 8, 21000, 1, -12.041574803149603, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 9, 1, 700, -12, 1, 0, 180, 24, 20, 60, 8, 11000, 1, -12.0109186351706, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 700, 24, 20, 200, 8, 13000, 1, -11.977322834645665, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 2400, 24, 20, 600, 8, 17000, 1, -12.047454068241468, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 1, 0, 7000, 24, 20, 1200, 8, 21000, 1, -12.041574803149603, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0 ]
                                             },
                                             {
                                                 "key": 10,
-                                                "value": [ 20261030, 8, 2000, 0.7, 1, 10, 1, 1000, 0, 1, 3, 220, 24, 100, 30, 4, 7000, 1, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 700, 24, 100, 110, 6, 9000, 1, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 2200, 24, 100, 330, 5, 11000, 1, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 7000, 24, 100, 900, 7, 13000, 1, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0 ]
+                                                "value": [ 20261030, 10, 2000, 1, 1, 10, 1, 1000, -12, 1, 3, 220, 24, 100, 30, 4, 7000, 1, -3.0980391997148637, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 700, 24, 100, 110, 6, 9000, 1, -3.0980391997148637, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 2200, 24, 100, 330, 5, 11000, 1, -3.0980391997148637, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0, 1, 3, 7000, 24, 100, 900, 7, 13000, 1, -3.0980391997148637, 4, 0, 0, 0.25, -1, 0.75, 1, 1, 0, 4, 0, 0, 0.25, -1, 0.75, -0.5, 1, 0 ]
                                             },
                                             {
                                                 "key": 0,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 1, 1, 700, 0, 1, 0, 1200, 0, 2, 0, 18, 12000, 1, -5.952755905511806, 2, 0, 0, 1, 0, 6, 0, 0, 0.2, 1, 0.35, 1, 0.65, -1, 0.8, -1, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 0, 1, 700, -12, 0, 5, 60, 0, 20, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             }
                                         ]
                                     },
@@ -5372,12 +5511,12 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
                                         "classnamespace": "box",
-                                        "rect": [ 70.0, 70.0, 1800.0, 980.0 ],
+                                        "rect": [ 34.0, 103.0, 1660.0, 980.0 ],
                                         "boxes": [
                                             {
                                                 "box": {
@@ -5389,9 +5528,9 @@
                                                     "maxclass": "comment",
                                                     "numinlets": 1,
                                                     "numoutlets": 0,
-                                                    "patching_rect": [ 20.0, 15.0, 1110.0, 24.0 ],
+                                                    "patching_rect": [ 20.0, 15.0, 1110.0, 23.0 ],
                                                     "presentation": 1,
-                                                    "presentation_rect": [ 20.0, 15.0, 1110.0, 24.0 ],
+                                                    "presentation_rect": [ 20.0, 15.0, 1110.0, 23.0 ],
                                                     "text": "Input → biquad → smooth ON/OFF gate → dB output trim. OFF has no dry path.",
                                                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ]
                                                 }
@@ -5616,7 +5755,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
                                                     "patching_rect": [ 230.0, 355.0, 145.0, 22.0 ],
-                                                    "text": "clip~ -24. 24."
+                                                    "text": "clip~ -36. 36."
                                                 }
                                             },
                                             {
@@ -5680,7 +5819,7 @@
                                                     "numinlets": 2,
                                                     "numoutlets": 1,
                                                     "outlettype": [ "" ],
-                                                    "patching_rect": [ 265.0, 535.0, 70.0, 23.0 ],
+                                                    "patching_rect": [ 265.0, 535.0, 70.0, 22.0 ],
                                                     "text": "clear"
                                                 }
                                             },
@@ -6505,7 +6644,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -6749,7 +6888,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
                                                     "patching_rect": [ 230.0, 355.0, 145.0, 22.0 ],
-                                                    "text": "clip~ -24. 24."
+                                                    "text": "clip~ -36. 36."
                                                 }
                                             },
                                             {
@@ -7638,7 +7777,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -7882,7 +8021,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
                                                     "patching_rect": [ 230.0, 355.0, 145.0, 22.0 ],
-                                                    "text": "clip~ -24. 24."
+                                                    "text": "clip~ -36. 36."
                                                 }
                                             },
                                             {
@@ -8771,7 +8910,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9015,7 +9154,7 @@
                                                     "numoutlets": 1,
                                                     "outlettype": [ "signal" ],
                                                     "patching_rect": [ 230.0, 355.0, 145.0, 22.0 ],
-                                                    "text": "clip~ -24. 24."
+                                                    "text": "clip~ -36. 36."
                                                 }
                                             },
                                             {
@@ -10226,7 +10365,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1068.0, 729.0, 62.0, 23.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 956.3025210084035, 691.0, 62.0, 23.0 ],
+                                    "presentation_rect": [ 956.0, 713.0, 62.0, 23.0 ],
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "varname": "gainout"
                                 }
@@ -10272,7 +10411,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "signal", "bang" ],
                                     "patching_rect": [ 210.0, 1320.0, 160.0, 22.0 ],
-                                    "text": "line~ 0.",
+                                    "text": "line~ -12.",
                                     "varname": "gainout_ramp"
                                 }
                             },
@@ -10354,7 +10493,7 @@
                                             "expression": ""
                                         },
                                         "valueof": {
-                                            "parameter_initial": [ 0 ],
+                                            "parameter_initial": [ -12.0 ],
                                             "parameter_initial_enable": 1,
                                             "parameter_longname": "Global Gain Out",
                                             "parameter_mmax": 12.0,
@@ -10389,7 +10528,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 1",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -10410,8 +10549,6 @@
                                     "outlettype": [ "", "", "int" ],
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1068.0, 755.0, 62.0, 21.0 ],
-                                    "presentation": 1,
-                                    "presentation_rect": [ 955.4621848739496, 723.0, 62.0, 21.0 ],
                                     "text": "0 dB",
                                     "textcolor": [ 0.04, 0.06, 0.09, 1.0 ],
                                     "texton": "0 dB",
@@ -10519,7 +10656,7 @@
                                     "outlettype": [ "float" ],
                                     "patching_rect": [ 1400.0, 2010.0, 240.0, 12.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 19.0, 182.0, 240.0, 12.0 ],
+                                    "presentation_rect": [ 167.0, 180.0, 76.0, 12.0 ],
                                     "varname": "input_meter0"
                                 }
                             },
@@ -10527,16 +10664,16 @@
                                 "box": {
                                     "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
                                     "channels": 1,
-                                    "coldcolor": [ 0.12, 0.9, 0.76, 1.0 ],
+                                    "coldcolor": [ 0.3058823529411765, 1.0, 0.0, 1.0 ],
                                     "display_range": [ -24.0, 12.0 ],
-                                    "focusbordercolor": [ 1.0, 0.8, 0.18, 1.0 ],
+                                    "focusbordercolor": [ 0.050980392156862744, 0.8705882352941177, 0.03137254901960784, 1.0 ],
                                     "fontname": "Arial",
                                     "fontsize": 11.0,
                                     "hint": "Output trim −24 to +12 dB; Glide sets fade.",
                                     "hotcolor": [ 1.0, 0.48, 0.1, 1.0 ],
                                     "id": "level0",
-                                    "inactivecoldcolor": [ 0.12, 0.5, 0.43, 1.0 ],
-                                    "inactivewarmcolor": [ 0.55, 0.48, 0.16, 1.0 ],
+                                    "inactivecoldcolor": [ 1.0, 1.0, 1.0, 1.0 ],
+                                    "inactivewarmcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "interp": 20.0,
                                     "interval": 50,
                                     "lastchannelcount": 0,
@@ -10544,17 +10681,21 @@
                                     "maxclass": "live.gain~",
                                     "metering": 0,
                                     "mode": 1,
+                                    "modulationcolor": [ 0.0, 1.0, 0.0784313725490196, 1.0 ],
                                     "numinlets": 1,
                                     "numoutlets": 4,
                                     "orientation": 1,
                                     "outlettype": [ "signal", "", "float", "list" ],
                                     "overloadcolor": [ 1.0, 0.16, 0.2, 1.0 ],
                                     "parameter_enable": 1,
-                                    "patching_rect": [ 1400.0, 2060.0, 240.0, 34.0 ],
+                                    "patching_rect": [ 1400.0, 2062.0, 240.0, 34.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 630.0, 240.0, 34.0 ],
                                     "saved_attribute_attributes": {
                                         "focusbordercolor": {
+                                            "expression": ""
+                                        },
+                                        "modulationcolor": {
                                             "expression": ""
                                         },
                                         "slidercolor": {
@@ -10585,14 +10726,14 @@
                                         }
                                     },
                                     "showname": 0,
-                                    "slidercolor": [ 0.24, 0.3, 0.38, 1.0 ],
+                                    "slidercolor": [ 0.239, 0.302, 0.38, 1.0 ],
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "thickness": 8,
-                                    "tribordercolor": [ 0.02, 0.04, 0.06, 1.0 ],
-                                    "tricolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "trioncolor": [ 1.0, 0.8, 0.18, 1.0 ],
+                                    "tribordercolor": [ 0.9450980392156862, 0.0196078431372549, 0.0196078431372549, 1.0 ],
+                                    "tricolor": [ 0.9647058823529412, 0.027450980392156862, 0.027450980392156862, 1.0 ],
+                                    "trioncolor": [ 0.9450980392156862, 0.00784313725490196, 0.24705882352941178, 1.0 ],
                                     "varname": "level0",
-                                    "warmcolor": [ 0.95, 0.82, 0.2, 1.0 ]
+                                    "warmcolor": [ 0.8705882352941177, 0.8901960784313725, 0.8666666666666667, 1.0 ]
                                 }
                             },
                             {
@@ -10643,10 +10784,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "label_obj-2_1",
                                     "linecount": 3,
                                     "maxclass": "comment",
@@ -10673,7 +10814,7 @@
                                     "outlettype": [ "float" ],
                                     "patching_rect": [ 1660.0, 2010.0, 240.0, 12.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 272.0, 182.0, 240.0, 12.0 ],
+                                    "presentation_rect": [ 418.0, 180.0, 78.0, 12.0 ],
                                     "varname": "input_meter1"
                                 }
                             },
@@ -10681,7 +10822,7 @@
                                 "box": {
                                     "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
                                     "channels": 1,
-                                    "coldcolor": [ 0.12, 0.9, 0.76, 1.0 ],
+                                    "coldcolor": [ 0.0, 0.9803921568627451, 0.0784313725490196, 1.0 ],
                                     "display_range": [ -24.0, 12.0 ],
                                     "focusbordercolor": [ 1.0, 0.8, 0.18, 1.0 ],
                                     "fontname": "Arial",
@@ -10739,12 +10880,12 @@
                                         }
                                     },
                                     "showname": 0,
-                                    "slidercolor": [ 0.24, 0.3, 0.38, 1.0 ],
+                                    "slidercolor": [ 0.239, 0.302, 0.38, 1.0 ],
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "thickness": 8,
-                                    "tribordercolor": [ 0.02, 0.04, 0.06, 1.0 ],
-                                    "tricolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "trioncolor": [ 1.0, 0.8, 0.18, 1.0 ],
+                                    "tribordercolor": [ 0.9647058823529412, 0.027450980392156862, 0.027450980392156862, 1.0 ],
+                                    "tricolor": [ 0.9254901960784314, 0.023529411764705882, 0.023529411764705882, 1.0 ],
+                                    "trioncolor": [ 0.9647058823529412, 0.01568627450980392, 0.01568627450980392, 1.0 ],
                                     "varname": "level1",
                                     "warmcolor": [ 0.95, 0.82, 0.2, 1.0 ]
                                 }
@@ -10797,10 +10938,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "label_obj-2_2",
                                     "linecount": 3,
                                     "maxclass": "comment",
@@ -10827,7 +10968,7 @@
                                     "outlettype": [ "float" ],
                                     "patching_rect": [ 1920.0, 2010.0, 240.0, 12.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 525.0, 182.0, 240.0, 12.0 ],
+                                    "presentation_rect": [ 670.0, 180.0, 77.0, 12.0 ],
                                     "varname": "input_meter2"
                                 }
                             },
@@ -10835,7 +10976,7 @@
                                 "box": {
                                     "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
                                     "channels": 1,
-                                    "coldcolor": [ 0.12, 0.9, 0.76, 1.0 ],
+                                    "coldcolor": [ 0.0, 1.0, 0.2235294117647059, 1.0 ],
                                     "display_range": [ -24.0, 12.0 ],
                                     "focusbordercolor": [ 1.0, 0.8, 0.18, 1.0 ],
                                     "fontname": "Arial",
@@ -10893,12 +11034,12 @@
                                         }
                                     },
                                     "showname": 0,
-                                    "slidercolor": [ 0.24, 0.3, 0.38, 1.0 ],
+                                    "slidercolor": [ 0.239, 0.302, 0.38, 1.0 ],
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "thickness": 8,
-                                    "tribordercolor": [ 0.02, 0.04, 0.06, 1.0 ],
-                                    "tricolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "trioncolor": [ 1.0, 0.8, 0.18, 1.0 ],
+                                    "tribordercolor": [ 0.9254901960784314, 0.023529411764705882, 0.023529411764705882, 1.0 ],
+                                    "tricolor": [ 0.9647058823529412, 0.01568627450980392, 0.01568627450980392, 1.0 ],
+                                    "trioncolor": [ 0.9647058823529412, 0.0196078431372549, 0.0196078431372549, 1.0 ],
                                     "varname": "level2",
                                     "warmcolor": [ 0.95, 0.82, 0.2, 1.0 ]
                                 }
@@ -10951,10 +11092,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Base filter gain: -24 to +24 dB.",
+                                    "annotation": "Base filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
-                                    "hint": "Base filter gain: -24 to +24 dB.",
+                                    "hint": "Base filter gain: -36 to +36 dB.",
                                     "id": "label_obj-2_3",
                                     "linecount": 3,
                                     "maxclass": "comment",
@@ -10981,7 +11122,7 @@
                                     "outlettype": [ "float" ],
                                     "patching_rect": [ 2180.0, 2010.0, 240.0, 12.0 ],
                                     "presentation": 1,
-                                    "presentation_rect": [ 778.0, 182.0, 240.0, 12.0 ],
+                                    "presentation_rect": [ 923.0, 180.0, 79.0, 12.0 ],
                                     "varname": "input_meter3"
                                 }
                             },
@@ -10989,7 +11130,7 @@
                                 "box": {
                                     "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
                                     "channels": 1,
-                                    "coldcolor": [ 0.12, 0.9, 0.76, 1.0 ],
+                                    "coldcolor": [ 0.0, 1.0, 0.12549019607843137, 1.0 ],
                                     "display_range": [ -24.0, 12.0 ],
                                     "focusbordercolor": [ 1.0, 0.8, 0.18, 1.0 ],
                                     "fontname": "Arial",
@@ -11047,12 +11188,12 @@
                                         }
                                     },
                                     "showname": 0,
-                                    "slidercolor": [ 0.24, 0.3, 0.38, 1.0 ],
+                                    "slidercolor": [ 0.239, 0.302, 0.38, 1.0 ],
                                     "textcolor": [ 1.0, 1.0, 1.0, 1.0 ],
                                     "thickness": 8,
-                                    "tribordercolor": [ 0.02, 0.04, 0.06, 1.0 ],
-                                    "tricolor": [ 1.0, 1.0, 1.0, 1.0 ],
-                                    "trioncolor": [ 1.0, 0.8, 0.18, 1.0 ],
+                                    "tribordercolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "tricolor": [ 1.0, 0.0, 0.0, 1.0 ],
+                                    "trioncolor": [ 1.0, 0.0, 0.0, 1.0 ],
                                     "varname": "level3",
                                     "warmcolor": [ 0.95, 0.82, 0.2, 1.0 ]
                                 }
@@ -13831,7 +13972,7 @@
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
                     },
-                    "patching_rect": [ 49.0, 231.0, 99.0, 22.0 ],
+                    "patching_rect": [ 49.0, 245.0, 99.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
@@ -13849,7 +13990,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ 115.0, 86.0, 80.0, 22.0 ],
+                    "patching_rect": [ 583.0, 244.0, 80.0, 22.0 ],
                     "text": "loadbang"
                 }
             },
@@ -13863,7 +14004,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 115.0, 115.0, 80.0, 22.0 ],
+                    "patching_rect": [ 583.0, 273.0, 80.0, 22.0 ],
                     "text": "deferlow"
                 }
             },
@@ -13877,7 +14018,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 115.0, 142.0, 60.0, 22.0 ],
+                    "patching_rect": [ 583.0, 300.0, 60.0, 22.0 ],
                     "text": "open"
                 }
             },
@@ -13891,7 +14032,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 115.0, 171.0, 80.0, 22.0 ],
+                    "patching_rect": [ 583.0, 329.0, 80.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -13939,7 +14080,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 60.0, 207.0, 118.0, 21.0 ],
+                    "patching_rect": [ 60.0, 221.0, 118.0, 21.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 55.0, 303.0, 260.0, 21.0 ],
                     "text": "Open editor",
@@ -13957,11 +14098,11 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 140.20618556701032, 318.5, 73.0, 33.0 ],
+                    "patching_rect": [ 126.0, 333.0, 73.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
                     "presentation_rect": [ 117.0, 410.0, 190.0, 33.0 ],
-                    "text": "Listening\nlevel",
+                    "text": "OUTPUT\nGAIN",
                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ]
                 }
             },
@@ -13975,29 +14116,11 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 404.0, 378.0, 150.0, 21.0 ],
+                    "patching_rect": [ 470.0, 377.0, 91.0, 21.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 55.0, 536.0, 200.0, 21.0 ],
                     "text": "Output on / off",
                     "textcolor": [ 0.91, 0.94, 0.96, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "annotation": "Start with local output off.",
-                    "fontname": "Arial",
-                    "fontsize": 12.0,
-                    "hidden": 1,
-                    "hint": "Start with local output off.",
-                    "id": "local_output_init",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 331.9587628865979, 294.8453608247423, 90.0, 22.0 ],
-                    "text": "loadmess 0",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ],
-                    "varname": "local_output_init"
                 }
             },
             {
@@ -14010,7 +14133,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 205.0, 46.0, 133.0, 21.0 ],
+                    "patching_rect": [ 298.0, 46.0, 133.0, 21.0 ],
                     "text": "PRESETS / FILTERS",
                     "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
                 }
@@ -14027,13 +14150,13 @@
                     "fontsize": 12.0,
                     "hint": "Choose a command; description is display-only.",
                     "id": "filter_commands",
-                    "items": [ "Choose a command...", ",", "1 Peak boost / cut", ",", "2 Lowpass dark / bright", ",", "3 Bandpass sweeping band", ",", "4 Ultra-narrow whistle", ",", "5 Highpass body / hiss", ",", "6 Resonant singing band", ",", "7 Notch moving hollow", ",", "8 Recall preset 8", ",", "9 Recall preset 9", ",", "10 Recall preset 10", ",", "recall 1 Peak boost / cut", ",", "filter 1 Target filter 1", ",", "filter 2 Target filter 2", ",", "filter 3 Target filter 3", ",", "filter 4 Target filter 4", ",", "selected 1 Target filter 1 (alias)", ",", "freq 3000 2000 3000 Hz in 2 s", ",", "line 1000 1000 1000 Hz in 1 s (alias)", ",", "gain 0 1000 0 dB in 1 s", ",", "gain 12 1000 +12 dB in 1 s", ",", "q 6 1000 Q 6 in 1 s", ",", "q 200 2000 Ultra Q 200 in 2 s", ",", "type peak Peak boost / cut", ",", "type lowpass Lowpass", ",", "type bandpass Bandpass", ",", "type ultra Ultra-narrow bandpass", ",", "enable 1 0 Filter 1 OFF", ",", "enable 1 1 Enable filter 1", ",", "filters 0 All filters OFF", ",", "filters 1 Enable first filter", ",", "filters 2 Enable first two", ",", "filters 3 Enable first three", ",", "filters 4 Enable all four", ",", "fade 1500 On/off fade 1.5 s", ",", "interp 1000 Parameter glide 1 s", ",", "band 2 q 2 2000 Filter 2 Q 2 in 2 s", ",", "type highpass Pass above cutoff", ",", "type resonant Resonant bandpass", ",", "type notch Reject center band", ",", "band 2 level -12 2000 Filter 2 output -12 dB in 2 s" ],
+                    "items": [ "Choose a command...", ",", "1 Peak boost / cut", ",", "2 Lowpass dark / bright", ",", "3 Bandpass sweeping band", ",", "4 Ultra-narrow whistle", ",", "5 Highpass body / hiss", ",", "6 Resonant singing band", ",", "7 Notch moving hollow", ",", "8 Recall preset 8", ",", "9 Recall preset 9", ",", "10 Recall preset 10", ",", "recall 1 Peak boost / cut", ",", "filter 1 Target filter 1", ",", "filter 2 Target filter 2", ",", "filter 3 Target filter 3", ",", "filter 4 Target filter 4", ",", "selected 1 Target filter 1 (alias)", ",", "freq 3000 2000 3000 Hz in 2 s", ",", "line 1000 1000 1000 Hz in 1 s (alias)", ",", "gain 0 1000 0 dB in 1 s", ",", "gain 12 1000 +12 dB in 1 s", ",", "q 6 1000 Q 6 in 1 s", ",", "q 200 2000 Ultra Q 200 in 2 s", ",", "uitype peak Peak boost / cut (reset levels)", ",", "uitype lowpass Lowpass (reset levels)", ",", "uitype bandpass Bandpass (reset levels)", ",", "uitype ultra Ultra-narrow bandpass (reset levels)", ",", "enable 1 0 Filter 1 OFF", ",", "enable 1 1 Enable filter 1", ",", "filters 0 All filters OFF", ",", "filters 1 Enable first filter", ",", "filters 2 Enable first two", ",", "filters 3 Enable first three", ",", "filters 4 Enable all four", ",", "fade 1500 On/off fade 1.5 s", ",", "interp 1000 Parameter glide 1 s", ",", "band 2 q 2 2000 Filter 2 Q 2 in 2 s", ",", "uitype highpass Pass above cutoff (reset levels)", ",", "uitype resonant Resonant bandpass (reset levels)", ",", "uitype notch Reject center band (reset levels)", ",", "band 2 level -12 2000 Filter 2 output -12 dB in 2 s" ],
                     "maxclass": "umenu",
                     "numinlets": 1,
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 201.0, 82.0, 186.0, 22.0 ],
+                    "patching_rect": [ 294.0, 82.0, 186.0, 22.0 ],
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ],
                     "varname": "filter_commands"
                 }
@@ -14055,7 +14178,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -14172,19 +14295,19 @@
                                             },
                                             {
                                                 "key": 23,
-                                                "value": [ "type", "peak" ]
+                                                "value": [ "uitype", "peak" ]
                                             },
                                             {
                                                 "key": 24,
-                                                "value": [ "type", "lowpass" ]
+                                                "value": [ "uitype", "lowpass" ]
                                             },
                                             {
                                                 "key": 25,
-                                                "value": [ "type", "bandpass" ]
+                                                "value": [ "uitype", "bandpass" ]
                                             },
                                             {
                                                 "key": 26,
-                                                "value": [ "type", "ultra" ]
+                                                "value": [ "uitype", "ultra" ]
                                             },
                                             {
                                                 "key": 27,
@@ -14228,15 +14351,15 @@
                                             },
                                             {
                                                 "key": 37,
-                                                "value": [ "type", "highpass" ]
+                                                "value": [ "uitype", "highpass" ]
                                             },
                                             {
                                                 "key": 38,
-                                                "value": [ "type", "resonant" ]
+                                                "value": [ "uitype", "resonant" ]
                                             },
                                             {
                                                 "key": 39,
-                                                "value": [ "type", "notch" ]
+                                                "value": [ "uitype", "notch" ]
                                             },
                                             {
                                                 "key": 40,
@@ -14336,7 +14459,7 @@
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
                     },
-                    "patching_rect": [ 201.0, 112.0, 177.0, 22.0 ],
+                    "patching_rect": [ 294.0, 112.0, 177.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
@@ -14365,7 +14488,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 213.0, 142.0, 169.0, 22.0 ],
+                    "patching_rect": [ 306.0, 142.0, 169.0, 22.0 ],
                     "text": "1",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
@@ -14380,7 +14503,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 388.0, 46.0, 206.0, 19.0 ],
+                    "patching_rect": [ 486.0, 46.0, 206.0, 19.0 ],
                     "text": "MOTION / GLOBALS / STORAGE",
                     "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
                 }
@@ -14403,7 +14526,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 388.0, 82.0, 275.0, 22.0 ],
+                    "patching_rect": [ 486.0, 82.0, 169.0, 22.0 ],
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ],
                     "varname": "motion_commands"
                 }
@@ -14425,7 +14548,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -14682,7 +14805,7 @@
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
                     },
-                    "patching_rect": [ 388.0, 112.0, 229.0, 22.0 ],
+                    "patching_rect": [ 486.0, 112.0, 164.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
@@ -14711,8 +14834,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 401.0, 142.0, 156.0, 22.0 ],
-                    "text": "band 3 ampdepth 10",
+                    "patching_rect": [ 499.0, 142.0, 156.0, 22.0 ],
+                    "text": "symbol resetcurve",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
             },
@@ -14726,7 +14849,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 220.0, 166.0, 162.0, 22.0 ],
+                    "patching_rect": [ 313.0, 166.0, 162.0, 22.0 ],
                     "text": "FULL STATE MESSAGE",
                     "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
                 }
@@ -14744,7 +14867,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 213.0, 189.0, 126.0, 28.0 ],
+                    "patching_rect": [ 313.0, 186.0, 126.0, 28.0 ],
                     "text": "Capture current state",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
@@ -14761,7 +14884,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 275.0, 192.0, 70.0, 22.0 ],
+                    "patching_rect": [ 368.0, 192.0, 70.0, 22.0 ],
                     "text": "dumpstate",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
@@ -14778,7 +14901,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ 260.0, 300.0, 22.0, 22.0 ],
+                    "patching_rect": [ 329.0, 300.0, 22.0, 22.0 ],
                     "text": "t b",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
@@ -14795,7 +14918,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 260.0, 324.0, 31.0, 22.0 ],
+                    "patching_rect": [ 329.0, 324.0, 31.0, 22.0 ],
                     "text": "dirty",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
                 }
@@ -14812,25 +14935,10 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 260.0, 351.0, 67.0, 22.0 ],
+                    "patching_rect": [ 329.0, 351.0, 67.0, 22.0 ],
                     "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
                     "text": "thispatcher",
                     "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "annotation": "Section guide.",
-                    "fontname": "Arial",
-                    "fontsize": 12.0,
-                    "hint": "Section guide.",
-                    "id": "state_save",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 294.0, 267.0, 311.0, 20.0 ],
-                    "text": "Save main patch after Capture.",
-                    "textcolor": [ 0.68, 0.73, 0.8, 1.0 ]
                 }
             },
             {
@@ -14850,7 +14958,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -15094,10 +15202,10 @@
                             },
                             {
                                 "box": {
-                                    "annotation": "Frequency: 60–13000 Hz. Filter gain: -24 to +24 dB.",
+                                    "annotation": "Frequency: 60–13000 Hz. Filter gain: -36 to +36 dB.",
                                     "fontname": "Arial",
                                     "fontsize": 12.0,
-                                    "hint": "Frequency: 60–13000 Hz. Filter gain: -24 to +24 dB.",
+                                    "hint": "Frequency: 60–13000 Hz. Filter gain: -36 to +36 dB.",
                                     "id": "s6body",
                                     "linecount": 5,
                                     "maxclass": "comment",
@@ -15107,7 +15215,7 @@
                                     "presentation": 1,
                                     "presentation_linecount": 5,
                                     "presentation_rect": [ 22.0, 818.0, 305.0, 74.0 ],
-                                    "text": "Frequency: 60–13000 Hz. Filter gain: ±24 dB.\nOutput faders: -24 to +12 dB; Glide sets fade.\nGlobal Gain Out: -36 to +12 dB; 2 s fade.\nInput meters stay active while OFF.\nProtection limits peaks; no makeup gain.",
+                                    "text": "Frequency: 60–13000 Hz. Filter gain: ±36 dB.\nOutput faders: -24 to +12 dB; Glide sets fade.\nGlobal Gain Out: -36 to +12 dB; 2 s fade.\nInput meters stay active while OFF.\nProtection limits peaks; no makeup gain.",
                                     "textcolor": [ 0.68, 0.73, 0.8, 1.0 ]
                                 }
                             },
@@ -15453,7 +15561,7 @@
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
                     },
-                    "patching_rect": [ 436.0, 206.0, 148.0, 22.0 ],
+                    "patching_rect": [ 534.0, 206.0, 148.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
@@ -15474,7 +15582,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 436.0, 167.0, 135.0, 33.0 ],
+                    "patching_rect": [ 534.0, 167.0, 135.0, 33.0 ],
                     "text": "Basics +\nexamples",
                     "textcolor": [ 0.07450980392156863, 0.07450980392156863, 0.07450980392156863, 1.0 ]
                 }
@@ -15527,16 +15635,9 @@
                 "patchline": {
                     "destination": [ "obj-5", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 210.5, 227.5703125, 138.5, 227.5703125 ],
+                    "midpoints": [ 303.5, 227.5703125, 138.5, 227.5703125 ],
                     "order": 1,
                     "source": [ "filter_commands_only", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-33", 0 ],
-                    "hidden": 1,
-                    "source": [ "local_output_init", 0 ]
                 }
             },
             {
@@ -15557,16 +15658,36 @@
                 "patchline": {
                     "destination": [ "obj-5", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 397.5, 230.73828125, 138.5, 230.73828125 ],
+                    "midpoints": [ 495.5, 230.73828125, 138.5, 230.73828125 ],
                     "order": 1,
                     "source": [ "motion_commands_only", 0 ]
                 }
             },
             {
                 "patchline": {
+                    "destination": [ "obj-4", 2 ],
+                    "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-13", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 0 ],
+                    "hidden": 1,
+                    "source": [ "obj-14", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-33", 0 ],
                     "hidden": 1,
-                    "source": [ "obj-2", 0 ]
+                    "source": [ "obj-2", 1 ]
                 }
             },
             {
@@ -15593,7 +15714,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-5", 1 ],
-                    "midpoints": [ 78.5, 293.0, 211.4765625, 293.0, 211.4765625, 221.0, 138.5, 221.0 ],
+                    "midpoints": [ 78.5, 307.5, 211.4765625, 307.5, 211.4765625, 235.5, 138.5, 235.5 ],
                     "source": [ "obj-3", 0 ]
                 }
             },
@@ -15618,8 +15739,15 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-5", 0 ],
+                    "destination": [ "obj-4", 1 ],
+                    "midpoints": [ 58.5, 173.59375, 83.0, 173.59375 ],
                     "source": [ "obj-35", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 0 ],
+                    "source": [ "obj-4", 0 ]
                 }
             },
             {

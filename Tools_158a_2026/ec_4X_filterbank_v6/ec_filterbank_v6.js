@@ -5,7 +5,7 @@ autowatch=1;inlets=1;outlets=2;
 // Outlet 1 exports one self-contained message; outlet 0 remains local control.
 var capturedState=null;
 var MAGIC=20261030,VERSION=10,Q=6,MIN_RAMP=20,FMIN=60,FMAX=13000,SR=44100,GAINOUT_FADE=2000;
-var QMIN=.5,QMAX=200;
+var QMIN=.5,QMAX=200,GAIN_MIN=-36,GAIN_MAX=36;
 var TYPES=["peak","lowpass","bandpass","ultra","highpass","resonant","notch"],MODES=[5,1,3,3,2,8,4],COMMANDS=["peaknotch","gainlpass","gainbpass","gainbpass","gainhpass","gainresonant","gainbstop"];
 var ready=false,dspOn=false,scanning=false,scanKey=-1,scanState=null,bankBackup=null;
 var presets={},state=defaults(),context=-1,activePreset=0;
@@ -15,6 +15,10 @@ var writingCurve=[false,false,false,false],liveMotion=[0,0,0,0],graphHz=[60,60,6
 var ampRequested=[false,false,false,false],writingAmp=[false,false,false,false];
 var applied=[0,0,0,0],phase=[0,0,0,0]; // 0 steady/fading in, 1 fading out, 2 warming
 var graphWet=[0,0,0,0],graphLevel=[0,0,0,0];
+// Only the explicit UI path resets values. Preset/state recall uses applyState.
+var SAFE_TYPE_FADE=25,SAFE_TYPE_LEVEL=-12;
+var SAFE_TYPE_Q=[1,Math.SQRT1_2,1,100,Math.SQRT1_2,1,1];
+var safeTypePending=[false,false,false,false];
 var bootTask=new Task(boot,this);
 var restarts=[new Task(function(){restart(0);},this),new Task(function(){restart(1);},this),new Task(function(){restart(2);},this),new Task(function(){restart(3);},this)];
 var warms=[new Task(function(){warmdone(0);},this),new Task(function(){warmdone(1);},this),new Task(function(){warmdone(2);},this),new Task(function(){warmdone(3);},this)];
@@ -42,7 +46,7 @@ function qlimits(i){var r=qbounds(state.bands[i].type);send("q"+i,"maximum",r[1]
 function settleTime(i){var b=state.bands[i];return b.type===3?Math.ceil(clamp(4000*b.q/(Math.PI*Math.max(FMIN,b.freq-b.depth)),100,5000)):100;}
 function defaultBand(i){return {enabled:0,level:0,type:0,freq:60,gain:0,q:6,depth:0,ampdepth:0,period:4000,loop:0,curve:flatCurve(),acurve:flatCurve()};}
 
-function defaults(){return {interp:1000,amp:1,gainout:0,normalize:1,slot:0,selected:1,fade:700,bands:[defaultBand(0),defaultBand(1),defaultBand(2),defaultBand(3)]};}
+function defaults(){return {interp:1000,amp:1,gainout:-12,normalize:1,slot:0,selected:1,fade:700,bands:[defaultBand(0),defaultBand(1),defaultBand(2),defaultBand(3)]};}
 
 function cleanCurve(a){
  var pairs=[],out=[0,0],last=0;
@@ -54,7 +58,7 @@ function cleanCurve(a){
 function sanitize(s){
  s.gainout=clamp(finite(s.gainout)?s.gainout:0,-36,12);
  s.interp=duration(s.interp);s.amp=1;s.normalize=s.normalize?1:0;s.slot=clamp(Math.round(s.slot),0,10);s.selected=clamp(Math.round(s.selected),1,4);s.fade=clamp(finite(s.fade)?s.fade:700,20,10000);
- for(var i=0;i<4;i++){var b=s.bands[i];b.enabled=b.enabled?1:0;b.level=clamp(finite(b.level)?b.level:0,-24,12);b.type=clamp(Math.round(b.type),0,6);b.freq=clamp(b.freq,FMIN,13000);b.gain=clamp(b.gain,-24,24);var qr=qbounds(b.type);b.q=clamp(finite(b.q)?b.q:(b.type===3?100:6),qr[0],qr[1]);b.depth=clamp(b.depth,0,12940);b.ampdepth=clamp(finite(b.ampdepth)?b.ampdepth:0,0,48);b.period=clamp(b.period,100,600000);b.loop=b.loop?1:0;b.curve=cleanCurve(b.curve);b.acurve=cleanCurve(b.acurve||flatCurve());}
+ for(var i=0;i<4;i++){var b=s.bands[i];b.enabled=b.enabled?1:0;b.level=clamp(finite(b.level)?b.level:0,-24,12);b.type=clamp(Math.round(b.type),0,6);b.freq=clamp(b.freq,FMIN,13000);b.gain=clamp(b.gain,GAIN_MIN,GAIN_MAX);var qr=qbounds(b.type);b.q=clamp(finite(b.q)?b.q:(b.type===3?100:6),qr[0],qr[1]);b.depth=clamp(b.depth,0,12940);b.ampdepth=clamp(finite(b.ampdepth)?b.ampdepth:0,0,48);b.period=clamp(b.period,100,600000);b.loop=b.loop?1:0;b.curve=cleanCurve(b.curve);b.acurve=cleanCurve(b.acurve||flatCurve());}
  return s;
 }
 
@@ -123,7 +127,7 @@ function configureGraph(i){
  if(graphMax!==FMAX){
   graphMax=FMAX;send("eqgraph","domain",FMIN,FMAX);
   for(var k=0;k<4;k++){
-   send("eqgraph","setconstraints",k,FMIN,FMAX,dbamp(-24),dbamp(24),QMIN,QMAX);
+   send("eqgraph","setconstraints",k,FMIN,FMAX,dbamp(GAIN_MIN),dbamp(GAIN_MAX),QMIN,QMAX);
    send("freq"+k,"maximum",FMAX);send("livefreq"+k,"maximum",FMAX);
   }
  }
@@ -143,7 +147,7 @@ function graphRange(){
 
 function drawGraph(i,f,g,qv){
  if(!finite(f)||!finite(g))return;
- graphHz[i]=clamp(f,FMIN,FMAX);graphDb[i]=clamp(g,-24,24);graphQ[i]=clamp(finite(qv)?qv:state.bands[i].q,QMIN,QMAX);
+ graphHz[i]=clamp(f,FMIN,FMAX);graphDb[i]=clamp(g,GAIN_MIN,GAIN_MAX);graphQ[i]=clamp(finite(qv)?qv:state.bands[i].q,QMIN,QMAX);
  send("graph_gate","int",0);graphRange();
  // params recomputes AND redraws. Its outputs are blocked before deferlow;
  // native graph coefficients feed only the read-only combined display, never audio.
@@ -167,13 +171,41 @@ function changeType(i,initial){
  if(applied[i]===state.bands[i].type){configureGraph(i);ramp(i,"wet",state.bands[i].enabled,state.fade);return;}
  phase[i]=1;ramp(i,"wet",0,state.fade);
 }
-function wetdone(n){var i=index(n);if(i<0||phase[i]!==1)return;phase[i]=2;configureType(i);warms[i].schedule(settleTime(i));}
+function wetdone(n){var i=index(n);if(i<0||phase[i]!==1)return;phase[i]=2;if(safeTypePending[i]){stage(i,"wet",0);applySafeType(i);}else configureType(i);warms[i].schedule(settleTime(i));}
 function warmdone(i){if(!ready||phase[i]!==2)return;phase[i]=0;ramp(i,"wet",state.bands[i].enabled,state.fade);}
+function applySafeType(i){
+ // The audio gate is zero before any coefficient, gain or motion reset.
+ var b=state.bands[i],keys=["freq","gain","q","depth","ampdepth","level"];
+ safeTypePending[i]=false;
+ for(var k=0;k<keys.length;k++)stage(i,keys[k],keys[k]==="freq"?Math.min(b.freq,FMAX):b[keys[k]]);
+ stage(i,"motion",0);stage(i,"amotion",0);configureType(i);
+}
+applySafeType.local=1;
+function uitype(v){
+ if(!ready)return;
+ var t=typeof v==="string"?TYPES.indexOf(v.toLowerCase()):Number(v);
+ if(t!==Math.floor(t)||t<0||t>=TYPES.length)return;
+ var i=idx(),b=state.bands[i];if(t===b.type)return;
+ // Freeze the old sound while its gate falls: resetting a negative gain or
+ // moving Q before silence could itself make the OLD mode unexpectedly loud.
+ restarts[i].cancel();warms[i].cancel();running[i]=false;
+ var keys=["freq","gain","q","depth","ampdepth","level","motion","amotion"];
+ for(var k=0;k<keys.length;k++)stage(i,keys[k],"stop");
+ b.type=t;b.gain=0;b.q=SAFE_TYPE_Q[t];b.depth=0;b.ampdepth=0;b.loop=0;
+ b.level=Math.min(b.level,SAFE_TYPE_LEVEL);safeTypePending[i]=true;
+ syncBand(i);
+ if(dspOn){phase[i]=1;ramp(i,"wet",0,SAFE_TYPE_FADE);}
+ else {phase[i]=0;stage(i,"wet",0);applySafeType(i);ramp(i,"wet",b.enabled,state.fade);idleGraph(i);}
+ working();dirty();
+ status("Filter "+(i+1)+": manual type reset / Gain 0 dB / Q "+Math.round(b.q*1000)/1000+" / motion off / output "+b.level+" dB. Frequency and curves retained.");
+}
 function stopMotion(i){restarts[i].cancel();running[i]=false;ramp(i,"motion",0,100);ramp(i,"amotion",0,100);}
 
 function startMotion(i){restarts[i].cancel();running[i]=true;cycleBegan[i]=now();stage(i,"motion","stop");stage(i,"amotion","stop");send("curve"+i,"bang");send("acurve"+i,"bang");}
 
 function applyState(s,ms,initial){
+ // A recall supersedes any in-flight manual reset without changing its data.
+ safeTypePending=[false,false,false,false];
  for(var i=0;i<4;i++)stopMotion(i);state=sanitize(copy(s));sync();
  for(var j=0;j<4;j++){
   var b=state.bands[j];drawCurve(j);drawAmpCurve(j);ramp(j,"freq",Math.min(b.freq,FMAX),ms);ramp(j,"gain",b.gain,ms);ramp(j,"q",b.q,ms);ramp(j,"depth",b.depth,ms);ramp(j,"ampdepth",b.ampdepth,ms);ramp(j,"level",b.level,ms);
@@ -201,9 +233,17 @@ function sr(v){
  // The final signal clip protects Nyquist without overwriting the saved center.
  for(var i=0;i<4;i++){stage(i,"maxfreq",FMAX);configureGraph(i);if(ready){ramp(i,"freq",Math.min(state.bands[i].freq,FMAX),100);idleGraph(i);}}
 }
-function dsp(v){dspOn=!!Number(v);for(var i=0;i<4;i++){if(!dspOn)idleGraph(i);else if(ready&&state.bands[i].loop)startMotion(i);}}
+function dsp(v){
+ dspOn=!!Number(v);
+ for(var i=0;i<4;i++){
+  if(!dspOn){
+   if(safeTypePending[i]){warms[i].cancel();phase[i]=0;stage(i,"wet",0);applySafeType(i);ramp(i,"wet",state.bands[i].enabled,state.fade);}
+   idleGraph(i);
+  }else if(ready&&state.bands[i].loop)startMotion(i);
+ }
+}
 function update(key,v,ms){
- v=Number(v);if(!ready||!finite(v))return;var i=idx(),b=state.bands[i],bounds={level:[-24,12],freq:[FMIN,FMAX],gain:[-24,24],q:qbounds(b.type),depth:[0,12940],ampdepth:[0,48]};if(!bounds[key])return;
+ v=Number(v);if(!ready||!finite(v))return;var i=idx(),b=state.bands[i],bounds={level:[-24,12],freq:[FMIN,FMAX],gain:[GAIN_MIN,GAIN_MAX],q:qbounds(b.type),depth:[0,12940],ampdepth:[0,48]};if(!bounds[key])return;
  b[key]=clamp(v,bounds[key][0],bounds[key][1]);setui(key+i,b[key]);ramp(i,key,b[key],ms);idleGraph(i);working();dirty();
 }
 function freq(v,ms){update("freq",v,ms);}function line(v,ms){freq(v,ms);}function gain(v,ms){update("gain",v,ms);}function depth(v,ms){update("depth",v,ms);}function hz(v,ms){depth(v,ms);}
@@ -213,6 +253,7 @@ function ampdepth(v,ms){update("ampdepth",v,ms);}
 function type(v){
  if(!ready)return;var t=typeof v==="string"?TYPES.indexOf(v.toLowerCase()):Number(v);if(t!==Math.floor(t)||t<0||t>6)return;
  var i=idx(),b=state.bands[i],previous=b.type,qr=qbounds(t);b.type=t;
+ safeTypePending[i]=false;
  b.q=t===3&&previous!==3?100:clamp(b.q,qr[0],qr[1]);qlimits(i);setui("q"+i,b.q);ramp(i,"q",b.q,state.interp);
  setui("type"+i,t);changeType(i,false);idleGraph(i);working();dirty();
  if(t===4)status("Highpass: cutoff frequency; Q sets resonance; gain trims the passed band.");
@@ -229,7 +270,7 @@ function filter(n){n=index(n);if(!ready||n<0)return;state.selected=n+1;badges();
 function selected(n){filter(n);}
 function band(n,cmd){
  var i=index(n);if(i<0)return;var a=arrayfromargs(arguments);a.splice(0,2);
- var methods={level:level,freq:freq,line:line,gain:gain,q:q,ampdepth:ampdepth,depth:depth,hz:hz,period:period,type:type,enable:enable,loop:loop,once:once,stop:stop,sweep:sweep,resetcurve:resetcurve,triangle:triangle,resetamp:resetamp,amptriangle:amptriangle};
+ var methods={level:level,freq:freq,line:line,gain:gain,q:q,ampdepth:ampdepth,depth:depth,hz:hz,period:period,type:type,uitype:uitype,enable:enable,loop:loop,once:once,stop:stop,sweep:sweep,resetcurve:resetcurve,triangle:triangle,resetamp:resetamp,amptriangle:amptriangle};
  if(!methods[cmd]){status("Unknown band message: "+cmd);return;}
  var old=context;context=i;methods[cmd].apply(this,a);context=old;
 }

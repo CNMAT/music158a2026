@@ -16,7 +16,7 @@ function frame(){
  selected=clamp(Math.round(a[0])-1,0,3);sampleRate=Math.max(8000,a[1]);
  maxHz=clamp(a[2],61,Math.min(13000,sampleRate*.45));topDB=Math.max(36,a[3]);
  for(var i=0;i<4;i++){var p=4+i*7;bands[i]={on:a[p]?1:0,type:clamp(Math.round(a[p+1]),0,6),
-  f:clamp(a[p+2],60,maxHz),g:clamp(a[p+3],-24,24),q:clamp(a[p+4],.5,200),wet:clamp(a[p+5],0,1),level:clamp(a[p+6],-24,12)};}
+  f:clamp(a[p+2],60,maxHz),g:clamp(a[p+3],-36,36),q:clamp(a[p+4],.5,200),wet:clamp(a[p+5],0,1),level:clamp(a[p+6],-24,12)};}
  hasFrame=true;mgraphics.redraw();
 }
 function bang(){mgraphics.redraw();}
