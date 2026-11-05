@@ -11,10 +11,10 @@ var ready=false,dspOn=false,scanning=false,scanKey=-1,scanState=null,bankBackup=
 var presets={},state=defaults(),context=-1,activePreset=0;
 var lastWorking="",graphModes=[-1,-1,-1,-1],graphMax=-1,graphTop=-1;
 var running=[false,false,false,false],cycleBegan=[0,0,0,0],curveRequested=[false,false,false,false];
-var writingCurve=[false,false,false,false],liveMotion=[0,0,0,0],graphHz=[60,60,60,60],graphDb=[0,0,0,0],graphQ=[6,6,6,6];
+var writingCurve=[false,false,false,false],liveMotion=[0,0,0,0],graphHz=[60,60,60,60],graphDb=[-36,-36,-36,-36],graphQ=[.5,.5,.5,.5];
 var ampRequested=[false,false,false,false],writingAmp=[false,false,false,false];
 var applied=[0,0,0,0],phase=[0,0,0,0]; // 0 steady/fading in, 1 fading out, 2 warming
-var graphWet=[0,0,0,0],graphLevel=[0,0,0,0];
+var graphWet=[0,0,0,0],graphLevel=[-24,-24,-24,-24];
 // Only the explicit UI path resets values. Preset/state recall uses applyState.
 var SAFE_TYPE_FADE=25,SAFE_TYPE_LEVEL=-12;
 var SAFE_TYPE_Q=[1,Math.SQRT1_2,1,100,Math.SQRT1_2,1,1];
@@ -44,7 +44,8 @@ function usefulDepth(f){return Math.max(1,Math.min(200,f-FMIN,FMAX-f));}
 function qbounds(t){return t===3?[20,200]:[.5,20];}
 function qlimits(i){var r=qbounds(state.bands[i].type);send("q"+i,"maximum",r[1]);send("q"+i,"minimum",r[0]);}
 function settleTime(i){var b=state.bands[i];return b.type===3?Math.ceil(clamp(4000*b.q/(Math.PI*Math.max(FMIN,b.freq-b.depth)),100,5000)):100;}
-function defaultBand(i){return {enabled:0,level:0,type:0,freq:60,gain:0,q:6,depth:0,ampdepth:0,period:4000,loop:0,curve:flatCurve(),acurve:flatCurve()};}
+// Cold opening and per-filter clear share the same valid minimum state.
+function defaultBand(i){return {enabled:0,level:-24,type:0,freq:FMIN,gain:GAIN_MIN,q:QMIN,depth:0,ampdepth:0,period:100,loop:0,curve:flatCurve(),acurve:flatCurve()};}
 
 function defaults(){return {interp:1000,amp:1,gainout:-12,normalize:1,slot:0,selected:1,fade:700,bands:[defaultBand(0),defaultBand(1),defaultBand(2),defaultBand(3)]};}
 
@@ -199,6 +200,21 @@ function uitype(v){
  working();dirty();
  status("Filter "+(i+1)+": manual type reset / Gain 0 dB / Q "+Math.round(b.q*1000)/1000+" / motion off / output "+b.level+" dB. Frequency and curves retained.");
 }
+function clear(n){
+ if(!ready)return;
+ var i=arguments.length?index(n):idx();if(i<0)return;
+ // Hold the OLD coefficients until the output gate has reached silence.
+ restarts[i].cancel();warms[i].cancel();running[i]=false;
+ var keys=["freq","gain","q","depth","ampdepth","level","motion","amotion"];
+ for(var k=0;k<keys.length;k++)stage(i,keys[k],"stop");
+ state.bands[i]=defaultBand(i);
+ curveRequested[i]=false;ampRequested[i]=false;liveMotion[i]=0;
+ safeTypePending[i]=true;syncBand(i);drawCurve(i);drawAmpCurve(i);
+ if(dspOn){phase[i]=1;ramp(i,"wet",0,SAFE_TYPE_FADE);}
+ else {phase[i]=0;stage(i,"wet",0);applySafeType(i);idleGraph(i);}
+ working();dirty();
+ status("Filter "+(i+1)+": cleared / OFF / Peak / 60 Hz / Q 0.5 / gain -36 dB / output -24 dB / flat curves / 100 ms. Stored presets retained.");
+}
 function stopMotion(i){restarts[i].cancel();running[i]=false;ramp(i,"motion",0,100);ramp(i,"amotion",0,100);}
 
 function startMotion(i){restarts[i].cancel();running[i]=true;cycleBegan[i]=now();stage(i,"motion","stop");stage(i,"amotion","stop");send("curve"+i,"bang");send("acurve"+i,"bang");}
@@ -270,7 +286,7 @@ function filter(n){n=index(n);if(!ready||n<0)return;state.selected=n+1;badges();
 function selected(n){filter(n);}
 function band(n,cmd){
  var i=index(n);if(i<0)return;var a=arrayfromargs(arguments);a.splice(0,2);
- var methods={level:level,freq:freq,line:line,gain:gain,q:q,ampdepth:ampdepth,depth:depth,hz:hz,period:period,type:type,uitype:uitype,enable:enable,loop:loop,once:once,stop:stop,sweep:sweep,resetcurve:resetcurve,triangle:triangle,resetamp:resetamp,amptriangle:amptriangle};
+ var methods={clear:clear,level:level,freq:freq,line:line,gain:gain,q:q,ampdepth:ampdepth,depth:depth,hz:hz,period:period,type:type,uitype:uitype,enable:enable,loop:loop,once:once,stop:stop,sweep:sweep,resetcurve:resetcurve,triangle:triangle,resetamp:resetamp,amptriangle:amptriangle};
  if(!methods[cmd]){status("Unknown band message: "+cmd);return;}
  var old=context;context=i;methods[cmd].apply(this,a);context=old;
 }

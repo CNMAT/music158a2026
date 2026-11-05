@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -382,7 +382,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 196.0, 168.0, 50.0, 22.0 ],
-                    "text": "40"
+                    "text": "38"
                 }
             },
             {
@@ -447,7 +447,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -777,7 +777,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1107,7 +1107,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1437,7 +1437,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -1767,7 +1767,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2097,7 +2097,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2427,7 +2427,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -2757,7 +2757,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3179,7 +3179,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3258,7 +3258,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-74",
                     "maxclass": "newobj",
@@ -3270,7 +3270,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -3486,7 +3486,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 3, 1, 0, 1, 7450.83056640625, 9.57923412322998, 100.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 3, 1, 0, 1, 2083.0400390625, 10.830574989318848, 100.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 3, 1, 0, 1, 603.0044555664062, 8.619194030761719, 100.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 3, 1, 0, 1, 194.605712890625, 12.368693351745605, 100.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -3632,7 +3632,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -3783,8 +3783,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-24",
                                     "maxclass": "flonum",
-                                    "maximum": 200.0,
-                                    "minimum": 20.0,
+                                    "maximum": 20.0,
+                                    "minimum": 0.5,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -4157,11 +4157,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, 1.0, 0, 5250.0, -1.0, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -4293,11 +4293,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, -1.0, 0, 5250.0, -0.5, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -4584,7 +4584,7 @@
                                     "patching_rect": [ 515.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 413.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus1"
                                 }
@@ -4735,8 +4735,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-80",
                                     "maxclass": "flonum",
-                                    "maximum": 200.0,
-                                    "minimum": 20.0,
+                                    "maximum": 20.0,
+                                    "minimum": 0.5,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -5108,11 +5108,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2250.0, -1.0, 0, 6750.0, 1.0, 0, 9000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 9000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-102",
@@ -5243,11 +5243,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2250.0, -1.0, 0, 6750.0, -0.5, 0, 9000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 9000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-110",
@@ -5533,7 +5533,7 @@
                                     "patching_rect": [ 795.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 666.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus2"
                                 }
@@ -5684,8 +5684,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-136",
                                     "maxclass": "flonum",
-                                    "maximum": 200.0,
-                                    "minimum": 20.0,
+                                    "maximum": 20.0,
+                                    "minimum": 0.5,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -6057,11 +6057,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2750.0, 1.0, 0, 8250.0, -1.0, 0, 11000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 11000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-158",
@@ -6192,11 +6192,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2750.0, -1.0, 0, 8250.0, -0.5, 0, 11000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 11000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-166",
@@ -6482,7 +6482,7 @@
                                     "patching_rect": [ 1075.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 919.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus3"
                                 }
@@ -6633,8 +6633,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-192",
                                     "maxclass": "flonum",
-                                    "maximum": 200.0,
-                                    "minimum": 20.0,
+                                    "maximum": 20.0,
+                                    "minimum": 0.5,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -7006,11 +7006,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3250.0, -1.0, 0, 9750.0, 1.0, 0, 13000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 13000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-214",
@@ -7141,11 +7141,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3250.0, -1.0, 0, 9750.0, -0.5, 0, 13000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 13000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-222",
@@ -8395,7 +8395,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -9528,7 +9528,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -10661,7 +10661,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -11794,7 +11794,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -13412,7 +13412,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 10",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -16896,7 +16896,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -16975,7 +16975,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-70",
                     "maxclass": "newobj",
@@ -16987,7 +16987,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -17203,7 +17203,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 4, 1, 0, 1, 3668.742919921875, 0.223872110247612, 20.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 4, 1, 0, 1, 2340.863037109375, 0.223872110247612, 20.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 4, 1, 0, 1, 1055.6571044921875, 0.25118863582611084, 20.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 4, 1, 0, 1, 61.25694274902344, 0.6717381477355957, 0.5, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -17349,7 +17349,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -17874,7 +17874,7 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 859.6491228070175, -0.11111111111111116, 0, 1228.0701754385964, -0.18518518518518523, 0, 2800.0, 1.0, 0, 3200.0, 1.0, 0, 4000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
@@ -18010,7 +18010,7 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1000.0, 1.0, 0, 3000.0, -1.0, 0, 4000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
@@ -18301,7 +18301,7 @@
                                     "patching_rect": [ 515.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 413.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus1"
                                 }
@@ -18825,11 +18825,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, 1.0, 0, 5280.701754385965, -0.03703703703703709, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-102",
@@ -18960,11 +18960,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, 1.0, 0, 5250.0, -1.0, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-110",
@@ -19250,7 +19250,7 @@
                                     "patching_rect": [ 795.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 666.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus2"
                                 }
@@ -19774,11 +19774,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2750.0, 1.0, 0, 8201.754385964912, -1.0, 0, 11000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 11000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-158",
@@ -19909,11 +19909,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2750.0, 1.0, 0, 8250.0, -1.0, 0, 11000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 11000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-166",
@@ -20199,7 +20199,7 @@
                                     "patching_rect": [ 1075.0, 254.0, 52.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 919.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus3"
                                 }
@@ -20723,11 +20723,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, 1.0, 0, 5250.0, -1.0, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-214",
@@ -20858,11 +20858,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 1750.0, 1.0, 0, 5250.0, -1.0, 0, 7000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 7000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-222",
@@ -22112,7 +22112,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -23245,7 +23245,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -24378,7 +24378,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -25511,7 +25511,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -27129,7 +27129,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 7",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -30613,7 +30613,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -30692,7 +30692,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-66",
                     "maxclass": "newobj",
@@ -30704,7 +30704,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -30920,7 +30920,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 8, 1, 0, 1, 576.9600219726562, 1.0, 16.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -31066,7 +31066,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -31591,11 +31591,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 2500.0, 1.0, 0, 7500.0, -1.0, 0, 10000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 10000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -31727,11 +31727,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 10000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 10000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -35829,7 +35829,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -36962,7 +36962,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -38095,7 +38095,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -39228,7 +39228,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -40846,7 +40846,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 6",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -44330,7 +44330,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -44409,7 +44409,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-62",
                     "maxclass": "newobj",
@@ -44421,7 +44421,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -44637,7 +44637,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 2, 1, 0, 1, 2886.39990234375, 1.0, 0.7071067690849304, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -44783,7 +44783,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -45308,11 +45308,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3200.0, -1.0, 0, 4800.0, -1.0, 0, 11200.0, 1.0, 0, 12800.0, 1.0, 0, 16000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 16000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -45444,11 +45444,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 16000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 16000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -49546,7 +49546,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -50679,7 +50679,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -51812,7 +51812,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -52945,7 +52945,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -54563,7 +54563,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 5",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -58047,7 +58047,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -58126,7 +58126,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-58",
                     "maxclass": "newobj",
@@ -58138,7 +58138,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -58354,7 +58354,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 3, 1, 0, 1, 1311.111083984375, 15.848932266235352, 100.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -58500,7 +58500,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -58651,8 +58651,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-24",
                                     "maxclass": "flonum",
-                                    "maximum": 200.0,
-                                    "minimum": 20.0,
+                                    "maximum": 20.0,
+                                    "minimum": 0.5,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -59025,11 +59025,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3000.0, 1.0, 0, 9000.0, -1.0, 0, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -59161,11 +59161,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -63263,7 +63263,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -64396,7 +64396,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -65529,7 +65529,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -66662,7 +66662,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -68280,7 +68280,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 4",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -71764,7 +71764,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -71843,7 +71843,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-54",
                     "maxclass": "newobj",
@@ -71855,7 +71855,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -72071,7 +72071,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 3, 1, 0, 1, 3172.22216796875, 3.981071710586548, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -72217,7 +72217,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -72742,11 +72742,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3000.0, 1.0, 0, 9000.0, -1.0, 0, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -72878,11 +72878,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 12000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 12000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -76980,7 +76980,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -78113,7 +78113,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -79246,7 +79246,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -80379,7 +80379,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -81997,7 +81997,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 3",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -85481,7 +85481,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -85560,7 +85560,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-50",
                     "maxclass": "newobj",
@@ -85572,7 +85572,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -85788,7 +85788,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 1, 1, 0, 1, 2384.0, 1.0, 0.7071067690849304, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -85934,7 +85934,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 160.5, 198.0, 63.0, 20.0 ],
-                                    "text": "ON",
+                                    "text": "OFF",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -86459,11 +86459,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 3200.0, -1.0, 0, 4800.0, -1.0, 0, 11200.0, 1.0, 0, 12800.0, 1.0, 0, 16000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 16000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -86595,11 +86595,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 16000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 16000.0,
+                                    "domain": 4000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -90697,7 +90697,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -91830,7 +91830,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -92963,7 +92963,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -94096,7 +94096,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -95714,7 +95714,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: 2",
+                                    "text": "Loaded: none",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -99209,7 +99209,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -99288,7 +99288,7 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "bgcolor": [ 0.7372549019607844, 0.0, 0.9058823529411765, 1.0 ],
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-25",
                     "maxclass": "newobj",
@@ -99300,7 +99300,7 @@
                         "appversion": {
                             "major": 9,
                             "minor": 2,
-                            "revision": 0,
+                            "revision": 1,
                             "architecture": "x64",
                             "modernui": 1
                         },
@@ -99516,7 +99516,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 3344.432373046875, 2.1544346809387207, 2.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0, 0, 5, 1, 0, 1, 2044.9063720703125, 6.137619972229004, 2.0, 60.0, 13000.0, 0.06309573352336884, 15.848932266235352, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -104258,7 +104258,7 @@
                                             },
                                             {
                                                 "key": 0,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 1, 1, 700, 0, 1, 0, 1200, 0, 2, 2349, 18, 12000, 1, -5.952755905511806, 3, 0, 0, 0.4868421052631579, 1, 1, 0, 6, 0, 0, 0.2, 1, 0.35, 1, 0.65, -1, 0.8, -1, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 1, 1, 700, 0, 1, 0, 1200, 0, 2, 2349, 18, 12000, 1, 1.3967454068241407, 3, 0, 0, 0.4868421052631579, 1, 1, 0, 6, 0, 0, 0.2, 1, 0.35, 1, 0.65, -1, 0.8, -1, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             }
                                         ]
                                     },
@@ -104425,7 +104425,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -105558,7 +105558,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -106691,7 +106691,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },
@@ -107824,7 +107824,7 @@
                                         "appversion": {
                                             "major": 9,
                                             "minor": 2,
-                                            "revision": 0,
+                                            "revision": 1,
                                             "architecture": "x64",
                                             "modernui": 1
                                         },

@@ -59,3 +59,38 @@ Validation:
   Structural checks: existing audio wiring, geometry, presets and capture
   retained, with all four menu routes connected to the updated controller.
   Native Max audio and display have not been auditioned in this environment.
+
+
+PER-FILTER CLEAR
+The FILTER 1-4 target buttons are moved left, with a small 'clear' message
+beside each. Click clear in the locked patch to reset that filter only:
+  Type: Peak (first menu item)       Output state: OFF
+  Frequency: 60 Hz                  Q: 0.5
+  Filter gain: -36 dB               Output fader: -24 dB
+  Frequency depth: 0 Hz             Gain depth: 0 dB
+  Full Trip: 100 ms                 Once/Loop playback: stopped
+  Both functions: flat at 0, with endpoints at 0 and 100 ms
+These are valid minimums, not literal zero for every parameter. In particular,
+0 dB is unity gain, so the two gain controls go to their negative limits.
+The channel is muted with a 25 ms fade before its parameters, type and biquad
+history are reset. Its OFF state then keeps the output silent. Input metering
+continues to show incoming audio while Max Audio is on.
+Other filters, target selection, globals and stored presets are retained.
+Clear does not erase preset slots; use Store if a cleared state should replace
+a preset. Store/recall and full-state capture include all cleared values.
+External commands: 'band 2 clear' or 'clear 2' clears Filter 2; 'clear' clears
+the current target. The visible clear messages always address their own column.
+This update changes the main patch and controller; the separate abstraction,
+sample, tutorials and other package files retain the supplied contents.
+
+
+OPENING STATE
+Every cold open now initializes all four filters to exactly the same valid
+minimum state as clear: OFF, Peak, 60 Hz, Q 0.5, Filter gain -36 dB, Output
+-24 dB, both motion depths 0, both curves flat at 0, Full Trip 100 ms, Loop OFF.
+The opening state and clear use one shared definition in the controller.
+No preset is selected. Global Gain Out still opens at -12 dB. Glide, On/off
+fade and Auto headroom keep their existing startup settings.
+Saving an active or looping sound does not change this opening behavior.
+Stored presets and explicit full-state restoration retain their saved values.
+Replace the main patch and ec_filterbank_v6.js together.

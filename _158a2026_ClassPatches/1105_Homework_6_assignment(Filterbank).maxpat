@@ -9,115 +9,110 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 200.0, 100.0, 1000.0, 892.0 ],
+        "rect": [ 63.0, 100.0, 1231.0, 846.0 ],
         "default_fontsize": 18.0,
         "boxes": [
             {
                 "box": {
-                    "hidden": 1,
-                    "id": "obj-14",
-                    "maxclass": "newobj",
+                    "id": "obj-21",
+                    "linecount": 4,
+                    "maxclass": "comment",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 32.0, 283.0, 101.0, 29.0 ],
-                    "text": "loadmess 1"
+                    "numoutlets": 0,
+                    "patching_rect": [ 106.9432989690722, 340.2061855670103, 878.0, 87.0 ],
+                    "text": "CLOSE AND OPEN THE PATCH. START WITH THE BLANK FILTER 1 AND DESIGN YOUR FILTER. \nTURN ON FILTER 2 AND DESIGN THOSE FILTER SETTINGS WHILE FILTER ONE CONTINUES TO RUN.  CONTINUE WITH FILTER 3 AND FILTER 4 UNTILL ALL FILTERS ARE RUNNING.  SAVE AS PRESET 5 AND TURN IN YOUR ASSIGNMENT WITH 5 PRESETS FOR THE SOUNDFILE."
                 }
             },
             {
                 "box": {
-                    "bubble": 1,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
+                    "id": "obj-20",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 79.14948453608248, 305.1546391752577, 200.0, 27.0 ],
+                    "text": "HOMEWORK 6 PART 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 79.14948453608248, 136.08247422680412, 207.0, 27.0 ],
+                    "text": "HOMEWORK 6 PART 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-15",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 110.07731958762888, 245.36082474226805, 878.0, 47.0 ],
+                    "text": "Repeat the MODEL for preset 2 (Lowpass), 3 (bandpass), and 4 (Ultra-narrow Bandpass). (Save the new preset to the same number slot and save your patch each time.)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "linecount": 3,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 113.17010309278352, 169.0721649484536, 854.639175257732, 67.0 ],
+                    "text": "MODEL : Select preset 1 in Filter_Bank_v6 --  adjust settings for this 'PEAK' filter that have a strong and audible impact on the sample.  Save this as a new preset 1. Save your homework after finishing your preset and it will be saved with the patch for uploading to BCourses."
+                }
+            },
+            {
+                "box": {
                     "id": "obj-12",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 153.0, 342.0, 152.0, 25.0 ],
-                    "text": "2 - receive~ filterbank"
+                    "patching_rect": [ 157.5, 94.84536082474227, 782.0, 27.0 ],
+                    "text": "Setup: Play and loop the 'releaseme.wav'. Open the Filter_Bank_v6 patcher and do the following:"
                 }
             },
             {
                 "box": {
-                    "bubble": 1,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
-                    "id": "obj-10",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 153.0, 313.0, 130.0, 25.0 ],
-                    "text": "1 - noise~"
-                }
-            },
-            {
-                "box": {
-                    "bubble": 1,
-                    "fontname": "Arial",
-                    "fontsize": 13.0,
                     "id": "obj-11",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 153.0, 284.0, 114.0, 25.0 ],
-                    "text": "0 - all inlets off"
+                    "patching_rect": [ 67.0, 50.51546391752577, 1068.0, 27.0 ],
+                    "text": "To Begin:  Study Carefully the _ec_filter_tutorial.maxpat to understand the basics of applying filters to any audio input (not just noise!)"
                 }
             },
             {
                 "box": {
-                    "disabled": [ 0, 0, 0 ],
-                    "flagmode": 1,
-                    "id": "obj-13",
-                    "itemtype": 0,
-                    "maxclass": "radiogroup",
+                    "id": "obj-9",
+                    "maxclass": "comment",
                     "numinlets": 1,
-                    "numoutlets": 1,
-                    "offset": 29,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 128.0, 286.0, 19.0, 89.0 ],
-                    "size": 3,
-                    "value": 1
+                    "numoutlets": 0,
+                    "patching_rect": [ 47.0, 19.0, 607.0, 27.0 ],
+                    "text": "Homework 6 4X-FilterBank"
                 }
             },
             {
                 "box": {
-                    "id": "obj-4",
-                    "maxclass": "newobj",
-                    "numinlets": 3,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 57.0, 392.0, 97.0, 29.0 ],
-                    "text": "selector~ 2"
-                }
-            },
-            {
-                "box": {
-                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
-                    "id": "obj-1",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 201.0, 372.0, 103.0, 29.0 ],
-                    "text": "r~ filterbank"
-                }
-            },
-            {
-                "box": {
+                    "fontface": 0,
+                    "fontsize": 18.0,
                     "hidden": 1,
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "int" ],
-                    "patching_rect": [ 451.0, 550.0, 132.0, 29.0 ],
+                    "patching_rect": [ 243.0, 744.0, 132.0, 29.0 ],
                     "text": "adstatus switch"
                 }
             },
             {
                 "box": {
-                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
+                    "fontface": 0,
+                    "fontsize": 12.0,
                     "id": "obj-5",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -198,43 +193,19 @@
                                     "source": [ "obj-1", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "bgfillcolor_type": "color",
+                        "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
+                        "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
+                        "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1.0 ]
                     },
-                    "patching_rect": [ 77.0, 479.0, 191.0, 29.0 ],
+                    "patching_rect": [ 63.0, 674.0, 130.0, 22.0 ],
                     "text": "p capture-restore-state"
                 }
             },
             {
                 "box": {
-                    "annotation": "Test input level: 0.1.",
-                    "hint": "Test input level: 0.1.",
-                    "id": "obj-35",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 57.0, 341.0, 60.0, 29.0 ],
-                    "text": "*~ 0.1"
-                }
-            },
-            {
-                "box": {
-                    "annotation": "White-noise test input.",
-                    "hint": "White-noise test input.",
-                    "id": "obj-34",
-                    "maxclass": "newobj",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 57.0, 310.0, 62.0, 29.0 ],
-                    "text": "noise~"
-                }
-            },
-            {
-                "box": {
                     "annotation": "Local output on/off; 100 ms fade.",
-                    "bgcolor": [ 0.027450980392156862, 0.8901960784313725, 0.09803921568627451, 1.0 ],
-                    "checkedcolor": [ 0.8901960784313725, 0.03137254901960784, 0.03137254901960784, 1.0 ],
                     "hint": "Local output on/off; 100 ms fade.",
                     "id": "obj-33",
                     "maxclass": "toggle",
@@ -242,19 +213,20 @@
                     "numoutlets": 1,
                     "outlettype": [ "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 409.0, 550.0, 30.0, 30.0 ],
-                    "uncheckedcolor": [ 0.027, 0.89, 0.098, 1.0 ]
+                    "patching_rect": [ 202.0, 744.0, 30.0, 30.0 ]
                 }
             },
             {
                 "box": {
                     "annotation": "Hardware outputs 1 and 2.",
+                    "fontface": 0,
+                    "fontsize": 18.0,
                     "hint": "Hardware outputs 1 and 2.",
                     "id": "obj-31",
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 406.0, 588.0, 78.0, 29.0 ],
+                    "patching_rect": [ 199.0, 781.0, 78.0, 29.0 ],
                     "text": "dac~ 1 2"
                 }
             },
@@ -270,22 +242,10 @@
                     "numoutlets": 4,
                     "outlettype": [ "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 57.0, 520.0, 77.0, 71.0 ],
+                    "patching_rect": [ 42.0, 710.0, 77.0, 71.0 ],
                     "saved_attribute_attributes": {
-                        "slidercolor": {
-                            "expression": "themecolor.live_arranger_grid_tiles"
-                        },
                         "textcolor": {
                             "expression": ""
-                        },
-                        "tribordercolor": {
-                            "expression": "themecolor.live_record"
-                        },
-                        "tricolor": {
-                            "expression": "themecolor.live_record"
-                        },
-                        "trioncolor": {
-                            "expression": "themecolor.live_record"
                         },
                         "valueof": {
                             "parameter_initial": [ -80 ],
@@ -299,11 +259,7 @@
                             "parameter_unitstyle": 4
                         }
                     },
-                    "slidercolor": [ 0.039216, 0.039216, 0.039216, 1.0 ],
                     "textcolor": [ 1.0, 0.1607843137254902, 0.1607843137254902, 1.0 ],
-                    "tribordercolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
-                    "tricolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
-                    "trioncolor": [ 1.0, 0.34902, 0.372549, 1.0 ],
                     "varname": "live.gain~",
                     "warmcolor": [ 0.03137254901960784, 0.03137254901960784, 0.8705882352941177, 1.0 ]
                 }
@@ -311,7 +267,8 @@
             {
                 "box": {
                     "annotation": "Audio in left; local commands in right. Double-click to edit.",
-                    "bgcolor": [ 0.06666666666666667, 0.12156862745098039, 0.7607843137254902, 1.0 ],
+                    "fontface": 0,
+                    "fontsize": 18.0,
                     "hint": "Audio in left; local commands in right. Double-click to edit.",
                     "id": "obj-7",
                     "maxclass": "newobj",
@@ -607,7 +564,7 @@
                                     "parameter_enable": 0,
                                     "patching_rect": [ 1220.0, 1700.0, 1120.0, 135.0 ],
                                     "range": [ 0.003981071524322033, 63.095733642578125 ],
-                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 0, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0 ],
+                                    "setfilter": [ 3, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 2, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 1, 5, 1, 0, 1, 60.0, 1.0, 6.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0, 0, 3, 1, 0, 1, 1280.0, 15.848932266235352, 100.0, 60.0, 13000.0, 0.015848932787775993, 63.095733642578125, 0.5, 200.0 ],
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "eqgraph"
                                 }
@@ -753,7 +710,7 @@
                                     "patching_rect": [ 235.0, 254.0, 61.0, 20.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 55.0, 198.0, 32.0, 20.0 ],
-                                    "text": "OFF",
+                                    "text": "ON",
                                     "textcolor": [ 0.34901960784313724, 0.8156862745098039, 0.2784313725490196, 1.0 ],
                                     "varname": "bandstatus0"
                                 }
@@ -904,8 +861,8 @@
                                     "hint": "Sharpness: higher Q is narrower.",
                                     "id": "obj-24",
                                     "maxclass": "flonum",
-                                    "maximum": 20.0,
-                                    "minimum": 0.5,
+                                    "maximum": 200.0,
+                                    "minimum": 20.0,
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "", "bang" ],
@@ -1278,11 +1235,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 3000.0, 1.0, 0, 9000.0, -1.0, 0, 12000.0, 0.0, 1 ],
                                     "annotation": "Frequency offset shape, scaled by Hz depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 4000.0,
+                                    "domain": 12000.0,
                                     "grid": 3,
                                     "hint": "Frequency offset shape, scaled by Hz depth.",
                                     "id": "obj-46",
@@ -1414,11 +1371,11 @@
                             },
                             {
                                 "box": {
-                                    "addpoints": [ 0.0, 0.0, 1, 4000.0, 0.0, 1 ],
+                                    "addpoints": [ 0.0, 0.0, 1, 12000.0, 0.0, 1 ],
                                     "annotation": "Gain offset shape, scaled by dB depth.",
                                     "bgcolor": [ 0.055, 0.07, 0.09, 1.0 ],
                                     "classic_curve": 1,
-                                    "domain": 4000.0,
+                                    "domain": 12000.0,
                                     "grid": 3,
                                     "hint": "Gain offset shape, scaled by dB depth.",
                                     "id": "obj-54",
@@ -5344,7 +5301,7 @@
                                             },
                                             {
                                                 "key": 0,
-                                                "value": [ 20261030, 10, 1000, 1, 1, 0, 1, 700, -12, 0, 5, 60, 0, 20, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
+                                                "value": [ 20261030, 10, 1000, 1, 1, 4, 1, 700, -12, 1, 3, 1200, 24, 100, 500, 0, 12000, 1, 0, 4, 0, 0, 0.25, 1, 0.75, -1, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 60, 0, 6, 0, 0, 4000, 0, 0, 2, 0, 0, 1, 0, 2, 0, 0, 1, 0 ]
                                             }
                                         ]
                                     },
@@ -10528,7 +10485,7 @@
                                     "patching_rect": [ 20.0, 760.0, 320.0, 18.0 ],
                                     "presentation": 1,
                                     "presentation_rect": [ 19.0, 737.0, 346.0, 18.0 ],
-                                    "text": "Loaded: none",
+                                    "text": "Loaded: 4",
                                     "textcolor": [ 0.65, 0.71, 0.77, 1.0 ],
                                     "varname": "presetstatus"
                                 }
@@ -13970,9 +13927,13 @@
                             }
                         ],
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
-                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
+                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
+                        "bgfillcolor_type": "color",
+                        "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
+                        "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
+                        "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1.0 ]
                     },
-                    "patching_rect": [ 57.0, 451.0, 144.0, 29.0 ],
+                    "patching_rect": [ 42.0, 641.0, 144.0, 29.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
@@ -13983,6 +13944,7 @@
             {
                 "box": {
                     "annotation": "FILTER BANK v6",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 24.0,
                     "hint": "FILTER BANK v6",
@@ -13990,33 +13952,16 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 23.0, 214.0, 280.0, 33.0 ],
+                    "patching_rect": [ 42.0, 467.0, 193.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 20.0, 16.0, 1400.0, 33.0 ],
-                    "text": "FILTER BANK v6",
-                    "textcolor": [ 0.91, 0.94, 0.96, 1.0 ]
-                }
-            },
-            {
-                "box": {
-                    "annotation": "TEST SIGNAL",
-                    "fontname": "Arial",
-                    "fontsize": 16.0,
-                    "hint": "TEST SIGNAL",
-                    "id": "obj-103",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 57.0, 252.0, 112.0, 24.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ 20.0, 112.0, 300.0, 24.0 ],
-                    "text": "TEST SIGNAL",
-                    "textcolor": [ 0.32, 0.77, 0.75, 1.0 ]
+                    "presentation_rect": [ 20.0, 16.0, 1840.0, 33.0 ],
+                    "text": "FILTER BANK v6"
                 }
             },
             {
                 "box": {
                     "annotation": "Double-click to edit",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
                     "hint": "Double-click to edit",
@@ -14024,16 +13969,16 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 68.0, 427.0, 118.0, 21.0 ],
+                    "patching_rect": [ 53.0, 616.0, 90.0, 21.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 55.0, 303.0, 260.0, 21.0 ],
-                    "text": "Open editor",
-                    "textcolor": [ 0.32, 0.77, 0.75, 1.0 ]
+                    "presentation_rect": [ 55.0, 303.0, 192.0, 21.0 ],
+                    "text": "Open editor"
                 }
             },
             {
                 "box": {
                     "annotation": "Your stereo output fader",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Your stereo output fader",
@@ -14042,54 +13987,51 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 134.0, 539.0, 73.0, 33.0 ],
+                    "patching_rect": [ 109.5, 715.0, 58.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 117.0, 410.0, 190.0, 33.0 ],
-                    "text": "OUTPUT\nGAIN",
-                    "textcolor": [ 0.65, 0.71, 0.77, 1.0 ]
+                    "presentation_rect": [ 117.0, 410.0, 135.0, 33.0 ],
+                    "text": "OUTPUT\nGAIN"
                 }
             },
             {
                 "box": {
                     "annotation": "Output on / off",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
                     "hint": "Output on / off",
                     "id": "obj-107",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 478.0, 583.0, 91.0, 21.0 ],
+                    "patching_rect": [ 292.0, 779.0, 76.0, 36.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 55.0, 536.0, 200.0, 21.0 ],
-                    "text": "Output on / off",
-                    "textcolor": [ 0.91, 0.94, 0.96, 1.0 ]
+                    "presentation_rect": [ 55.0, 536.0, 150.0, 21.0 ],
+                    "text": "Output on / off"
                 }
             },
             {
                 "box": {
                     "annotation": "PRESETS / FILTERS",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 13.0,
                     "hint": "PRESETS / FILTERS",
                     "id": "filter_commands_title",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 306.0, 252.0, 133.0, 21.0 ],
-                    "text": "PRESETS / FILTERS",
-                    "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
+                    "patching_rect": [ 292.0, 442.0, 99.0, 36.0 ],
+                    "text": "PRESETS / FILTERS"
                 }
             },
             {
                 "box": {
                     "annotation": "Choose a command; description is display-only.",
-                    "bgcolor": [ 0.16, 0.2, 0.25, 1 ],
-                    "bgfillcolor_color": [ 0.16, 0.2, 0.25, 1 ],
-                    "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
-                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_type": "color",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Choose a command; description is display-only.",
@@ -14100,15 +14042,14 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 302.0, 288.0, 186.0, 22.0 ],
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ],
+                    "patching_rect": [ 287.0, 478.0, 186.0, 22.0 ],
                     "varname": "filter_commands"
                 }
             },
             {
                 "box": {
                     "annotation": "Open this local subpatch.",
-                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Open this local subpatch.",
@@ -14401,30 +14342,26 @@
                             }
                         ],
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
-                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
+                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
+                        "bgfillcolor_type": "color",
+                        "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
+                        "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
+                        "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1.0 ]
                     },
-                    "patching_rect": [ 302.0, 318.0, 177.0, 22.0 ],
+                    "patching_rect": [ 287.0, 508.0, 177.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
                     },
-                    "text": "p Presets_Filters",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "text": "p Presets_Filters"
                 }
             },
             {
                 "box": {
                     "annotation": "Last command sent.",
-                    "bgcolor": [ 0.1, 0.13, 0.17, 1 ],
-                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_autogradient": 0.0,
-                    "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_color1": [ 0.1, 0.13, 0.17, 1 ],
-                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_type": "gradient",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
-                    "gradient": 1,
                     "hint": "Last command sent.",
                     "id": "filter_commands_sent",
                     "ignoreclick": 1,
@@ -14432,34 +14369,30 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 314.0, 348.0, 169.0, 22.0 ],
-                    "text": "1",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 300.0, 538.0, 133.0, 22.0 ],
+                    "text": "1"
                 }
             },
             {
                 "box": {
                     "annotation": "MOTION / GLOBALS / STORAGE",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 11.0,
                     "hint": "MOTION / GLOBALS / STORAGE",
                     "id": "motion_commands_title",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 494.0, 252.0, 206.0, 19.0 ],
-                    "text": "MOTION / GLOBALS / STORAGE",
-                    "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
+                    "patching_rect": [ 479.0, 442.0, 129.0, 31.0 ],
+                    "text": "MOTION / GLOBALS / STORAGE"
                 }
             },
             {
                 "box": {
                     "annotation": "Choose a command; description is display-only.",
-                    "bgcolor": [ 0.16, 0.2, 0.25, 1 ],
-                    "bgfillcolor_color": [ 0.16, 0.2, 0.25, 1 ],
-                    "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
-                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_type": "color",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Choose a command; description is display-only.",
@@ -14470,15 +14403,14 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 494.0, 288.0, 169.0, 22.0 ],
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ],
+                    "patching_rect": [ 479.0, 478.0, 169.0, 22.0 ],
                     "varname": "motion_commands"
                 }
             },
             {
                 "box": {
                     "annotation": "Open this local subpatch.",
-                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Open this local subpatch.",
@@ -14747,30 +14679,26 @@
                             }
                         ],
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
-                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
+                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
+                        "bgfillcolor_type": "color",
+                        "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
+                        "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
+                        "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1.0 ]
                     },
-                    "patching_rect": [ 494.0, 318.0, 164.0, 22.0 ],
+                    "patching_rect": [ 479.0, 508.0, 242.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
                     },
-                    "text": "p Motion_Global_Commands",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "text": "p Motion_Global_Commands"
                 }
             },
             {
                 "box": {
                     "annotation": "Last command sent.",
-                    "bgcolor": [ 0.1, 0.13, 0.17, 1 ],
-                    "bgcolor2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_autogradient": 0.0,
-                    "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_color1": [ 0.1, 0.13, 0.17, 1 ],
-                    "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
-                    "bgfillcolor_type": "gradient",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
-                    "gradient": 1,
                     "hint": "Last command sent.",
                     "id": "motion_commands_sent",
                     "ignoreclick": 1,
@@ -14778,30 +14706,30 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 507.0, 348.0, 156.0, 22.0 ],
-                    "text": "symbol resetcurve",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 493.0, 538.0, 107.0, 22.0 ],
+                    "text": "symbol resetcurve"
                 }
             },
             {
                 "box": {
                     "annotation": "FULL STATE MESSAGE",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 14.0,
                     "hint": "FULL STATE MESSAGE",
                     "id": "state_title",
+                    "linecount": 2,
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 321.0, 372.0, 162.0, 22.0 ],
-                    "text": "FULL STATE MESSAGE",
-                    "textcolor": [ 0.36, 0.84, 0.78, 1.0 ]
+                    "patching_rect": [ 306.0, 562.0, 129.0, 38.0 ],
+                    "text": "FULL STATE MESSAGE"
                 }
             },
             {
                 "box": {
                     "annotation": "Capture current state and all presets.",
-                    "bgcolor": [ 0.067, 0.122, 0.761, 1.0 ],
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Capture current state and all presets.",
@@ -14811,14 +14739,14 @@
                     "numoutlets": 3,
                     "outlettype": [ "", "", "int" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 321.0, 392.0, 126.0, 28.0 ],
-                    "text": "Capture current state",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 304.0, 599.0, 126.0, 28.0 ],
+                    "text": "Capture current state"
                 }
             },
             {
                 "box": {
                     "annotation": "Capture current state and all presets.",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hidden": 1,
@@ -14828,14 +14756,14 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 376.0, 398.0, 70.0, 22.0 ],
-                    "text": "dumpstate",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 346.0, 638.0, 65.0, 22.0 ],
+                    "text": "dumpstate"
                 }
             },
             {
                 "box": {
                     "annotation": "Trigger in right-to-left order.",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hidden": 1,
@@ -14845,14 +14773,14 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
-                    "patching_rect": [ 274.0, 465.0, 22.0, 22.0 ],
-                    "text": "t b",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 260.0, 654.0, 29.0, 22.0 ],
+                    "text": "t b"
                 }
             },
             {
                 "box": {
                     "annotation": "Mark captured message for saving.",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hidden": 1,
@@ -14862,14 +14790,14 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 274.0, 489.0, 31.0, 22.0 ],
-                    "text": "dirty",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "patching_rect": [ 260.0, 679.0, 31.0, 22.0 ],
+                    "text": "dirty"
                 }
             },
             {
                 "box": {
                     "annotation": "Local patcher operations.",
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hidden": 1,
@@ -14879,16 +14807,15 @@
                     "numinlets": 1,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 274.0, 516.0, 67.0, 22.0 ],
+                    "patching_rect": [ 260.0, 706.0, 97.0, 22.0 ],
                     "save": [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
-                    "text": "thispatcher",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "text": "thispatcher"
                 }
             },
             {
                 "box": {
                     "annotation": "Double-click for guide and playable examples.",
-                    "bgcolor": [ 0.671, 0.035, 0.89, 1.0 ],
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Double-click for guide and playable examples.",
@@ -15502,21 +15429,24 @@
                             }
                         ],
                         "bgcolor": [ 0.075, 0.09, 0.115, 1.0 ],
-                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ]
+                        "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
+                        "bgfillcolor_type": "color",
+                        "bgfillcolor_color1": [ 0.301961, 0.301961, 0.301961, 1 ],
+                        "bgfillcolor_color2": [ 0.2, 0.2, 0.2, 1 ],
+                        "bgfillcolor_color": [ 0.2, 0.2, 0.2, 1.0 ]
                     },
-                    "patching_rect": [ 542.0, 412.0, 148.0, 22.0 ],
+                    "patching_rect": [ 528.0, 602.0, 178.0, 22.0 ],
                     "saved_object_attributes": {
                         "editing_bgcolor": [ 0.16, 0.17, 0.19, 1.0 ],
                         "locked_bgcolor": [ 0.075, 0.09, 0.115, 1.0 ]
                     },
-                    "text": "p Filter_Bank_Primer",
-                    "textcolor": [ 0.92, 0.94, 0.96, 1.0 ]
+                    "text": "p Filter_Bank_Primer"
                 }
             },
             {
                 "box": {
                     "annotation": "Double-click for basics and playable examples.",
-                    "bgcolor": [ 0.671, 0.035, 0.89, 1.0 ],
+                    "fontface": 0,
                     "fontname": "Arial",
                     "fontsize": 12.0,
                     "hint": "Double-click for basics and playable examples.",
@@ -15525,14 +15455,13 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 542.0, 373.0, 135.0, 33.0 ],
-                    "text": "Basics +\nexamples",
-                    "textcolor": [ 0.07450980392156863, 0.07450980392156863, 0.07450980392156863, 1.0 ]
+                    "patching_rect": [ 528.0, 563.0, 95.0, 33.0 ],
+                    "text": "Basics +\nexamples"
                 }
             },
             {
                 "box": {
-                    "clipheight": 66.0,
+                    "clipheight": 32.0,
                     "data": {
                         "clips": [
                             {
@@ -15540,11 +15469,15 @@
                                 "filename": "releaseme.wav",
                                 "filekind": "audiofile",
                                 "id": "u744001988",
-                                "loop": 0,
-                                "content_state": {                                }
+                                "loop": 1,
+                                "content_state": {
+                                    "loop": 1
+                                }
                             }
                         ]
                     },
+                    "fontface": 0,
+                    "fontsize": 18.0,
                     "id": "obj-2",
                     "maxclass": "playlist~",
                     "mode": "basic",
@@ -15552,7 +15485,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 472.0, 88.0, 351.0, 66.0 ],
+                    "patching_rect": [ 42.0, 508.0, 226.0, 33.0 ],
                     "quality": "basic",
                     "saved_attribute_attributes": {
                         "candicane2": {
@@ -15627,7 +15560,7 @@
                 "patchline": {
                     "destination": [ "obj-7", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 311.5, 433.5703125, 191.5, 433.5703125 ],
+                    "midpoints": [ 296.5, 622.7043331185567, 176.5, 622.7043331185567 ],
                     "order": 1,
                     "source": [ "filter_commands_only", 0 ]
                 }
@@ -15650,29 +15583,15 @@
                 "patchline": {
                     "destination": [ "obj-7", 1 ],
                     "hidden": 1,
-                    "midpoints": [ 503.5, 436.73828125, 191.5, 436.73828125 ],
+                    "midpoints": [ 488.5, 625.8723018685567, 176.5, 625.8723018685567 ],
                     "order": 1,
                     "source": [ "motion_commands_only", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-4", 2 ],
-                    "source": [ "obj-1", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-4", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-13", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-13", 0 ],
-                    "hidden": 1,
-                    "source": [ "obj-14", 0 ]
+                    "destination": [ "obj-7", 0 ],
+                    "source": [ "obj-2", 0 ]
                 }
             },
             {
@@ -15690,27 +15609,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-35", 0 ],
-                    "source": [ "obj-34", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-4", 1 ],
-                    "midpoints": [ 66.5, 379.59375, 105.5, 379.59375 ],
-                    "source": [ "obj-35", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-7", 0 ],
-                    "source": [ "obj-4", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-7", 1 ],
-                    "midpoints": [ 86.5, 513.5, 219.4765625, 513.5, 219.4765625, 441.5, 191.5, 441.5 ],
+                    "midpoints": [ 72.5, 702.6340206185567, 255.42368717783506, 702.6340206185567, 255.42368717783506, 630.6340206185567, 176.5, 630.6340206185567 ],
                     "source": [ "obj-5", 0 ]
                 }
             },
