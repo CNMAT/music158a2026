@@ -94,3 +94,22 @@ fade and Auto headroom keep their existing startup settings.
 Saving an active or looping sound does not change this opening behavior.
 Stored presets and explicit full-state restoration retain their saved values.
 Replace the main patch and ec_filterbank_v6.js together.
+
+
+COPY BETWEEN FILTERS
+Next to Target 1-4, choose a source number and destination number, both 1-4.
+Click 'copy to' between them to perform the copy. Changing a number alone does
+not copy anything. The feedback line confirms 'Copied 1 to 2', for example.
+Equal source and destination is rejected with 'Choose different filters'.
+The copied values are type, ON/OFF, base frequency, base gain, Q, output fader,
+both motion depths, Full Trip, both function shapes, Loop and playback state.
+An active Once or Loop starts from the beginning in the destination after its
+brief muted transition. Its phase is not synchronized to the source.
+The source keeps playing uninterrupted. Other filters, Target, globals and
+stored presets are unchanged. Curves are independent copies: later edits to
+one filter do not change another. Use Store to retain the result in a preset.
+Copying uses the exact source settings; it does not invoke the manual type
+menu's automatic reset. The destination fades out before changing coefficients,
+then settles and returns with the existing On/off fade time.
+External equivalent: 'copyband 1 2' into the right control inlet.
+The controls are local to each complete Filter_Bank_v6 patcher copy.

@@ -20055,9 +20055,10 @@
                   "id": "obj-354",
                   "linecount": 4,
                   "maxclass": "newobj",
-                  "numinlets": 98,
-                  "numoutlets": 98,
+                  "numinlets": 99,
+                  "numoutlets": 99,
                   "outlettype": [
+                    "",
                     "",
                     "",
                     "",
@@ -20163,7 +20164,7 @@
                     1202.0,
                     62.0
                   ],
-                  "text": "route graph_gate eqgraph livefreq0 livegain0 liveq0 bandstatus0 enabled0 type0 q0 freq0 gain0 depth0 ampdepth0 period0 curve0 acurve0 loop0 livefreq1 livegain1 liveq1 bandstatus1 enabled1 type1 q1 freq1 gain1 depth1 ampdepth1 period1 curve1 acurve1 loop1 livefreq2 livegain2 liveq2 bandstatus2 enabled2 type2 q2 freq2 gain2 depth2 ampdepth2 period2 curve2 acurve2 loop2 livefreq3 livegain3 liveq3 bandstatus3 enabled3 type3 q3 freq3 gain3 depth3 ampdepth3 period3 curve3 acurve3 loop3 amp interp fade selected normalize reduction preset1 preset2 preset3 preset4 preset5 preset6 preset7 preset8 preset9 preset10 slot status bank patch_control stage0 stage1 stage2 stage3 amp_ramp ceiling_ramp response gainout gainout_ramp gainout_slider presetstatus level0 level1 level2 level3"
+                  "text": "route graph_gate eqgraph livefreq0 livegain0 liveq0 bandstatus0 enabled0 type0 q0 freq0 gain0 depth0 ampdepth0 period0 curve0 acurve0 loop0 livefreq1 livegain1 liveq1 bandstatus1 enabled1 type1 q1 freq1 gain1 depth1 ampdepth1 period1 curve1 acurve1 loop1 livefreq2 livegain2 liveq2 bandstatus2 enabled2 type2 q2 freq2 gain2 depth2 ampdepth2 period2 curve2 acurve2 loop2 livefreq3 livegain3 liveq3 bandstatus3 enabled3 type3 q3 freq3 gain3 depth3 ampdepth3 period3 curve3 acurve3 loop3 amp interp fade selected normalize reduction preset1 preset2 preset3 preset4 preset5 preset6 preset7 preset8 preset9 preset10 slot status bank patch_control stage0 stage1 stage2 stage3 amp_ramp ceiling_ramp response gainout gainout_ramp gainout_slider presetstatus level0 level1 level2 level3 copy_feedback"
                 }
               },
               {
@@ -22261,6 +22262,262 @@
                     22.0
                   ],
                   "hint": "Address only this filter."
+                }
+              },
+              {
+                "box": {
+                  "annotation": "Source filter, 1-4.",
+                  "bgcolor": [
+                    0.07,
+                    0.085,
+                    0.11,
+                    1.0
+                  ],
+                  "fontsize": 12.0,
+                  "hint": "Choose the source filter, 1-4. Click copy to to perform the copy. The two numbers must differ.",
+                  "id": "copy_source",
+                  "maxclass": "number",
+                  "maximum": 4,
+                  "minimum": 1,
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "outlettype": [
+                    "",
+                    "bang"
+                  ],
+                  "parameter_enable": 0,
+                  "patching_rect": [
+                    1220.0,
+                    2490.0,
+                    42.0,
+                    23.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    330.0,
+                    712.0,
+                    42.0,
+                    23.0
+                  ],
+                  "textcolor": [
+                    0.91,
+                    0.94,
+                    0.96,
+                    1.0
+                  ],
+                  "varname": "copy_source"
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_init_source",
+                  "maxclass": "newobj",
+                  "text": "loadmess set 1",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "patching_rect": [
+                    1220.0,
+                    2455.0,
+                    100.0,
+                    22.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "annotation": "Destination filter, 1-4.",
+                  "bgcolor": [
+                    0.07,
+                    0.085,
+                    0.11,
+                    1.0
+                  ],
+                  "fontsize": 12.0,
+                  "hint": "Choose the destination filter, 1-4. Click copy to to perform the copy. The two numbers must differ.",
+                  "id": "copy_destination",
+                  "maxclass": "number",
+                  "maximum": 4,
+                  "minimum": 1,
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "outlettype": [
+                    "",
+                    "bang"
+                  ],
+                  "parameter_enable": 0,
+                  "patching_rect": [
+                    1458.0,
+                    2490.0,
+                    42.0,
+                    23.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    449.0,
+                    712.0,
+                    42.0,
+                    23.0
+                  ],
+                  "textcolor": [
+                    0.91,
+                    0.94,
+                    0.96,
+                    1.0
+                  ],
+                  "varname": "copy_destination"
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_init_destination",
+                  "maxclass": "newobj",
+                  "text": "loadmess set 2",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "patching_rect": [
+                    1458.0,
+                    2455.0,
+                    100.0,
+                    22.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_action",
+                  "maxclass": "textbutton",
+                  "numinlets": 1,
+                  "numoutlets": 3,
+                  "outlettype": [
+                    "",
+                    "",
+                    "int"
+                  ],
+                  "parameter_enable": 0,
+                  "mode": 0,
+                  "text": "copy to",
+                  "texton": "copy to",
+                  "fontsize": 12.0,
+                  "patching_rect": [
+                    1320.0,
+                    2490.0,
+                    67.0,
+                    23.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    376.0,
+                    712.0,
+                    67.0,
+                    23.0
+                  ],
+                  "bgcolor": [
+                    0.776,
+                    0.502,
+                    0.18,
+                    1.0
+                  ],
+                  "textcolor": [
+                    0.91,
+                    0.94,
+                    0.96,
+                    1.0
+                  ],
+                  "hint": "Copy all source filter settings to the destination: type, ON/OFF, frequency, gain, Q, output, both motion depths, duration, curves and playback state. Active motion restarts. Equal source/destination is rejected.",
+                  "annotation": "Copy source filter settings to a different filter."
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_feedback",
+                  "varname": "copy_feedback",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "text": "Copy filter settings",
+                  "fontname": "Arial",
+                  "fontsize": 11.0,
+                  "textcolor": [
+                    0.91,
+                    0.94,
+                    0.96,
+                    1.0
+                  ],
+                  "patching_rect": [
+                    1550.0,
+                    2490.0,
+                    197.0,
+                    19.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    330.0,
+                    691.0,
+                    186.0,
+                    19.0
+                  ],
+                  "hint": "Choose two different filters, then click copy to. This line confirms the copy or reports invalid numbers.",
+                  "annotation": "Copy result."
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_source_store",
+                  "maxclass": "newobj",
+                  "text": "int 1",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    "int"
+                  ],
+                  "patching_rect": [
+                    1220.0,
+                    2530.0,
+                    55.0,
+                    22.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_pair",
+                  "maxclass": "newobj",
+                  "text": "pack 1 2",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "patching_rect": [
+                    1320.0,
+                    2565.0,
+                    75.0,
+                    22.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "copy_command",
+                  "maxclass": "newobj",
+                  "text": "prepend copyband",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "patching_rect": [
+                    1320.0,
+                    2600.0,
+                    130.0,
+                    22.0
+                  ]
                 }
               }
             ],
@@ -26526,7 +26783,7 @@
                   ],
                   "source": [
                     "obj-354",
-                    97
+                    98
                   ]
                 }
               },
@@ -27682,6 +27939,114 @@
                   ],
                   "destination": [
                     "obj-4",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_init_source",
+                    0
+                  ],
+                  "destination": [
+                    "copy_source",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_init_destination",
+                    0
+                  ],
+                  "destination": [
+                    "copy_destination",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_source",
+                    0
+                  ],
+                  "destination": [
+                    "copy_source_store",
+                    1
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_destination",
+                    0
+                  ],
+                  "destination": [
+                    "copy_pair",
+                    1
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_action",
+                    0
+                  ],
+                  "destination": [
+                    "copy_source_store",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_source_store",
+                    0
+                  ],
+                  "destination": [
+                    "copy_pair",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_pair",
+                    0
+                  ],
+                  "destination": [
+                    "copy_command",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "copy_command",
+                    0
+                  ],
+                  "destination": [
+                    "obj-4",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "obj-354",
+                    97
+                  ],
+                  "destination": [
+                    "copy_feedback",
                     0
                   ]
                 }

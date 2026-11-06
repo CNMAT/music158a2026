@@ -19,6 +19,7 @@ var graphWet=[0,0,0,0],graphLevel=[-24,-24,-24,-24];
 var SAFE_TYPE_FADE=25,SAFE_TYPE_LEVEL=-12;
 var SAFE_TYPE_Q=[1,Math.SQRT1_2,1,100,Math.SQRT1_2,1,1];
 var safeTypePending=[false,false,false,false];
+var copyPending=[false,false,false,false],copyRunPending=[false,false,false,false];
 var bootTask=new Task(boot,this);
 var restarts=[new Task(function(){restart(0);},this),new Task(function(){restart(1);},this),new Task(function(){restart(2);},this),new Task(function(){restart(3);},this)];
 var warms=[new Task(function(){warmdone(0);},this),new Task(function(){warmdone(1);},this),new Task(function(){warmdone(2);},this),new Task(function(){warmdone(3);},this)];
@@ -173,7 +174,13 @@ function changeType(i,initial){
  phase[i]=1;ramp(i,"wet",0,state.fade);
 }
 function wetdone(n){var i=index(n);if(i<0||phase[i]!==1)return;phase[i]=2;if(safeTypePending[i]){stage(i,"wet",0);applySafeType(i);}else configureType(i);warms[i].schedule(settleTime(i));}
-function warmdone(i){if(!ready||phase[i]!==2)return;phase[i]=0;ramp(i,"wet",state.bands[i].enabled,state.fade);}
+function warmdone(i){if(!ready||phase[i]!==2)return;phase[i]=0;finishCopyMotion(i);ramp(i,"wet",state.bands[i].enabled,state.fade);}
+function finishCopyMotion(i){
+ if(!copyPending[i])return;
+ var play=copyRunPending[i];copyPending[i]=false;copyRunPending[i]=false;
+ if(play)startMotion(i);
+}
+finishCopyMotion.local=1;
 function applySafeType(i){
  // The audio gate is zero before any coefficient, gain or motion reset.
  var b=state.bands[i],keys=["freq","gain","q","depth","ampdepth","level"];
@@ -187,6 +194,7 @@ function uitype(v){
  var t=typeof v==="string"?TYPES.indexOf(v.toLowerCase()):Number(v);
  if(t!==Math.floor(t)||t<0||t>=TYPES.length)return;
  var i=idx(),b=state.bands[i];if(t===b.type)return;
+ copyPending[i]=false;copyRunPending[i]=false;
  // Freeze the old sound while its gate falls: resetting a negative gain or
  // moving Q before silence could itself make the OLD mode unexpectedly loud.
  restarts[i].cancel();warms[i].cancel();running[i]=false;
@@ -203,6 +211,7 @@ function uitype(v){
 function clear(n){
  if(!ready)return;
  var i=arguments.length?index(n):idx();if(i<0)return;
+ copyPending[i]=false;copyRunPending[i]=false;
  // Hold the OLD coefficients until the output gate has reached silence.
  restarts[i].cancel();warms[i].cancel();running[i]=false;
  var keys=["freq","gain","q","depth","ampdepth","level","motion","amotion"];
@@ -215,13 +224,35 @@ function clear(n){
  working();dirty();
  status("Filter "+(i+1)+": cleared / OFF / Peak / 60 Hz / Q 0.5 / gain -36 dB / output -24 dB / flat curves / 100 ms. Stored presets retained.");
 }
-function stopMotion(i){restarts[i].cancel();running[i]=false;ramp(i,"motion",0,100);ramp(i,"amotion",0,100);}
+function copyband(source,destination){
+ if(!ready)return;
+ var from=index(source),to=index(destination);
+ if(from<0||to<0){setui("copy_feedback","Use filter numbers 1-4");return;}
+ if(from===to){setui("copy_feedback","Choose different filters");return;}
+ // Snapshot the source now; the destination owns separate curve arrays.
+ var snapshot=copy(state.bands[from]);
+ var play=copyPending[from]?copyRunPending[from]:running[from];
+ restarts[to].cancel();warms[to].cancel();running[to]=false;
+ var keys=["freq","gain","q","depth","ampdepth","level","motion","amotion"];
+ for(var k=0;k<keys.length;k++)stage(to,keys[k],"stop");
+ state.bands[to]=snapshot;curveRequested[to]=false;ampRequested[to]=false;liveMotion[to]=0;
+ copyPending[to]=true;copyRunPending[to]=!!play;safeTypePending[to]=true;
+ syncBand(to);drawCurve(to);drawAmpCurve(to);
+ // Apply exact copied settings under a closed gate; do not use uitype defaults.
+ if(dspOn){phase[to]=1;ramp(to,"wet",0,SAFE_TYPE_FADE);}
+ else {phase[to]=0;stage(to,"wet",0);applySafeType(to);finishCopyMotion(to);ramp(to,"wet",snapshot.enabled,state.fade);idleGraph(to);}
+ working();dirty();
+ setui("copy_feedback","Copied "+(from+1)+" to "+(to+1));
+ status("Copied filter "+(from+1)+" to "+(to+1)+": all settings and both curves. Active motion restarts in the destination; source and stored presets are unchanged.");
+}
+function stopMotion(i){if(copyPending[i])copyRunPending[i]=false;restarts[i].cancel();running[i]=false;ramp(i,"motion",0,100);ramp(i,"amotion",0,100);}
 
-function startMotion(i){restarts[i].cancel();running[i]=true;cycleBegan[i]=now();stage(i,"motion","stop");stage(i,"amotion","stop");send("curve"+i,"bang");send("acurve"+i,"bang");}
+function startMotion(i){if(copyPending[i]){copyRunPending[i]=true;return;}restarts[i].cancel();running[i]=true;cycleBegan[i]=now();stage(i,"motion","stop");stage(i,"amotion","stop");send("curve"+i,"bang");send("acurve"+i,"bang");}
 
 function applyState(s,ms,initial){
  // A recall supersedes any in-flight manual reset without changing its data.
  safeTypePending=[false,false,false,false];
+ copyPending=[false,false,false,false];copyRunPending=[false,false,false,false];
  for(var i=0;i<4;i++)stopMotion(i);state=sanitize(copy(s));sync();
  for(var j=0;j<4;j++){
   var b=state.bands[j];drawCurve(j);drawAmpCurve(j);ramp(j,"freq",Math.min(b.freq,FMAX),ms);ramp(j,"gain",b.gain,ms);ramp(j,"q",b.q,ms);ramp(j,"depth",b.depth,ms);ramp(j,"ampdepth",b.ampdepth,ms);ramp(j,"level",b.level,ms);
@@ -229,7 +260,7 @@ function applyState(s,ms,initial){
  }send("gainout_ramp","list",state.gainout,GAINOUT_FADE);send("ceiling_ramp","list",state.normalize?dbamp(-6):dbamp(-1),duration(ms));if(!initial)working();
 }
 function loadbang(){bootTask.schedule(1);}
-function boot(){bootTask.cancel();ready=false;graphModes=[-1,-1,-1,-1];graphMax=13000;graphTop=-1;for(var i=0;i<4;i++){stopMotion(i);warms[i].cancel();phase[i]=0;curveRequested[i]=false;ampRequested[i]=false;}scan();}
+function boot(){bootTask.cancel();ready=false;copyPending=[false,false,false,false];copyRunPending=[false,false,false,false];graphModes=[-1,-1,-1,-1];graphMax=13000;graphTop=-1;for(var i=0;i<4;i++){stopMotion(i);warms[i].cancel();phase[i]=0;curveRequested[i]=false;ampRequested[i]=false;}scan();}
 function scan(){scanning=true;scanKey=-1;scanState=null;presets={};send("bank","dump");}
 function bankindex(n){scanKey=Number(n);}
 function bankdata(){if(!scanning)return;var s=decode(arrayfromargs(arguments));if(!s)return;if(scanKey===0)scanState=s;else if(slotnumber(scanKey)>0)presets[scanKey]=s;}
@@ -253,7 +284,7 @@ function dsp(v){
  dspOn=!!Number(v);
  for(var i=0;i<4;i++){
   if(!dspOn){
-   if(safeTypePending[i]){warms[i].cancel();phase[i]=0;stage(i,"wet",0);applySafeType(i);ramp(i,"wet",state.bands[i].enabled,state.fade);}
+   if(safeTypePending[i]){warms[i].cancel();phase[i]=0;stage(i,"wet",0);applySafeType(i);finishCopyMotion(i);ramp(i,"wet",state.bands[i].enabled,state.fade);}
    idleGraph(i);
   }else if(ready&&state.bands[i].loop)startMotion(i);
  }
@@ -269,7 +300,7 @@ function ampdepth(v,ms){update("ampdepth",v,ms);}
 function type(v){
  if(!ready)return;var t=typeof v==="string"?TYPES.indexOf(v.toLowerCase()):Number(v);if(t!==Math.floor(t)||t<0||t>6)return;
  var i=idx(),b=state.bands[i],previous=b.type,qr=qbounds(t);b.type=t;
- safeTypePending[i]=false;
+ if(!copyPending[i])safeTypePending[i]=false;
  b.q=t===3&&previous!==3?100:clamp(b.q,qr[0],qr[1]);qlimits(i);setui("q"+i,b.q);ramp(i,"q",b.q,state.interp);
  setui("type"+i,t);changeType(i,false);idleGraph(i);working();dirty();
  if(t===4)status("Highpass: cutoff frequency; Q sets resonance; gain trims the passed band.");
@@ -339,7 +370,7 @@ function amptriangle(){if(!ready)return;var i=idx();state.bands[i].acurve=triang
 // All values are numeric: no external dictionary, file, or shared name.
 function statepacket(){
  var a=[1,activePreset],keys=[0];
- for(var i=0;i<4;i++)a.push(running[i]?1:0);
+ for(var i=0;i<4;i++)a.push((running[i]||(copyPending[i]&&copyRunPending[i]))?1:0);
  for(var n=1;n<=10;n++)if(presets[n])keys.push(n);
  a.push(keys.length);
  for(var k=0;k<keys.length;k++){
