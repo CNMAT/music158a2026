@@ -1,0 +1,1 @@
+{"status":"PASS","assertions":337124,"stress_output_events":92220,"stress_summary_lists":6002,"coverage":"Exact v5 source hash, argument bounds, 1/4/12/20 voices, full up/down/hold cycles, independent randomness, normalized output, start/stop/restart/deletion, runtime parameters, scheduler-lag protection. Max Task/clock emulation only."}

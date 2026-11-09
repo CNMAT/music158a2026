@@ -1,0 +1,16 @@
+# Native Max checks — updated v23
+
+Automated tests model Max boundaries. These checks cover actual loading, GUI, timing and sound.
+
+1. Close other copies and open the top-level starter from this complete folder. Confirm no missing script, deleted cord or JavaScript error. All A–X slots should be empty. The left readout should show current morph = without a letter; the right readout should be blank. Capture the slots needed for the following tests first.
+2. Constrain the linked partial display, for example to 5–12. Click DETUNE random amps, then HARMONIC ANCHOR random amps. Display all and confirm only 5–12 changed. Repeat with an edge range, all displayed, anchor scale and mirror settings. The primary amplitude random button retains its previous full-active-range behavior.
+3. Keep an envelope sounding. Set seconds to 8, capture G; change the sound, set seconds to 3, capture X. Click morphto G: the time posts 8. Click morphto X: it posts 3. G and X retain independent times.
+4. Watch/hear an eight-second morph: first two seconds accelerate, middle four move steadily, final two slow toward arrival. Pause early, wait, then resume: the paused interval should not consume remaining transition time.
+5. Select X in Jump and click morphjump X. Confirm immediate destination, no new ADSR trigger and no timed transition, while the displayed stored seconds remain 3. Test during a running morph and while a partial-count fade is settling.
+6. Confirm the new left readout updates only on arrival; the right shows the running target and clears on a standalone arrival or Stop. Pause keeps the target. Then run morphcue A B A D C F. Verify order, repeated A, return from F to A and each destination’s posted seconds. Try pause/resume, stop, and a manual jump. Stop must leave the current sound. A manual jump cancels the loop.
+7. Try a zero-time slot within a cue and an invalid/empty letter. Zero-time cues must remain stoppable. An invalid new list should not disrupt a running valid cue.
+8. Switch Classic/Pastel. Confirm all 24 targets are legible, empty slots are muted and the current destination is darker. Color changes must not change sound.
+9. Save Bank to a path containing spaces. Clear all, then Load Bank. Confirm sounds, independent seconds and color variant return; loading does not recall a sound. Cancel Save/Open and confirm no changes. Load an older bank and confirm its default seconds populate each stored slot.
+10. Open p MorphBank_v23 and a slot editor. Change Stored seconds and click the message. Verify morphto uses it. Save a copy of the full Max patch, close and reopen: the stored time must be staged before its saved sound. Bank files remain the portable storage option.
+11. Test direct, command and control forms through Synth_Control_v23, and unprefixed commands through Synth_Command_v23. Cue_Morph_v23 should accept G, G 10, morphjump X and a complete morphcue list; its monitor outlet must not be looped back into the controller.
+12. Audition representative pitch, count, spatial and gain changes with your installed sinusoids~ external. Native scheduling and CPU under load can affect the audible result. Morphs do not start DSP or envelopes; existing signal smoothing and already-running ADSR segments remain active.

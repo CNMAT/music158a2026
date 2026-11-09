@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": 7486,
+  "coverage": [
+    "Saved graph routes actual script outputs for all three editors",
+    "Signed detune and independent amplitude/anchor edits target original slots",
+    "All counts 2..256, linked clipping and full-view restoration",
+    "No spectral edits from limit, size, silent set or live morph updates",
+    "Hidden memory across count changes; full canonical preset sliders unchanged",
+    "Hear toggle and display-all command/state wiring; anchor mirror lock"
+  ],
+  "limitations": [
+    "Native Max multislider/number events are modeled, including adversarial echoes. No Max GUI or audio executed."
+  ]
+}

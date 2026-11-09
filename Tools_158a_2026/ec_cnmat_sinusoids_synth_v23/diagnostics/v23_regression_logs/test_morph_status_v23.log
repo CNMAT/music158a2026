@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "checks": 133,
+  "controls": 227,
+  "engines": 25,
+  "user_stores": 14,
+  "engine_requests": 441,
+  "dict_operations": 10823,
+  "limitations": [
+    "Actual v23 JS and manifest with simulated native UI, message outlets and Tasks. No DSP or native GUI execution."
+  ]
+}
+{
+  "status": "PASS",
+  "checks": 1228,
+  "coverage": [
+    "empty saved A-X bank and passive startup labels",
+    "named arrival, immediate/zero jump, target lifecycle",
+    "pause/resume, stop, retarget, invalid targets, finish",
+    "repeated cue letters, wrap, queued target before scheduler, zero-time cue",
+    "pending setup, cancellation, unnamed direct preset",
+    "passive SET wiring and no presentation rectangle overlap"
+  ],
+  "limits": [
+    "Actual JS with modeled Max UI and Task timing; no native Max or audio test."
+  ]
+}

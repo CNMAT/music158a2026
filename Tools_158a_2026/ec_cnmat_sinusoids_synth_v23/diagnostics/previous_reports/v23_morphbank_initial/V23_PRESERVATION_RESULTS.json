@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "source_archive": "ec_cnmat_sinusoids_synth_v21 2.zip",
+  "source_sha256": "857b27055fe25777bd6eae3e5ed2b983c41300e14c5d54ed39aca87d3001a706",
+  "original_max_documents_preserved_except_declared_additions_ports_help": 38,
+  "embedded_collection_datasets_preserved": 35,
+  "embedded_collection_records_preserved": 24806,
+  "runtime_scripts_changed_beyond_namespace": [
+    "javascript/Partial_Group_Manager_v23_6.js",
+    "javascript/auto_level_compensation_v23.js",
+    "javascript/cnmat_sinusoid_model_generator_v23.js",
+    "javascript/component_index_ruler_v23.js",
+    "javascript/detune_shape_library_v23.js",
+    "javascript/dynamic_shape_library_weights_v23.js",
+    "javascript/ec_sinusoid_synth_stops_v23.js",
+    "javascript/global_retuning_controller_v23.js",
+    "javascript/multislider_interpolation_engine_v23.js",
+    "javascript/multislider_interpolation_engine_v23_6.js",
+    "javascript/partial_offset_crossfade_v23_6.js",
+    "javascript/random_multislider_values_v23.js",
+    "javascript/sinusoid_model_transform_v23.js",
+    "javascript/synth_controller_v23.js",
+    "javascript/weighted_partial_add_remove_v23.js"
+  ],
+  "runtime_scripts_namespace_only_or_byte_identical": [
+    "javascript/Partial_Group_Manager_v23.js",
+    "javascript/adsr_full_on_start_v23_6.js",
+    "javascript/automatic_lines_v5_ed.js",
+    "javascript/dynamic_shape_library_v23.js",
+    "javascript/multislider_interpolation_engine_v23_add_restore.js",
+    "javascript/partial_amplitude_display_v23.js",
+    "javascript/weighted_partial_removal_v23.js"
+  ],
+  "generic_automatic_lines_v5_ed_byte_identical": true,
+  "starter_runtime_unchanged_except_namespace": true,
+  "scope": "Compares complete canonical Max documents after stripping additive objects/connections and restoring only the five declared controller port/help fields. All other original content, wiring, positions, defaults and collections must match."
+}

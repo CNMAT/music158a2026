@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": 153068,
+  "frames": 51,
+  "coverage": [
+    "actual memory/generator/transform/offset/group message chain",
+    "source model continuity",
+    "stable bank during layout morph",
+    "finite, bounded per-lane model messages",
+    "all 1024 routing-weight sums",
+    "release continuity",
+    "hidden-layer endpoint values"
+  ],
+  "limits": [
+    "No sinusoids~ DSP, native matrix~/line~ ramping, GUI, scheduler or audio device."
+  ]
+}

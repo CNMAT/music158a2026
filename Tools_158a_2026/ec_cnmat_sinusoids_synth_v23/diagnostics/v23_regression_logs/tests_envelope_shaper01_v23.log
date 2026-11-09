@@ -1,0 +1,1 @@
+PASS: standalone and active ADSR retain all 25 shapes at every 3–48 count; reference shaper retains its 25 exact 48-point templates; normalized ranges, truncation are intact; startup is tested separately.

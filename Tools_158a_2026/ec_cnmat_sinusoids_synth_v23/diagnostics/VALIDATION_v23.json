@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "shapeCountBaseCases": 95880,
+  "frequencyCountBaseDetuneCases": 80,
+  "otherChecks": [
+    "ERB base recalculation",
+    "signed morph crossing zero",
+    "hidden-slot preservation",
+    "amplitude/anchor nonnegative clipping",
+    "positive full-bank amplitude transfer",
+    "signed stop-layer restore",
+    "signed random detune",
+    "organ-stop Hz beating conversion",
+    "harmonic anchors",
+    "F0 lock",
+    "micro-walk additive offset",
+    "all patch graphs and JS dependencies",
+    "new object placement",
+    "150 ms completion comparison preservation"
+  ],
+  "master": {
+    "patchers": 184,
+    "objects": 6725,
+    "patchCords": 5208,
+    "completionGates": 24
+  },
+  "allSuppliedPatchers": {
+    "patchers": 364,
+    "objects": 13109,
+    "patchCords": 10417,
+    "completionGates": 48
+  },
+  "jsDependencies": [
+    "Partial_Group_Manager_v23_6.js",
+    "adsr_full_on_start_v23_6.js",
+    "auto_level_compensation_v23.js",
+    "automatic_lines_v5_ed.js",
+    "cnmat_sinusoid_model_generator_v23.js",
+    "detune_shape_library_v23.js",
+    "dynamic_shape_library_weights_v23.js",
+    "ec_sinusoid_synth_stops_v23.js",
+    "global_retuning_controller_v23.js",
+    "morphbank_display_v23.js",
+    "multislider_interpolation_engine_v23.js",
+    "multislider_interpolation_engine_v23_6.js",
+    "partial_amplitude_display_v23.js",
+    "partial_offset_crossfade_v23_6.js",
+    "random_multislider_values_v23.js",
+    "sinusoid_model_transform_v23.js",
+    "synth_controller_v23.js",
+    "weighted_partial_add_remove_v23.js"
+  ],
+  "runtime": "Node VM with Max message and Task stubs; not tested in Max audio runtime"
+}

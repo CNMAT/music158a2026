@@ -1,0 +1,194 @@
+[
+  {
+    "suite": "test_audio_zoom_full_model_parity_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 5.815
+  },
+  {
+    "suite": "test_audio_zoom_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 2.572
+  },
+  {
+    "suite": "test_engines_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 7.53
+  },
+  {
+    "suite": "test_full_state_morph_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 8.859
+  },
+  {
+    "suite": "test_keyboard_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 1.845
+  },
+  {
+    "suite": "test_lane_delay_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.117
+  },
+  {
+    "suite": "test_linked_spectral_views_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 1.72
+  },
+  {
+    "suite": "test_morph_signal_path_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.715
+  },
+  {
+    "suite": "test_morph_status_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 12.186
+  },
+  {
+    "suite": "test_morphbank_rev2_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 20.639
+  },
+  {
+    "suite": "test_morphbank_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 40.363
+  },
+  {
+    "suite": "test_partial_amplitude_display_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.208
+  },
+  {
+    "suite": "test_partial_range_numbers_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.678
+  },
+  {
+    "suite": "test_preset_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 1.889
+  },
+  {
+    "suite": "test_random_view_range_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.244
+  },
+  {
+    "suite": "test_startup_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.649
+  },
+  {
+    "suite": "tests_automatic_lines_v5_ed_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.252
+  },
+  {
+    "suite": "tests_automixer_integration_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.201
+  },
+  {
+    "suite": "tests_automixer_message_space_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.273
+  },
+  {
+    "suite": "tests_copy_amplitudes_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.188
+  },
+  {
+    "suite": "tests_current_core_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.124
+  },
+  {
+    "suite": "tests_detune_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 12.611
+  },
+  {
+    "suite": "tests_envelope_shaper01_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.18
+  },
+  {
+    "suite": "tests_micro_drift_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.207
+  },
+  {
+    "suite": "tests_octave_families_stage_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.192
+  },
+  {
+    "suite": "tests_partial_group_manager_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.104
+  },
+  {
+    "suite": "tests_retuning_accuracy_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.176
+  },
+  {
+    "suite": "tests_score_execution_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.122
+  },
+  {
+    "suite": "tests_seeded_micro_drift_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.978
+  },
+  {
+    "suite": "tests_stage_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 6.56
+  },
+  {
+    "suite": "tests_v23_changes_and_stops_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.318
+  },
+  {
+    "suite": "tests_workspace_stage_v23.cjs",
+    "status": "PASS",
+    "returncode": 0,
+    "elapsed_seconds": 0.343
+  }
+]

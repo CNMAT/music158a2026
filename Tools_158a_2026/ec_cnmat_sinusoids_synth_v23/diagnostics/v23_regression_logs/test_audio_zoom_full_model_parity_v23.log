@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": 5444,
+  "transform_trials": 300,
+  "offset_frames": 500,
+  "coverage": [
+    "Original transform outlets 0..5 match retained baseline over all transform controls",
+    "Audition-off offset outputs and preset states match original bank engine during rapid layout changes"
+  ],
+  "limits": [
+    "Emulated messages/clock; no native Max/DSP."
+  ]
+}

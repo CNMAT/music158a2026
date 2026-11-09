@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "source": "User-uploaded ec_cnmat_sinusoids_synth_v23.zip",
+  "unchanged_runtime_and_tutorial_files": 59,
+  "restricted_patch_projections": 4,
+  "empty_slot_dump_messages": 24,
+  "preserved_embedded_collections": 8,
+  "source_captured_slots": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "saved_captured_slots": [],
+  "user_requested_clear_all": true,
+  "manifest_unchanged": true,
+  "intentional_runtime_changes": [
+    "javascript/multislider_interpolation_engine_v23_6.js",
+    "javascript/partial_amplitude_display_v23.js",
+    "javascript/random_multislider_values_v23.js",
+    "javascript/synth_controller_v23.js"
+  ],
+  "new_runtime_helper": "javascript/morphbank_display_v23.js"
+}

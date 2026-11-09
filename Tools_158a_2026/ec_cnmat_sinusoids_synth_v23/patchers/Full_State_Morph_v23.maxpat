@@ -1,0 +1,2744 @@
+{
+  "patcher": {
+    "fileversion": 1,
+    "appversion": {
+      "major": 9,
+      "minor": 2,
+      "revision": 1,
+      "architecture": "x64",
+      "modernui": 1
+    },
+    "classnamespace": "box",
+    "rect": [
+      100.0,
+      100.0,
+      850.0,
+      850.0
+    ],
+    "openinpresentation": 1,
+    "default_fontsize": 12.0,
+    "default_fontface": 0,
+    "default_fontname": "Arial",
+    "title": "CNMAT Sinusoids v23 — MorphBank A–X",
+    "bglocked": 0,
+    "autosave": 0,
+    "boxes": [
+      {
+        "box": {
+          "id": "h-title",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            14.0,
+            800.0,
+            28.0
+          ],
+          "text": "MORPHBANK A–X  |  24 FULL SOUNDS",
+          "fontname": "Arial",
+          "fontsize": 20.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            14.0,
+            800.0,
+            28.0
+          ],
+          "fontface": 1
+        }
+      },
+      {
+        "box": {
+          "id": "h-text",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            50.0,
+            805.0,
+            58.0
+          ],
+          "text": "Set seconds, then capture: each slot retains its own time. morphto LETTER uses that saved time.\nAn explicit duration overrides only that transition. Morphs ease in and out over the first/last quarter.\nMorphing never starts DSP or triggers envelopes. Keep a sound running to hear the transition.",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            50.0,
+            805.0,
+            58.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm0",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            121.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphcapture A",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            121.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Capture the current complete sound in A; other slots stay unchanged.",
+          "annotation": "Capture the current complete sound in A; other slots stay unchanged."
+        }
+      },
+      {
+        "box": {
+          "id": "hc0",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            121.0,
+            600.0,
+            24.0
+          ],
+          "text": "Capture the current complete sound in A; other slots stay unchanged.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            121.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm1",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            148.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphcapture X",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            148.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Capture the current complete sound in X.",
+          "annotation": "Capture the current complete sound in X."
+        }
+      },
+      {
+        "box": {
+          "id": "hc1",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            148.0,
+            600.0,
+            24.0
+          ],
+          "text": "Capture the current complete sound in X.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            148.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm2",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            175.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphto G 10",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            175.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Morph to stored G over ten seconds; retargeting starts from the live state.",
+          "annotation": "Morph to stored G over ten seconds; retargeting starts from the live state."
+        }
+      },
+      {
+        "box": {
+          "id": "hc2",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            175.0,
+            600.0,
+            24.0
+          ],
+          "text": "Morph to stored G over ten seconds; retargeting starts from the live state.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            175.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm3",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            202.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphto X 0.5",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            202.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Morph to X over half a second. Units are seconds, not milliseconds.",
+          "annotation": "Morph to X over half a second. Units are seconds, not milliseconds."
+        }
+      },
+      {
+        "box": {
+          "id": "hc3",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            202.0,
+            600.0,
+            24.0
+          ],
+          "text": "Morph to X over half a second. Units are seconds, not milliseconds.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            202.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm4",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            229.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphseconds 10",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            229.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Set the default for morphto commands that omit seconds.",
+          "annotation": "Set the default for morphto commands that omit seconds."
+        }
+      },
+      {
+        "box": {
+          "id": "hc4",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            229.0,
+            600.0,
+            24.0
+          ],
+          "text": "Set seconds for the next capture; existing slot times remain independent.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            229.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm5",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            256.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphpause",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            256.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Pause the transition, not the sound.",
+          "annotation": "Pause the transition, not the sound."
+        }
+      },
+      {
+        "box": {
+          "id": "hc5",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            256.0,
+            600.0,
+            24.0
+          ],
+          "text": "Pause the transition, not the sound.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            256.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm6",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            283.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphresume",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            283.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Continue the paused transition.",
+          "annotation": "Continue the paused transition."
+        }
+      },
+      {
+        "box": {
+          "id": "hc6",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            283.0,
+            600.0,
+            24.0
+          ],
+          "text": "Continue the paused transition.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            283.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm7",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            310.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphstop",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            310.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Stop morphing and keep the intermediate model for editing.",
+          "annotation": "Stop morphing and keep the intermediate model for editing."
+        }
+      },
+      {
+        "box": {
+          "id": "hc7",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            310.0,
+            600.0,
+            24.0
+          ],
+          "text": "Stop the morph and any cue loop; keep the current sound for editing.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            310.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm8",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            337.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphfinish",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            337.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Apply the destination now, subject to the existing smoothing.",
+          "annotation": "Apply the destination now, subject to the existing smoothing."
+        }
+      },
+      {
+        "box": {
+          "id": "hc8",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            337.0,
+            600.0,
+            24.0
+          ],
+          "text": "Apply the destination now, subject to the existing smoothing.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            337.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm9",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            364.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphdump X",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            364.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Copy X into the ordinary full-dump output box, without recall.",
+          "annotation": "Copy X into the ordinary full-dump output box, without recall."
+        }
+      },
+      {
+        "box": {
+          "id": "hc9",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            364.0,
+            600.0,
+            24.0
+          ],
+          "text": "Copy X into the ordinary full-dump output box, without recall.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            364.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm10",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            391.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphbank write",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            391.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Save the entire bank as JSON; a standard Save dialog opens.",
+          "annotation": "Save the entire bank as JSON; a standard Save dialog opens."
+        }
+      },
+      {
+        "box": {
+          "id": "hc10",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            391.0,
+            600.0,
+            24.0
+          ],
+          "text": "Save the entire bank as JSON; a standard Save dialog opens.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            391.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm11",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            418.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphbank read",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            418.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Load a bank with a standard Open dialog. All slots replace after validation.",
+          "annotation": "Load a bank with a standard Open dialog. All slots replace after validation."
+        }
+      },
+      {
+        "box": {
+          "id": "hc11",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            418.0,
+            600.0,
+            24.0
+          ],
+          "text": "Load a bank with a standard Open dialog. All slots replace after validation.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            418.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm12",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            445.0,
+            198.0,
+            22.0
+          ],
+          "text": "clear all",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            445.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Clear A–X and all hidden dump boxes. The live sound is NOT cleared.",
+          "annotation": "Clear A–X and all hidden dump boxes. The live sound is NOT cleared."
+        }
+      },
+      {
+        "box": {
+          "id": "hc12",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            445.0,
+            600.0,
+            24.0
+          ],
+          "text": "Clear A–X and all hidden dump boxes. The live sound is NOT cleared.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            445.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm13",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            472.0,
+            198.0,
+            22.0
+          ],
+          "text": "morphclear G",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            472.0,
+            198.0,
+            22.0
+          ],
+          "hint": "Clear only G. Other slots and the live sound remain.",
+          "annotation": "Clear only G. Other slots and the live sound remain."
+        }
+      },
+      {
+        "box": {
+          "id": "hc13",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            472.0,
+            600.0,
+            24.0
+          ],
+          "text": "Clear only G. Other slots and the live sound remain.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            472.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm14",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            499.0,
+            198.0,
+            22.0
+          ],
+          "text": "command morphto G 10",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            499.0,
+            198.0,
+            22.0
+          ],
+          "hint": "The command wrapper uses the same synth controller and bank.",
+          "annotation": "The command wrapper uses the same synth controller and bank."
+        }
+      },
+      {
+        "box": {
+          "id": "hc14",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            499.0,
+            600.0,
+            24.0
+          ],
+          "text": "The command wrapper uses the same synth controller and bank.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            499.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "hm15",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            526.0,
+            198.0,
+            22.0
+          ],
+          "text": "control morphto X 0.5",
+          "fontname": "Arial",
+          "fontsize": 12.0,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "bgcolor2": [
+            0.81,
+            0.9,
+            0.93,
+            1.0
+          ],
+          "gradient": 0,
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            526.0,
+            198.0,
+            22.0
+          ],
+          "hint": "The existing control wrapper also accepts morph workflow commands.",
+          "annotation": "The existing control wrapper also accepts morph workflow commands."
+        }
+      },
+      {
+        "box": {
+          "id": "hc15",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            228.0,
+            526.0,
+            600.0,
+            24.0
+          ],
+          "text": "The existing control wrapper also accepts morph workflow commands.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            228.0,
+            526.0,
+            600.0,
+            24.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "h-send",
+          "maxclass": "newobj",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            850.0,
+            185.0,
+            22.0
+          ],
+          "text": "send Synth_Control_v23"
+        }
+      },
+      {
+        "box": {
+          "id": "h-path",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            712.0,
+            805.0,
+            40.0
+          ],
+          "text": "File paths: morphbank write \"your full path/My Bank.json\"  |  morphbank read \"your full path/My Bank.json\"\nAn existing dump stages with: morphslot LETTER preset VERSION CHECKSUM CHUNKS… (complete dump).",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            712.0,
+            805.0,
+            40.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "h-buses",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            757.0,
+            805.0,
+            38.0
+          ],
+          "text": "Send direct or command-prefixed messages to Synth_Control_v23. Synth_Command_v23 accepts direct commands.\nProgress: Synth_Morph_progress_v23. Completion: Synth_Morph_done_v23. Bank readback: Synth_MorphBank_state_v23.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            757.0,
+            805.0,
+            38.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "h-cue",
+          "maxclass": "newobj",
+          "numinlets": 0,
+          "numoutlets": 0,
+          "patching_rect": [
+            20.0,
+            801.0,
+            175.0,
+            22.0
+          ],
+          "text": "p Cue_Morph_v23",
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            801.0,
+            175.0,
+            22.0
+          ],
+          "hint": "Copy this CUE into a timed score. Input SLOT [SECONDS]; stop holds the sound.",
+          "annotation": "Copy this CUE into a timed score. Input SLOT [SECONDS]; stop holds the sound.",
+          "patcher": {
+            "fileversion": 1,
+            "appversion": {
+              "major": 9,
+              "minor": 2,
+              "revision": 1,
+              "architecture": "x64",
+              "modernui": 1
+            },
+            "classnamespace": "box",
+            "rect": [
+              100.0,
+              100.0,
+              620.0,
+              350.0
+            ],
+            "openinpresentation": 1,
+            "default_fontsize": 12.0,
+            "default_fontface": 0,
+            "default_fontname": "Arial",
+            "title": "v23 Morph CUE — seconds",
+            "bglocked": 0,
+            "autosave": 0,
+            "boxes": [
+              {
+                "box": {
+                  "id": "title",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    15.0,
+                    570.0,
+                    26.0
+                  ],
+                  "text": "MORPH CUE  |  SLOT [SECONDS]",
+                  "fontname": "Arial",
+                  "fontsize": 18.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    20.0,
+                    15.0,
+                    570.0,
+                    26.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    50.0,
+                    575.0,
+                    65.0
+                  ],
+                  "text": "Send G 10 for an explicit ten-second morph, or G to use G’s stored seconds.\nFor a repeating list, use morphcue A B A D C F. Stop holds the current sound.\nAll referenced slots must be captured before the cue starts.",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    20.0,
+                    50.0,
+                    575.0,
+                    65.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "in",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    145.0,
+                    25.0,
+                    25.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "route",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "patching_rect": [
+                    20.0,
+                    185.0,
+                    85.0,
+                    22.0
+                  ],
+                  "text": "route stop"
+                }
+              },
+              {
+                "box": {
+                  "id": "hold",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    140.0,
+                    185.0,
+                    85.0,
+                    22.0
+                  ],
+                  "text": "morphstop",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "bgcolor2": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "gradient": 0
+                }
+              },
+              {
+                "box": {
+                  "id": "prefix",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    225.0,
+                    120.0,
+                    22.0
+                  ],
+                  "text": "prepend morphto"
+                }
+              },
+              {
+                "box": {
+                  "id": "send",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    265.0,
+                    180.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23"
+                }
+              },
+              {
+                "box": {
+                  "id": "out",
+                  "maxclass": "outlet",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    250.0,
+                    265.0,
+                    25.0,
+                    25.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "ex0",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "text": "G 10",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "bgcolor2": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "gradient": 0,
+                  "presentation": 1,
+                  "presentation_rect": [
+                    20.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "hint": "Execute this CUE. It does not enable DSP or trigger an envelope.",
+                  "annotation": "Execute this CUE. It does not enable DSP or trigger an envelope."
+                }
+              },
+              {
+                "box": {
+                  "id": "ex1",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    110.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "text": "X 0.5",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "bgcolor2": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "gradient": 0,
+                  "presentation": 1,
+                  "presentation_rect": [
+                    110.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "hint": "Execute this CUE. It does not enable DSP or trigger an envelope.",
+                  "annotation": "Execute this CUE. It does not enable DSP or trigger an envelope."
+                }
+              },
+              {
+                "box": {
+                  "id": "ex2",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    200.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "text": "stop",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "bgcolor": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "bgcolor2": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1.0
+                  ],
+                  "gradient": 0,
+                  "presentation": 1,
+                  "presentation_rect": [
+                    200.0,
+                    125.0,
+                    80.0,
+                    22.0
+                  ],
+                  "hint": "Execute this CUE. It does not enable DSP or trigger an envelope.",
+                  "annotation": "Execute this CUE. It does not enable DSP or trigger an envelope."
+                }
+              },
+              {
+                "box": {
+                  "id": "monitor-note",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    215.0,
+                    575.0,
+                    50.0
+                  ],
+                  "text": "The outlet reports the sent command; it is a monitor, not a second send.\nFor arbitrary synth commands, use send Synth_Control_v23 or Synth_Command_v23.",
+                  "fontname": "Arial",
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    20.0,
+                    215.0,
+                    575.0,
+                    50.0
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "mb2-loop-example",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    165.0,
+                    280.0,
+                    22.0
+                  ],
+                  "text": "morphcue A B A D C F",
+                  "outlettype": [
+                    ""
+                  ],
+                  "presentation": 1,
+                  "presentation_rect": [
+                    20.0,
+                    165.0,
+                    280.0,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "textcolor": [
+                    0.06,
+                    0.07,
+                    0.09,
+                    1
+                  ],
+                  "bgcolor": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1
+                  ],
+                  "bgfillcolor_type": "color",
+                  "bgfillcolor_color": [
+                    0.81,
+                    0.9,
+                    0.93,
+                    1
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "mb2-command-route",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 3,
+                  "patching_rect": [
+                    330.0,
+                    390.0,
+                    215.0,
+                    22.0
+                  ],
+                  "text": "route morphcue morphjump",
+                  "outlettype": [
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "mb2-cue-prefix",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    330.0,
+                    425.0,
+                    145.0,
+                    22.0
+                  ],
+                  "text": "prepend morphcue",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "mb2-jump-prefix",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    330.0,
+                    460.0,
+                    145.0,
+                    22.0
+                  ],
+                  "text": "prepend morphjump",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              }
+            ],
+            "lines": [
+              {
+                "patchline": {
+                  "source": [
+                    "ex0",
+                    0
+                  ],
+                  "destination": [
+                    "route",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ex1",
+                    0
+                  ],
+                  "destination": [
+                    "route",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "ex2",
+                    0
+                  ],
+                  "destination": [
+                    "route",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "in",
+                    0
+                  ],
+                  "destination": [
+                    "mb2-command-route",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "route",
+                    0
+                  ],
+                  "destination": [
+                    "hold",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "route",
+                    1
+                  ],
+                  "destination": [
+                    "prefix",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "hold",
+                    0
+                  ],
+                  "destination": [
+                    "send",
+                    0
+                  ],
+                  "order": 0
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "hold",
+                    0
+                  ],
+                  "destination": [
+                    "out",
+                    0
+                  ],
+                  "order": 1
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "prefix",
+                    0
+                  ],
+                  "destination": [
+                    "send",
+                    0
+                  ],
+                  "order": 0
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "prefix",
+                    0
+                  ],
+                  "destination": [
+                    "out",
+                    0
+                  ],
+                  "order": 1
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-loop-example",
+                    0
+                  ],
+                  "destination": [
+                    "send",
+                    0
+                  ],
+                  "order": 0
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-loop-example",
+                    0
+                  ],
+                  "destination": [
+                    "out",
+                    0
+                  ],
+                  "order": 1
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-command-route",
+                    0
+                  ],
+                  "destination": [
+                    "mb2-cue-prefix",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-command-route",
+                    1
+                  ],
+                  "destination": [
+                    "mb2-jump-prefix",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-command-route",
+                    2
+                  ],
+                  "destination": [
+                    "route",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-cue-prefix",
+                    0
+                  ],
+                  "destination": [
+                    "send",
+                    0
+                  ],
+                  "order": 0
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-cue-prefix",
+                    0
+                  ],
+                  "destination": [
+                    "out",
+                    0
+                  ],
+                  "order": 1
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-jump-prefix",
+                    0
+                  ],
+                  "destination": [
+                    "send",
+                    0
+                  ],
+                  "order": 0
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "mb2-jump-prefix",
+                    0
+                  ],
+                  "destination": [
+                    "out",
+                    0
+                  ],
+                  "order": 1
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "box": {
+          "id": "h-warning",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            210.0,
+            802.0,
+            618.0,
+            31.0
+          ],
+          "text": "Keep an envelope sounding to hear a morph. No DSP or envelope is started. Save important banks separately.",
+          "fontname": "Arial",
+          "fontsize": 11.5,
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            210.0,
+            802.0,
+            618.0,
+            31.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-example-0",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            562.0,
+            244.0,
+            22.0
+          ],
+          "text": "morphjump A",
+          "outlettype": [
+            ""
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            562.0,
+            244.0,
+            22.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ],
+          "bgfillcolor_type": "color",
+          "bgfillcolor_color": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-explain-0",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            278.0,
+            562.0,
+            550.0,
+            24.0
+          ],
+          "text": "Jump immediately to A; keep its stored duration.",
+          "presentation": 1,
+          "presentation_rect": [
+            278.0,
+            562.0,
+            550.0,
+            24.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-example-1",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            590.0,
+            244.0,
+            22.0
+          ],
+          "text": "morphcue A B A D C F",
+          "outlettype": [
+            ""
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            590.0,
+            244.0,
+            22.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ],
+          "bgfillcolor_type": "color",
+          "bgfillcolor_color": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-explain-1",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            278.0,
+            590.0,
+            550.0,
+            24.0
+          ],
+          "text": "Repeat this sequence using each destination’s saved seconds.",
+          "presentation": 1,
+          "presentation_rect": [
+            278.0,
+            590.0,
+            550.0,
+            24.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-example-2",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            618.0,
+            244.0,
+            22.0
+          ],
+          "text": "morphcue stop",
+          "outlettype": [
+            ""
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            618.0,
+            244.0,
+            22.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ],
+          "bgfillcolor_type": "color",
+          "bgfillcolor_color": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-explain-2",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            278.0,
+            618.0,
+            550.0,
+            24.0
+          ],
+          "text": "Stop the loop and hold its current sound.",
+          "presentation": 1,
+          "presentation_rect": [
+            278.0,
+            618.0,
+            550.0,
+            24.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-example-3",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            646.0,
+            244.0,
+            22.0
+          ],
+          "text": "morphslottime A 8",
+          "outlettype": [
+            ""
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            646.0,
+            244.0,
+            22.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ],
+          "bgfillcolor_type": "color",
+          "bgfillcolor_color": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-explain-3",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            278.0,
+            646.0,
+            550.0,
+            24.0
+          ],
+          "text": "Change A’s arrival time to 8 seconds without recapturing.",
+          "presentation": 1,
+          "presentation_rect": [
+            278.0,
+            646.0,
+            550.0,
+            24.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-example-4",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            20.0,
+            674.0,
+            244.0,
+            22.0
+          ],
+          "text": "morphcolor 1",
+          "outlettype": [
+            ""
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            674.0,
+            244.0,
+            22.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ],
+          "bgcolor": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ],
+          "bgfillcolor_type": "color",
+          "bgfillcolor_color": [
+            0.81,
+            0.9,
+            0.93,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mb2-explain-4",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            278.0,
+            674.0,
+            550.0,
+            24.0
+          ],
+          "text": "Pastel slot colors; morphcolor 0 selects classic blue.",
+          "presentation": 1,
+          "presentation_rect": [
+            278.0,
+            674.0,
+            550.0,
+            24.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.06,
+            0.07,
+            0.09,
+            1
+          ]
+        }
+      }
+    ],
+    "lines": [
+      {
+        "patchline": {
+          "source": [
+            "hm0",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm1",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm2",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm3",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm4",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm5",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm6",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm7",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm8",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm9",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm10",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm11",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm12",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm13",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm14",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "hm15",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mb2-example-0",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mb2-example-1",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mb2-example-2",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mb2-example-3",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mb2-example-4",
+            0
+          ],
+          "destination": [
+            "h-send",
+            0
+          ]
+        }
+      }
+    ]
+  }
+}

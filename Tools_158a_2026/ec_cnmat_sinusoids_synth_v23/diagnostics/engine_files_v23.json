@@ -1,0 +1,15 @@
+{
+  "model": "cnmat_sinusoid_model_generator_v23.js",
+  "partial_memory": "multislider_interpolation_engine_v23_6.js",
+  "envelope_memory": "multislider_interpolation_engine_v23.js",
+  "offset": "partial_offset_crossfade_v23_6.js",
+  "groups": "Partial_Group_Manager_v23_6.js",
+  "auto_level": "auto_level_compensation_v23.js",
+  "retuning": "global_retuning_controller_v23.js",
+  "transform": "sinusoid_model_transform_v23.js",
+  "random": "random_multislider_values_v23.js",
+  "stops": "ec_sinusoid_synth_stops_v23.js",
+  "detune_shapes": "detune_shape_library_v23.js",
+  "shapes": "dynamic_shape_library_weights_v23.js",
+  "add_remove": "weighted_partial_add_remove_v23.js"
+}

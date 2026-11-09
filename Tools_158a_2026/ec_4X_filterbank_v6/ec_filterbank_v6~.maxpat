@@ -207,7 +207,7 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "bgcolor": [
             0.776,
             0.502,
@@ -216,7 +216,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "obj-385",
           "maxclass": "comment",
           "numinlets": 1,
@@ -300,7 +300,7 @@
             968.0672268907564,
             30.0
           ],
-          "text": "4X FILTER BANK v6 \u2022 FOUR PARALLEL BIQUADS \u2022 60\u201313000 Hz",
+          "text": "4X FILTER BANK v6 • FOUR PARALLEL BIQUADS • 60–13000 Hz",
           "textcolor": [
             0.91,
             0.94,
@@ -537,7 +537,7 @@
             1017,
             16
           ],
-          "text": "Four parallel filters \u2022 OFF mutes \u2022 Top meters show input \u2022 Output faders feed Global Gain Out",
+          "text": "Four parallel filters • OFF mutes • Top meters show input • Output faders feed Global Gain Out",
           "textcolor": [
             0.65,
             0.71,
@@ -794,7 +794,7 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
           "bgcolor": [
             0.7764705882352941,
             0.5019607843137255,
@@ -802,7 +802,7 @@
             1.0
           ],
           "fontsize": 12.0,
-          "hint": "Select target filter: 1\u20134.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-16",
           "maxclass": "textbutton",
           "numinlets": 1,
@@ -838,8 +838,8 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
-          "hint": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-17",
           "maxclass": "message",
           "numinlets": 2,
@@ -1085,7 +1085,7 @@
       },
       {
         "box": {
-          "annotation": "Sharpness: higher Q is narrower.",
+          "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "bgcolor": [
             0.07,
             0.085,
@@ -1094,7 +1094,7 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Sharpness: higher Q is narrower.",
+          "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "id": "obj-24",
           "maxclass": "flonum",
           "maximum": 200.0,
@@ -1151,10 +1151,10 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "obj-26",
           "maxclass": "comment",
           "numinlets": 1,
@@ -1183,7 +1183,7 @@
       },
       {
         "box": {
-          "annotation": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "annotation": "Center/cutoff frequency: 60–13000 Hz.",
           "bgcolor": [
             0.07,
             0.085,
@@ -1192,7 +1192,7 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "hint": "Center/cutoff frequency: 60–13000 Hz.",
           "id": "obj-27",
           "maxclass": "flonum",
           "maximum": 13000.0,
@@ -1369,7 +1369,7 @@
             115.0,
             16
           ],
-          "text": "Motion depth / \u00b1Hz",
+          "text": "Motion depth / ±Hz",
           "textcolor": [
             0.306,
             0.816,
@@ -1467,7 +1467,7 @@
             113.0,
             16
           ],
-          "text": "Gain depth / \u00b1dB",
+          "text": "Gain depth / ±dB",
           "textcolor": [
             0.306,
             0.816,
@@ -2725,7 +2725,7 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
           "bgcolor": [
             0.7764705882352941,
             0.5019607843137255,
@@ -2733,7 +2733,7 @@
             1.0
           ],
           "fontsize": 12.0,
-          "hint": "Select target filter: 1\u20134.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-72",
           "maxclass": "textbutton",
           "numinlets": 1,
@@ -2769,8 +2769,8 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
-          "hint": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-73",
           "maxclass": "message",
           "numinlets": 2,
@@ -3016,7 +3016,7 @@
       },
       {
         "box": {
-          "annotation": "Sharpness: higher Q is narrower.",
+          "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "bgcolor": [
             0.07,
             0.085,
@@ -3025,10 +3025,10 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Sharpness: higher Q is narrower.",
+          "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "id": "obj-80",
           "maxclass": "flonum",
-          "maximum": 20.0,
+          "maximum": 50.0,
           "minimum": 0.5,
           "numinlets": 1,
           "numoutlets": 2,
@@ -3082,10 +3082,10 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "obj-82",
           "maxclass": "comment",
           "numinlets": 1,
@@ -3114,7 +3114,7 @@
       },
       {
         "box": {
-          "annotation": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "annotation": "Center/cutoff frequency: 60–13000 Hz.",
           "bgcolor": [
             0.07,
             0.085,
@@ -3123,7 +3123,7 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "hint": "Center/cutoff frequency: 60–13000 Hz.",
           "id": "obj-83",
           "maxclass": "flonum",
           "maximum": 13000.0,
@@ -3299,7 +3299,7 @@
             115.0,
             16
           ],
-          "text": "Motion depth / \u00b1Hz",
+          "text": "Motion depth / ±Hz",
           "textcolor": [
             0.306,
             0.816,
@@ -3397,7 +3397,7 @@
             113.0,
             16
           ],
-          "text": "Gain depth / \u00b1dB",
+          "text": "Gain depth / ±dB",
           "textcolor": [
             0.306,
             0.816,
@@ -4650,7 +4650,7 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
           "bgcolor": [
             0.7764705882352941,
             0.5019607843137255,
@@ -4658,7 +4658,7 @@
             1.0
           ],
           "fontsize": 12.0,
-          "hint": "Select target filter: 1\u20134.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-128",
           "maxclass": "textbutton",
           "numinlets": 1,
@@ -4694,8 +4694,8 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
-          "hint": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-129",
           "maxclass": "message",
           "numinlets": 2,
@@ -4941,7 +4941,7 @@
       },
       {
         "box": {
-          "annotation": "Sharpness: higher Q is narrower.",
+          "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "bgcolor": [
             0.07,
             0.085,
@@ -4950,10 +4950,10 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Sharpness: higher Q is narrower.",
+          "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "id": "obj-136",
           "maxclass": "flonum",
-          "maximum": 20.0,
+          "maximum": 50.0,
           "minimum": 0.5,
           "numinlets": 1,
           "numoutlets": 2,
@@ -5007,10 +5007,10 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "obj-138",
           "maxclass": "comment",
           "numinlets": 1,
@@ -5039,7 +5039,7 @@
       },
       {
         "box": {
-          "annotation": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "annotation": "Center/cutoff frequency: 60–13000 Hz.",
           "bgcolor": [
             0.07,
             0.085,
@@ -5048,7 +5048,7 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "hint": "Center/cutoff frequency: 60–13000 Hz.",
           "id": "obj-139",
           "maxclass": "flonum",
           "maximum": 13000.0,
@@ -5224,7 +5224,7 @@
             115.0,
             16
           ],
-          "text": "Motion depth / \u00b1Hz",
+          "text": "Motion depth / ±Hz",
           "textcolor": [
             0.306,
             0.816,
@@ -5322,7 +5322,7 @@
             113.0,
             16
           ],
-          "text": "Gain depth / \u00b1dB",
+          "text": "Gain depth / ±dB",
           "textcolor": [
             0.306,
             0.816,
@@ -6575,7 +6575,7 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
           "bgcolor": [
             0.7764705882352941,
             0.5019607843137255,
@@ -6583,7 +6583,7 @@
             1.0
           ],
           "fontsize": 12.0,
-          "hint": "Select target filter: 1\u20134.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-184",
           "maxclass": "textbutton",
           "numinlets": 1,
@@ -6619,8 +6619,8 @@
       },
       {
         "box": {
-          "annotation": "Select target filter: 1\u20134.",
-          "hint": "Select target filter: 1\u20134.",
+          "annotation": "Select target filter: 1–4.",
+          "hint": "Select target filter: 1–4.",
           "id": "obj-185",
           "maxclass": "message",
           "numinlets": 2,
@@ -6866,7 +6866,7 @@
       },
       {
         "box": {
-          "annotation": "Sharpness: higher Q is narrower.",
+          "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "bgcolor": [
             0.07,
             0.085,
@@ -6875,10 +6875,10 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Sharpness: higher Q is narrower.",
+          "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
           "id": "obj-192",
           "maxclass": "flonum",
-          "maximum": 20.0,
+          "maximum": 50.0,
           "minimum": 0.5,
           "numinlets": 1,
           "numoutlets": 2,
@@ -6932,10 +6932,10 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "obj-194",
           "maxclass": "comment",
           "numinlets": 1,
@@ -6964,7 +6964,7 @@
       },
       {
         "box": {
-          "annotation": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "annotation": "Center/cutoff frequency: 60–13000 Hz.",
           "bgcolor": [
             0.07,
             0.085,
@@ -6973,7 +6973,7 @@
           ],
           "fontsize": 14.0,
           "format": 6,
-          "hint": "Center/cutoff frequency: 60\u201313000 Hz.",
+          "hint": "Center/cutoff frequency: 60–13000 Hz.",
           "id": "obj-195",
           "maxclass": "flonum",
           "maximum": 13000.0,
@@ -7149,7 +7149,7 @@
             115.0,
             16
           ],
-          "text": "Motion depth / \u00b1Hz",
+          "text": "Motion depth / ±Hz",
           "textcolor": [
             0.306,
             0.816,
@@ -7247,7 +7247,7 @@
             113.0,
             16
           ],
-          "text": "Gain depth / \u00b1dB",
+          "text": "Gain depth / ±dB",
           "textcolor": [
             0.306,
             0.816,
@@ -8244,7 +8244,7 @@
             700,
             19
           ],
-          "text": "Four parallel outputs \u2192 Global Gain Out \u2192 peak protection",
+          "text": "Four parallel outputs → Global Gain Out → peak protection",
           "textcolor": [
             0.65,
             0.71,
@@ -8449,10 +8449,10 @@
       },
       {
         "box": {
-          "annotation": "Target 1\u20134",
+          "annotation": "Target 1–4",
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Target 1\u20134",
+          "hint": "Target 1–4",
           "id": "obj-242",
           "maxclass": "comment",
           "numinlets": 1,
@@ -8470,7 +8470,7 @@
             85,
             19
           ],
-          "text": "Target 1\u20134",
+          "text": "Target 1–4",
           "textcolor": [
             0.65,
             0.71,
@@ -9552,7 +9552,7 @@
       },
       {
         "box": {
-          "annotation": "Store destination: 1\u201310.",
+          "annotation": "Store destination: 1–10.",
           "bgcolor": [
             0.07,
             0.085,
@@ -9560,7 +9560,7 @@
             1.0
           ],
           "fontsize": 13.0,
-          "hint": "Store destination: 1\u201310.",
+          "hint": "Store destination: 1–10.",
           "id": "obj-277",
           "maxclass": "number",
           "maximum": 10,
@@ -9712,14 +9712,14 @@
             116,
             24
           ],
-          "text": "Write bank\u2026",
+          "text": "Write bank…",
           "textcolor": [
             0.91,
             0.94,
             0.96,
             1.0
           ],
-          "texton": "Write bank\u2026"
+          "texton": "Write bank…"
         }
       },
       {
@@ -9776,14 +9776,14 @@
             116,
             24
           ],
-          "text": "Read bank\u2026",
+          "text": "Read bank…",
           "textcolor": [
             0.91,
             0.94,
             0.96,
             1.0
           ],
-          "texton": "Read bank\u2026"
+          "texton": "Read bank…"
         }
       },
       {
@@ -11481,7 +11481,7 @@
                     1110.0,
                     24.0
                   ],
-                  "text": "Input \u2192 biquad \u2192 smooth ON/OFF gate \u2192 dB output trim. OFF has no dry path.",
+                  "text": "Input → biquad → smooth ON/OFF gate → dB output trim. OFF has no dry path.",
                   "textcolor": [
                     0.91,
                     0.94,
@@ -13463,7 +13463,7 @@
                     1110.0,
                     24.0
                   ],
-                  "text": "Input \u2192 biquad \u2192 smooth ON/OFF gate \u2192 dB output trim. OFF has no dry path.",
+                  "text": "Input → biquad → smooth ON/OFF gate → dB output trim. OFF has no dry path.",
                   "textcolor": [
                     0.91,
                     0.94,
@@ -15445,7 +15445,7 @@
                     1110.0,
                     24.0
                   ],
-                  "text": "Input \u2192 biquad \u2192 smooth ON/OFF gate \u2192 dB output trim. OFF has no dry path.",
+                  "text": "Input → biquad → smooth ON/OFF gate → dB output trim. OFF has no dry path.",
                   "textcolor": [
                     0.91,
                     0.94,
@@ -17427,7 +17427,7 @@
                     1110.0,
                     24.0
                   ],
-                  "text": "Input \u2192 biquad \u2192 smooth ON/OFF gate \u2192 dB output trim. OFF has no dry path.",
+                  "text": "Input → biquad → smooth ON/OFF gate → dB output trim. OFF has no dry path.",
                   "textcolor": [
                     0.91,
                     0.94,
@@ -20525,7 +20525,7 @@
       },
       {
         "box": {
-          "annotation": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
           "channels": 1,
           "coldcolor": [
             0.12,
@@ -20545,7 +20545,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "hint": "Output trim −24 to +12 dB; Glide sets fade.",
           "hotcolor": [
             1.0,
             0.48,
@@ -20716,7 +20716,7 @@
             240,
             20
           ],
-          "text": "OUTPUT \u2192 Global Gain Out / dB",
+          "text": "OUTPUT → Global Gain Out / dB",
           "textcolor": [
             0.306,
             0.816,
@@ -20727,7 +20727,7 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "bgcolor": [
             0.776,
             0.502,
@@ -20736,7 +20736,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "label_obj-385_1",
           "maxclass": "comment",
           "numinlets": 1,
@@ -20840,7 +20840,7 @@
       },
       {
         "box": {
-          "annotation": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
           "channels": 1,
           "coldcolor": [
             0.12,
@@ -20860,7 +20860,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "hint": "Output trim −24 to +12 dB; Glide sets fade.",
           "hotcolor": [
             1.0,
             0.48,
@@ -21031,7 +21031,7 @@
             240,
             20
           ],
-          "text": "OUTPUT \u2192 Global Gain Out / dB",
+          "text": "OUTPUT → Global Gain Out / dB",
           "textcolor": [
             0.306,
             0.816,
@@ -21042,7 +21042,7 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "bgcolor": [
             0.776,
             0.502,
@@ -21051,7 +21051,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "label_obj-385_2",
           "maxclass": "comment",
           "numinlets": 1,
@@ -21155,7 +21155,7 @@
       },
       {
         "box": {
-          "annotation": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
           "channels": 1,
           "coldcolor": [
             0.12,
@@ -21175,7 +21175,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "hint": "Output trim −24 to +12 dB; Glide sets fade.",
           "hotcolor": [
             1.0,
             0.48,
@@ -21346,7 +21346,7 @@
             240,
             20
           ],
-          "text": "OUTPUT \u2192 Global Gain Out / dB",
+          "text": "OUTPUT → Global Gain Out / dB",
           "textcolor": [
             0.306,
             0.816,
@@ -21357,7 +21357,7 @@
       },
       {
         "box": {
-          "annotation": "Base frequency: 60\u201313000 Hz.",
+          "annotation": "Base frequency: 60–13000 Hz.",
           "bgcolor": [
             0.776,
             0.502,
@@ -21366,7 +21366,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 14.0,
-          "hint": "Base frequency: 60\u201313000 Hz.",
+          "hint": "Base frequency: 60–13000 Hz.",
           "id": "label_obj-385_3",
           "maxclass": "comment",
           "numinlets": 1,
@@ -21470,7 +21470,7 @@
       },
       {
         "box": {
-          "annotation": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "annotation": "Output trim −24 to +12 dB; Glide sets fade.",
           "channels": 1,
           "coldcolor": [
             0.12,
@@ -21490,7 +21490,7 @@
           ],
           "fontname": "Arial",
           "fontsize": 11.0,
-          "hint": "Output trim \u221224 to +12 dB; Glide sets fade.",
+          "hint": "Output trim −24 to +12 dB; Glide sets fade.",
           "hotcolor": [
             1.0,
             0.48,
@@ -21661,7 +21661,7 @@
             240,
             20
           ],
-          "text": "OUTPUT \u2192 Global Gain Out / dB",
+          "text": "OUTPUT → Global Gain Out / dB",
           "textcolor": [
             0.306,
             0.816,

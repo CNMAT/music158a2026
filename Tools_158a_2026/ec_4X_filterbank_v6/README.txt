@@ -43,7 +43,7 @@ Commands.txt includes the complete menu and message list.
 FILTERS / MOTION
 Peak, Lowpass, Bandpass, Ultra-narrow Bandpass, Highpass, Resonant and Notch
 all use the same parallel routing. Frequency remains 60–13000 Hz, limited
-further if necessary for the current sample rate. Ordinary Q is 0.5–20;
+further if necessary for the current sample rate. Ordinary Q is 0.5–50;
 Ultra Q is 20–200. The graph shows the complex sum of all four channels,
 including their mute fades and output trims, before Global Gain Out.
 Parallel signals can reinforce or cancel according to their phase.

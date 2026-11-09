@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": 264300,
+  "range_cases": 1020,
+  "coverage": [
+    "Full-model equivalence when audition is off",
+    "100 ms fades, rapid reversals and range changes",
+    "Primary and anchor pairing for all counts 2..256",
+    "Pre-merge contribution isolation, clipped duplicates, clustered energy",
+    "Two offset banks and rapid queued offset changes while soloed",
+    "Auto Level sees full model; canonical/preset data remains unmasked",
+    "Edits during audition retained after return; preset recall exits temporary audition"
+  ],
+  "limitations": [
+    "Real JS in an emulated message/scheduler harness; no native Max audio or GUI execution."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "assertions": 5383,
+  "coverage": [
+    "Range-only commands leave canonical amplitudes and sounding count unchanged",
+    "Inclusive 1-based clipping, reversed ranges, invalid input, single-slot edits",
+    "All active counts 2..256; representative range endpoints",
+    "Primary multiplier labels follow sequence/offset values",
+    "Actual unchanged interpolation engine integration, echo rejection, hidden-slot memory, count fades and morphs"
+  ],
+  "limits": [
+    "Emulated Max messages only; no native Max GUI, loader, keyboard, scheduler or audio."
+  ]
+}

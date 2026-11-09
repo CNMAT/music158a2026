@@ -1743,7 +1743,7 @@
               },
               {
                 "box": {
-                  "annotation": "Sharpness: higher Q is narrower.",
+                  "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "bgcolor": [
                     0.07,
                     0.085,
@@ -1752,10 +1752,10 @@
                   ],
                   "fontsize": 14.0,
                   "format": 6,
-                  "hint": "Sharpness: higher Q is narrower.",
+                  "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "id": "obj-24",
                   "maxclass": "flonum",
-                  "maximum": 20.0,
+                  "maximum": 50.0,
                   "minimum": 0.5,
                   "numinlets": 1,
                   "numoutlets": 2,
@@ -3602,7 +3602,7 @@
               },
               {
                 "box": {
-                  "annotation": "Sharpness: higher Q is narrower.",
+                  "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "bgcolor": [
                     0.07,
                     0.085,
@@ -3611,10 +3611,10 @@
                   ],
                   "fontsize": 14.0,
                   "format": 6,
-                  "hint": "Sharpness: higher Q is narrower.",
+                  "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "id": "obj-80",
                   "maxclass": "flonum",
-                  "maximum": 20.0,
+                  "maximum": 50.0,
                   "minimum": 0.5,
                   "numinlets": 1,
                   "numoutlets": 2,
@@ -5458,7 +5458,7 @@
               },
               {
                 "box": {
-                  "annotation": "Sharpness: higher Q is narrower.",
+                  "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "bgcolor": [
                     0.07,
                     0.085,
@@ -5467,10 +5467,10 @@
                   ],
                   "fontsize": 14.0,
                   "format": 6,
-                  "hint": "Sharpness: higher Q is narrower.",
+                  "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "id": "obj-136",
                   "maxclass": "flonum",
-                  "maximum": 20.0,
+                  "maximum": 50.0,
                   "minimum": 0.5,
                   "numinlets": 1,
                   "numoutlets": 2,
@@ -7314,7 +7314,7 @@
               },
               {
                 "box": {
-                  "annotation": "Sharpness: higher Q is narrower.",
+                  "annotation": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "bgcolor": [
                     0.07,
                     0.085,
@@ -7323,10 +7323,10 @@
                   ],
                   "fontsize": 14.0,
                   "format": 6,
-                  "hint": "Sharpness: higher Q is narrower.",
+                  "hint": "Sharpness: higher Q is narrower. Q 0.5–50; Ultra-narrow Bandpass Q 20–200.",
                   "id": "obj-192",
                   "maxclass": "flonum",
-                  "maximum": 20.0,
+                  "maximum": 50.0,
                   "minimum": 0.5,
                   "numinlets": 1,
                   "numoutlets": 2,
@@ -10098,7 +10098,7 @@
               },
               {
                 "box": {
-                  "annotation": "Export preset bank.",
+                  "annotation": "Save the preset bank as a .txt file. Suggested name: new_4XFilterBank_presetbank.txt",
                   "bgcolor": [
                     0.22,
                     0.27,
@@ -10106,7 +10106,7 @@
                     1.0
                   ],
                   "fontsize": 12.0,
-                  "hint": "Export preset bank.",
+                  "hint": "Save the preset bank as a .txt file. Suggested name: new_4XFilterBank_presetbank.txt",
                   "id": "obj-281",
                   "maxclass": "textbutton",
                   "numinlets": 1,
@@ -22519,6 +22519,287 @@
                     22.0
                   ]
                 }
+              },
+              {
+                "box": {
+                  "id": "bank_save_dialog",
+                  "maxclass": "newobj",
+                  "patching_rect": [
+                    1220.0,
+                    2670.0,
+                    150.0,
+                    22.0
+                  ],
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "outlettype": [
+                    ""
+                  ],
+                  "text": "p bank_save_dialog",
+                  "patcher": {
+                    "fileversion": 1,
+                    "appversion": {
+                      "major": 9,
+                      "minor": 2,
+                      "revision": 1,
+                      "architecture": "x64",
+                      "modernui": 1
+                    },
+                    "classnamespace": "box",
+                    "rect": [
+                      100.0,
+                      100.0,
+                      650.0,
+                      400.0
+                    ],
+                    "boxes": [
+                      {
+                        "box": {
+                          "id": "in",
+                          "maxclass": "inlet",
+                          "patching_rect": [
+                            30.0,
+                            30.0,
+                            30.0,
+                            30.0
+                          ],
+                          "numinlets": 0,
+                          "numoutlets": 1,
+                          "outlettype": [
+                            ""
+                          ],
+                          "comment": "Preset bank messages from this instance",
+                          "index": 1
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "route_write",
+                          "maxclass": "newobj",
+                          "patching_rect": [
+                            30.0,
+                            85.0,
+                            75.0,
+                            22.0
+                          ],
+                          "numinlets": 2,
+                          "numoutlets": 2,
+                          "outlettype": [
+                            "",
+                            ""
+                          ],
+                          "text": "route write"
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "route_empty",
+                          "maxclass": "newobj",
+                          "patching_rect": [
+                            30.0,
+                            130.0,
+                            75.0,
+                            22.0
+                          ],
+                          "numinlets": 2,
+                          "numoutlets": 2,
+                          "outlettype": [
+                            "",
+                            ""
+                          ],
+                          "text": "route bang"
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "default_name",
+                          "maxclass": "message",
+                          "patching_rect": [
+                            30.0,
+                            180.0,
+                            340.0,
+                            22.0
+                          ],
+                          "numinlets": 2,
+                          "numoutlets": 1,
+                          "outlettype": [
+                            ""
+                          ],
+                          "text": "name new_4XFilterBank_presetbank.txt, bang"
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "save_dialog",
+                          "maxclass": "newobj",
+                          "patching_rect": [
+                            30.0,
+                            225.0,
+                            110.0,
+                            22.0
+                          ],
+                          "numinlets": 1,
+                          "numoutlets": 3,
+                          "outlettype": [
+                            "",
+                            "",
+                            "bang"
+                          ],
+                          "text": "savedialog TEXT"
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "write_path",
+                          "maxclass": "newobj",
+                          "patching_rect": [
+                            30.0,
+                            275.0,
+                            95.0,
+                            22.0
+                          ],
+                          "numinlets": 1,
+                          "numoutlets": 1,
+                          "outlettype": [
+                            ""
+                          ],
+                          "text": "prepend write"
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "out",
+                          "maxclass": "outlet",
+                          "patching_rect": [
+                            30.0,
+                            335.0,
+                            30.0,
+                            30.0
+                          ],
+                          "numinlets": 1,
+                          "numoutlets": 0,
+                          "comment": "Validated save path or unchanged bank message",
+                          "index": 1
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "note",
+                          "maxclass": "comment",
+                          "patching_rect": [
+                            390.0,
+                            85.0,
+                            230.0,
+                            100.0
+                          ],
+                          "numinlets": 1,
+                          "numoutlets": 0,
+                          "text": "A bare write opens Save As with an editable .txt name. Explicit paths and other bank messages pass through. Cancel does not write.",
+                          "linecount": 5
+                        }
+                      }
+                    ],
+                    "lines": [
+                      {
+                        "patchline": {
+                          "source": [
+                            "in",
+                            0
+                          ],
+                          "destination": [
+                            "route_write",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "route_write",
+                            0
+                          ],
+                          "destination": [
+                            "route_empty",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "route_write",
+                            1
+                          ],
+                          "destination": [
+                            "out",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "route_empty",
+                            0
+                          ],
+                          "destination": [
+                            "default_name",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "route_empty",
+                            1
+                          ],
+                          "destination": [
+                            "write_path",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "default_name",
+                            0
+                          ],
+                          "destination": [
+                            "save_dialog",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "save_dialog",
+                            0
+                          ],
+                          "destination": [
+                            "write_path",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "write_path",
+                            0
+                          ],
+                          "destination": [
+                            "out",
+                            0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "annotation": "Suggest a .txt preset-bank filename when opening Save As."
+                }
               }
             ],
             "lines": [
@@ -26670,7 +26951,7 @@
               {
                 "patchline": {
                   "destination": [
-                    "obj-288",
+                    "bank_save_dialog",
                     0
                   ],
                   "source": [
@@ -28047,6 +28328,18 @@
                   ],
                   "destination": [
                     "copy_feedback",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "bank_save_dialog",
+                    0
+                  ],
+                  "destination": [
+                    "obj-288",
                     0
                   ]
                 }

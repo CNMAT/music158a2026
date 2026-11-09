@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checks": 133,
+  "controls": 227,
+  "engines": 25,
+  "user_stores": 14,
+  "engine_requests": 441,
+  "dict_operations": 10823,
+  "limitations": [
+    "Actual v23 JS and manifest with simulated native UI, message outlets and Tasks. No DSP or native GUI execution."
+  ]
+}
+{
+  "status": "PASS",
+  "checks": 3228,
+  "slots": 24,
+  "source_destination_selection_pairs": 576,
+  "real_file_reads": 2913,
+  "real_file_writes": 510,
+  "coverage": [
+    "24 actual full captures and independent hidden memories",
+    "576 source/destination dispatch pairs",
+    "real G->X retarget, seconds, pause/resume/hold",
+    "24-slot, sparse, empty, Unicode and overwrite disk roundtrips",
+    "whole-bank validation before commit",
+    "corrupt last slot cannot partially replace bank",
+    "clear-all and file-load do not recall/mute live state",
+    "pending capture invalidation",
+    "direct, command and control dispatch",
+    "native File API modeled over real disk I/O"
+  ],
+  "limits": [
+    "Max UI, loader, dialogs, File and Tasks modeled; no native Max execution or audio audition."
+  ]
+}

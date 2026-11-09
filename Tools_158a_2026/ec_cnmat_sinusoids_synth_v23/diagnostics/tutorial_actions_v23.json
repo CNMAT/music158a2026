@@ -1,0 +1,2255 @@
+[
+  {
+    "stage": 1,
+    "file": "01_First_Sound.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control Partial_Count 2",
+          "control Amplitude_Values 1. 0."
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen at 110 Hz",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "220 Hz",
+        "commands": [
+          "control Source_Base_Hz 220"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "110 Hz",
+        "commands": [
+          "control Source_Base_Hz 110"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Trigger again",
+        "commands": [
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-33",
+        "command_box": "tut-35",
+        "send": "tut-36",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "file": "02_Partials_and_Amplitudes.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Fundamental only",
+        "commands": [
+          "control Amplitude_Values 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0."
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Add partial 3",
+        "commands": [
+          "control Partial_Amplitude 3 0.5"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Add partial 5",
+        "commands": [
+          "control Partial_Amplitude 5 0.25"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Sloping spectrum",
+        "commands": [
+          "control Amplitude_Shape 4"
+        ]
+      },
+      {
+        "button": "tut-38",
+        "command_box": "tut-40",
+        "send": "tut-41",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "file": "03_Shapes_and_Morphs.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Slow morph",
+        "commands": [
+          "control Amplitude_Morph_ms 3000"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Center peak",
+        "commands": [
+          "control Amplitude_Shape 6"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Random amplitudes",
+        "commands": [
+          "control Random_Amplitude bang"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Show 4",
+        "commands": [
+          "control Partial_Count 4"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Show 16",
+        "commands": [
+          "control Partial_Count 16"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "file": "04_Detune_and_Anchors.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Partial_Count 2",
+          "control Amplitude_Values 0. 0.5",
+          "control Anchor_Values 0. 0.5",
+          "control Partial_Drift 2 0.03"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "More detune",
+        "commands": [
+          "control Partial_Drift 2 0.1"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "No detune",
+        "commands": [
+          "control Partial_Drift 2 0."
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Mute anchors",
+        "commands": [
+          "control Anchor_Scale 0"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Restore anchors",
+        "commands": [
+          "control Anchor_Scale 1"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Mirror on",
+        "commands": [
+          "control Anchor_Mirror 1"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "file": "05_Micro_Drift.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Anchor_Mirror 1",
+          "control Anchor_Scale 0.5",
+          "control Direction_Seed 12345",
+          "control Micro_Depth_Hz 0.3",
+          "control Micro_Segment_ms 1000",
+          "control Micro_Off_Morph_ms 2000"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Drift on",
+        "commands": [
+          "control Max_Drift 0.5",
+          "control Micro_On 1"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Larger steps",
+        "commands": [
+          "control Micro_Depth_Hz 1"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Slower steps",
+        "commands": [
+          "control Micro_Segment_ms 3000"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Drift off",
+        "commands": [
+          "control Micro_On 0"
+        ]
+      },
+      {
+        "button": "tut-38",
+        "command_box": "tut-40",
+        "send": "tut-41",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "file": "06_Retuning.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Retune_ms 2000"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Preserve ratios",
+        "commands": [
+          "control Retuning_Mode 1"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Target 165 Hz",
+        "commands": [
+          "control Target_Base_Hz 165"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Return 110 Hz",
+        "commands": [
+          "control Target_Base_Hz 110"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Fixed Hz shift",
+        "commands": [
+          "control Retuning_Mode 2",
+          "control Target_Base_Hz 165"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Fast glide",
+        "commands": [
+          "control Retune_ms 100"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "file": "07_Sequences_and_Offset.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Even sequence",
+        "commands": [
+          "control Partial_Distribution 1"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Odd sequence",
+        "commands": [
+          "control Partial_Distribution 2"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Prime sequence",
+        "commands": [
+          "control Partial_Distribution 3"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Start at position 5",
+        "commands": [
+          "control Partial_Offset_On 1",
+          "control Partial_Offset_Number 5"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Normal / no offset",
+        "commands": [
+          "control Partial_Distribution 0",
+          "control Partial_Offset_On 0"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "file": "08_Global_ADSRs.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Short note",
+        "commands": [
+          "control ADSR_12_Lanes_Duration_ms 500"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Long note",
+        "commands": [
+          "control ADSR_12_Lanes_Duration_ms 6000"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Falling shape",
+        "commands": [
+          "control ADSR_12_Lanes_Shape 4"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Triangle shape",
+        "commands": [
+          "control ADSR_12_Lanes_Shape 6"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Loop on",
+        "commands": [
+          "control ADSR_12_Lanes_Loop 1"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 9,
+    "file": "09_Individual_ADSRs.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control Partial_Count 2",
+          "control Amplitude_Values 0.7 0.5",
+          "control ADSR_Lane_01_Duration_ms 1800",
+          "control ADSR_Lane_02_Duration_ms 2800",
+          "control ADSR_Lane_02_Delay_ms 1000"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Lane 1 only",
+        "commands": [
+          "gain 0.1",
+          "control ADSR_Lane_01_Trigger bang"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Lane 2 only",
+        "commands": [
+          "gain 0.1",
+          "control ADSR_Lane_02_Trigger bang"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Four-point shape",
+        "commands": [
+          "control ADSR_Lane_01_Points 0. 1. 0.4 0."
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Loop lane 2",
+        "commands": [
+          "control ADSR_Lane_02_Loop 1",
+          "control ADSR_Lane_02_Trigger bang"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Cancel lane 2",
+        "commands": [
+          "control ADSR_Lane_02_Stop bang"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 10,
+    "file": "10_Lane_Distribution.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Partial_Count 32",
+          "control Amplitude_Shape 4"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Interleaved",
+        "commands": [
+          "control Render_Distribution 0"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Spectral bands",
+        "commands": [
+          "control Render_Distribution 1"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Seeded random",
+        "commands": [
+          "control Render_Seed 12345",
+          "control Render_Distribution 2"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Octave families",
+        "commands": [
+          "control Render_Distribution 3"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Fifth bands",
+        "commands": [
+          "control Render_Distribution 4"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 11,
+    "file": "11_Remove_and_Families.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Partial_Count 32",
+          "control Amplitude_Shape 4",
+          "control Removal_Count 8",
+          "control Removal_Shape 1"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Remove eight",
+        "commands": [
+          "control Remove_Partials bang"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Restore eight",
+        "commands": [
+          "control Add_Partials bang"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Clear spectrum",
+        "commands": [
+          "control All_Off bang"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Family 3 on",
+        "commands": [
+          "control Octave_Family 3 1"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Family 5 on",
+        "commands": [
+          "control Octave_Family 5 1"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 12,
+    "file": "12_Organ_Stops.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Partial_Count 64",
+          "control Stop_Tail 24"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Open Flute",
+        "commands": [
+          "control Registration 6"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Stopped Flute",
+        "commands": [
+          "control Registration 7"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Principal Chorus",
+        "commands": [
+          "control Registration 0"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Celeste pair",
+        "commands": [
+          "control Stop_Beat_Hz 0.3",
+          "control Registration 4"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Longer tail",
+        "commands": [
+          "control Stop_Tail 48",
+          "control Stops_Apply bang"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 13,
+    "file": "13_Automixer.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1",
+          "control Automixer range 2000 6000",
+          "control Automixer waittime 1000",
+          "control Automixer fixedpeak 0",
+          "control Automixer grain 20"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / bypass",
+        "commands": [
+          "control Automixer bypass",
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Auto mix",
+        "commands": [
+          "control Automixer start"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Full peaks",
+        "commands": [
+          "control Automixer fixedpeak 1"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Continuous cycles",
+        "commands": [
+          "control Automixer waittime 0"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Stop / mute",
+        "commands": [
+          "control Automixer stop"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Bypass",
+        "commands": [
+          "control Automixer bypass"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 14,
+    "file": "14_Gain_and_Limits.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500",
+          "control ADSR_12_Lanes_Shape 1",
+          "control ADSR_12_Lanes_Loop 1"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen / hold",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Half global gain",
+        "commands": [
+          "gain 0.05"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Restore global gain",
+        "commands": [
+          "gain 0.1"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Limit to 800 Hz",
+        "commands": [
+          "control Maximum_Hz 800"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Restore 12000 Hz",
+        "commands": [
+          "control Maximum_Hz 12000"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Capture / compensate",
+        "commands": [
+          "control Auto_Level capture",
+          "control Auto_Level on 1"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 15,
+    "file": "15_Messages_and_Cues.maxpat",
+    "actions": [
+      {
+        "button": "tut-4",
+        "command_box": "tut-6",
+        "send": "tut-7",
+        "label": "1  Prepare lesson",
+        "commands": [
+          "gain 0",
+          "stop",
+          "control All_Off bang",
+          "control Automixer bypass",
+          "control Auto_Level on 0",
+          "control Anchor_Mirror 0",
+          "control Anchor_Scale 1",
+          "control Micro_On 0",
+          "control Max_Drift 0",
+          "control Partial_Offset_On 0",
+          "control Partial_Distribution 0",
+          "control Retuning_Mode 0",
+          "control Retune_ms 100",
+          "control Source_Base_Hz 110",
+          "control Semitones 0",
+          "control Cents 0",
+          "control Offset_Hz 0",
+          "control Model_Gain 1",
+          "control Minimum_Hz 20",
+          "control Maximum_Hz 12000",
+          "control Cluster_Hz 0",
+          "control Post_Bypass 0",
+          "control Render_Distribution 0",
+          "control Render_Seed 12345",
+          "control Render_Ramp_ms 100",
+          "control Spatial_Group_Count 2",
+          "control Output_Gain_dB -24",
+          "control Amplitude_Morph_ms 0",
+          "control Anchor_Morph_ms 0",
+          "control Drift_Morph_ms 0",
+          "control Partial_Count 16",
+          "control Amplitude_Shape 4",
+          "control Anchor_Shape 0",
+          "control Drift_Shape 0",
+          "control ADSR_12_Lanes_Smoothing_ms 0",
+          "control ADSR_12_Lanes_Loop 0",
+          "control ADSR_12_Lanes_Duration_ms 4000",
+          "control ADSR_Lane_01_Delay_ms 0",
+          "control ADSR_Lane_01_Breakpoints 16",
+          "control ADSR_Lane_02_Delay_ms 0",
+          "control ADSR_Lane_02_Breakpoints 16",
+          "control ADSR_Lane_03_Delay_ms 0",
+          "control ADSR_Lane_03_Breakpoints 16",
+          "control ADSR_Lane_04_Delay_ms 0",
+          "control ADSR_Lane_04_Breakpoints 16",
+          "control ADSR_Lane_05_Delay_ms 0",
+          "control ADSR_Lane_05_Breakpoints 16",
+          "control ADSR_Lane_06_Delay_ms 0",
+          "control ADSR_Lane_06_Breakpoints 16",
+          "control ADSR_Lane_07_Delay_ms 0",
+          "control ADSR_Lane_07_Breakpoints 16",
+          "control ADSR_Lane_08_Delay_ms 0",
+          "control ADSR_Lane_08_Breakpoints 16",
+          "control ADSR_Lane_09_Delay_ms 0",
+          "control ADSR_Lane_09_Breakpoints 16",
+          "control ADSR_Lane_10_Delay_ms 0",
+          "control ADSR_Lane_10_Breakpoints 16",
+          "control ADSR_Lane_11_Delay_ms 0",
+          "control ADSR_Lane_11_Breakpoints 16",
+          "control ADSR_Lane_12_Delay_ms 0",
+          "control ADSR_Lane_12_Breakpoints 16",
+          "control ADSR_12_Lanes_Shape 6",
+          "control ADSR_12_Lanes_Smoothing_ms 200",
+          "control Amplitude_Morph_ms 500",
+          "control Anchor_Morph_ms 500",
+          "control Drift_Morph_ms 500"
+        ]
+      },
+      {
+        "button": "tut-10",
+        "command_box": "tut-12",
+        "send": "tut-13",
+        "label": "Listen",
+        "commands": [
+          "gain 0.1",
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-15",
+        "command_box": "tut-17",
+        "send": "tut-18",
+        "label": "Note-in 60",
+        "commands": [
+          "note-in 60 100"
+        ]
+      },
+      {
+        "button": "tut-20",
+        "command_box": "tut-22",
+        "send": "tut-23",
+        "label": "Pitch only",
+        "commands": [
+          "control Source_Base_Hz 220"
+        ]
+      },
+      {
+        "button": "tut-25",
+        "command_box": "tut-27",
+        "send": "tut-28",
+        "label": "Set slot 5",
+        "commands": [
+          "control Partial_Amplitude 5 0.2"
+        ]
+      },
+      {
+        "button": "tut-30",
+        "command_box": "tut-32",
+        "send": "tut-33",
+        "label": "Two-second envelopes",
+        "commands": [
+          "control ADSR_12_Lanes_Duration_ms 2000"
+        ]
+      },
+      {
+        "button": "tut-35",
+        "command_box": "tut-37",
+        "send": "tut-38",
+        "label": "Trigger",
+        "commands": [
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-43",
+        "command_box": "tut-45",
+        "send": "tut-46",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 16,
+    "file": "16_Presets_and_Study.maxpat",
+    "actions": [
+      {
+        "button": "tut-6",
+        "command_box": "tut-8",
+        "send": "tut-9",
+        "label": "Check preset engines",
+        "commands": [
+          "check"
+        ]
+      },
+      {
+        "button": "tut-11",
+        "command_box": "tut-13",
+        "send": "tut-14",
+        "label": "Capture in memory",
+        "commands": [
+          "sweep"
+        ]
+      },
+      {
+        "button": "tut-16",
+        "command_box": "tut-18",
+        "send": "tut-19",
+        "label": "Dump preset message",
+        "commands": [
+          "dump"
+        ]
+      },
+      {
+        "button": "tut-21",
+        "command_box": "tut-23",
+        "send": "tut-24",
+        "label": "Trigger recalled sound",
+        "commands": [
+          "trigger"
+        ]
+      },
+      {
+        "button": "tut-29",
+        "command_box": "tut-31",
+        "send": "tut-32",
+        "label": "SILENCE ALL FEEDS",
+        "commands": [
+          "gain 0",
+          "stop"
+        ]
+      }
+    ]
+  }
+]

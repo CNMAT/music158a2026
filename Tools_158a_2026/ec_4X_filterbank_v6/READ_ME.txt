@@ -113,3 +113,20 @@ menu's automatic reset. The destination fades out before changing coefficients,
 then settles and returns with the existing On/off fade time.
 External equivalent: 'copyband 1 2' into the right control inlet.
 The controls are local to each complete Filter_Bank_v6 patcher copy.
+
+
+WRITE BANK FILENAME
+In the main patch, Write bank opens Save As with the editable default
+name new_4XFilterBank_presetbank.txt. Choose the destination and save,
+or Cancel without writing a file. The preset-bank format remains plain
+coll text, compatible with Read bank. Explicit writebank paths retain
+their existing behavior. This update requires only the main .maxpat;
+the controller JS and separate abstraction are unchanged.
+
+
+Q RANGE UPDATE
+Peak, Lowpass, Bandpass, Highpass, Resonant and Notch now accept Q 0.5–50.
+Ultra-narrow Bandpass retains Q 20–200. The limits apply to direct controls,
+external messages, preset recall, copied settings and full-state restoration.
+Opening values and the safe defaults used for manual type changes are unchanged.
+Replace the main patch and ec_filterbank_v6.js together.

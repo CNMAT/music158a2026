@@ -1,0 +1,112 @@
+{
+  "command_examples": {
+    "ams-mode0": {
+      "text": "mode 0",
+      "target": "ams-transport-send",
+      "description": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+    },
+    "ams-bypass": {
+      "text": "bypass",
+      "target": "ams-transport-send",
+      "description": "BYPASS / unity. Stops the generator and restores all 12 mixer gains to 1.0 over 20 ms. This is NOT mute."
+    },
+    "ams-mode1": {
+      "text": "mode 1",
+      "target": "ams-transport-send",
+      "description": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+    },
+    "ams-start": {
+      "text": "start",
+      "target": "ams-transport-send",
+      "description": "AUTO. Starts the 12 cycles. Repeating start or mode 1 while already running does not reset their phases."
+    },
+    "ams-mode2": {
+      "text": "mode 2",
+      "target": "ams-transport-send",
+      "description": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+    },
+    "ams-stop": {
+      "text": "stop",
+      "target": "ams-transport-send",
+      "description": "STOP / mute. Stops the generator and fades all 12 mixer gains to 0.0 over 20 ms. This is NOT bypass."
+    },
+    "ams-restart": {
+      "text": "restart",
+      "target": "ams-transport-send",
+      "description": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+    },
+    "ams-bang": {
+      "text": "bang",
+      "target": "ams-transport-send",
+      "description": "RESTART. Engages Auto and begins all cycles again from 0.0. Use after parameter edits to apply new cycle settings now."
+    },
+    "ams-range": {
+      "text": "range 2000 10000",
+      "target": "ams-parameter-send",
+      "description": "Set one-leg bounds: 2000 to 10000 ms, independently chosen per voice per cycle."
+    },
+    "ams-range-equal": {
+      "text": "range 3000 3000",
+      "target": "ams-parameter-send",
+      "description": "Equal bounds give exactly 3000 ms for each rising and falling leg of future cycles."
+    },
+    "ams-wait": {
+      "text": "waittime 5000",
+      "target": "ams-parameter-send",
+      "description": "Hold at zero for 5000 ms after each falling leg."
+    },
+    "ams-wait-zero": {
+      "text": "waittime 0",
+      "target": "ams-parameter-send",
+      "description": "No hold at zero; each voice starts its next cycle immediately after falling."
+    },
+    "ams-peak-one": {
+      "text": "fixedpeak 1",
+      "target": "ams-parameter-send",
+      "description": "Every new cycle peaks at 1.0. Values still ramp continuously between 0.0 and 1.0."
+    },
+    "ams-peak-random": {
+      "text": "fixedpeak 0",
+      "target": "ams-parameter-send",
+      "description": "Restore independent random peak targets between 0.0 and 1.0 for new cycles."
+    },
+    "ams-grain": {
+      "text": "grain 20",
+      "target": "ams-parameter-send",
+      "description": "Default 20 ms float-update interval and Auto signal interpolation time."
+    },
+    "ams-grain-slow": {
+      "text": "grain 100",
+      "target": "ams-parameter-send",
+      "description": "100 ms float updates and Auto signal interpolation; does not change the cycle-duration settings."
+    },
+    "ams-recipe-slow": {
+      "text": "range 2000 10000, waittime 5000, fixedpeak 0, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "SLOW RANDOM MIX: independent 2-10 s rises and falls, then 5 s at zero. Full cycles: 9-25 s; random peak levels."
+    },
+    "ams-recipe-continuous": {
+      "text": "range 750 2500, waittime 0, fixedpeak 1, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "CONTINUOUS FULL PEAKS: independent 0.75-2.5 s legs, no hold. Full cycles: 1.5-5 s; every peak target is 1.0."
+    },
+    "ams-recipe-synchronous": {
+      "text": "range 2000 2000, waittime 1000, fixedpeak 1, grain 20, restart",
+      "target": "ams-recipe-send",
+      "description": "SYNCHRONIZED CYCLES: all 12 rise for 2 s, fall for 2 s, then wait 1 s. The fixed duration and common restart align their 5 s cycles."
+    }
+  },
+  "live_readback_buses": [
+    "Automixer_Mode_state_v23",
+    "Automixer_Range_state_v23",
+    "Automixer_Wait_ms_state_v23",
+    "Automixer_Fixed_Peak_state_v23",
+    "Automixer_Grain_ms_state_v23",
+    "Automixer_Levels_state_v23"
+  ],
+  "gallery_addition_ids": [
+    "automixer-message-space-heading-v23",
+    "automixer-message-space-v23",
+    "automixer-message-space-note-v23"
+  ]
+}

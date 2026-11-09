@@ -1,0 +1,1210 @@
+{
+  "basis": "ec_cnmat_sinusoids_synth_v23.zip",
+  "changed_original_fields": {
+    "v23-morph-title": {
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1240.0,
+        238,
+        23.0
+      ],
+      "patching_rect": [
+        22.0,
+        1240.0,
+        238,
+        23.0
+      ],
+      "text": "FULL-STATE MORPH",
+      "fontsize": 12.0,
+      "fontface": null
+    },
+    "v23-morph-description": {
+      "presentation": 1,
+      "presentation_rect": [
+        393.0,
+        1240.0,
+        603.0,
+        23.0
+      ],
+      "patching_rect": [
+        393.0,
+        1240.0,
+        603.0,
+        23.0
+      ],
+      "text": "Capture complete sounds. Morph from the current state to A or B."
+    },
+    "v23-capture-a": {
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1270.0,
+        113.0,
+        22.0
+      ],
+      "patching_rect": [
+        22.0,
+        1270.0,
+        113.0,
+        22.0
+      ],
+      "text": "morphcapture A",
+      "hint": "Store the complete current synth state in slot A without recalling or stopping audio.",
+      "annotation": "Store the complete current synth state in slot A without recalling or stopping audio."
+    },
+    "v23-seconds-label": {
+      "presentation": 1,
+      "presentation_rect": [
+        270.0,
+        1243,
+        100.0,
+        20.0
+      ],
+      "patching_rect": [
+        270.0,
+        1243,
+        100.0,
+        20.0
+      ],
+      "text": "seconds"
+    },
+    "v23-morph-seconds": {
+      "presentation": 1,
+      "presentation_rect": [
+        270.0,
+        1270.0,
+        105.0,
+        22.0
+      ],
+      "patching_rect": [
+        270.0,
+        1270.0,
+        105.0,
+        22.0
+      ]
+    },
+    "v23-pause": {
+      "presentation": 1,
+      "presentation_rect": [
+        591.0,
+        1270.0,
+        94.0,
+        22.0
+      ],
+      "patching_rect": [
+        591.0,
+        1270.0,
+        94.0,
+        22.0
+      ]
+    },
+    "v23-resume": {
+      "presentation": 1,
+      "presentation_rect": [
+        694.0,
+        1270.0,
+        100.0,
+        22.0
+      ],
+      "patching_rect": [
+        694.0,
+        1270.0,
+        100.0,
+        22.0
+      ]
+    },
+    "v23-hold": {
+      "presentation": 1,
+      "presentation_rect": [
+        803.0,
+        1270.0,
+        88.0,
+        22.0
+      ],
+      "patching_rect": [
+        803.0,
+        1270.0,
+        88.0,
+        22.0
+      ]
+    },
+    "v23-finish": {
+      "presentation": 1,
+      "presentation_rect": [
+        900.0,
+        1270.0,
+        96.0,
+        22.0
+      ],
+      "patching_rect": [
+        900.0,
+        1270.0,
+        96.0,
+        22.0
+      ]
+    },
+    "v23-progress-label": {
+      "presentation": 1,
+      "presentation_rect": [
+        807.0,
+        1407.0,
+        105.0,
+        22.0
+      ],
+      "patching_rect": [
+        807.0,
+        1407.0,
+        105.0,
+        22.0
+      ]
+    },
+    "v23-progress": {
+      "presentation": 1,
+      "presentation_rect": [
+        915.0,
+        1407.0,
+        82.0,
+        22.0
+      ],
+      "patching_rect": [
+        915.0,
+        1407.0,
+        82.0,
+        22.0
+      ]
+    },
+    "v23-morph-note": {
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1363.0,
+        970.0,
+        36.0
+      ],
+      "patching_rect": [
+        22.0,
+        1363.0,
+        970.0,
+        36.0
+      ],
+      "text": "Numeric values morph. Menus, switches and user libraries commit at the end. Hold keeps the in-between model. ADSRs are not retriggered.",
+      "fontsize": 12.0
+    },
+    "v23-morph-help": {
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1407.0,
+        365.0,
+        22.0
+      ],
+      "patching_rect": [
+        22.0,
+        1407.0,
+        365.0,
+        22.0
+      ],
+      "patcher": {
+        "fileversion": 1,
+        "appversion": {
+          "major": 9,
+          "minor": 0,
+          "revision": 0,
+          "architecture": "x64",
+          "modernui": 1
+        },
+        "rect": [
+          70.0,
+          70.0,
+          700.0,
+          650.0
+        ],
+        "openinpresentation": 0,
+        "default_fontsize": 12.0,
+        "boxes": [
+          {
+            "box": {
+              "id": "h-title",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                18.0,
+                15.0,
+                650.0,
+                28.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "FULL-STATE MORPH — v23",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "h-text",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                18.0,
+                50.0,
+                658.0,
+                77.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "1. Make a sound and click morphcapture A.\n2. Change the synth and click morphcapture B.\n3. Enter seconds, then click morphto A or morphto B.\nA/B dump messages are passive: clicking one stages it; it never recalls or starts audio.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm0",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                143.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphcapture A",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc0",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                143.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Capture all controls, hidden memories, function curves and stores in A.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm1",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                172.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphcapture B",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc1",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                172.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Capture a second complete state in B.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm2",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                201.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphseconds 10",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc2",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                201.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Set the duration to ten seconds. Range: 0–3600 seconds.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm3",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                230.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphto B 10",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc3",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                230.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Morph from the current sound to B over ten seconds.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm4",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                259.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphto A 5",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc4",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                259.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Morph from the current sound to A over five seconds.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm5",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                288.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphpause",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc5",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                288.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Pause the morph, not audio playback.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm6",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                317.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphresume",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc6",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                317.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Continue over the remaining time.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm7",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                346.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphstop",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc7",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                346.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Hold the current intermediate model; return to manual editing.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm8",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                375.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphfinish",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc8",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                375.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Finish now; ordinary audio-rate smoothing still applies.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "hm9",
+              "maxclass": "message",
+              "numinlets": 2,
+              "numoutlets": 1,
+              "patching_rect": [
+                18.0,
+                404.0,
+                154.0,
+                22.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "morphdump A",
+              "fontsize": 11.0,
+              "bgcolor": [
+                0.83,
+                0.89,
+                0.95,
+                1
+              ],
+              "textcolor": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "box": {
+              "id": "hc9",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                182.0,
+                404.0,
+                490.0,
+                23.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Copy slot A into the ordinary full-dump output message.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "h-send",
+              "maxclass": "newobj",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                18.0,
+                450.0,
+                190.0,
+                22.0
+              ],
+              "text": "send Synth_Control_v23"
+            }
+          },
+          {
+            "box": {
+              "id": "h-direct",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                18.0,
+                484.0,
+                650.0,
+                67.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Direct dump transition: morph SECONDS preset VERSION CHECKSUM CHUNKS…\nExample: place [prepend morph 8] after a full preset message, then send to Synth_Control_v23. The old dump is the source only after recall; otherwise the source is the current live synth.",
+              "fontsize": 12.0
+            }
+          },
+          {
+            "box": {
+              "id": "h-rules",
+              "maxclass": "comment",
+              "numinlets": 1,
+              "numoutlets": 0,
+              "patching_rect": [
+                18.0,
+                558.0,
+                650.0,
+                80.0
+              ],
+              "outlettype": [
+                ""
+              ],
+              "text": "Playback continues. Updated ADSR curves apply at the next trigger or loop boundary. Menus/switches and dormant stores commit at the end. No DSP or note is started. Full v21 dumps are accepted; low-CPU dumps are not. Normal preset recall still mutes/stops; use morph commands for transitions. Save edited A/B message boxes in your patch to keep them after closing.",
+              "fontsize": 12.0
+            }
+          }
+        ],
+        "lines": [
+          {
+            "patchline": {
+              "source": [
+                "hm0",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm1",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm2",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm3",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm4",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm5",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm6",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm7",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm8",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          },
+          {
+            "patchline": {
+              "source": [
+                "hm9",
+                0
+              ],
+              "destination": [
+                "h-send",
+                0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "v23-go-a": {
+      "presentation": 1,
+      "presentation_rect": [
+        393.0,
+        1270.0,
+        90.0,
+        22.0
+      ],
+      "patching_rect": [
+        393.0,
+        1270.0,
+        90.0,
+        22.0
+      ],
+      "text": "morphto A",
+      "hint": "Morph from the current complete state to A using the duration in seconds.",
+      "annotation": "Morph from the current complete state to A using the duration in seconds."
+    },
+    "v23-go-b": {
+      "presentation": 1,
+      "presentation_rect": [
+        492.0,
+        1270.0,
+        90.0,
+        22.0
+      ],
+      "patching_rect": [
+        492.0,
+        1270.0,
+        90.0,
+        22.0
+      ],
+      "text": "morphto B",
+      "hint": "Morph from the current complete state to B. Existing envelopes keep running.",
+      "annotation": "Morph from the current complete state to B. Existing envelopes keep running."
+    }
+  },
+  "removed_original_boxes": {
+    "v23-slot-a": {
+      "id": "v23-slot-a",
+      "maxclass": "message",
+      "numinlets": 2,
+      "numoutlets": 1,
+      "patching_rect": [
+        86.0,
+        1304.0,
+        911.0,
+        22.0
+      ],
+      "outlettype": [
+        ""
+      ],
+      "presentation": 1,
+      "presentation_rect": [
+        86.0,
+        1304.0,
+        911.0,
+        22.0
+      ],
+      "hint": "A full dump message. Capture fills this box silently. Clicking stages A without changing the synth; use morphto A to hear it. You may paste a compatible full v21 or v23 preset message here.",
+      "annotation": "A full dump message. Capture fills this box silently. Clicking stages A without changing the synth; use morphto A to hear it. You may paste a compatible full v21 or v23 preset message here.",
+      "fontsize": 11.0,
+      "bgcolor": [
+        0.83,
+        0.89,
+        0.95,
+        1
+      ],
+      "textcolor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "varname": "v23_morph_dump_a"
+    },
+    "v23-slot-label-B": {
+      "id": "v23-slot-label-B",
+      "maxclass": "comment",
+      "numinlets": 1,
+      "numoutlets": 0,
+      "patching_rect": [
+        22.0,
+        1334.0,
+        60.0,
+        22.0
+      ],
+      "outlettype": [
+        ""
+      ],
+      "text": "B dump",
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1334.0,
+        60.0,
+        22.0
+      ],
+      "fontsize": 12.0
+    },
+    "v23-capture-b": {
+      "id": "v23-capture-b",
+      "maxclass": "message",
+      "numinlets": 2,
+      "numoutlets": 1,
+      "patching_rect": [
+        145.0,
+        1270.0,
+        113.0,
+        22.0
+      ],
+      "outlettype": [
+        ""
+      ],
+      "text": "morphcapture B",
+      "presentation": 1,
+      "presentation_rect": [
+        145.0,
+        1270.0,
+        113.0,
+        22.0
+      ],
+      "hint": "Store the complete current synth state in slot B without recalling or stopping audio.",
+      "annotation": "Store the complete current synth state in slot B without recalling or stopping audio.",
+      "fontsize": 11.0,
+      "bgcolor": [
+        0.83,
+        0.89,
+        0.95,
+        1
+      ],
+      "textcolor": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "v23-slot-label-A": {
+      "id": "v23-slot-label-A",
+      "maxclass": "comment",
+      "numinlets": 1,
+      "numoutlets": 0,
+      "patching_rect": [
+        22.0,
+        1304.0,
+        60.0,
+        22.0
+      ],
+      "outlettype": [
+        ""
+      ],
+      "text": "A dump",
+      "presentation": 1,
+      "presentation_rect": [
+        22.0,
+        1304.0,
+        60.0,
+        22.0
+      ],
+      "fontsize": 12.0
+    },
+    "v23-slot-b": {
+      "id": "v23-slot-b",
+      "maxclass": "message",
+      "numinlets": 2,
+      "numoutlets": 1,
+      "patching_rect": [
+        86.0,
+        1334.0,
+        911.0,
+        22.0
+      ],
+      "outlettype": [
+        ""
+      ],
+      "presentation": 1,
+      "presentation_rect": [
+        86.0,
+        1334.0,
+        911.0,
+        22.0
+      ],
+      "hint": "A full dump message. Capture fills this box silently. Clicking stages B without changing the synth; use morphto B to hear it. You may paste a compatible full v21 or v23 preset message here.",
+      "annotation": "A full dump message. Capture fills this box silently. Clicking stages B without changing the synth; use morphto B to hear it. You may paste a compatible full v21 or v23 preset message here.",
+      "fontsize": 11.0,
+      "bgcolor": [
+        0.83,
+        0.89,
+        0.95,
+        1
+      ],
+      "textcolor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "varname": "v23_morph_dump_b"
+    }
+  },
+  "removed_original_lines": [
+    {
+      "patchline": {
+        "source": [
+          "v23-capture-b",
+          0
+        ],
+        "destination": [
+          "ec-controller",
+          0
+        ]
+      }
+    },
+    {
+      "patchline": {
+        "source": [
+          "ec-controller",
+          3
+        ],
+        "destination": [
+          "v23-slot-a",
+          0
+        ]
+      }
+    },
+    {
+      "patchline": {
+        "source": [
+          "v23-slot-a",
+          0
+        ],
+        "destination": [
+          "ec-controller",
+          2
+        ]
+      }
+    },
+    {
+      "patchline": {
+        "source": [
+          "ec-controller",
+          4
+        ],
+        "destination": [
+          "v23-slot-b",
+          0
+        ]
+      }
+    },
+    {
+      "patchline": {
+        "source": [
+          "v23-slot-b",
+          0
+        ],
+        "destination": [
+          "ec-controller",
+          1
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "A/B dump text moved intact into MorphBank_v23/A_dump and B_dump.",
+    "Only the morph strip, bank files/command plumbing, and morph help were changed.",
+    "No synthesizer engine or audio graph changes."
+  ]
+}

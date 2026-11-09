@@ -1,0 +1,1 @@
+{"status":"PASS","assertions":485,"clickable_examples":19,"accepted_selectors":10,"readback_buses":6,"graph_messages":19853,"coverage":"all message selectors and aliases; examples send once; ordered recipes; fixed 5s cycles; passive readbacks; inlet forwarding; presentation/gallery bounds; source JS unchanged. Selective emulation, not native Max."}

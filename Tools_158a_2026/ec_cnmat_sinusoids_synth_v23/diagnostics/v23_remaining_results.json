@@ -1,0 +1,52 @@
+[
+  {
+    "test": "tests_envelope_shaper01_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.178
+  },
+  {
+    "test": "tests_micro_drift_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.207
+  },
+  {
+    "test": "tests_octave_families_stage_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.216
+  },
+  {
+    "test": "tests_partial_group_manager_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.065
+  },
+  {
+    "test": "tests_retuning_accuracy_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.2
+  },
+  {
+    "test": "tests_score_execution_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.116
+  },
+  {
+    "test": "tests_seeded_micro_drift_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.97
+  },
+  {
+    "test": "tests_stage_v23.cjs",
+    "returncode": 0,
+    "seconds": 4.648
+  },
+  {
+    "test": "tests_v23_changes_and_stops_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.371
+  },
+  {
+    "test": "tests_workspace_stage_v23.cjs",
+    "returncode": 0,
+    "seconds": 0.365
+  }
+]

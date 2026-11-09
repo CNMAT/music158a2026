@@ -1,0 +1,2 @@
+PASS: graph-executed scalar default/explicit ramps, readback starts, stop cancellation, independent copied partial cues, query isolation, discrete/action protocols, silent score loading, timed dispatch, restart and cancellation.
+PASS: six global lane CUEs, value bounds, 0/149/150/151 ms completion boundaries, completion cancellation, exact 12-way trigger/duration/shape/loop/stop fanout, smoothing alias/state path without recursion, float durations, and loop-off-before-stop order.

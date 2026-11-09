@@ -42,7 +42,7 @@ function ramp(i,cmd,v,ms){stage(i,cmd,v,duration(ms));}
 function triangleCurve(){return [0,0,.25,1,.75,-1,1,0];}
 function flatCurve(){return [0,0,1,0];}
 function usefulDepth(f){return Math.max(1,Math.min(200,f-FMIN,FMAX-f));}
-function qbounds(t){return t===3?[20,200]:[.5,20];}
+function qbounds(t){return t===3?[20,200]:[.5,50];}
 function qlimits(i){var r=qbounds(state.bands[i].type);send("q"+i,"maximum",r[1]);send("q"+i,"minimum",r[0]);}
 function settleTime(i){var b=state.bands[i];return b.type===3?Math.ceil(clamp(4000*b.q/(Math.PI*Math.max(FMIN,b.freq-b.depth)),100,5000)):100;}
 // Cold opening and per-filter clear share the same valid minimum state.

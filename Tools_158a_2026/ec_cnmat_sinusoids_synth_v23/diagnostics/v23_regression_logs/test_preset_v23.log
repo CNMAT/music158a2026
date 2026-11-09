@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": 133,
+  "controls": 227,
+  "engines": 25,
+  "user_stores": 14,
+  "engine_requests": 441,
+  "dict_operations": 10823,
+  "limitations": [
+    "Actual v23 JS and manifest with simulated native UI, message outlets and Tasks. No DSP or native GUI execution."
+  ]
+}

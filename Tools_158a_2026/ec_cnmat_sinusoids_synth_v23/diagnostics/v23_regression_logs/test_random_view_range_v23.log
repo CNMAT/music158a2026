@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": 1897,
+  "coverage": [
+    "Detune and Anchor random scoped to viewed slots",
+    "all other active and 256-slot hidden values preserved",
+    "anchor scale applied once and mirror authority respected",
+    "existing morph duration preserved",
+    "display-all and primary amplitude random unchanged",
+    "count decrease/departing slots clamped",
+    "main graph range connection"
+  ],
+  "limits": [
+    "JavaScript execution with modeled Max outlets and clock; no native Max audition."
+  ]
+}

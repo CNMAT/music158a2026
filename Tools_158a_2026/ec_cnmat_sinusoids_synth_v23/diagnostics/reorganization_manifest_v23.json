@@ -1,0 +1,675 @@
+{
+  "source_archive": "ec_cnmat_sinusoids_synth_v23(1).zip",
+  "source_archive_sha256": "6ce627a8d62831ec6dfeb7a148000cc63f16430e641b80c462198f87b7151062",
+  "main": "_ec_sinusoids_synth_v23.maxpat",
+  "folders": [
+    "patchers",
+    "javascript",
+    "diagnostics"
+  ],
+  "path_strategy": "Native-only root starter: resolve its own absolute folder via thispatcher, append patchers/ and javascript/ to the session search path, then pcontrol loadunique the full synth. All original runtime references are restored byte-for-byte. No Patcher:/ dependency paths, project requirement, persistent preference write or late JS reload.",
+  "files": [
+    {
+      "original": "MICRO_DRIFT_v23.md",
+      "packaged": "diagnostics/documentation/MICRO_DRIFT_v23.md",
+      "original_sha256": "5beac3bc34e0aad0f6846ad4d8d81d0a1986cd1746cb4201823faf63c23fd8e3"
+    },
+    {
+      "original": "ec_sinusoid_synth_stops_research_v23.maxpat",
+      "packaged": "patchers/ec_sinusoid_synth_stops_research_v23.maxpat",
+      "original_sha256": "817c3bb09f63073c5650aebfc5d16b01fe37664ba474fb2a4f01458d7758f6dc",
+      "original_document_sha256": "1493ad6bbe3d3fb1298a603dc9d53d6bdb49e673ee9740bf37acc324456a3515",
+      "path_field_changes": 0,
+      "packaged_sha256": "817c3bb09f63073c5650aebfc5d16b01fe37664ba474fb2a4f01458d7758f6dc"
+    },
+    {
+      "original": "Example_Timed_Score_v23.maxpat",
+      "packaged": "patchers/Example_Timed_Score_v23.maxpat",
+      "original_sha256": "85c6db5df1008ead0c99ce221acff8827906821ad4e47df957921b9da82c5543",
+      "original_document_sha256": "4da83646b4b2a32644c88ce340f6b74ecab4c8888e17ac7f6a8d4ee1367a61e0",
+      "path_field_changes": 0,
+      "packaged_sha256": "85c6db5df1008ead0c99ce221acff8827906821ad4e47df957921b9da82c5543"
+    },
+    {
+      "original": "synth_controller_v23.js",
+      "packaged": "javascript/synth_controller_v23.js",
+      "original_sha256": "56b2535701348d68c379b63b6df72eaa687e1e8ee9a56e3cf7ebad0e76be4f82",
+      "packaged_sha256": "56b2535701348d68c379b63b6df72eaa687e1e8ee9a56e3cf7ebad0e76be4f82"
+    },
+    {
+      "original": "ADSR_Lane_08_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_08_v23.maxpat",
+      "original_sha256": "77b755eab9d30bbbec7bc73db9966b6ac718b748135f328f3b2d49a9006a3c15",
+      "original_document_sha256": "1acdee1b90ca9decbc6d4988d7887ac113cc52579cf8137def1a4fdc30baf1ff",
+      "path_field_changes": 2,
+      "packaged_sha256": "e856de2af8a33d9ef76b9c7bed97d893d34302c40d634f94de4a01caff8aba10"
+    },
+    {
+      "original": "ec_sinusoid_synth_stops_v23.js",
+      "packaged": "javascript/ec_sinusoid_synth_stops_v23.js",
+      "original_sha256": "a99755634d9a7c3e6b45e02ac1482d59df66f7d9239d336a997ebe1f159f9942",
+      "packaged_sha256": "a99755634d9a7c3e6b45e02ac1482d59df66f7d9239d336a997ebe1f159f9942"
+    },
+    {
+      "original": "detune_shape_library_v23.js",
+      "packaged": "javascript/detune_shape_library_v23.js",
+      "original_sha256": "60096342b5a2d88e493ec265edcdb92ff1968f72957d6ded5ce66fe07992e345",
+      "packaged_sha256": "60096342b5a2d88e493ec265edcdb92ff1968f72957d6ded5ce66fe07992e345"
+    },
+    {
+      "original": "NATIVE_MAX_CHECKLIST_v23.md",
+      "packaged": "diagnostics/documentation/NATIVE_MAX_CHECKLIST_v23.md",
+      "original_sha256": "f1e520b8c1a512d9f09deb22dacad02fb1feebfb95d5a946920e7ad99004be6b"
+    },
+    {
+      "original": "ADSR_Lane_05_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_05_v23.maxpat",
+      "original_sha256": "a6ae12a1456368b38fe446a40151557f515a4397ba1dc79af51b99c626b8a949",
+      "original_document_sha256": "fb77274c46ad36e602f9c5c634d39fa06047bb5a76903aac662655261c9a9e92",
+      "path_field_changes": 2,
+      "packaged_sha256": "56aa47998e8aafa6e7107693956d27170cd2cc9018f6b9c848171676635c281d"
+    },
+    {
+      "original": "SHA256SUMS_v23.txt",
+      "packaged": "diagnostics/SHA256SUMS_v23.txt",
+      "original_sha256": "c2bfa7af4fe7c8f0c31e471fd8d0044aec18b9936bc8907b43c705a11b32a5d6"
+    },
+    {
+      "original": "auto_level_compensation_v23.js",
+      "packaged": "javascript/auto_level_compensation_v23.js",
+      "original_sha256": "808f5628503a7a8596afa5f14236288148f3335581cefa37c97fecbcd0728b44",
+      "packaged_sha256": "808f5628503a7a8596afa5f14236288148f3335581cefa37c97fecbcd0728b44"
+    },
+    {
+      "original": "random_multislider_values_v23.js",
+      "packaged": "javascript/random_multislider_values_v23.js",
+      "original_sha256": "722ee4da11e17d7ece2de2ee79210d8586fcf65f76074d6afa049e002343aff7",
+      "packaged_sha256": "722ee4da11e17d7ece2de2ee79210d8586fcf65f76074d6afa049e002343aff7"
+    },
+    {
+      "original": "FEATURE_COMPARISON_v23.md",
+      "packaged": "diagnostics/documentation/FEATURE_COMPARISON_v23.md",
+      "original_sha256": "247e5df3cde212d213e59e1ca8600a37c48b7719c0d7ea9c9bda9dcde88297cc"
+    },
+    {
+      "original": "ADSR_Lane_11_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_11_v23.maxpat",
+      "original_sha256": "dd8b570b683abc5cc6391e264e11a8f473540098f19232407dc6d38a07ed2924",
+      "original_document_sha256": "5040c66d18e951997a2c612fd16f1926dbbe19043cece21b1d6b7045d166de12",
+      "path_field_changes": 2,
+      "packaged_sha256": "411f6c2b42883803be9de92480c50b6a324ece377a06ec30d58929c80a422c60"
+    },
+    {
+      "original": "multislider_interpolation_engine_v23_6.js",
+      "packaged": "javascript/multislider_interpolation_engine_v23_6.js",
+      "original_sha256": "96eca5fac32fd74018281b6eb6e314ae133229aa932a57179907cf100027bd60",
+      "packaged_sha256": "96eca5fac32fd74018281b6eb6e314ae133229aa932a57179907cf100027bd60"
+    },
+    {
+      "original": "ADSR_LANE_PANEL_v23.maxpat",
+      "packaged": "patchers/ADSR_LANE_PANEL_v23.maxpat",
+      "original_sha256": "40291a1779a1192c3be05b07fa23861abb30f516c779fcad8362a320bdc88501",
+      "original_document_sha256": "7f87e35bc184c225c573e531f7c43b05c6e1c5d895ddab7913c83bce70c8d516",
+      "path_field_changes": 14,
+      "packaged_sha256": "cfc7a7f37ab91ed71200c297df8d6739b83addd18026c7a5e8665a6de063a692"
+    },
+    {
+      "original": "weighted_partial_add_remove_v23.js",
+      "packaged": "javascript/weighted_partial_add_remove_v23.js",
+      "original_sha256": "8d021de0295edd6e543ababa18451d4298f0d38b6e33b8b92230a3522ce22c7d",
+      "packaged_sha256": "8d021de0295edd6e543ababa18451d4298f0d38b6e33b8b92230a3522ce22c7d"
+    },
+    {
+      "original": "VALIDATION_v23.json",
+      "packaged": "diagnostics/VALIDATION_v23.json",
+      "original_sha256": "7957bd22e6e1d960a631ebb3efdc9861683cb8c24a1972bc168d6aebf830e867"
+    },
+    {
+      "original": "multislider_interpolation_engine_v23.js",
+      "packaged": "javascript/multislider_interpolation_engine_v23.js",
+      "original_sha256": "3a5d80b833e8a459cb7892f0b0212529b3fe5bc37ffd81f7313badc5d2b8d5ca",
+      "packaged_sha256": "3a5d80b833e8a459cb7892f0b0212529b3fe5bc37ffd81f7313badc5d2b8d5ca"
+    },
+    {
+      "original": "Partial_Group_Manager_v23.js",
+      "packaged": "javascript/Partial_Group_Manager_v23.js",
+      "original_sha256": "94a8c94299788280d2e452ea6901dc28b74d341612d1adb4071906793096909b",
+      "packaged_sha256": "94a8c94299788280d2e452ea6901dc28b74d341612d1adb4071906793096909b"
+    },
+    {
+      "original": "ADSR_Lane_07_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_07_v23.maxpat",
+      "original_sha256": "07a866902ab2c3d5774d3d388406b78eb548c2cf2e9a86f4edba7008d1729e3f",
+      "original_document_sha256": "528f715f8ca044b9952de22eadf0b4689109af2162761aea643f591441971837",
+      "path_field_changes": 2,
+      "packaged_sha256": "005a51275635c001d73ec3c5dcb51718e71b127b0d29c867ed731e577c96c5c4"
+    },
+    {
+      "original": "_ec_sinusoids_synth_v23.maxpat",
+      "packaged": "patchers/_ec_sinusoids_synth_v23_main.maxpat",
+      "original_sha256": "9b861afef9f745e6140212931ff5ffb8a0cf11e58fa3bb6c7ebd889f0bd10df5",
+      "original_document_sha256": "b7ec3fbdc808ed13ddd8ee33d5201417361532c0d67cf0096f7a02c4bcd15d3d",
+      "path_field_changes": 46,
+      "packaged_sha256": "ae76744181849a2a6db92b88df8c3c5690488c38e4fdc7c8ce2e5914da83daaa"
+    },
+    {
+      "original": "DETUNE_SHAPES_v23.json",
+      "packaged": "diagnostics/DETUNE_SHAPES_v23.json",
+      "original_sha256": "1629f18966ab052a7e5dcfc067aa92d9ba54583e6cceaf9d75fdafc93998a1bd"
+    },
+    {
+      "original": "ADSR_Lane_02_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_02_v23.maxpat",
+      "original_sha256": "85e7be0fe95bc65f3ec2bf3088770d49fa014b1779b063b582affcbd076c3314",
+      "original_document_sha256": "e56b4e8cdb3af2f21d7703cc56c4a4edb83b25285bcbc7500fd98ff9e5b26d53",
+      "path_field_changes": 2,
+      "packaged_sha256": "b81e78a76ab2b31148c7d29bdda4fc001a118222b54b122e645f0bd41b0271d6"
+    },
+    {
+      "original": "organ_stops_research_v23.md",
+      "packaged": "diagnostics/documentation/organ_stops_research_v23.md",
+      "original_sha256": "a506af7f50f866951de10b762235e2c8f6a4160031474584c12a3c2a9890de54"
+    },
+    {
+      "original": "partial_offset_crossfade_v23_6.js",
+      "packaged": "javascript/partial_offset_crossfade_v23_6.js",
+      "original_sha256": "2ebb7c0948311ea0ff24e299d933bcfb364f4f01ad65e0e646052dec02b809e9",
+      "packaged_sha256": "2ebb7c0948311ea0ff24e299d933bcfb364f4f01ad65e0e646052dec02b809e9"
+    },
+    {
+      "original": "CONTROL_REFERENCE_v23.md",
+      "packaged": "diagnostics/documentation/CONTROL_REFERENCE_v23.md",
+      "original_sha256": "ba7daff663a89a304f204b3102f75c38c747d8347f25fade2abb9bdb3389d217"
+    },
+    {
+      "original": "sinusoid_model_transform_v23.js",
+      "packaged": "javascript/sinusoid_model_transform_v23.js",
+      "original_sha256": "85698ee2c40636d366c8bc13ff86e3e0e0d1a9f13612b9c20b010f2366bdf917",
+      "packaged_sha256": "85698ee2c40636d366c8bc13ff86e3e0e0d1a9f13612b9c20b010f2366bdf917"
+    },
+    {
+      "original": "cnmat_sinusoid_model_generator_v23.js",
+      "packaged": "javascript/cnmat_sinusoid_model_generator_v23.js",
+      "original_sha256": "82daa28bd7f4e36cc8655830f626c65d3ebfcd838ccc5ddb31f684881ff3b075",
+      "packaged_sha256": "82daa28bd7f4e36cc8655830f626c65d3ebfcd838ccc5ddb31f684881ff3b075"
+    },
+    {
+      "original": "RELEASE_NOTES_v23.md",
+      "packaged": "diagnostics/documentation/RELEASE_NOTES_v23.md",
+      "original_sha256": "c5de9846b807c2b0fd92d4a964884e53be20bfaa04c3e46ff2d7d743c90ac431"
+    },
+    {
+      "original": "VALIDATION_MICRO_DRIFT_v23.json",
+      "packaged": "diagnostics/VALIDATION_MICRO_DRIFT_v23.json",
+      "original_sha256": "56ac1f4c0fc72a76d72d39f86a59e84556328cffe820497ce6c40fe65773a5fa"
+    },
+    {
+      "original": "ADSR_Lane_01_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_01_v23.maxpat",
+      "original_sha256": "88c747790050c65f3e07aea4876f7186e77d319db1522db78419940a3b8224fe",
+      "original_document_sha256": "6b75edb642025ad83649ed92bd27cefc7a85b88775fbc31a3276f33870d60025",
+      "path_field_changes": 2,
+      "packaged_sha256": "088affd8c96df16f5949d40ffafa43814ed2c84f3f0d16fa8b19dd7c47962857"
+    },
+    {
+      "original": "automatic_lines_v5_ed.js",
+      "packaged": "javascript/automatic_lines_v5_ed.js",
+      "original_sha256": "a120c3891f074c0cb8fdd49583b9b74266d7dbbec1710af2ffca18532667a5e6",
+      "packaged_sha256": "a120c3891f074c0cb8fdd49583b9b74266d7dbbec1710af2ffca18532667a5e6"
+    },
+    {
+      "original": "Partial_Group_Manager_v23_6.js",
+      "packaged": "javascript/Partial_Group_Manager_v23_6.js",
+      "original_sha256": "6fbd1f4032513c14f346ecd1a58f40c2d676322776858dbc6031d1e696b649df",
+      "packaged_sha256": "6fbd1f4032513c14f346ecd1a58f40c2d676322776858dbc6031d1e696b649df"
+    },
+    {
+      "original": "ADSR_Lane_10_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_10_v23.maxpat",
+      "original_sha256": "232a73f1e2b53207d749755f6dff7cec776d2522ef40f8cd7dfcd01e4f72765a",
+      "original_document_sha256": "9a80e4311c217c1f3575fcd162e600e7a053c072746c3d9f737df850307b15e7",
+      "path_field_changes": 2,
+      "packaged_sha256": "8010e7b46bae36abcbcbc9094f29b463ec5ad7548b5ceedf5d8bc7596e1bfa7d"
+    },
+    {
+      "original": "dynamic_shape_library_weights_v23.js",
+      "packaged": "javascript/dynamic_shape_library_weights_v23.js",
+      "original_sha256": "b53ac36f4789f777ea47c8ec39c2943a550a5ecd29b27583581a8f83368580c1",
+      "packaged_sha256": "b53ac36f4789f777ea47c8ec39c2943a550a5ecd29b27583581a8f83368580c1"
+    },
+    {
+      "original": "Send_Message_Space_v23.maxpat",
+      "packaged": "patchers/Send_Message_Space_v23.maxpat",
+      "original_sha256": "f77fe8fabe4dc71fca32b46acbeceaed26c803bfa653ec6d8f463c1ae6f2f0c1",
+      "original_document_sha256": "8cccadd10c6d22819c6d3082ff65ef0fe28d77a1734e996fce6699c14b80efe0",
+      "path_field_changes": 0,
+      "packaged_sha256": "f77fe8fabe4dc71fca32b46acbeceaed26c803bfa653ec6d8f463c1ae6f2f0c1"
+    },
+    {
+      "original": "multislider_interpolation_engine_v23_add_restore.js",
+      "packaged": "javascript/multislider_interpolation_engine_v23_add_restore.js",
+      "original_sha256": "113255885e3297f15f8efea4a345e8da508f44f61725eb18aaf323592261c0d2",
+      "packaged_sha256": "113255885e3297f15f8efea4a345e8da508f44f61725eb18aaf323592261c0d2"
+    },
+    {
+      "original": "DIAGNOSTICS_v23.md",
+      "packaged": "diagnostics/documentation/DIAGNOSTICS_v23.md",
+      "original_sha256": "119604330ae41bf4de10c4654852bf5c76b587c3ca8b014bf67d58064e6bda53"
+    },
+    {
+      "original": "ADSR_Lane_09_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_09_v23.maxpat",
+      "original_sha256": "fb5a0ee943972f02a99d608e7f2780b9b1470fb9d2c6f9e960aedd37ba55511d",
+      "original_document_sha256": "f3e749085c3b29cd370483b139a9f45d7dcd141e1158b5f4ec7632a28d675ae2",
+      "path_field_changes": 2,
+      "packaged_sha256": "a46c5bc26cc0a340ff005343dcecf91b5739afa896d02785b8331c1624c3f66d"
+    },
+    {
+      "original": "ADSR_Lane_04_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_04_v23.maxpat",
+      "original_sha256": "13a275bed1da2d442c682eba811ddc79d82b1bc898e61f775cf92b68555dd0e4",
+      "original_document_sha256": "dd684f6670ecbc268b20853ef53725598db8a469f0445f38544570338355b7d0",
+      "path_field_changes": 2,
+      "packaged_sha256": "693c75ed727389e0d6e7e055c2a60a4e55dd70dae1ad88d92de76e3cc474e5ed"
+    },
+    {
+      "original": "adsr_full_on_start_v23_6.js",
+      "packaged": "javascript/adsr_full_on_start_v23_6.js",
+      "original_sha256": "3eba72823b727cffcf48e2716d904eb711f8f31ac119ad0cb2f03e167d538353",
+      "packaged_sha256": "3eba72823b727cffcf48e2716d904eb711f8f31ac119ad0cb2f03e167d538353"
+    },
+    {
+      "original": "ADSR_Lane_03_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_03_v23.maxpat",
+      "original_sha256": "f1b70631a18eb8572818ae651f68e135e0b708943d54900c5bd86fc8489d3f35",
+      "original_document_sha256": "d96b10e3aabf74e1ff6a69a5dcede6aa83132e1e623b54e4b813b74f6f572cab",
+      "path_field_changes": 2,
+      "packaged_sha256": "edd598b697e71e7b0049ad630eb22331911cb195c4314f3f7bd7fe6961600bae"
+    },
+    {
+      "original": "global_retuning_controller_v23.js",
+      "packaged": "javascript/global_retuning_controller_v23.js",
+      "original_sha256": "4dcdf00602cca90107c5921f399c1e60881189052a031ac9dbc3b5c7129d0357",
+      "packaged_sha256": "4dcdf00602cca90107c5921f399c1e60881189052a031ac9dbc3b5c7129d0357"
+    },
+    {
+      "original": "README_v23.md",
+      "packaged": "diagnostics/documentation/README_v23.md",
+      "original_sha256": "ab0a6457c9d41ab460c710f856dc40bf8c07e8d08ada2f7b3fd7ec0effbaa05b"
+    },
+    {
+      "original": "run_diagnostics_v23.py",
+      "packaged": "diagnostics/run_diagnostics_v23.py",
+      "original_sha256": "48e4c869bd772f029aca28542cbf6eab6729a00c8e9e91eb6d811b71336c2adc"
+    },
+    {
+      "original": "component_index_ruler_v23.js",
+      "packaged": "javascript/component_index_ruler_v23.js",
+      "original_sha256": "025f85ef985366bd39d1a053be6c704d5b83ec48e5c1014c1f567e437840f62f",
+      "packaged_sha256": "025f85ef985366bd39d1a053be6c704d5b83ec48e5c1014c1f567e437840f62f"
+    },
+    {
+      "original": "AUTOMIXER_MESSAGE_SPACE_v23.md",
+      "packaged": "diagnostics/documentation/AUTOMIXER_MESSAGE_SPACE_v23.md",
+      "original_sha256": "4dad1574368687a5b3d2e6341b68cc7b326f49a80e7f1fa0b07eec1bd7c12494"
+    },
+    {
+      "original": "ADSR_Lane_12_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_12_v23.maxpat",
+      "original_sha256": "b3ee66407f67b0fdca43a7963d1e780f5bfc459f792b0b305f81de45f87669ad",
+      "original_document_sha256": "aad1ef9cca40664f09295cb8ddbcd8de35ff9c94fa2ca55dba3e5596ac628771",
+      "path_field_changes": 2,
+      "packaged_sha256": "93191785cc3a2c66515447cdd08c26ac8bacf7226c881115c5eb2a07a4b22710"
+    },
+    {
+      "original": "automatic_lines_v5_ed.maxhelp",
+      "packaged": "patchers/automatic_lines_v5_ed.maxhelp",
+      "original_sha256": "53970ca2ce5dc3c7f94369d05486d4c08f1e59a3f6b973908fb4af9bf4e07d11",
+      "original_document_sha256": "ab5e4abfe88379626d03c9206f3ecc78891840e7f1890af70d13d40ceca47f82",
+      "path_field_changes": 8,
+      "packaged_sha256": "f7e60797c1512c17c38f5d0826eee89af6429d2c2d8207badc20b2ca5641d3fd"
+    },
+    {
+      "original": "weighted_partial_removal_v23.js",
+      "packaged": "javascript/weighted_partial_removal_v23.js",
+      "original_sha256": "ec280f8542f6ea4dae5913261899d7ed089b1740877dce400849b7f85eda41ee",
+      "packaged_sha256": "ec280f8542f6ea4dae5913261899d7ed089b1740877dce400849b7f85eda41ee"
+    },
+    {
+      "original": "dynamic_shape_library_v23.js",
+      "packaged": "javascript/dynamic_shape_library_v23.js",
+      "original_sha256": "fd49d0ef0aaa98bbd0e4b6118cffdb55296b9b548d57812c960cbdba2e9ee2c0",
+      "packaged_sha256": "fd49d0ef0aaa98bbd0e4b6118cffdb55296b9b548d57812c960cbdba2e9ee2c0"
+    },
+    {
+      "original": "ADSR_Lane_06_v23.maxpat",
+      "packaged": "patchers/ADSR_Lane_06_v23.maxpat",
+      "original_sha256": "13aef136cb0eb470e61953dcfe5670fff0a3e9caffec36553eae637a9c859f1a",
+      "original_document_sha256": "1657644d48c39b8f2aa9a3a16d9cb4150ed3b66c96ef9e055bf7823655b34d4b",
+      "path_field_changes": 2,
+      "packaged_sha256": "f1423608fbd99d0f36f49cbdcfbdf59d1475bed598f0686cfec061d0d91abed4"
+    },
+    {
+      "original": "ec_sinusoid_synth_stops_v23.maxpat",
+      "packaged": "patchers/ec_sinusoid_synth_stops_v23.maxpat",
+      "original_sha256": "f43dffcbcda74297538463eac40313a82174388b603b5ef5f18e01f00da410b2",
+      "original_document_sha256": "9f48eb614c8828189b7e3f181b62e0b592b914dcbe637b9a61b8bd43dea9fdeb",
+      "path_field_changes": 3,
+      "packaged_sha256": "f7856c076f2709bb6b63f5df1f8289c2e549fc99527b8bed609a480d9fd3b652"
+    },
+    {
+      "original": "Envelope-Shaper_01_v23.maxpat",
+      "packaged": "patchers/Envelope-Shaper_01_v23.maxpat",
+      "original_sha256": "36b0d714e76decf81aab94ebdc2f333fea78cde4cb517c5b2e5ab4ed8b077344",
+      "original_document_sha256": "c731c67b22c5e03f325a2331db6d118fe032407092387230b58d2d602f85474a",
+      "path_field_changes": 0,
+      "packaged_sha256": "36b0d714e76decf81aab94ebdc2f333fea78cde4cb517c5b2e5ab4ed8b077344"
+    },
+    {
+      "original": "diagnostics/test_preset_v23.cjs",
+      "packaged": "diagnostics/test_preset_v23.cjs",
+      "original_sha256": "de51ffa4707458ce3d9dcaede54878f250df7569bc9e41097862c4f988a9b832"
+    },
+    {
+      "original": "diagnostics/tests_retuning_accuracy_v23.cjs",
+      "packaged": "diagnostics/tests_retuning_accuracy_v23.cjs",
+      "original_sha256": "241d8e918717eb4f67ffedea0d361627ebb862b92995216f0f959721503bc677"
+    },
+    {
+      "original": "diagnostics/build_source_map_v23.json",
+      "packaged": "diagnostics/build_source_map_v23.json",
+      "original_sha256": "b87c16150199632ef9c30be2fedd79b99e7ac9c00015b4130c0abeea4e44beba"
+    },
+    {
+      "original": "diagnostics/lane_delay_results_v23.json",
+      "packaged": "diagnostics/lane_delay_results_v23.json",
+      "original_sha256": "359d42d664556185cf31d767fbd3d428a9ff344c2b7fbe920940962c6c222fe2"
+    },
+    {
+      "original": "diagnostics/tests_octave_families_stage_v23.cjs",
+      "packaged": "diagnostics/tests_octave_families_stage_v23.cjs",
+      "original_sha256": "0a343a42a03a166d1f7e967a8ec3773ff728b6b1bc1210810cbf82cdda2b42b2"
+    },
+    {
+      "original": "diagnostics/preservation_results_v23.json",
+      "packaged": "diagnostics/preservation_results_v23.json",
+      "original_sha256": "017d1f3694f1fa3839c2071f93b62990b121cfd9c233ad06feb44d3c5cfd185a"
+    },
+    {
+      "original": "diagnostics/automixer_provenance_v23.json",
+      "packaged": "diagnostics/automixer_provenance_v23.json",
+      "original_sha256": "b5574d6ada85c75131d9ece1380335e8a401a4e81337446bdb6df96daa71cb5f"
+    },
+    {
+      "original": "diagnostics/startup_results_v23.json",
+      "packaged": "diagnostics/startup_results_v23.json",
+      "original_sha256": "4607aa29fdb9b1541997a7507148e9e0b7295414bcc4abfa2789fa41f9175168"
+    },
+    {
+      "original": "diagnostics/tests_workspace_stage_v23.cjs",
+      "packaged": "diagnostics/tests_workspace_stage_v23.cjs",
+      "original_sha256": "0bf9a8980589f97851967e136642465b9cb42f7c9ba2854332bf1bc5960c8274"
+    },
+    {
+      "original": "diagnostics/tests_partial_group_manager_v23.cjs",
+      "packaged": "diagnostics/tests_partial_group_manager_v23.cjs",
+      "original_sha256": "d09ff5ff0eb7e9af71520a71cc13c11695b6bd3a2728c03f3bcf126065ef8367"
+    },
+    {
+      "original": "diagnostics/diagnostic_results_v23.json",
+      "packaged": "diagnostics/diagnostic_results_v23.json",
+      "original_sha256": "0ba92c3731ef4119ce2c6d402d1fad127c739e1eab7cb2cb066d601d24f92ad4"
+    },
+    {
+      "original": "diagnostics/tests_current_core_v23.cjs",
+      "packaged": "diagnostics/tests_current_core_v23.cjs",
+      "original_sha256": "b632702fe8fdad489d0646221f41d48a17287531cdec3f1be573ec4f951aa1ed"
+    },
+    {
+      "original": "diagnostics/engine_files_v23.json",
+      "packaged": "diagnostics/engine_files_v23.json",
+      "original_sha256": "d70b2728eb39b4535d2a2f22f503ec826a40925217e799c5f47b172cfb7904bd"
+    },
+    {
+      "original": "diagnostics/automixer_test_harness_v23.cjs",
+      "packaged": "diagnostics/automixer_test_harness_v23.cjs",
+      "original_sha256": "8d98940d87ae8bba292ba28d66a74fabfad57307011b4a367bf73eba3b633fc3"
+    },
+    {
+      "original": "diagnostics/test_engines_v23.cjs",
+      "packaged": "diagnostics/test_engines_v23.cjs",
+      "original_sha256": "89f937cbac74873f6e944c5ce2c43eb73a29bab5f3ca98c5c502a6d4bdea2b74"
+    },
+    {
+      "original": "diagnostics/test_keyboard_v23.cjs",
+      "packaged": "diagnostics/test_keyboard_v23.cjs",
+      "original_sha256": "dc7ca53882b04cef92174f6cde725d6e3cef6575a99a5d6b249b9cdb93c460c4"
+    },
+    {
+      "original": "diagnostics/v23_message_examples.json",
+      "packaged": "diagnostics/v23_message_examples.json",
+      "original_sha256": "25f44acb0df16af668c0fd02083e6098dfa5878f7d0508e072b484cabe907bc2"
+    },
+    {
+      "original": "diagnostics/README.md",
+      "packaged": "diagnostics/README.md",
+      "original_sha256": "cd87c61ee3b88346c04dd1fb31984e9db69f34ce8cd89c46baffe01f8c848381"
+    },
+    {
+      "original": "diagnostics/tests_stage_v23.cjs",
+      "packaged": "diagnostics/tests_stage_v23.cjs",
+      "original_sha256": "df26b52a9cc4d965946629135ba8f616ef813c4a47692e188ffb89697759dd88"
+    },
+    {
+      "original": "diagnostics/tests_automatic_lines_v5_ed_v23.cjs",
+      "packaged": "diagnostics/tests_automatic_lines_v5_ed_v23.cjs",
+      "original_sha256": "8bd075bd92a3db9eb052953713fc93741bcd59209a86ab02342cec5ef136cbce"
+    },
+    {
+      "original": "diagnostics/tests_v23_changes_and_stops_v23.cjs",
+      "packaged": "diagnostics/tests_v23_changes_and_stops_v23.cjs",
+      "original_sha256": "87bcccdbed014d242a291654b7a2cce8886ebabc1e3d075b365410d5b33fc627"
+    },
+    {
+      "original": "diagnostics/test_lane_delay_v23.cjs",
+      "packaged": "diagnostics/test_lane_delay_v23.cjs",
+      "original_sha256": "dc54ba564e580b386f163ed17eea848082b3336cf85924cd8f3c1852b6d7a1f4"
+    },
+    {
+      "original": "diagnostics/tests_envelope_shaper01_v23.cjs",
+      "packaged": "diagnostics/tests_envelope_shaper01_v23.cjs",
+      "original_sha256": "e8ff1f3fa5e1fad9658400b3be9d4c2bc450ec03038345715466cfa5a32a917e"
+    },
+    {
+      "original": "diagnostics/source_reference_v23.json",
+      "packaged": "diagnostics/source_reference_v23.json",
+      "original_sha256": "ff7a1ab7ddf6c9efa29e20cd6a0a2d81ea815b9b4609fc19ed3494ac006becb1"
+    },
+    {
+      "original": "diagnostics/tests_automixer_message_space_v23.cjs",
+      "packaged": "diagnostics/tests_automixer_message_space_v23.cjs",
+      "original_sha256": "8f9fec71b8149a30a24e4d76a71589a676b8822ef366d8934a6cc7b662eb980c"
+    },
+    {
+      "original": "diagnostics/preset_manifest_v23.json",
+      "packaged": "diagnostics/preset_manifest_v23.json",
+      "original_sha256": "80be3e0b3f5fce7209523d474292f75477e47eab12dbc76ab003e91fece3237a"
+    },
+    {
+      "original": "diagnostics/tests_detune_v23.cjs",
+      "packaged": "diagnostics/tests_detune_v23.cjs",
+      "original_sha256": "4d0d1fd723b30d7ccf9a52dcf4581ba23c9573b541eb8277e47e3525d4c20779"
+    },
+    {
+      "original": "diagnostics/current_core_checks_results_v23.json",
+      "packaged": "diagnostics/current_core_checks_results_v23.json",
+      "original_sha256": "6042faaf4045c87390a19e42fcee4f8e18221d17f75b853dbbe74bf880b3b777"
+    },
+    {
+      "original": "diagnostics/tests_score_execution_v23.cjs",
+      "packaged": "diagnostics/tests_score_execution_v23.cjs",
+      "original_sha256": "4bf883ac7117cfef4686c5cda20bde9234eac050cfda269fbd9fb48df5ea1e5e"
+    },
+    {
+      "original": "diagnostics/test_startup_v23.cjs",
+      "packaged": "diagnostics/test_startup_v23.cjs",
+      "original_sha256": "bc2962a22fd1551b1b4d845ee4be753ffaf2c5aa6703c0efdd9866750ef7a1b1"
+    },
+    {
+      "original": "diagnostics/keyboard_results_v23.json",
+      "packaged": "diagnostics/keyboard_results_v23.json",
+      "original_sha256": "3c6dfd9d9ffa965e814f54de2d1fa47671205d97768c9cd546a8c28662a8fa7d"
+    },
+    {
+      "original": "diagnostics/tests_copy_amplitudes_v23.cjs",
+      "packaged": "diagnostics/tests_copy_amplitudes_v23.cjs",
+      "original_sha256": "d473cb94e38723767eeb957f0135fab692da3882e277371fa3990d1e99ff5b9d"
+    },
+    {
+      "original": "diagnostics/preset_results_v23.json",
+      "packaged": "diagnostics/preset_results_v23.json",
+      "original_sha256": "9ede482ee97c9ea2c364b57e1c86527d39e7e13f937232fb4bb094851f4c3e6d"
+    },
+    {
+      "original": "diagnostics/engine_results_v23.json",
+      "packaged": "diagnostics/engine_results_v23.json",
+      "original_sha256": "79bbee5d7ebc5bf3b50194a510bdff3d8b1e19b5b587f9fb9af0e6a23b444757"
+    },
+    {
+      "original": "diagnostics/tests_automixer_integration_v23.cjs",
+      "packaged": "diagnostics/tests_automixer_integration_v23.cjs",
+      "original_sha256": "1b966800e5ac6dfe5de7b4caa3ea06b5943a3f2c3622b21d71eee694c7a098cd"
+    },
+    {
+      "original": "diagnostics/tests_seeded_micro_drift_v23.cjs",
+      "packaged": "diagnostics/tests_seeded_micro_drift_v23.cjs",
+      "original_sha256": "7b74c0714e95871e5628e6e0e88e22635fe17e83d65c7ed6f7e825f720d6c30c"
+    },
+    {
+      "original": "diagnostics/automixer_message_examples_v23.json",
+      "packaged": "diagnostics/automixer_message_examples_v23.json",
+      "original_sha256": "fb5cb8a44f4699390a7e496f9248313ca3f3dc0f8d06b768d943559e1ada9c56"
+    },
+    {
+      "original": "diagnostics/tests_micro_drift_v23.cjs",
+      "packaged": "diagnostics/tests_micro_drift_v23.cjs",
+      "original_sha256": "9ca8778c66bba585b3bbbe3bcf61b5f5ed502ceda9d4b13ce192a5fed468470d"
+    },
+    {
+      "original": "diagnostics/logs/tests_workspace_stage_v23.log",
+      "packaged": "diagnostics/logs/tests_workspace_stage_v23.log",
+      "original_sha256": "ea36d371c41cf1f0335bb3f88f0f22bebd2782578c3a8549a9e5a3291d99f81f"
+    },
+    {
+      "original": "diagnostics/logs/tests_partial_group_manager_v23.log",
+      "packaged": "diagnostics/logs/tests_partial_group_manager_v23.log",
+      "original_sha256": "a5671f7862ac89c5679a126da59cd92062f9263be66e1fed63310862d3af31a4"
+    },
+    {
+      "original": "diagnostics/logs/tests_current_core_v23.log",
+      "packaged": "diagnostics/logs/tests_current_core_v23.log",
+      "original_sha256": "b36644f488938ae970c0f3d53da62f83ec2a3e9eecc80279cfd3a4b9b93a4de9"
+    },
+    {
+      "original": "diagnostics/logs/test_engines_v23.log",
+      "packaged": "diagnostics/logs/test_engines_v23.log",
+      "original_sha256": "01dfc3f6e557fb96a4dac6b4436ff519fc7470de47a12ac7c701c676b4df9109"
+    },
+    {
+      "original": "diagnostics/logs/test_preset_v23.log",
+      "packaged": "diagnostics/logs/test_preset_v23.log",
+      "original_sha256": "d8ea284eb086518c22c03c15d04a8eb4c2b0f5f6aff29c88eac8c01a81d7fb1a"
+    },
+    {
+      "original": "diagnostics/logs/tests_retuning_accuracy_v23.log",
+      "packaged": "diagnostics/logs/tests_retuning_accuracy_v23.log",
+      "original_sha256": "0a24ccb5420f69f13ae91dbff33de29b713d76c5619dc2a0f30b0bf4a7397d3a"
+    },
+    {
+      "original": "diagnostics/logs/tests_octave_families_stage_v23.log",
+      "packaged": "diagnostics/logs/tests_octave_families_stage_v23.log",
+      "original_sha256": "92c68b66188562da3dded1117224fa047dfc8080319e0c08fcdb158c0330747b"
+    },
+    {
+      "original": "diagnostics/logs/tests_automixer_message_space_v23.log",
+      "packaged": "diagnostics/logs/tests_automixer_message_space_v23.log",
+      "original_sha256": "383c278dd301532db859328e55a6bbbb5366c6d8eaf129f18a9e71332e8a107d"
+    },
+    {
+      "original": "diagnostics/logs/tests_detune_v23.log",
+      "packaged": "diagnostics/logs/tests_detune_v23.log",
+      "original_sha256": "7957bd22e6e1d960a631ebb3efdc9861683cb8c24a1972bc168d6aebf830e867"
+    },
+    {
+      "original": "diagnostics/logs/tests_score_execution_v23.log",
+      "packaged": "diagnostics/logs/tests_score_execution_v23.log",
+      "original_sha256": "6b396dec5f35787a713645347bddfce0f61948ee1490b1527db91be2569ecc1f"
+    },
+    {
+      "original": "diagnostics/logs/test_startup_v23.log",
+      "packaged": "diagnostics/logs/test_startup_v23.log",
+      "original_sha256": "4607aa29fdb9b1541997a7507148e9e0b7295414bcc4abfa2789fa41f9175168"
+    },
+    {
+      "original": "diagnostics/logs/tests_copy_amplitudes_v23.log",
+      "packaged": "diagnostics/logs/tests_copy_amplitudes_v23.log",
+      "original_sha256": "b113f9e00db5bab8a5618f9da3283b6ad13c02d25b6ab0b1c96460b7203a32fa"
+    },
+    {
+      "original": "diagnostics/logs/tests_automixer_integration_v23.log",
+      "packaged": "diagnostics/logs/tests_automixer_integration_v23.log",
+      "original_sha256": "65bb1905dfaad2b93ab45d91b29a81267b4671317bd80d9ae029984e97ab7db0"
+    },
+    {
+      "original": "diagnostics/logs/tests_seeded_micro_drift_v23.log",
+      "packaged": "diagnostics/logs/tests_seeded_micro_drift_v23.log",
+      "original_sha256": "759ebda070347ed9f836ce0fde49207e6df32aaa9a9f600ff62d024c2111d5a5"
+    },
+    {
+      "original": "diagnostics/logs/tests_micro_drift_v23.log",
+      "packaged": "diagnostics/logs/tests_micro_drift_v23.log",
+      "original_sha256": "b1a1c2a336de30e3d3b8303438fa94a91cf9fafc9938bc939143f203fc710f1d"
+    },
+    {
+      "original": "diagnostics/logs/test_keyboard_v23.log",
+      "packaged": "diagnostics/logs/test_keyboard_v23.log",
+      "original_sha256": "6410913ecc6eac7df71b28915fdba2b1bb4962df5039f7aa7aee49d0b02c481e"
+    },
+    {
+      "original": "diagnostics/logs/tests_automatic_lines_v5_ed_v23.log",
+      "packaged": "diagnostics/logs/tests_automatic_lines_v5_ed_v23.log",
+      "original_sha256": "0157ed8deb20bcd4a4d049d481928dccb7f6c43bc7af4ce3ba5629db14331249"
+    },
+    {
+      "original": "diagnostics/logs/tests_stage_v23.log",
+      "packaged": "diagnostics/logs/tests_stage_v23.log",
+      "original_sha256": "50a9b0062d5e883e1f8fd865523ea307c521746c3d1e58cf01f57ddc53968e03"
+    },
+    {
+      "original": "diagnostics/logs/tests_v23_changes_and_stops_v23.log",
+      "packaged": "diagnostics/logs/tests_v23_changes_and_stops_v23.log",
+      "original_sha256": "7219151b87926bf44d3f8130a082410cbb33b2331675355b918d9553114d5877"
+    },
+    {
+      "original": "diagnostics/logs/test_lane_delay_v23.log",
+      "packaged": "diagnostics/logs/test_lane_delay_v23.log",
+      "original_sha256": "359d42d664556185cf31d767fbd3d428a9ff344c2b7fbe920940962c6c222fe2"
+    },
+    {
+      "original": "diagnostics/logs/tests_envelope_shaper01_v23.log",
+      "packaged": "diagnostics/logs/tests_envelope_shaper01_v23.log",
+      "original_sha256": "ac63a476aa69883b5417b2ee22b45786fdc3d8dbaeca2e45c316d5bd3a1d17c0"
+    }
+  ],
+  "path_edits": {},
+  "loader_repair": {
+    "entry": "_ec_sinusoids_synth_v23.maxpat",
+    "full_synth": "patchers/_ec_sinusoids_synth_v23_main.maxpat",
+    "source_zip": "ec_cnmat_sinusoids_synth_v23(1).zip",
+    "source_zip_sha256": "6ce627a8d62831ec6dfeb7a148000cc63f16430e641b80c462198f87b7151062",
+    "previous_organized_sha256": "af502c1349e9b36357d32ce9e894997e9f73f38e5be83c8515b95464eec0cb2c",
+    "strategy": "Native-object-only launcher registers two absolute session search paths BEFORE pcontrol loadunique opens the byte-identical full synth as an independent top-level patch.",
+    "synthesis_runtime_files_changed": 0,
+    "restored_path_fields": 95
+  }
+}

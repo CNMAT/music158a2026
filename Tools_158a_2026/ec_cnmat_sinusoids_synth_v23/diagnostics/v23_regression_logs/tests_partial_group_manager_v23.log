@@ -1,0 +1,10 @@
+{
+  "assertions": 1555,
+  "permanent_ids": 512,
+  "render_lanes": 12,
+  "spatial_groups_tested": 5,
+  "resize_identity_preserved": true,
+  "anchor_identity_preserved": true,
+  "deterministic_seed": true,
+  "routing_messages": 144
+}

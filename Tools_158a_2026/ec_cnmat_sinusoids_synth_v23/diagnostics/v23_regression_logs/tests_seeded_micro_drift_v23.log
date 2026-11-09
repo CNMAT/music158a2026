@@ -1,0 +1,1 @@
+PASS: 300 paired 256-slot seeded walk frames; 229500 anchor/amplitude assertions; repeated seeds, resize stability, timing continuity, accumulated walk, positive/zero amount behavior, tagged transform movement, paired identities, parameter clamps, held transactions and tagged render wiring.

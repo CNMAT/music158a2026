@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 49020,
+  "detune_shape_count_combinations": 23970,
+  "engine_kinds": 13,
+  "limitations": [
+    "Node executes real JavaScript with mocked Task/Dict/clock and no DSP."
+  ]
+}

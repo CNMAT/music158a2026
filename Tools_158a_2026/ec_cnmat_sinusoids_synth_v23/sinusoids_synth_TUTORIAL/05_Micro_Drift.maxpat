@@ -1,0 +1,3165 @@
+{
+  "patcher": {
+    "fileversion": 1,
+    "appversion": {
+      "major": 9,
+      "minor": 0,
+      "revision": 0,
+      "architecture": "x64",
+      "modernui": 1
+    },
+    "classnamespace": "box",
+    "rect": [
+      100.0,
+      100.0,
+      560.0,
+      402.0
+    ],
+    "openinpresentation": 1,
+    "default_fontsize": 11.5,
+    "default_fontface": 0,
+    "default_fontname": "Arial",
+    "bgcolor": [
+      0.94,
+      0.95,
+      0.965,
+      1.0
+    ],
+    "editing_bgcolor": [
+      0.94,
+      0.95,
+      0.965,
+      1.0
+    ],
+    "locked_bgcolor": [
+      0.94,
+      0.95,
+      0.965,
+      1.0
+    ],
+    "enablehscroll": 1,
+    "enablevscroll": 1,
+    "title": "05 | Micro-drift",
+    "boxes": [
+      {
+        "box": {
+          "id": "tut-1",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            10.0,
+            424.0,
+            21.0
+          ],
+          "text": "05 Micro-drift",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            10.0,
+            424.0,
+            21.0
+          ],
+          "fontsize": 16.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 1,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-2",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            39.0,
+            536.0,
+            17.0
+          ],
+          "text": "Add small moving pitch changes without redrawing the detune pattern.",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            39.0,
+            536.0,
+            17.0
+          ],
+          "fontsize": 12.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-3",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            58.0,
+            536.0,
+            16.0
+          ],
+          "text": "WHERE Main page DRIFT and p Micro-Drift.",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            58.0,
+            536.0,
+            16.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-4",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            78.0,
+            109.0,
+            22.0
+          ],
+          "text": "1  Prepare lesson",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            78.0,
+            109.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Replace the live spectrum and lesson settings; keep global gain at zero. Sends the documented ordered lesson setup.",
+          "annotation": "Replace the live spectrum and lesson settings; keep global gain at zero. Sends the documented ordered lesson setup.",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-8",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            160.0,
+            78.0,
+            388.0,
+            29.0
+          ],
+          "text": "Replaces the live sound, not stored slots. Wait, then Listen; enable DSP\nmanually.",
+          "presentation": 1,
+          "presentation_rect": [
+            160.0,
+            78.0,
+            388.0,
+            29.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "hint": "Resets the live sound. No user-function slots are overwritten.\nWait for controls to settle, then use Listen. DSP stays as you set it.",
+          "annotation": "Resets the live sound. No user-function slots are overwritten.\nWait for controls to settle, then use Listen. DSP stays as you set it.",
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 2
+        }
+      },
+      {
+        "box": {
+          "id": "tut-10",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            112.0,
+            79.0,
+            22.0
+          ],
+          "text": "Listen / hold",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            112.0,
+            79.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.25,
+            0.82,
+            0.3,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Start the steady spectrum before adding movement. Sends: gain 0.1; trigger",
+          "annotation": "Start the steady spectrum before adding movement. Sends: gain 0.1; trigger",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.25,
+            0.82,
+            0.3,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-14",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            184.0,
+            114.0,
+            364.0,
+            17.0
+          ],
+          "text": "Start the steady spectrum before adding movement.",
+          "presentation": 1,
+          "presentation_rect": [
+            184.0,
+            114.0,
+            364.0,
+            17.0
+          ],
+          "fontsize": 11.5,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-15",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            138.0,
+            53.0,
+            22.0
+          ],
+          "text": "Drift on",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            138.0,
+            53.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Enable the random walk at half amount. Sends: control Max_Drift 0.5; control Micro_On 1",
+          "annotation": "Enable the random walk at half amount. Sends: control Max_Drift 0.5; control Micro_On 1",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-19",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            184.0,
+            140.0,
+            364.0,
+            17.0
+          ],
+          "text": "Enable the random walk at half amount.",
+          "presentation": 1,
+          "presentation_rect": [
+            184.0,
+            140.0,
+            364.0,
+            17.0
+          ],
+          "fontsize": 11.5,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-20",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            164.0,
+            81.0,
+            22.0
+          ],
+          "text": "Larger steps",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            164.0,
+            81.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Set each walk step to 1 Hz. Sends: control Micro_Depth_Hz 1",
+          "annotation": "Set each walk step to 1 Hz. Sends: control Micro_Depth_Hz 1",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-24",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            184.0,
+            166.0,
+            364.0,
+            17.0
+          ],
+          "text": "Set each walk step to 1 Hz.",
+          "presentation": 1,
+          "presentation_rect": [
+            184.0,
+            166.0,
+            364.0,
+            17.0
+          ],
+          "fontsize": 11.5,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-25",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            190.0,
+            83.0,
+            22.0
+          ],
+          "text": "Slower steps",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            190.0,
+            83.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Give each step 3000 ms. Sends: control Micro_Segment_ms 3000",
+          "annotation": "Give each step 3000 ms. Sends: control Micro_Segment_ms 3000",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-29",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            184.0,
+            192.0,
+            364.0,
+            17.0
+          ],
+          "text": "Give each step 3000 ms.",
+          "presentation": 1,
+          "presentation_rect": [
+            184.0,
+            192.0,
+            364.0,
+            17.0
+          ],
+          "fontsize": 11.5,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-30",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            216.0,
+            53.0,
+            22.0
+          ],
+          "text": "Drift off",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            216.0,
+            53.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 12.0,
+          "bgcolor": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Return the accumulated offsets toward zero over 2000 ms. Sends: control Micro_On 0",
+          "annotation": "Return the accumulated offsets toward zero over 2000 ms. Sends: control Micro_On 0",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.8,
+            0.87,
+            0.93,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-34",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            184.0,
+            218.0,
+            364.0,
+            17.0
+          ],
+          "text": "Return the accumulated offsets toward zero over 2000 ms.",
+          "presentation": 1,
+          "presentation_rect": [
+            184.0,
+            218.0,
+            364.0,
+            17.0
+          ],
+          "fontsize": 11.5,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-35",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            245.0,
+            536.0,
+            16.0
+          ],
+          "text": "LISTEN Hear pitch move around steady anchors. Walk steps accumulate.",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            245.0,
+            536.0,
+            16.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "hint": "LISTEN  Listen for movement around the steady anchors. Step size is not a maximum total excursion: the walk accumulates.",
+          "annotation": "LISTEN  Listen for movement around the steady anchors. Step size is not a maximum total excursion: the walk accumulates.",
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-36",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            264.0,
+            536.0,
+            16.0
+          ],
+          "text": "NOTE Amount scales the walk; Step Hz and time set movement. OFF time sets the return.",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            264.0,
+            536.0,
+            16.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "hint": "NOTICE  Amount scales the walk. Step Hz and segment ms set its movement. OFF morph time sets its return to zero.",
+          "annotation": "NOTICE  Amount scales the walk. Step Hz and segment ms set its movement. OFF morph time sets its return to zero.",
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-37",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            12.0,
+            283.0,
+            536.0,
+            16.0
+          ],
+          "text": "TRY Compare slow 0.3 Hz steps with fast 1 Hz steps.",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            283.0,
+            536.0,
+            16.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "hint": "TRY NEXT  Compare a slow 0.3 Hz step with a fast 1 Hz step. Keep the output level unchanged.",
+          "annotation": "TRY NEXT  Compare a slow 0.3 Hz step with a fast 1 Hz step. Keep the output level unchanged.",
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "tut-38",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            12.0,
+            305.0,
+            128.0,
+            22.0
+          ],
+          "text": "SILENCE ALL FEEDS",
+          "presentation": 1,
+          "presentation_rect": [
+            12.0,
+            305.0,
+            128.0,
+            22.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "fontsize": 11.5,
+          "bgcolor": [
+            0.95,
+            0.61,
+            0.55,
+            1.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "hint": "Set global gain to zero and stop all lane envelopes. Does not erase the spectrum. Sends: gain 0; stop",
+          "annotation": "Set global gain to zero and stop all lane envelopes. Does not erase the spectrum. Sends: gain 0; stop",
+          "fontname": "Arial",
+          "bgcolor2": [
+            0.95,
+            0.61,
+            0.55,
+            1.0
+          ],
+          "textcolor2": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gradient": 0
+        }
+      },
+      {
+        "box": {
+          "id": "tut-42",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            154.0,
+            305.0,
+            394.0,
+            16.0
+          ],
+          "text": "Navigation does not stop audio. Silence held/looping sounds before leaving.",
+          "presentation": 1,
+          "presentation_rect": [
+            154.0,
+            305.0,
+            394.0,
+            16.0
+          ],
+          "fontsize": 11.0,
+          "textcolor": [
+            0.09,
+            0.12,
+            0.15,
+            1.0
+          ],
+          "hint": "Closing a lesson does not stop audio. Click Silence before leaving a held or looping example.",
+          "annotation": "Closing a lesson does not stop audio. Click Silence before leaving a held or looping example.",
+          "fontface": 0,
+          "fontname": "Arial",
+          "linecount": 1
+        }
+      },
+      {
+        "box": {
+          "id": "nav-left",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            456.0,
+            10.0,
+            40.0,
+            25.0
+          ],
+          "fontsize": 19.0,
+          "fontname": "Arial",
+          "text": "←",
+          "presentation": 1,
+          "presentation_rect": [
+            456.0,
+            10.0,
+            40.0,
+            25.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.79,
+            0.83,
+            0.87,
+            1.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "hint": "Previous: 04_Detune_and_Anchors. Click, or release the left/right arrow key while this lesson is frontmost. The next lesson opens; this window closes. Sound is not reset or stopped.",
+          "annotation": "Previous: 04_Detune_and_Anchors. Click, or release the left/right arrow key while this lesson is frontmost. The next lesson opens; this window closes. Sound is not reset or stopped."
+        }
+      },
+      {
+        "box": {
+          "id": "nav-right",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            504.0,
+            10.0,
+            40.0,
+            25.0
+          ],
+          "fontsize": 19.0,
+          "fontname": "Arial",
+          "text": "→",
+          "presentation": 1,
+          "presentation_rect": [
+            504.0,
+            10.0,
+            40.0,
+            25.0
+          ],
+          "textcolor": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bgcolor": [
+            0.79,
+            0.83,
+            0.87,
+            1.0
+          ],
+          "outlettype": [
+            ""
+          ],
+          "hint": "Next: 06_Retuning. Click, or release the left/right arrow key while this lesson is frontmost. The next lesson opens; this window closes. Sound is not reset or stopped.",
+          "annotation": "Next: 06_Retuning. Click, or release the left/right arrow key while this lesson is frontmost. The next lesson opens; this window closes. Sound is not reset or stopped."
+        }
+      },
+      {
+        "box": {
+          "id": "lesson-actions",
+          "maxclass": "newobj",
+          "numinlets": 7,
+          "numoutlets": 0,
+          "patching_rect": [
+            14.0,
+            379.0,
+            148.0,
+            20.0
+          ],
+          "fontsize": 11.0,
+          "fontname": "Arial",
+          "text": "p LESSON_ACTIONS",
+          "patcher": {
+            "fileversion": 1,
+            "appversion": {
+              "major": 9,
+              "minor": 0,
+              "revision": 5,
+              "architecture": "x64",
+              "modernui": 1
+            },
+            "classnamespace": "box",
+            "rect": [
+              80.0,
+              80.0,
+              740.0,
+              760.0
+            ],
+            "openinpresentation": 0,
+            "default_fontsize": 12.0,
+            "default_fontface": 0,
+            "default_fontname": "Arial",
+            "gridonopen": 0,
+            "gridsize": [
+              10.0,
+              10.0
+            ],
+            "bgcolor": [
+              0.94,
+              0.95,
+              0.965,
+              1.0
+            ],
+            "boxes": [
+              {
+                "box": {
+                  "id": "tut-7",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    234.0,
+                    116.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-27",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    430.0,
+                    176.0,
+                    22.0
+                  ],
+                  "text": "control Micro_Segment_ms 3000",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Give each step 3000 ms.",
+                  "annotation": "Give each step 3000 ms."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-18",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    291.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-39",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    598.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-6",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    116.0,
+                    144.0,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "p PREPARE_RECIPE",
+                  "outlettype": [
+                    ""
+                  ],
+                  "patcher": {
+                    "fileversion": 1,
+                    "appversion": {
+                      "major": 9,
+                      "minor": 0,
+                      "revision": 5,
+                      "architecture": "x64",
+                      "modernui": 1
+                    },
+                    "classnamespace": "box",
+                    "rect": [
+                      80.0,
+                      80.0,
+                      720.0,
+                      700.0
+                    ],
+                    "openinpresentation": 0,
+                    "default_fontsize": 12.0,
+                    "default_fontface": 0,
+                    "default_fontname": "Arial",
+                    "gridonopen": 0,
+                    "gridsize": [
+                      10.0,
+                      10.0
+                    ],
+                    "bgcolor": [
+                      0.94,
+                      0.95,
+                      0.965,
+                      1.0
+                    ],
+                    "boxes": [
+                      {
+                        "box": {
+                          "id": "recipe-in",
+                          "maxclass": "inlet",
+                          "numinlets": 0,
+                          "numoutlets": 1,
+                          "patching_rect": [
+                            14.0,
+                            14.0,
+                            25.0,
+                            25.0
+                          ],
+                          "fontsize": 12.0,
+                          "fontname": "Arial",
+                          "outlettype": [
+                            ""
+                          ],
+                          "index": 1
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "recipe-command",
+                          "maxclass": "message",
+                          "numinlets": 2,
+                          "numoutlets": 1,
+                          "patching_rect": [
+                            14.0,
+                            58.0,
+                            674.0,
+                            273.0
+                          ],
+                          "text": "gain 0, stop, control All_Off bang, control Automixer bypass, control Auto_Level on 0, control Anchor_Mirror 0, control Anchor_Scale 1, control Micro_On 0, control Max_Drift 0, control Partial_Offset_On 0, control Partial_Distribution 0, control Retuning_Mode 0, control Retune_ms 100, control Source_Base_Hz 110, control Semitones 0, control Cents 0, control Offset_Hz 0, control Model_Gain 1, control Minimum_Hz 20, control Maximum_Hz 12000, control Cluster_Hz 0, control Post_Bypass 0, control Render_Distribution 0, control Render_Seed 12345, control Render_Ramp_ms 100, control Spatial_Group_Count 2, control Output_Gain_dB -24, control Amplitude_Morph_ms 0, control Anchor_Morph_ms 0, control Drift_Morph_ms 0, control Partial_Count 16, control Amplitude_Shape 4, control Anchor_Shape 0, control Drift_Shape 0, control ADSR_12_Lanes_Smoothing_ms 0, control ADSR_12_Lanes_Loop 0, control ADSR_12_Lanes_Duration_ms 4000, control ADSR_Lane_01_Delay_ms 0, control ADSR_Lane_01_Breakpoints 16, control ADSR_Lane_02_Delay_ms 0, control ADSR_Lane_02_Breakpoints 16, control ADSR_Lane_03_Delay_ms 0, control ADSR_Lane_03_Breakpoints 16, control ADSR_Lane_04_Delay_ms 0, control ADSR_Lane_04_Breakpoints 16, control ADSR_Lane_05_Delay_ms 0, control ADSR_Lane_05_Breakpoints 16, control ADSR_Lane_06_Delay_ms 0, control ADSR_Lane_06_Breakpoints 16, control ADSR_Lane_07_Delay_ms 0, control ADSR_Lane_07_Breakpoints 16, control ADSR_Lane_08_Delay_ms 0, control ADSR_Lane_08_Breakpoints 16, control ADSR_Lane_09_Delay_ms 0, control ADSR_Lane_09_Breakpoints 16, control ADSR_Lane_10_Delay_ms 0, control ADSR_Lane_10_Breakpoints 16, control ADSR_Lane_11_Delay_ms 0, control ADSR_Lane_11_Breakpoints 16, control ADSR_Lane_12_Delay_ms 0, control ADSR_Lane_12_Breakpoints 16, control ADSR_12_Lanes_Shape 6, control ADSR_12_Lanes_Smoothing_ms 200, control Amplitude_Morph_ms 500, control Anchor_Morph_ms 500, control Drift_Morph_ms 500, control ADSR_12_Lanes_Shape 1, control ADSR_12_Lanes_Loop 1, control Anchor_Mirror 1, control Anchor_Scale 0.5, control Direction_Seed 12345, control Micro_Depth_Hz 0.3, control Micro_Segment_ms 1000, control Micro_Off_Morph_ms 2000",
+                          "outlettype": [
+                            ""
+                          ],
+                          "fontsize": 11.0,
+                          "bgcolor": [
+                            0.16,
+                            0.27,
+                            0.4,
+                            1.0
+                          ],
+                          "textcolor": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                          ],
+                          "hint": "Replace the live spectrum and lesson settings; keep global gain at zero.",
+                          "annotation": "Replace the live spectrum and lesson settings; keep global gain at zero.",
+                          "fontname": "Arial",
+                          "linecount": 19
+                        }
+                      },
+                      {
+                        "box": {
+                          "id": "recipe-out",
+                          "maxclass": "outlet",
+                          "numinlets": 1,
+                          "numoutlets": 0,
+                          "patching_rect": [
+                            14.0,
+                            341.0,
+                            25.0,
+                            25.0
+                          ],
+                          "fontsize": 12.0,
+                          "fontname": "Arial",
+                          "index": 1
+                        }
+                      }
+                    ],
+                    "lines": [
+                      {
+                        "patchline": {
+                          "source": [
+                            "recipe-in",
+                            0
+                          ],
+                          "destination": [
+                            "recipe-command",
+                            0
+                          ]
+                        }
+                      },
+                      {
+                        "patchline": {
+                          "source": [
+                            "recipe-command",
+                            0
+                          ],
+                          "destination": [
+                            "recipe-out",
+                            0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "hint": "Double-click to inspect the original ordered lesson commands. No commands run merely by opening this window.",
+                  "annotation": "Double-click to inspect the original ordered lesson commands. No commands run merely by opening this window."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-31",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    514.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-16",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    262.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-23",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    375.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-17",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    262.0,
+                    215.0,
+                    22.0
+                  ],
+                  "text": "control Max_Drift 0.5, control Micro_On 1",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Enable the random walk at half amount.",
+                  "annotation": "Enable the random walk at half amount."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-5",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    116.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-13",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    207.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-12",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    178.0,
+                    91.0,
+                    22.0
+                  ],
+                  "text": "gain 0.1, trigger",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Start the steady spectrum before adding movement.",
+                  "annotation": "Start the steady spectrum before adding movement."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-32",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    514.0,
+                    107.0,
+                    22.0
+                  ],
+                  "text": "control Micro_On 0",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Return the accumulated offsets toward zero over 2000 ms.",
+                  "annotation": "Return the accumulated offsets toward zero over 2000 ms."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-40",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    598.0,
+                    71.0,
+                    22.0
+                  ],
+                  "text": "gain 0, stop",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Set global gain to zero and stop all lane envelopes. Does not erase the spectrum.",
+                  "annotation": "Set global gain to zero and stop all lane envelopes. Does not erase the spectrum."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-26",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    430.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-11",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    178.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-21",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    346.0,
+                    30.0,
+                    22.0
+                  ],
+                  "text": "t b",
+                  "outlettype": [
+                    "bang"
+                  ],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-41",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    627.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-33",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    543.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-22",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    70.0,
+                    346.0,
+                    142.0,
+                    22.0
+                  ],
+                  "text": "control Micro_Depth_Hz 1",
+                  "outlettype": [
+                    ""
+                  ],
+                  "fontsize": 11.0,
+                  "bgcolor": [
+                    0.16,
+                    0.27,
+                    0.4,
+                    1.0
+                  ],
+                  "textcolor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "hint": "Set each walk step to 1 Hz.",
+                  "annotation": "Set each walk step to 1 Hz."
+                }
+              },
+              {
+                "box": {
+                  "id": "tut-28",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    70.0,
+                    459.0,
+                    156.0,
+                    22.0
+                  ],
+                  "text": "send Synth_Control_v23",
+                  "outlettype": [],
+                  "fontsize": 12.0
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-0",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 1,
+                  "comment": "1  Prepare lesson"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-0",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    92.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "1  Prepare lesson",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-1",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    60.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 2,
+                  "comment": "Listen / hold"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-1",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    154.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "Listen / hold",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-2",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    100.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 3,
+                  "comment": "Drift on"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-2",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    238.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "Drift on",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-3",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    140.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 4,
+                  "comment": "Larger steps"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-3",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    322.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "Larger steps",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-4",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    180.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 5,
+                  "comment": "Slower steps"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-4",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    406.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "Slower steps",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-5",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    220.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 6,
+                  "comment": "Drift off"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-5",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    490.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "Drift off",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              },
+              {
+                "box": {
+                  "id": "action-in-6",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    260.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 7,
+                  "comment": "SILENCE ALL FEEDS"
+                }
+              },
+              {
+                "box": {
+                  "id": "action-name-6",
+                  "maxclass": "comment",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    574.0,
+                    660.0,
+                    18.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "SILENCE ALL FEEDS",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "fontface": 1
+                }
+              }
+            ],
+            "lines": [
+              {
+                "patchline": {
+                  "source": [
+                    "tut-5",
+                    0
+                  ],
+                  "destination": [
+                    "tut-6",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-6",
+                    0
+                  ],
+                  "destination": [
+                    "tut-7",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-11",
+                    0
+                  ],
+                  "destination": [
+                    "tut-12",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-12",
+                    0
+                  ],
+                  "destination": [
+                    "tut-13",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-16",
+                    0
+                  ],
+                  "destination": [
+                    "tut-17",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-17",
+                    0
+                  ],
+                  "destination": [
+                    "tut-18",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-21",
+                    0
+                  ],
+                  "destination": [
+                    "tut-22",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-22",
+                    0
+                  ],
+                  "destination": [
+                    "tut-23",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-26",
+                    0
+                  ],
+                  "destination": [
+                    "tut-27",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-27",
+                    0
+                  ],
+                  "destination": [
+                    "tut-28",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-31",
+                    0
+                  ],
+                  "destination": [
+                    "tut-32",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-32",
+                    0
+                  ],
+                  "destination": [
+                    "tut-33",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-39",
+                    0
+                  ],
+                  "destination": [
+                    "tut-40",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "tut-40",
+                    0
+                  ],
+                  "destination": [
+                    "tut-41",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-0",
+                    0
+                  ],
+                  "destination": [
+                    "tut-5",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-1",
+                    0
+                  ],
+                  "destination": [
+                    "tut-11",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-2",
+                    0
+                  ],
+                  "destination": [
+                    "tut-16",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-3",
+                    0
+                  ],
+                  "destination": [
+                    "tut-21",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-4",
+                    0
+                  ],
+                  "destination": [
+                    "tut-26",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-5",
+                    0
+                  ],
+                  "destination": [
+                    "tut-31",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "action-in-6",
+                    0
+                  ],
+                  "destination": [
+                    "tut-39",
+                    0
+                  ]
+                }
+              }
+            ]
+          },
+          "hidden": 1,
+          "hint": "In patching view, double-click for the original lesson commands. Preparation commands are inside p PREPARE_RECIPE.",
+          "annotation": "In patching view, double-click for the original lesson commands. Preparation commands are inside p PREPARE_RECIPE."
+        }
+      },
+      {
+        "box": {
+          "id": "lesson-navigation",
+          "maxclass": "newobj",
+          "numinlets": 4,
+          "numoutlets": 1,
+          "patching_rect": [
+            180.0,
+            379.0,
+            110.0,
+            20.0
+          ],
+          "fontsize": 11.0,
+          "fontname": "Arial",
+          "text": "p NAVIGATION",
+          "outlettype": [
+            ""
+          ],
+          "patcher": {
+            "fileversion": 1,
+            "appversion": {
+              "major": 9,
+              "minor": 0,
+              "revision": 5,
+              "architecture": "x64",
+              "modernui": 1
+            },
+            "classnamespace": "box",
+            "rect": [
+              80.0,
+              80.0,
+              740.0,
+              650.0
+            ],
+            "openinpresentation": 0,
+            "default_fontsize": 12.0,
+            "default_fontface": 0,
+            "default_fontname": "Arial",
+            "gridonopen": 0,
+            "gridsize": [
+              10.0,
+              10.0
+            ],
+            "bgcolor": [
+              0.94,
+              0.95,
+              0.965,
+              1.0
+            ],
+            "boxes": [
+              {
+                "box": {
+                  "id": "nav-in-previous",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 1,
+                  "comment": "previous"
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-in-next",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    170.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 2,
+                  "comment": "next"
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-in-active",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    320.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 3,
+                  "comment": "active"
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-in-folder",
+                  "maxclass": "inlet",
+                  "numinlets": 0,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    470.0,
+                    20.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "outlettype": [
+                    ""
+                  ],
+                  "index": 4,
+                  "comment": "folder"
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-key",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 4,
+                  "patching_rect": [
+                    20.0,
+                    92.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "keyup",
+                  "outlettype": [
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-key-gate",
+                  "maxclass": "newobj",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    370.0,
+                    92.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "gate 1 0",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-keys",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 5,
+                  "patching_rect": [
+                    20.0,
+                    160.0,
+                    125.921875,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "sel 28 29 63234 63235",
+                  "outlettype": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-choose",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "patching_rect": [
+                    370.0,
+                    160.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "t b i",
+                  "outlettype": [
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-path-gate",
+                  "maxclass": "newobj",
+                  "numinlets": 2,
+                  "numoutlets": 2,
+                  "patching_rect": [
+                    20.0,
+                    228.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "gate 2 0",
+                  "outlettype": [
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-prev-path",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    370.0,
+                    228.0,
+                    264.6796875,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "sprintf symout %s04_Detune_and_Anchors.maxpat",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-next-path",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    296.0,
+                    202.3046875,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "sprintf symout %s06_Retuning.maxpat",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-open-order",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 2,
+                  "patching_rect": [
+                    370.0,
+                    296.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "t b s",
+                  "outlettype": [
+                    "",
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-load",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    364.0,
+                    111.25,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "prepend loadunique",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-pcontrol",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    370.0,
+                    364.0,
+                    55.0,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "pcontrol",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-close-delay",
+                  "maxclass": "newobj",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    432.0,
+                    55.5859375,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "delay 60",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-close-defer",
+                  "maxclass": "newobj",
+                  "numinlets": 1,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    370.0,
+                    432.0,
+                    55.578125,
+                    22.0
+                  ],
+                  "fontsize": 11.0,
+                  "fontname": "Arial",
+                  "text": "deferlow",
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-prev",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    20.0,
+                    514.0,
+                    20.67578125,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "1",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-next",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    60.0,
+                    514.0,
+                    20.67578125,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "2",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-path",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    100.0,
+                    514.0,
+                    37.36328125,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "path",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-close",
+                  "maxclass": "message",
+                  "numinlets": 2,
+                  "numoutlets": 1,
+                  "patching_rect": [
+                    160.0,
+                    514.0,
+                    50.6875,
+                    22.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "text": "wclose",
+                  "textcolor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "outlettype": [
+                    ""
+                  ]
+                }
+              },
+              {
+                "box": {
+                  "id": "nav-to-window",
+                  "maxclass": "outlet",
+                  "numinlets": 1,
+                  "numoutlets": 0,
+                  "patching_rect": [
+                    20.0,
+                    590.0,
+                    25.0,
+                    25.0
+                  ],
+                  "fontsize": 12.0,
+                  "fontname": "Arial",
+                  "index": 1,
+                  "comment": "Commands to this lesson’s thispatcher"
+                }
+              }
+            ],
+            "lines": [
+              {
+                "patchline": {
+                  "source": [
+                    "nav-in-previous",
+                    0
+                  ],
+                  "destination": [
+                    "nav-prev",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-in-next",
+                    0
+                  ],
+                  "destination": [
+                    "nav-next",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-in-active",
+                    0
+                  ],
+                  "destination": [
+                    "nav-key-gate",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-key",
+                    0
+                  ],
+                  "destination": [
+                    "nav-key-gate",
+                    1
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-key-gate",
+                    0
+                  ],
+                  "destination": [
+                    "nav-keys",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-keys",
+                    0
+                  ],
+                  "destination": [
+                    "nav-prev",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-keys",
+                    2
+                  ],
+                  "destination": [
+                    "nav-prev",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-keys",
+                    1
+                  ],
+                  "destination": [
+                    "nav-next",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-keys",
+                    3
+                  ],
+                  "destination": [
+                    "nav-next",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-prev",
+                    0
+                  ],
+                  "destination": [
+                    "nav-choose",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-next",
+                    0
+                  ],
+                  "destination": [
+                    "nav-choose",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-choose",
+                    1
+                  ],
+                  "destination": [
+                    "nav-path-gate",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-choose",
+                    0
+                  ],
+                  "destination": [
+                    "nav-path",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-path",
+                    0
+                  ],
+                  "destination": [
+                    "nav-to-window",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-in-folder",
+                    0
+                  ],
+                  "destination": [
+                    "nav-path-gate",
+                    1
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-path-gate",
+                    0
+                  ],
+                  "destination": [
+                    "nav-prev-path",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-path-gate",
+                    1
+                  ],
+                  "destination": [
+                    "nav-next-path",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-prev-path",
+                    0
+                  ],
+                  "destination": [
+                    "nav-open-order",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-next-path",
+                    0
+                  ],
+                  "destination": [
+                    "nav-open-order",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-open-order",
+                    1
+                  ],
+                  "destination": [
+                    "nav-load",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-load",
+                    0
+                  ],
+                  "destination": [
+                    "nav-pcontrol",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-open-order",
+                    0
+                  ],
+                  "destination": [
+                    "nav-close-delay",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-close-delay",
+                    0
+                  ],
+                  "destination": [
+                    "nav-close-defer",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-close-defer",
+                    0
+                  ],
+                  "destination": [
+                    "nav-close",
+                    0
+                  ]
+                }
+              },
+              {
+                "patchline": {
+                  "source": [
+                    "nav-close",
+                    0
+                  ],
+                  "destination": [
+                    "nav-to-window",
+                    0
+                  ]
+                }
+              }
+            ]
+          },
+          "hidden": 1
+        }
+      },
+      {
+        "box": {
+          "id": "lesson-active",
+          "maxclass": "newobj",
+          "numinlets": 1,
+          "numoutlets": 1,
+          "patching_rect": [
+            302.0,
+            379.0,
+            44.0,
+            20.0
+          ],
+          "fontsize": 11.0,
+          "fontname": "Arial",
+          "text": "active",
+          "outlettype": [
+            ""
+          ],
+          "hidden": 1
+        }
+      },
+      {
+        "box": {
+          "id": "lesson-window",
+          "maxclass": "newobj",
+          "numinlets": 1,
+          "numoutlets": 2,
+          "patching_rect": [
+            359.0,
+            379.0,
+            80.0,
+            20.0
+          ],
+          "fontsize": 11.0,
+          "fontname": "Arial",
+          "text": "thispatcher",
+          "outlettype": [
+            "",
+            ""
+          ],
+          "hidden": 1
+        }
+      }
+    ],
+    "lines": [
+      {
+        "patchline": {
+          "source": [
+            "tut-4",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-10",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-15",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            2
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-20",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            3
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-25",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            4
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-30",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            5
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "tut-38",
+            0
+          ],
+          "destination": [
+            "lesson-actions",
+            6
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "nav-left",
+            0
+          ],
+          "destination": [
+            "lesson-navigation",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "nav-right",
+            0
+          ],
+          "destination": [
+            "lesson-navigation",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lesson-active",
+            0
+          ],
+          "destination": [
+            "lesson-navigation",
+            2
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lesson-window",
+            1
+          ],
+          "destination": [
+            "lesson-navigation",
+            3
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lesson-navigation",
+            0
+          ],
+          "destination": [
+            "lesson-window",
+            0
+          ]
+        }
+      }
+    ],
+    "gridsize": [
+      5.0,
+      5.0
+    ]
+  }
+}

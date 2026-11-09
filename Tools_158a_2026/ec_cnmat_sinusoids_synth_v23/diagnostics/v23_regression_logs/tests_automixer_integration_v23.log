@@ -1,0 +1,1 @@
+{"status":"PASS","assertions":371,"graph_messages":4023,"coverage":"12 scalar outputs and monitor-only summary; closed startup gates; mode ordering; real saved control/readback graph; external range cache; All Off; no-feedback UI; bounded settings; JS help resolution and saved presentation rectangles. Selective Max emulation, not native DSP."}

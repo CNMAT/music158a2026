@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checks": 18833,
+  "source_archive": "ec_cnmat_sinusoids_synth_v23.zip",
+  "original_runtime_files": 61,
+  "unchanged_runtime_files": 57,
+  "changed_runtime_files": [
+    "javascript/synth_controller_v23.js",
+    "patchers/_ec_sinusoids_synth_v23_main.maxpat",
+    "patchers/Send_Message_Space_v23.maxpat",
+    "patchers/Full_State_Morph_v23.maxpat"
+  ],
+  "new_runtime_files": [
+    "patchers/Cue_Morph_v23.maxpat"
+  ],
+  "embedded_collections_preserved": 35,
+  "collection_records_preserved": 24806,
+  "transition_core_byte_identical": true,
+  "front_grid": "4 rows x 6 columns, A-X",
+  "hidden_dump_subpatchers": 24,
+  "limit": "Saved graph/source preservation and UI geometry only; no native Max execution."
+}

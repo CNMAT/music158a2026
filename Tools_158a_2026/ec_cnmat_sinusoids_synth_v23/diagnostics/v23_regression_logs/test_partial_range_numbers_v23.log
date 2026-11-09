@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "assertions": 8869,
+  "coverage": [
+    "Saved message, number boxes, new JS outlets and count-trigger connection",
+    "All active counts 2..256, dynamic cross-limits, min/max clamps, silent set readbacks",
+    "Display-all resets to 1..N and follows count changes; cropped ranges stay valid",
+    "Count limits update before the existing 150 ms engine fade; departing slots cannot be selected",
+    "Adversarial limit/size echo rejection and no render-frame readback spam",
+    "Existing external display commands, single/full-range views, invalid input handling",
+    "Manual cropped edits target the correct original slots; actual engine hidden memory is preserved"
+  ],
+  "limitations": [
+    "Max UI and scheduler are modeled; native Max execution and audio were not performed."
+  ]
+}

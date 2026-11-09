@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": 1228,
+  "coverage": [
+    "empty saved A-X bank and passive startup labels",
+    "named arrival, immediate/zero jump, target lifecycle",
+    "pause/resume, stop, retarget, invalid targets, finish",
+    "repeated cue letters, wrap, queued target before scheduler, zero-time cue",
+    "pending setup, cancellation, unnamed direct preset",
+    "passive SET wiring and no presentation rectangle overlap"
+  ],
+  "limits": [
+    "Actual JS with modeled Max UI and Task timing; no native Max or audio test."
+  ]
+}
