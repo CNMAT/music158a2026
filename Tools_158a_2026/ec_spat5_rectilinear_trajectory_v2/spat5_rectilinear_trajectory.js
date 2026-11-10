@@ -1,6 +1,9 @@
-/* spat5_rectilinear_trajectory.js — version 2.2
+/* spat5_rectilinear_trajectory.js — version 2.3 (named attributes)
    Max 9 legacy [js] / ECMAScript 5. No Node or v8 required.
-   [js spat5_rectilinear_trajectory.js NUMBER_OF_SOURCES ROUND_TRIP_SECONDS MAX_DISTANCE_X SOURCEPRES]
+   [js spat5_rectilinear_trajectory.js @sources 1 @cycle 10 @distance 2 @sourcepres 2]
+   Attributes may appear in any order; omitted attributes use defaults.
+   Legacy positional arguments remain supported: sources cycle distance sourcepres.
+   If mixed, put positional arguments first; named attributes override them.
    Outlet 0 -> spat5.oper -> its LEFT outlet -> spat5.spat~.
    Outlet 1 -> optional print (status only).
    Defaults: 1 source, 10 seconds, 2X distance, sourcepres 2.0.
@@ -22,7 +25,9 @@
    Example Max message box: sources 12, cycle 20, distance 6, sourcepres 6, go
    Unspecified values retain their last setting. Invalid messages are rejected.
    Outlet 1 reports "pending <sources> <cycle> <distance> <sourcepres>" after a valid setting.
-   These messages change runtime settings, not the creation text in the js box.
+   Declared attributes expose the queued settings to Max attribute access / pattr.
+   Runtime attribute edits also wait for go. These edits do not rewrite the box.
+   Only the typed creation settings are restored on reopening (embed = 0).
 */
 autowatch = 1;
 inlets = 1;
@@ -36,18 +41,80 @@ var UPDATE_MS = 20;
 var DB_FLOOR = -120;
 var ROOM = { reverberance:80, heaviness:25, liveness:35 };
 var SOURCE = { pres:90, warm:30, bril:30, prer:65, revp:45, env:24 };
-var N = jsarguments.length > 1 ? Number(jsarguments[1]) : 1;
-var T = jsarguments.length > 2 ? Number(jsarguments[2]) : 10;
-var D = jsarguments.length > 3 ? Number(jsarguments[3]) : 2;
-var P = jsarguments.length > 4 ? Number(jsarguments[4]) : 2.0;
+var N = 1, T = 10, D = 2, P = 2;
 var launchOrder = [], launchRank = [];
 // Active values drive the running trajectory; only go commits pending values.
 var pending = { sources:N, cycle:T, distance:D, sourcepres:P };
-var valid = parametersValid(N, T, D, P) && jsarguments.length <= 5;
+var creationSyntaxValid = true;
+var acceptingCreationAttributes = true;
+readCreationArguments();
+copyPendingToActive();
+var valid = creationSyntaxValid && parametersValid(N, T, D, P);
 var ready = false, running = false, epoch = 0;
 var tickTask = new Task(tick, this);
 var initTask = new Task(init, this);
+var creationTask = new Task(finishCreation, this);
 tickTask.interval = UPDATE_MS;
+
+// Use the legacy-js signature, not the v8-only AttributeOptions overload.
+// Explicit getters avoid a collision with the existing message functions.
+declareattribute("sources", "getsources", "setsources", 0);
+declareattribute("cycle", "getcycle", "setcycle", 0);
+declareattribute("distance", "getdistance", "setdistance", 0);
+declareattribute("sourcepres", "getsourcepres", "setsourcepres", 0);
+// Also close construction for a newly typed object, which gets no loadbang.
+creationTask.schedule(0);
+
+function isAttributeToken(value) {
+    return typeof value === "string" && value.charAt(0) === "@";
+}
+function creationError(message) {
+    creationSyntaxValid = false;
+    error("spat5_rectilinear_trajectory: " + message + "; correct the js object text.\n");
+}
+function readCreationArguments() {
+    var names = ["sources", "cycle", "distance", "sourcepres"];
+    var i = 1, positional = 0, name, start, value;
+    // Keep the original positional-number behavior for existing patches.
+    while (i < jsarguments.length && !isAttributeToken(jsarguments[i])) {
+        if (positional < 4) pending[names[positional]] = Number(jsarguments[i]);
+        else creationError("at most four legacy positional arguments are supported");
+        positional++; i++;
+    }
+    // Parse @tokens explicitly for legacy js hosts that leave them in jsarguments.
+    // Native attribute setters cover hosts that consume the tokens themselves.
+    while (i < jsarguments.length) {
+        name = jsarguments[i++].substring(1);
+        start = i;
+        while (i < jsarguments.length && !isAttributeToken(jsarguments[i])) i++;
+        if (!pending.hasOwnProperty(name)) {
+            creationError("unknown attribute @" + name);
+        } else if (i - start !== 1) {
+            creationError("@" + name + " requires exactly one number");
+        } else {
+            value = jsarguments[start];
+            // Named settings use the same integer limits as inlet messages.
+            if (typeof value !== "number" || !isFinite(value) || value !== Math.floor(value)) {
+                creationError("@" + name + " requires an integer");
+            } else pending[name] = value;
+        }
+    }
+}
+function copyPendingToActive() {
+    N = pending.sources; T = pending.cycle; D = pending.distance; P = pending.sourcepres;
+}
+function finishCreation() {
+    acceptingCreationAttributes = false;
+    creationTask.cancel();
+}
+function getsources() { return pending.sources; }
+function getcycle() { return pending.cycle; }
+function getdistance() { return pending.distance; }
+function getsourcepres() { return pending.sourcepres; }
+function setsources() { stageSetting("sources", arguments, 1, 150, true); }
+function setcycle() { stageSetting("cycle", arguments, 1, Infinity, true); }
+function setdistance() { stageSetting("distance", arguments, 1, 10, true); }
+function setsourcepres() { stageSetting("sourcepres", arguments, 2, 10, true); }
 
 function send(address, values) { outlet(0, [address].concat(values)); }
 function status(name) { outlet(1, [name, N, T, D, P]); }
@@ -58,13 +125,13 @@ function parametersValid(n, t, d, p) {
 }
 function check(usePending) {
     var ok = usePending ? parametersValid(pending.sources, pending.cycle, pending.distance, pending.sourcepres) &&
-                          jsarguments.length <= 5 : valid;
+                          creationSyntaxValid : valid;
     if (ok) return true;
-    error("spat5_rectilinear_trajectory: use 1..150 sources, positive cycle seconds, distance 1..10X, and integer sourcepres 2..10 (four arguments maximum).\n");
+    error("spat5_rectilinear_trajectory: use @sources 1..150, @cycle positive integer seconds, @distance 1..10, @sourcepres 2..10. Legacy positional arguments remain supported.\n");
     outlet(1, "error", "invalid_arguments");
     return false;
 }
-function stageSetting(name, args, min, max) {
+function stageSetting(name, args, min, max, fromAttribute) {
     var value = args[0];
     if (args.length !== 1 || typeof value !== "number" || !isFinite(value) ||
         value !== Math.floor(value) || value < min || value > max) {
@@ -76,12 +143,18 @@ function stageSetting(name, args, min, max) {
         return;
     }
     pending[name] = value;
-    outlet(1, ["pending", pending.sources, pending.cycle, pending.distance, pending.sourcepres]);
+    if (fromAttribute && acceptingCreationAttributes) {
+        // A native @attribute delivered during construction defines the initial HOLD.
+        copyPendingToActive();
+        valid = creationSyntaxValid && parametersValid(N, T, D, P);
+    } else {
+        outlet(1, ["pending", pending.sources, pending.cycle, pending.distance, pending.sourcepres]);
+    }
 }
-function sources() { stageSetting("sources", arguments, 1, 150); }
-function cycle() { stageSetting("cycle", arguments, 1, Infinity); }
-function distance() { stageSetting("distance", arguments, 1, 10); }
-function sourcepres() { stageSetting("sourcepres", arguments, 2, 10); }
+function sources() { finishCreation(); stageSetting("sources", arguments, 1, 150); }
+function cycle() { finishCreation(); stageSetting("cycle", arguments, 1, Infinity); }
+function distance() { finishCreation(); stageSetting("distance", arguments, 1, 10); }
+function sourcepres() { finishCreation(); stageSetting("sourcepres", arguments, 2, 10); }
 function now() { return new Date().getTime(); }
 function azimuth(i) {
     var a = 360 * i / N;
@@ -183,6 +256,7 @@ function initSource(i) {
     send(s + "/panrev", 0);
 }
 function init() {
+    finishCreation();
     initTask.cancel(); tickTask.cancel(); running = false; ready = false;
     if (!check()) return;
     // Silence direct paths before setting perceptual parameters. Reverb is never cleared.
@@ -221,18 +295,20 @@ function init() {
     ready = true; status("hold");
 }
 function hold() {
+    finishCreation();
     initTask.cancel(); tickTask.cancel(); running = false;
     if (!check()) return;
     if (!ready) { init(); return; }
     holdPositions(); status("hold");
 }
 function launch(commitPending) {
+    finishCreation();
     initTask.cancel();
     if (!check(commitPending)) return;
     tickTask.cancel(); running = false;
     var previousN = N, sourceCountChanged = false;
     if (commitPending) {
-        N = pending.sources; T = pending.cycle; D = pending.distance; P = pending.sourcepres;
+        copyPendingToActive();
         valid = true;
         sourceCountChanged = ready && N !== previousN;
     }
@@ -262,6 +338,7 @@ function tick() {
     for (var i = 0; i < N; i++) position(i, trajectoryDistance(elapsed, i));
 }
 function loadbang() {
+    finishCreation();
     // Give downstream objects a scheduler turn to finish construction/load messages.
     initTask.cancel(); initTask.schedule(0);
 }
@@ -269,9 +346,12 @@ function anything() {
     error("spat5_rectilinear_trajectory: supported messages are sources <int 1..150>, cycle <positive int seconds>, distance <int 1..10>, sourcepres <int 2..10>, go, bang, init, hold.\n");
 }
 function notifydeleted() {
+    creationTask.cancel(); creationTask.freepeer();
     tickTask.cancel(); initTask.cancel(); tickTask.freepeer(); initTask.freepeer();
 }
 send.local = status.local = check.local = now.local = azimuth.local = 1;
 ease.local = amplitude.local = trajectoryDistance.local = position.local = holdPositions.local = tick.local = 1;
 
 makeLaunchOrder.local = parametersValid.local = stageSetting.local = initSource.local = launch.local = 1;
+isAttributeToken.local = creationError.local = readCreationArguments.local = 1;
+copyPendingToActive.local = finishCreation.local = 1;

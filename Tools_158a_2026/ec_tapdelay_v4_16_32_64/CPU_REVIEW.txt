@@ -1,0 +1,91 @@
+ec_tapdelay v4 — startup and CPU review, 16 / 32 / 64 revision
+
+FINDINGS FROM THE SUPPLIED PATCH
+The 64-tap engine is a single large mcs.gen~ program with 64 input ports,
+64 output ports, 192 per-tap parameters, 384 per-tap histories and 64 repeated
+crossfade/read branches. Inactive settled taps already skip their buffer reads,
+but their branches, state, ports and drift-phase checks are still in the program.
+Selecting @taps 12 does not reduce what Max must compile.
+
+Gen compiles native machine code. The source size and the buffer allocation are
+plausible contributors to the reported pause, but no native profiling was possible
+here to establish which dominates on the user's system.
+
+IMPLEMENTED
+Capacity   Gen inputs/outputs   Tap histories   GenExpr characters
+16         16 / 16              96              32,983
+32         32 / 32              192             65,767
+64         64 / 64              384             131,359
+
+The smaller engines remove unused declarations, input writes, tap branches,
+reset assignments and drift-phase comparisons. Controllers now send 48 / 96 /
+192 per-tap parameter messages per full pattern update, respectively, plus
+four global commit/control messages. Fixed MC output width and mono mixing
+also shrink with capacity. These counts are structural, not benchmark results.
+
+The algorithm for each retained tap is unchanged, including stationary-head
+crossfades, linear interpolation, zero-delay input-before-read behavior and
+the audio-side drift guard. The original 64-tap DSP file is byte-for-byte retained.
+No lowered-quality interpolation, removed smoothing or shortened history is used.
+
+INPUT-HISTORY MEMORY
+At 48 kHz the existing ten-second history allocates 480,002 samples per input:
+  1 input:   480,002 float cells, about 1.92 MB
+ 12 inputs: 5,760,024 float cells, about 23.04 MB
+ 16 inputs: 7,680,032 float cells, about 30.72 MB
+ 32 inputs: 15,360,064 float cells, about 61.44 MB
+ 64 inputs: 30,720,128 float cells, about 122.88 MB
+These decimal MB estimates cover sample storage only, not Max/Gen overhead.
+At 96 kHz history memory is approximately twice as large.
+
+Capacity alone does not reduce history memory when the same twelve sources
+are used: both the 16- and 64-capacity engines allocate twelve source histories.
+For a mono sound duplicated to twelve taps, @sources 1 @taps 12 and one input
+avoids storing twelve copies. The included mono12 example demonstrates this.
+For independent sounds, keep their separate source channels.
+
+Buffer setup is already guarded against repeated allocations for unchanged
+sample rate and input count. Curve/spacing/tap edits do not reallocate history.
+The ten-second limit remains fixed so later timing edits can use existing input
+history. Reducing this automatically to the current last tap would change that
+behavior. No speculative resize/clear changes were made.
+
+OTHER OBSERVATIONS
+- The nine curves and integer rounding run when settings change, not per sample.
+- The virtual completion marker schedules one callback; it adds no audio DSP.
+- Drift is off by default; the existing non-overlap guard remains intact.
+- Each open help/example containing an engine creates another DSP instance.
+  Close unused patches during comparison, even when they have no speaker cables.
+- Gen's nocache attribute is 0 by default and permits reuse of previous compiles.
+  The supplied engine does not override it. No invented cache setting was added.
+- Further work, if needed after the smaller engines are measured, could profile
+  parameter sends and the per-sample drift guard. Changing them without native
+  profiling risks extra complexity for little benefit.
+
+COMPARE ON THE MAC
+1. Close other delay help/example patches. Keep sample rate, signal-vector size,
+   input source count, tap count and curve identical for each run.
+2. Start with _ec_tapdelay16_v4~.maxhelp for the current twelve-source setup.
+   Record patch-opening time, first audio-on pause, and settled CPU in Audio Status.
+3. Close it and repeat with the 32 / 64 helps. For comparable cold compile times,
+   restart Max before each capacity. A second open may benefit from Gen's cache.
+4. Confirm twelve outputs and the last-tap bang, then save, close and reopen the
+   parent patch to check its fixed unpack connections on the actual Max version.
+5. If the source is one duplicated sound, compare mono12 separately; that measures
+   the additional benefit from sharing input history, not just smaller capacity.
+
+OFFLINE CHECKS INCLUDED
+  node tests/controller_test.js 16
+  node tests/controller_test.js 32
+  node tests/controller_test.js 64
+  python3 tests/validate_package.py
+Controllers: 3,018 / 10,362 / 38,874 existing regression assertions passed,
+plus capacity, parameter-count and startup-allocation checks for each variant.
+Structural checks: graph endpoints and port indices, dependency files, fixed
+outlets, capacity bounds, engine ports and unchanged per-tap DSP blocks passed.
+These do not execute Max's native compiler, scheduler, audio driver or display.
+
+Cycling '74 references:
+https://docs.cycling74.com/reference/gen~/
+https://docs.cycling74.com/reference/mcs.gen~/
+https://docs.cycling74.com/reference/mc.unpack~/

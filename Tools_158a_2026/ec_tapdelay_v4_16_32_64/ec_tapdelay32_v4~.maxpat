@@ -10,9 +10,9 @@
     },
     "classnamespace": "box",
     "rect": [
-      80,
-      80,
-      1120,
+      70,
+      70,
+      1210,
       870
     ],
     "default_fontsize": 12.0,
@@ -28,7 +28,7 @@
             780,
             22
           ],
-          "text": "ec_tapdelay64_v3~ | MC input / round robin / 64 taps / 10000 ms"
+          "text": "ec_tapdelay32_v4~ | sources / optional taps / bounded timing curves"
         }
       },
       {
@@ -46,7 +46,7 @@
           "outlettype": [
             "multichannelsignal"
           ],
-          "comment": "MC audio input: use mc.pack~ N; channel order defines input numbers",
+          "comment": "MC audio input (use mc.pack~ N, or a mono signal with sources 1)",
           "text": ""
         }
       },
@@ -65,7 +65,7 @@
           "outlettype": [
             ""
           ],
-          "comment": "Delay lists, spacing/count pairs and controls",
+          "comment": "Control messages: sources / taps / spacing / curve / stop / start / delaydrift / dump / bang or cycle",
           "text": ""
         }
       },
@@ -75,11 +75,20 @@
           "maxclass": "newobj",
           "patching_rect": [
             390,
-            120,
-            345,
+            230,
+            400,
             22
           ],
-          "text": "js ec_tapdelay64_v3_control.js #1 #0_tapdelay_history"
+          "text": "js ec_tapdelay32_v4_control.js #0_tapdelay_history",
+          "numinlets": 1,
+          "numoutlets": 5,
+          "outlettype": [
+            "",
+            "",
+            "",
+            "",
+            "bang"
+          ]
         }
       },
       {
@@ -92,7 +101,7 @@
             280,
             22
           ],
-          "text": "mcs.gen~ ec_tapdelay64_v3_engine"
+          "text": "mcs.gen~ ec_tapdelay32_v4_engine"
         }
       },
       {
@@ -159,8 +168,9 @@
           ],
           "numinlets": 1,
           "numoutlets": 0,
-          "comment": "64-channel MC taps, unused channels silent",
-          "text": ""
+          "comment": "32-channel MC tap bus; unused channels are silent",
+          "text": "",
+          "index": 1
         }
       },
       {
@@ -175,8 +185,9 @@
           ],
           "numinlets": 1,
           "numoutlets": 0,
-          "comment": "Mono sum including tap 1 at 0 ms; compensation applies here only",
-          "text": ""
+          "comment": "Mono tap sum with optional normalization",
+          "text": "",
+          "index": 2
         }
       },
       {
@@ -184,28 +195,16 @@
           "id": "status",
           "maxclass": "outlet",
           "patching_rect": [
-            720,
+            890,
             460,
             65,
             22
           ],
           "numinlets": 1,
           "numoutlets": 0,
-          "comment": "Settings / warnings",
-          "text": ""
-        }
-      },
-      {
-        "box": {
-          "id": "load",
-          "maxclass": "newobj",
-          "patching_rect": [
-            740,
-            65,
-            80,
-            22
-          ],
-          "text": "loadbang"
+          "comment": "Settings / integer base_times / warnings / cycle status",
+          "text": "",
+          "index": 4
         }
       },
       {
@@ -213,8 +212,8 @@
           "id": "defer",
           "maxclass": "newobj",
           "patching_rect": [
-            740,
-            100,
+            880,
+            135,
             80,
             22
           ],
@@ -227,7 +226,7 @@
           "maxclass": "message",
           "patching_rect": [
             740,
-            135,
+            230,
             80,
             22
           ],
@@ -241,10 +240,10 @@
           "patching_rect": [
             30,
             525,
-            860,
-            65
+            1100,
+            80
           ],
-          "text": "Argument: input count 1\u201364; omitted/0 = input N to tap N. Defaults: 250 4, smooth 50, master 1, normalize 1. Use argument 1 for the original mono-to-all-taps behavior. Drift defaults to delaydrift 0 250. stop cancels audio; a spacing/count pair restarts."
+          "text": "Arguments: sources spacing_ms curve. Named settings: @sources, @taps, @spacing, @curve. Omitted taps follows sources; taps auto restores the link. Sources 0 / omitted uses connected input channels, one-to-one. Tap 1 stays at 0 ms. Output bus keeps 32 slots. See the v4 help patch for defaults, limits and all curves. All base delays are rounded to integer ms. Outlet 3 is now cycle-done bang; status moves to outlet 4. A control bang or cycle waits exactly the last rounded base delay, independently of audio / DSP."
         }
       },
       {
@@ -342,13 +341,15 @@
         "box": {
           "id": "loadorder",
           "maxclass": "newobj",
-          "text": "t b b",
+          "text": "t b b b",
           "patching_rect": [
-            740,
+            880,
             180,
-            220,
+            100,
             22
-          ]
+          ],
+          "numinlets": 1,
+          "numoutlets": 3
         }
       },
       {
@@ -375,6 +376,142 @@
             220,
             22
           ]
+        }
+      },
+      {
+        "box": {
+          "id": "args",
+          "maxclass": "newobj",
+          "patching_rect": [
+            740,
+            30,
+            110,
+            22
+          ],
+          "text": "patcherargs",
+          "numinlets": 1,
+          "numoutlets": 2
+        }
+      },
+      {
+        "box": {
+          "id": "posroute",
+          "maxclass": "newobj",
+          "patching_rect": [
+            540,
+            75,
+            125,
+            22
+          ],
+          "text": "route done bang",
+          "numinlets": 1,
+          "numoutlets": 3
+        }
+      },
+      {
+        "box": {
+          "id": "pos",
+          "maxclass": "newobj",
+          "patching_rect": [
+            540,
+            120,
+            170,
+            22
+          ],
+          "text": "prepend creationargs",
+          "numinlets": 1,
+          "numoutlets": 1
+        }
+      },
+      {
+        "box": {
+          "id": "attrroute",
+          "maxclass": "newobj",
+          "patching_rect": [
+            880,
+            75,
+            90,
+            22
+          ],
+          "text": "route done",
+          "numinlets": 1,
+          "numoutlets": 2
+        }
+      },
+      {
+        "box": {
+          "id": "attr",
+          "maxclass": "newobj",
+          "patching_rect": [
+            990,
+            120,
+            170,
+            22
+          ],
+          "text": "prepend creationattr",
+          "numinlets": 1,
+          "numoutlets": 1
+        }
+      },
+      {
+        "box": {
+          "id": "cycle_done",
+          "maxclass": "outlet",
+          "patching_rect": [
+            600,
+            460,
+            65,
+            22
+          ],
+          "numinlets": 1,
+          "numoutlets": 0,
+          "index": 3,
+          "comment": "Virtual cycle-done bang: waits the final base_times value after bang / cycle at control inlet"
+        }
+      },
+      {
+        "box": {
+          "id": "integer_status_route",
+          "maxclass": "newobj",
+          "patching_rect": [
+            850,
+            285,
+            140,
+            22
+          ],
+          "numinlets": 1,
+          "numoutlets": 2,
+          "text": "route base_times"
+        }
+      },
+      {
+        "box": {
+          "id": "integer_times",
+          "maxclass": "newobj",
+          "patching_rect": [
+            850,
+            330,
+            140,
+            22
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "text": "vexpr int($f1)"
+        }
+      },
+      {
+        "box": {
+          "id": "integer_tag",
+          "maxclass": "newobj",
+          "patching_rect": [
+            850,
+            385,
+            170,
+            22
+          ],
+          "numinlets": 1,
+          "numoutlets": 1,
+          "text": "prepend base_times"
         }
       }
     ],
@@ -424,18 +561,6 @@
           ],
           "destination": [
             "norm",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "js",
-            2
-          ],
-          "destination": [
-            "status",
             0
           ]
         }
@@ -510,18 +635,6 @@
           ],
           "destination": [
             "mono",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "load",
-            0
-          ],
-          "destination": [
-            "defer",
             0
           ]
         }
@@ -729,6 +842,174 @@
           ],
           "destination": [
             "js",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "args",
+            0
+          ],
+          "destination": [
+            "posroute",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "posroute",
+            2
+          ],
+          "destination": [
+            "pos",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "pos",
+            0
+          ],
+          "destination": [
+            "js",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "args",
+            1
+          ],
+          "destination": [
+            "attrroute",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "attrroute",
+            0
+          ],
+          "destination": [
+            "defer",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "attrroute",
+            1
+          ],
+          "destination": [
+            "attr",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "attr",
+            0
+          ],
+          "destination": [
+            "js",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "loadorder",
+            2
+          ],
+          "destination": [
+            "channelcount",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "js",
+            4
+          ],
+          "destination": [
+            "cycle_done",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "js",
+            2
+          ],
+          "destination": [
+            "integer_status_route",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "integer_status_route",
+            0
+          ],
+          "destination": [
+            "integer_times",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "integer_times",
+            0
+          ],
+          "destination": [
+            "integer_tag",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "integer_tag",
+            0
+          ],
+          "destination": [
+            "status",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "integer_status_route",
+            1
+          ],
+          "destination": [
+            "status",
             0
           ]
         }
