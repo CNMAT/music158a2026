@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": 61,
+  "controllers": 3,
+  "engine_instances": 75,
+  "slots": 24,
+  "stored_messages": 72,
+  "coverage": [
+    "explicit pervoice aliases",
+    "atomic triple capture",
+    "independent A-X banks",
+    "shared eased clock",
+    "all-voice ready barrier",
+    "pause/resume/stop/finish/retarget/jump",
+    "capture during morph",
+    "individual override",
+    "bank save/load validation",
+    "embedded message persistence",
+    "numeric cue loop"
+  ],
+  "limitations": [
+    "Actual JavaScript with modeled Max native objects and message routing; no native Max GUI, DSP, or audio-hardware execution."
+  ]
+}

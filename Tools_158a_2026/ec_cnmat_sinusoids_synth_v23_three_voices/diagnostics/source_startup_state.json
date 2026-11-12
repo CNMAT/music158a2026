@@ -1,0 +1,129 @@
+{
+  "slots": {
+    "slot-A": {
+      "sha256": "f5a05a00ec839c0b12c16d0675dbe948fb8dadfc5e7f69e78eb68df371d22fcb",
+      "time": "30",
+      "populated": true
+    },
+    "slot-B": {
+      "sha256": "e9795171d6dd4224a7a369063bb0af8cede2512940035e29b94e6e32699b256b",
+      "time": "30",
+      "populated": true
+    },
+    "slot-C": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-D": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-E": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-F": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-G": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-H": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-I": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-J": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-K": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-L": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-M": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-N": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-O": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-P": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-Q": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-R": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-S": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-T": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-U": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-V": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-W": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    },
+    "slot-X": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "time": "10",
+      "populated": false
+    }
+  },
+  "readouts": {
+    "mb-bank-state": "2 of 24 slots: A B",
+    "mb2-current": "current morph = B",
+    "mb2-target": "target = A"
+  }
+}

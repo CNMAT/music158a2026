@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 2494,
+  "unchanged_runtime_dependencies": 181,
+  "source_root_objects_preserved": 2190,
+  "source_patchcords_preserved": 2058,
+  "individual_bank_messages_preserved": true,
+  "shared_dac_graph_preserved": true,
+  "new_slots": 24,
+  "new_full_preset_message_boxes": 72
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": 2112,
+  "coverage": [
+    "independent captured seconds and asynchronous capture",
+    "eased timing, monotonicity, symmetry, smooth junctions",
+    "exact pause/resume duration",
+    "immediate jump, count-fade bypass, no ADSR trigger",
+    "repeated-letter looping, per-step times, wraparound",
+    "pause/resume/stop, manual interruption, zero-time scheduling",
+    "invalid/missing targets and adapter fault cleanup",
+    "bank v2 timings/color and v1 migration",
+    "saved patch time-before-dump staging"
+  ],
+  "limits": [
+    "Modeled Max Task/UI/Dict boundary; no native audio audition."
+  ]
+}

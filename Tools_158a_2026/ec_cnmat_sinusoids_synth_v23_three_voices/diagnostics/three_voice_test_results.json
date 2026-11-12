@@ -1,0 +1,52 @@
+[
+  {
+    "suite": "V1_test_full_state_morph_v23.cjs",
+    "status": "PASS",
+    "seconds": 9.33
+  },
+  {
+    "suite": "V1_test_morphbank_rev2_v23.cjs",
+    "status": "PASS",
+    "seconds": 19.39
+  },
+  {
+    "suite": "V1_test_morph_status_v23.cjs",
+    "status": "PASS",
+    "seconds": 12.62
+  },
+  {
+    "suite": "V2_test_full_state_morph_v23.cjs",
+    "status": "PASS",
+    "seconds": 8.76
+  },
+  {
+    "suite": "V2_test_morphbank_rev2_v23.cjs",
+    "status": "PASS",
+    "seconds": 19.35
+  },
+  {
+    "suite": "V2_test_morph_status_v23.cjs",
+    "status": "PASS",
+    "seconds": 12.44
+  },
+  {
+    "suite": "V3_test_full_state_morph_v23.cjs",
+    "status": "PASS",
+    "seconds": 8.7
+  },
+  {
+    "suite": "V3_test_morphbank_rev2_v23.cjs",
+    "status": "PASS",
+    "seconds": 19.56
+  },
+  {
+    "suite": "V3_test_morph_status_v23.cjs",
+    "status": "PASS",
+    "seconds": 12.5
+  },
+  {
+    "suite": "test_three_voice_isolation.cjs",
+    "status": "PASS",
+    "seconds": 11.6
+  }
+]

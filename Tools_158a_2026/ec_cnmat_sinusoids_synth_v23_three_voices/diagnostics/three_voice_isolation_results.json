@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": 36,
+  "controllers": 3,
+  "engine_instances": 75,
+  "coverage": [
+    "same root scripting namespace",
+    "external voice-addressed commands",
+    "morph isolation across full captured states",
+    "independent MorphBanks and cue transport",
+    "foreign dictionary rejection",
+    "all emitted JS messages and dictionary names voice-local",
+    "MIDI addressing"
+  ],
+  "limitations": [
+    "Simulated native Max objects, Tasks and message routing; no audio engine or hardware test."
+  ]
+}

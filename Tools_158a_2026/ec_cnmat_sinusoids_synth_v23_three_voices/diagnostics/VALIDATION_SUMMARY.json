@@ -1,0 +1,117 @@
+{
+  "revision": "Add allvoicesoff beside Voice 1 | 12 CHANNELS",
+  "date": "2026-11-11",
+  "structural_audit": "PASS",
+  "structural_assertions": 132689,
+  "existing_javascript_suites": [
+    {
+      "suite": "V1_test_full_state_morph_v23.cjs",
+      "status": "PASS",
+      "seconds": 9.33
+    },
+    {
+      "suite": "V1_test_morphbank_rev2_v23.cjs",
+      "status": "PASS",
+      "seconds": 19.39
+    },
+    {
+      "suite": "V1_test_morph_status_v23.cjs",
+      "status": "PASS",
+      "seconds": 12.62
+    },
+    {
+      "suite": "V2_test_full_state_morph_v23.cjs",
+      "status": "PASS",
+      "seconds": 8.76
+    },
+    {
+      "suite": "V2_test_morphbank_rev2_v23.cjs",
+      "status": "PASS",
+      "seconds": 19.35
+    },
+    {
+      "suite": "V2_test_morph_status_v23.cjs",
+      "status": "PASS",
+      "seconds": 12.44
+    },
+    {
+      "suite": "V3_test_full_state_morph_v23.cjs",
+      "status": "PASS",
+      "seconds": 8.7
+    },
+    {
+      "suite": "V3_test_morphbank_rev2_v23.cjs",
+      "status": "PASS",
+      "seconds": 19.56
+    },
+    {
+      "suite": "V3_test_morph_status_v23.cjs",
+      "status": "PASS",
+      "seconds": 12.5
+    },
+    {
+      "suite": "test_three_voice_isolation.cjs",
+      "status": "PASS",
+      "seconds": 11.6
+    }
+  ],
+  "three_voice_morphbank": {
+    "status": "PASS",
+    "checks": 61,
+    "controllers": 3,
+    "engine_instances": 75,
+    "slots": 24,
+    "stored_messages": 72,
+    "coverage": [
+      "explicit pervoice aliases",
+      "atomic triple capture",
+      "independent A-X banks",
+      "shared eased clock",
+      "all-voice ready barrier",
+      "pause/resume/stop/finish/retarget/jump",
+      "capture during morph",
+      "individual override",
+      "bank save/load validation",
+      "embedded message persistence",
+      "numeric cue loop"
+    ],
+    "limitations": [
+      "Actual JavaScript with modeled Max native objects and message routing; no native Max GUI, DSP, or audio-hardware execution."
+    ]
+  },
+  "cleanup_regression": {
+    "status": "PASS",
+    "checks": 5,
+    "coverage": "All three transfer dictionaries released even when voice 2 controller is missing."
+  },
+  "preservation": {
+    "status": "PASS",
+    "checks": 2494,
+    "unchanged_runtime_dependencies": 181,
+    "source_root_objects_preserved": 2190,
+    "source_patchcords_preserved": 2058,
+    "individual_bank_messages_preserved": true,
+    "shared_dac_graph_preserved": true,
+    "new_slots": 24,
+    "new_full_preset_message_boxes": 72
+  },
+  "dac_switch_regression": "PASS",
+  "dac_switch_regression_checks": 1751,
+  "output_feeds_checked": 36,
+  "new_panel_overlap_check": "PASS \u2014 no overlapping presentation rectangles",
+  "native_Max_tested": false,
+  "audio_auditioned": false,
+  "allvoicesoff": {
+    "status": "PASS",
+    "button_location": "beside Voice 1 | 12 Channels",
+    "off_command": "V1_Audio_On_v23 0",
+    "all_three_DAC_readouts_synchronized": true,
+    "already_off_remains_off": true,
+    "previous_root_objects_preserved": 2249,
+    "previous_patchcords_preserved": 2105,
+    "existing_voice_controllers_engines_banks_preserved": true,
+    "header_overlap": false,
+    "native_Max_tested": false
+  },
+  "existing_javascript_suites_note": "Retained passing MORPHBANK 3 VOICES baseline. This addition was validated with targeted command, saved-graph DAC, structure, and preservation checks."
+}

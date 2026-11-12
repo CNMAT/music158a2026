@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "checks": 5,
+  "coverage": "All three transfer dictionaries released even when voice 2 controller is missing."
+}

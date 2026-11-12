@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "button_location": "beside Voice 1 | 12 Channels",
+  "off_command": "V1_Audio_On_v23 0",
+  "all_three_DAC_readouts_synchronized": true,
+  "already_off_remains_off": true,
+  "previous_root_objects_preserved": 2249,
+  "previous_patchcords_preserved": 2105,
+  "existing_voice_controllers_engines_banks_preserved": true,
+  "header_overlap": false,
+  "native_Max_tested": false
+}

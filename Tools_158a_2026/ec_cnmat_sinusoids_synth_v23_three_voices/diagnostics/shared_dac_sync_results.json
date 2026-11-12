@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": 1751,
+  "adstatus_switches": 3,
+  "audio_feeds_checked": 36,
+  "removed_local_mute_gates": 3,
+  "coverage": [
+    "startup with DSP on and off",
+    "ON/OFF from every toggle",
+    "external audio-status changes",
+    "all three readout/state buses",
+    "no recursive DAC commands",
+    "all 36 direct output/fader/DAC paths",
+    "all 36 group sends",
+    "voice-addressed Audio_On commands"
+  ],
+  "limits": [
+    "Actual saved Max graph with modeled native messages. No native Max DSP or hardware audition."
+  ]
+}

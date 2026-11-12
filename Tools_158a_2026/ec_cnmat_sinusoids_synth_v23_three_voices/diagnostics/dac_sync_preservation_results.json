@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "runtime_dependencies_unchanged": 199,
+  "javascript_files_unchanged": 69,
+  "existing_root_boxes_changed": 21,
+  "changed_box_ids": [
+    "V1_dac-status-note-v23",
+    "V1_obj-38",
+    "V1_obj-43",
+    "V1_obj-49",
+    "V1_obj-77",
+    "V1_sinusoids-audio-routing-v23",
+    "V1_voice-audio-menu",
+    "V2_dac-status-note-v23",
+    "V2_obj-38",
+    "V2_obj-43",
+    "V2_obj-49",
+    "V2_obj-77",
+    "V2_sinusoids-audio-routing-v23",
+    "V2_voice-audio-menu",
+    "V3_dac-status-note-v23",
+    "V3_obj-38",
+    "V3_obj-43",
+    "V3_obj-49",
+    "V3_obj-77",
+    "V3_sinusoids-audio-routing-v23",
+    "V3_voice-audio-menu"
+  ],
+  "all_saved_morphbanks_unchanged": true,
+  "all_three_audio_renderers_unchanged": true,
+  "all_other_root_boxes_and_metadata_unchanged": true
+}
