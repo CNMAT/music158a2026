@@ -9,9 +9,21 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 57.0, 105.0, 1231.0, 846.0 ],
+        "rect": [ 89.0, 212.0, 1231.0, 846.0 ],
         "default_fontsize": 18.0,
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 12.0,
+                    "id": "obj-4",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 145.0, 202.0, 462.0, 22.0 ],
+                    "text": "load _ec_spat5~8-channel-CNMATroom_to_binaural_hphone_with_recording.maxpat"
+                }
+            },
             {
                 "box": {
                     "id": "obj-6",
@@ -25,24 +37,12 @@
             {
                 "box": {
                     "fontsize": 12.0,
-                    "id": "obj-5",
-                    "maxclass": "message",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "patching_rect": [ 113.17010309278352, 198.0721649484536, 322.0, 22.0 ],
-                    "text": "load 8-channel-spat~_to_binaural_headphone_mix.maxpat"
-                }
-            },
-            {
-                "box": {
-                    "fontsize": 12.0,
                     "id": "obj-2",
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 113.17010309278352, 225.0721649484536, 73.0, 22.0 ],
+                    "patching_rect": [ 145.0, 242.0, 51.0, 22.0 ],
                     "text": "pcontrol"
                 }
             },
@@ -123,7 +123,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-2", 0 ],
-                    "source": [ "obj-5", 0 ]
+                    "source": [ "obj-4", 0 ]
                 }
             }
         ],
