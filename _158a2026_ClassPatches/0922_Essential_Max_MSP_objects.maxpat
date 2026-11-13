@@ -4,13 +4,36 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 134.0, 172.0, 1372.0, 804.0 ],
+        "rect": [ 76.0, 116.0, 1368.0, 577.0 ],
         "boxes": [
+            {
+                "box": {
+                    "fontsize": 18.0,
+                    "id": "obj-43",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 364.75, 20.0, 241.0, 27.0 ],
+                    "presentation_linecount": 2,
+                    "text": "LOOK UP THE HELP FILES!"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-14",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1168.75, 312.0, 196.0, 33.0 ],
+                    "text": "Map values from one range to\nanother"
+                }
+            },
             {
                 "box": {
                     "id": "obj-65",
@@ -18,7 +41,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1004.0, 31.0, 296.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "STORE A number, float, symbol FOR RECALL LATER"
                 }
             },
@@ -51,7 +73,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1014.0, 57.0, 181.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "bang recalls the last stored thing"
                 }
             },
@@ -84,7 +105,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1084.5, 105.0, 55.0, 22.0 ],
-                    "presentation_linecount": 3,
                     "text": "60 70 80"
                 }
             },
@@ -118,7 +138,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 1094.0, 373.0, 32.0, 22.0 ],
-                    "presentation_linecount": 2,
                     "text": "20.2"
                 }
             },
@@ -162,7 +181,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1041.0, 337.0, 96.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Delay an integer"
                 }
             },
@@ -237,7 +255,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 28.0, 24.0, 220.0, 27.0 ],
+                    "patching_rect": [ 66.0, 20.0, 220.0, 27.0 ],
                     "text": "Essential MAX Objects"
                 }
             },
@@ -386,8 +404,8 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
-                    "patching_rect": [ 885.0, 140.0, 29.5, 22.0 ],
-                    "text": "zl"
+                    "patching_rect": [ 885.0, 140.0, 60.0, 22.0 ],
+                    "text": "zl change"
                 }
             },
             {
@@ -438,7 +456,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 456.0, 222.0, 120.0, 20.0 ],
+                    "patching_rect": [ 633.5, 228.0, 120.0, 20.0 ],
                     "text": "Map number ranges"
                 }
             },
@@ -449,7 +467,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 480.0, 251.0, 71.5, 22.0 ],
+                    "patching_rect": [ 657.5, 257.0, 71.5, 22.0 ],
                     "text": "scale"
                 }
             },
@@ -459,7 +477,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 596.0, 218.0, 133.0, 20.0 ],
+                    "patching_rect": [ 773.5, 224.0, 133.0, 20.0 ],
                     "text": "Control ramp generator"
                 }
             },
@@ -470,7 +488,7 @@
                     "numinlets": 3,
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
-                    "patching_rect": [ 641.0, 251.0, 40.0, 22.0 ],
+                    "patching_rect": [ 818.5, 257.0, 40.0, 22.0 ],
                     "text": "line"
                 }
             },
@@ -480,7 +498,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 746.0, 218.0, 159.0, 20.0 ],
+                    "patching_rect": [ 923.5, 224.0, 159.0, 20.0 ],
                     "text": "Audio signal ramp generator"
                 }
             },
@@ -491,7 +509,7 @@
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "bang" ],
-                    "patching_rect": [ 806.0, 251.0, 34.0, 22.0 ],
+                    "patching_rect": [ 983.5, 257.0, 34.0, 22.0 ],
                     "text": "line~"
                 }
             },
@@ -501,7 +519,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 951.0, 210.0, 100.0, 20.0 ],
+                    "patching_rect": [ 1128.5, 216.0, 100.0, 20.0 ],
                     "text": "Audio file player"
                 }
             },
@@ -526,7 +544,7 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 926.0, 235.0, 150.0, 30.0 ],
+                    "patching_rect": [ 1103.5, 241.0, 150.0, 30.0 ],
                     "quality": "basic",
                     "saved_attribute_attributes": {
                         "candicane2": {
@@ -709,7 +727,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 650.0, 363.0, 71.5, 22.0 ],
+                    "patching_rect": [ 1177.0, 363.0, 71.5, 22.0 ],
                     "text": "scale"
                 }
             },
