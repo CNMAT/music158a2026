@@ -4,7 +4,7 @@
         "appversion": {
             "major": 9,
             "minor": 2,
-            "revision": 0,
+            "revision": 1,
             "architecture": "x64",
             "modernui": 1
         },
@@ -14,6 +14,16 @@
         "digest": "Fibonacci and prime series generator",
         "tags": "fibonacci prime series proportional js",
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-80",
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 209.0, 214.5, 90.0, 20.0 ],
+                    "text": "recipricol prime"
+                }
+            },
             {
                 "box": {
                     "id": "obj-85",
@@ -64,7 +74,8 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 376.0, 670.0, 520.0, 22.0 ]
+                    "patching_rect": [ 376.0, 670.0, 520.0, 22.0 ],
+                    "text": "541 659 809 941 1069 1223"
                 }
             },
             {
@@ -459,7 +470,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 193.0, 229.0, 79.0, 22.0 ],
+                    "patching_rect": [ 193.0, 239.0, 79.0, 22.0 ],
                     "text": "prime_rcp 20"
                 }
             },
@@ -544,7 +555,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 193.0, 200.0, 55.0, 22.0 ],
+                    "patching_rect": [ 193.0, 194.0, 55.0, 22.0 ],
                     "text": "prime 20"
                 }
             },
