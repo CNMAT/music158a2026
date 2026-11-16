@@ -1,0 +1,9 @@
+ABL Help Files v6 validation
+============================
+Helpfiles: 74
+Structural errors: 0
+Dangling or duplicate patch cords: 0
+ABL object identity/I-O changes: 0
+Parameter Guides: 74
+Saved/opening window: 37 288 1239 592
+JavaScript engines retained byte-for-byte from tested v5.

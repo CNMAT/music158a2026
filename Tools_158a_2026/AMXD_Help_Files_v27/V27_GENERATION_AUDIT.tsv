@@ -1,0 +1,60 @@
+file	device	send_receive_base	osc_preset_address	status	stored_slots	documented_parameters	range_matches	reason
+Feedback Network.maxhelp	Feedback Network	AMXD_FeedbackNetwork	/feedbacknetwork/preset	upgraded	3	17	17	
+FilterTaps.maxhelp	FilterTaps	AMXD_FilterTaps	/filtertaps/preset	upgraded	3	6	6	
+Flange-o-tron.maxhelp	Flange-o-tron	AMXD_Flangeotron	/flangeotron/preset	upgraded	3	10	10	
+Fragulator.maxhelp	Fragulator	AMXD_Fragulator	/fragulator/preset	upgraded	3	9	9	
+Generic Effect.maxhelp	Generic Effect	AMXD_GenericEffect	/genericeffect/preset	upgraded	3	9	9	
+Granular-to-go.maxhelp	Granular-to-go	AMXD_Granulartogo	/granulartogo/preset	upgraded	3	13	13	
+Harmonic Filter.maxhelp	Harmonic Filter	AMXD_HarmonicFilter	/harmonicfilter/preset	upgraded	3	18	18	
+Mangle Filter.maxhelp	Mangle Filter	AMXD_MangleFilter	/manglefilter/preset	upgraded	3	8	8	
+Max AutoFilter.maxhelp	Max AutoFilter	AMXD_autofilter	/maxautofilter/preset	upgraded	3	14	14	
+Max AutoRingMod.maxhelp	Max AutoRingMod	AMXD_autoringmod	/maxautoringmod/preset	upgraded	3	10	10	
+Max CombFilterMulti.maxhelp	Max CombFilterMulti	AMXD_combfiltermulti	/maxcombfiltermulti/preset	upgraded	3	8	8	
+Max Compressor.maxhelp	Max Compressor	AMXD_compressor	/maxcompressor/preset	upgraded	3	18	18	
+Max CutKiller.maxhelp	Max CutKiller	AMXD_cutkiller	/maxcutkiller/preset	upgraded	3	12	12	
+Max DelayMultiBand.maxhelp	Max DelayMultiBand	AMXD_delaymultiband	/maxdelaymultiband/preset	upgraded	3	18	18	
+Max DelayTaps.maxhelp	Max DelayTaps	AMXD_delaytaps	/maxdelaytaps/preset	upgraded	3	16	16	
+Max DopplerPan.maxhelp	Max DopplerPan	AMXD_dopplerpan	/maxdopplerpan/preset	upgraded	3	10	10	
+Max EffectMatrix.maxhelp	Max EffectMatrix	AMXD_effectmatrix	/maxeffectmatrix/preset	upgraded	3	14	14	
+Max EnvFollower.maxhelp	Max EnvFollower	AMXD_envfollower	/maxenvfollower/preset	upgraded	3	8	8	
+Max EqGraphic31.maxhelp	Max EqGraphic31	AMXD_EqGraphic31	/maxeqgraphic31/preset	upgraded	3	4	4	
+Max EqParametric4.maxhelp	Max EqParametric4	AMXD_EqParametric4	/maxeqparametric4/preset	upgraded	3	8	8	
+Max EqShelving.maxhelp	Max EqShelving	AMXD_EqShelving	/maxeqshelving/preset	upgraded	3	9	9	
+Max SignalAnalyzer.maxhelp	Max SignalAnalyzer	AMXD_signalanalyzer	/maxsignalanalyzer/preset	upgraded	3	2	2	
+Max SpectralDelay.maxhelp	Max SpectralDelay	AMXD_spectraldelay	/maxspectraldelay/preset	upgraded	3	8	8	
+Max SpectralHarm.maxhelp	Max SpectralHarm	AMXD_spectralharm	/maxspectralharm/preset	upgraded	3	17	17	
+Microtuner.maxhelp	Microtuner	AMXD_Microtuner	/microtuner/preset	upgraded	3	17	17	
+Mono Vocoder.maxhelp	Mono Vocoder	AMXD_MonoVocoder	/monovocoder/preset	upgraded	3	14	14	
+MonsterCrunch.maxhelp	MonsterCrunch	AMXD_MonsterCrunch	/monstercrunch/preset	upgraded	3	11	11	
+Multi Harmonizer.maxhelp	Multi Harmonizer	AMXD_MultiHarmonizer	/multiharmonizer/preset	upgraded	3	18	18	
+Nebula.maxhelp	Nebula	AMXD_Nebula	/nebula/preset	upgraded	3	5	5	
+Noyzckippr.maxhelp	Noyzckippr	AMXD_Noyzckippr	/noyzckippr/preset	upgraded	3	11	11	
+Pendulum.maxhelp	Pendulum	AMXD_Pendulum	/pendulum/preset	upgraded	3	10	10	
+Phase Scope.maxhelp	Phase Scope	AMXD_PhaseScope	/phasescope/preset	upgraded	3	0	0	No exposed randomizable device parameters; three equivalent safe preset states.
+Phone Filter.maxhelp	Phone Filter	AMXD_PhoneFilter	/phonefilter/preset	upgraded	3	4	4	
+Pitch & Echo.maxhelp	Pitch & Echo	AMXD_PitchEcho	/pitchecho/preset	upgraded	3	18	18	
+Pitch & Vibrato.maxhelp	Pitch & Vibrato	AMXD_PitchVibrato	/pitchvibrato/preset	upgraded	3	14	14	
+Pitch Tracker.maxhelp	Pitch Tracker	AMXD_PitchTracker	/pitchtracker/preset	upgraded	3	16	16	
+PitchCorrect Player.maxhelp	PitchCorrect Player	AMXD_PitchCorrectPlayer	/pitchcorrectplayer/preset	upgraded	3	18	18	
+PitchTime Player.maxhelp	PitchTime Player	AMXD_PitchTimePlayer	/pitchtimeplayer/preset	upgraded	3	18	18	
+PluggoFuzz.maxhelp	PluggoFuzz	AMXD_PluggoFuzz	/pluggofuzz/preset	upgraded	3	12	12	
+Poly Vocoder.maxhelp	Poly Vocoder	AMXD_PolyVocoder	/polyvocoder/preset	upgraded	3	18	18	
+Raindrops.maxhelp	Raindrops	AMXD_Raindrops	/raindrops/preset	upgraded	3	8	8	
+Rye.maxhelp	Rye	AMXD_Rye	/rye/preset	upgraded	3	8	8	
+Simple Pitch Shifter.maxhelp	Simple Pitch Shifter	AMXD_SimplePitchShifter	/simplepitchshifter/preset	upgraded	3	6	6	
+Space Echo.maxhelp	Space Echo	AMXD_SpaceEcho	/spaceecho/preset	upgraded	3	13	13	
+Spectral Filter.maxhelp	Spectral Filter	AMXD_SpectralFilter	/spectralfilter/preset	upgraded	3	2	2	
+Speed Shifter.maxhelp	Speed Shifter	AMXD_SpeedShifter	/speedshifter/preset	upgraded	3	8	8	
+SquirrelParade.maxhelp	SquirrelParade	AMXD_SquirrelParade	/squirrelparade/preset	upgraded	3	11	11	
+Stereo Adjuster.maxhelp	Stereo Adjuster	AMXD_StereoAdjuster	/stereoadjuster/preset	upgraded	3	1	1	
+Stutterer.maxhelp	Stutterer	AMXD_Stutterer	/stutterer/preset	upgraded	3	10	10	
+Swirl.maxhelp	Swirl	AMXD_Swirl	/swirl/preset	upgraded	3	10	10	
+Synced Player.maxhelp	Synced Player	AMXD_SyncedPlayer	/syncedplayer/preset	upgraded	3	18	18	
+Tapped Delay.maxhelp	Tapped Delay	AMXD_TappedDelay	/tappeddelay/preset	upgraded	3	8	8	
+Tremellow.maxhelp	Tremellow	AMXD_Tremellow	/tremellow/preset	upgraded	3	4	4	
+Vibrato Cauldron.maxhelp	Vibrato Cauldron	AMXD_VibratoCauldron	/vibratocauldron/preset	upgraded	3	7	7	
+Warpoon.maxhelp	Warpoon	AMXD_Warpoon	/warpoon/preset	upgraded	3	6	6	
+WasteBand.maxhelp	WasteBand	AMXD_WasteBand	/wasteband/preset	upgraded	3	16	16	
+Waveshaper.maxhelp	Waveshaper	AMXD_Waveshaper	/waveshaper/preset	upgraded	3	4	4	
+Wheat.maxhelp	Wheat	AMXD_Wheat	/wheat/preset	upgraded	3	14	14	
+Xformer.maxhelp	Xformer	AMXD_Xformer	/xformer/preset	upgraded	3	8	7	
