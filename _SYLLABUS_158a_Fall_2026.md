@@ -521,7 +521,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <td><strong>Final Project Presentation</strong></td>
 <td>
 <!-- final project presentation lesson -->
-<strong>12/14</strong> — FINAL PROJECT DUE TODAY!!!
+<strong>12/16</strong> — FINAL PROJECTS DUE TODAY in BCourses by midnight!!!
 </td>
 </tr>
 Music 158A, Fall 2026 <br />
