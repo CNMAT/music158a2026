@@ -454,7 +454,7 @@ Work presented demonstrates the use of 8 or 16 channel spatial audio. Ask whethe
   Students can present results from Homework 07 in class today.
 <br><br>
   <!-- homework assignment 8 -->
-<em>Assignment: Homework_8. All assignments are found in the <strong><code>Homework_Assignments</code></strong> folder on BCourses.</em>
+<em>Assignment: Homework_8. Assignment is cancelled and credited back to all students</em>
 <br><br>
 <!-- wk.13 lesson -->
 <strong>(th)</strong> 11/19 — Final Project 4: Composing with Computers (organization, aesthetics, forms, and production) PT. 2 and Adobe Audition multi-channel mixing<br>  
@@ -502,8 +502,7 @@ What tools, techniques, and specific effects heard in this recent release by Pho
 <!-- wk.15 lesson -->
 <strong>(tu)</strong> 12/1— TBD
 <br><br>
-  <!-- DUE -->
-<em style="color: #C75C5C;">DUE: Homework_8 due today by start of classtime. </em>
+
 <br><br>
 <!-- wk.15 lesson -->
 <strong>(th)</strong> 12/3 Final Project Support (demonstrations)
